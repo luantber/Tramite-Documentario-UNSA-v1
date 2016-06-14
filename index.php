@@ -4,10 +4,10 @@
 	<title>Tramite Documentario</title>
 </head>
 <body>
-<h1>	Hello World¡</h1>
+<h1>	Hello World!</h1>
 
-<?php 	
-	
+<?php
+
 	echo "<h2>Si ves esto ... funciona tu PHP</h2>";
 
  ?>
