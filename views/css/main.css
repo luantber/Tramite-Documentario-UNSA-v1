@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+body, div, h1, form, fieldset, input{
+	margin: 0; padding: 0;border: 0; outline: none;
+}
+
+html{
+	height: 100%
+}
+/* COLORES*/
+.carne{
+	color: #F5E49B;
+}
+
+.carne-oscuro{
+	color: #BDB37D;
+}
+
+.azul-claro{
+	color: #338C8D;
+}
+
+.azul-oscuro{
+	color: #35353E;
+}
+
+#Cliente {
+	width: 430px; margin: 60px auto; padding: 60px 30px;
+	border:1px solid #338C8D;
+}
+
+label{
+	float: left;  clear: left;margin: 11px 20px 0 0; width: 95;
+	text-align: right; font-size: 16px;
+}
+
+input{
+	width: 260px;height: 25px; padding: 5px 20px 0px 20px; margin: 0 0 20px 0;
+	background: #E8ECD3;
+}
+
+
