@@ -1,14 +1,16 @@
 <?php
-include "Include.php";
-/**
- *
- */
-class Usuario extends Empleado
-{
 
-  function _Usuario()
+  /**
+   * La clase Usuario hereda de Empleado.
+   */
+include "Include.php";
+
+  class Usuario extends Empleado
   {
-    # code...
+
+    function _Usuario()
+    {
+      # code...
+    }
   }
-}
- ?>
+   ?>

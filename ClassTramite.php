@@ -2,14 +2,16 @@
   /**
    *
    */
+Include "Include.php";
+
   class Tramite
-  {
-
-    function _Tramite ()
     {
-      # code...
+
+      function _Tramite ()
+      {
+        # code...
+      }
     }
-  }
 
 
- ?>
+   ?>
