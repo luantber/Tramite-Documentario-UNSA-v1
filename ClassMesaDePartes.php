@@ -6,7 +6,7 @@ Include "Include.php";
   class MesaDePartes extends Empleado
   {
 
-    function __construct(argument)
+    function __construct()
     {
       # code...
     }
