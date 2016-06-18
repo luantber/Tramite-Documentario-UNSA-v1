@@ -15,6 +15,7 @@
 		echo $i;
 	}
 	echo "YOp hice esto .. ";
+	echo "ya funciona .. ";
  ?>
 </body>
 </html>
