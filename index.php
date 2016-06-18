@@ -5,17 +5,16 @@
 </head>
 <body>
 <h1>	Hello World¡</h1>
-<h1> lalalala</h1>
+
 <?php 	
+	//Carga automatica de clases
+	require_once 'Config/Autoload.php';
+	Config\Autoload::run();
+
+	$e = new Models\Empleado;
+	$e->ver();
 	
-	echo "<h2>Si ves esto ... funciona tu PHP</h2>";
-	echo "Comiteo";
-	echo "<h3> Esto esta en <b>html</b> </h3>"
-	for ($i=0; $i < 10 ; $i++) { 
-		echo $i;
-	}
-	echo "YOp hice esto .. ";
-	echo "ya funciona .. ";
- ?>
+?>
+
 </body>
 </html>
