@@ -9,7 +9,11 @@
 <?php 	
 	
 	echo "<h2>Si ves esto ... funciona tu PHP</h2>";
-
+	echo "Comiteo"
+	echo "<h3> Esto esta en <b>html</b> </h3>"
+	for ($i=0; $i < 10 ; $i++) { 
+		echo $i;
+	}
  ?>
 </body>
 </html>
