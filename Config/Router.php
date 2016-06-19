@@ -13,11 +13,11 @@
 			$metodo = $request->getMetodo();
 			$argumento = $request->getArgumento();
 			
-			print $ruta;
+			//print $ruta;
 			if (is_readable($ruta)){
 				require_once $ruta;
 				$cont = "Controllers\\". $controlador;
-				print $cont . "<br>";
+				//print $cont . "<br>";
 				$controlador = new $cont;
 				//echo  $metodo;
 				//print_r($argumento);

@@ -25,7 +25,6 @@
 			<button type="submit">Registrar</button>
 			<button type="">Cancelar</button>
 
-
 			
 
 
