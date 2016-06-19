@@ -1,6 +1,6 @@
+<a href="<?php echo URLM; ?>empleados/ver">Click</a>
 <div id="Cliente" class="azul-claro">
-	
-	<form action="#" method="post"> 
+	<form action="<?php echo URLM; ?>empleados/ver" method="post"> 
 		<fieldset>
 			<h1 class="azul-oscuro">Cliente Nuevo</h1>	
 

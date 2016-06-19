@@ -13,6 +13,7 @@
 			$metodo = $request->getMetodo();
 			$argumento = $request->getArgumento();
 			
+			print $ruta;
 			if (is_readable($ruta)){
 				require_once $ruta;
 				$cont = "Controllers\\". $controlador;
