@@ -1,4 +1,4 @@
-<a href="<?php echo URLM; ?>empleados/ver">Click</a>
+
 <div id="Cliente" class="azul-claro">
 	<form action="<?php echo URLM; ?>empleados/ver" method="post"> 
 		<fieldset>
