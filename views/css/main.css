@@ -79,7 +79,7 @@ form label{
 
 form button{
 	width:135px;
-	margin: 20px 0px 30px 20px;
+	margin: 40px 0px 30px 150px;
 	height: 30px;
 	background: #b5bdc8; /* Old browsers */
 	background: -moz-linear-gradient(top,  #b5bdc8 0%, #828c95 36%, #28343b 100%); /* FF3.6-15 */

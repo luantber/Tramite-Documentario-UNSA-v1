@@ -2,7 +2,7 @@
 
 	define('DS', DIRECTORY_SEPARATOR);
 	define('ROOT', realpath(dirname(__FILE__)) . DS);
-	define('URL', 'http://localhost/tramite/views/');
+	define('URL', 'http://localhost/tramitedocumentariocs/views/');
 
 	//Carga automatica de clases
 	require_once 'Config/Autoload.php';
