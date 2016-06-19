@@ -1,22 +1,8 @@
 
-<div id="Cliente" class="azul-claro">
-	<h1 class="azul-oscuro" align="center">Cliente Nuevo</h1>
-	<form action="#" method="post">
-		<fieldset>
-			<label for="name">Nombre:</label>
-			<input type="text" id="name" placeholder="Ingrese nombre cliente"/>
+<div id="Inicio" align="center">
 
-			<label for="lastname">Apellidos:</label>
-			<input type="text" id="lastname" placeholder="Ingrese Aplido cliente" />
+	<h1 class="grande azul-oscuro">BIENVENIDOS AL SI</h1>
+	<h3 class="pequeno carne">sitema inificiente</h3>	
+	<h2 class="azul-claro ">TRÁMITE DOCUMENTARIO</h2>
 
-			<label for="dni">DNI:</label>
-			<input type="text" id="dni" maxlength="8" placeholder="Ingrese DNI cliente"/>
-
-			<label for="email">Email:</label>
-			<input type="email" id="email" placeholder="email cliente">
-
-
-		</fieldset>
-	</form>
-	
 </div>

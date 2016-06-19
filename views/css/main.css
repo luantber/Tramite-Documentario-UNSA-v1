@@ -23,6 +23,9 @@ body{
 .pequeno{
 	font-size: 0.8em;
 }
+.grande{
+	font-size: 1.5em;
+}
 /* COLORES*/
 .carne{
 	color: #F5E49B;
@@ -44,7 +47,7 @@ body{
 form{
 	border: 0px solid #338C8D;
 	width: 720px; /*tamaño del recuadro*/
-	margin: 100px auto; /*para centrar 50 arriba y abajo, se centra automaticamente a los costados*/
+	margin: 50px auto; /*para centrar 50 arriba y abajo, se centra automaticamente a los costados*/
 
 }
 /*para el titulo*/
@@ -108,3 +111,6 @@ form button:active{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28343b', endColorstr='#b5bdc8',GradientType=0 ); /* IE6-9 */
 }
 
+#Inicio{
+	
+}

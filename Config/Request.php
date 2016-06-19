@@ -27,7 +27,7 @@
 					Filtra el arreglo, elimina valores False, Null, o '', pero conserva el indice
 				*/
 				$ruta = array_filter($ruta);
-				print_r($ruta);
+				//print_r($ruta);
 
 				$this->controlador = strtolower(array_shift($ruta));
 				$this->metodo = strtolower(array_shift($ruta));
