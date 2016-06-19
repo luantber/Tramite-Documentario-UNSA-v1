@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Tramite Documentario</title>
-</head>
-<body>
-<h1>	Hello World¡</h1>
-
 <?php 	
+
+	define('DS', DIRECTORY_SEPARATOR);
+	define('ROOT', realpath(dirname(__FILE__)) . DS);
+	define('URL', 'http://localhost/tramite/views/');
+
 	//Carga automatica de clases
 	require_once 'Config/Autoload.php';
 	Config\Autoload::run();
+	require_once 'Views/Template.php';
+	Config\Router::run(new Config\Request());
 
-	$e = new Models\Empleado;
-	$e->ver();
-	
 ?>
-
-</body>
-</html>
