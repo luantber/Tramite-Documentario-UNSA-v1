@@ -13,7 +13,7 @@
 			$metodo = $request->getMetodo();
 			$argumento = $request->getArgumento();
 			
-			//print $ruta;
+			print "<br> Controlador: " . $ruta;
 			if (is_readable($ruta)){
 				require_once $ruta;
 				$cont = "Controllers\\". $controlador;
@@ -28,9 +28,14 @@
 					call_user_func_array(array($controlador,$metodo),$argumento);
 				}
 			}
+			else
+			{
+				print "<br> Advertencia_NO_GRAVE: No se encontro una Controlador para la ruta: ". $ruta." , ignorar si no estas cargando algun controlador.";
+			}
 
 			$ruta = ROOT . "Views" . DS . $request->getControlador() . DS . $metodo . ".php";
 			if(is_readable($ruta)){
+				print "<br> View: ". $ruta;
 				require_once $ruta;
 			}
 			else{
