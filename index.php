@@ -2,6 +2,8 @@
 
 	define('DS', DIRECTORY_SEPARATOR);
 	define('ROOT', realpath(dirname(__FILE__)) . DS);
+
+	//Deben ser rutas absolutas porque el router las va a transformar
 	define('URL', 'http://localhost/tramitedocumentariocs/views/');
 	define('URLM', 'http://localhost/tramitedocumentariocs/');
 
