@@ -1,14 +1,17 @@
-<?php 	
+<?php 	namespace Models;
 		/**
-		* 	
+		* 	Clase Futura Abstracta
 		*/
 		class Empleado
 		{
 			
-			function __construct(argument)
+			public static $nombre = "Juan"; ///< Miembro */
+			public function ver()
 			{
-				echo "jeje";
+				echo "Funca .... ";
 			}
+
+			
 		}
 
 
