@@ -10,6 +10,7 @@ html{
 
 body{
 	font-family: 'Montserrat', sans-serif;
+	background: #FFFFFF;  /*color de fondoK (blanco)*/
 }
 /*espacios*/
 .espacio-derecha{
@@ -175,4 +176,95 @@ form button:active{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28343b', endColorstr='#b5bdc8',GradientType=0 ); /* IE6-9 */
 }
 
+/*kat*/
+
+header{
+	width: 100%;
+	overflow: hidden;
+	background: #D5FFEE; /*color de fondo de cabecera*/
+	margin-bottom: 20px;
+}
+
+/*clase para centrar*/
+.wrapper {
+	width:90%;
+	max-width: 1000 px;
+	margin:auto;
+	overflow: hidden;
+}
+
+header .logo{
+	color:#2F7959; /*color de titulo de cabecera*/
+	font-size: 45px;  /*tamaño de letra de título cabecera*/
+	line-height: 150px; /*tamaño de header*/
+	float:left;
+}
+
+header nav{
+	float:right;
+	line-height: 150px; /*tamaño de header*/
+
+}
+
+header nav a{
+	display:inline-block;
+	color:#688D7D;           /*cambiar color de enlaces*/
+	text-decoration:none;
+	padding:10px 20px;
+	line-height: normal;
+	font-size: 17px;     /*tamaño de letra de enlaces*/
+	font-weight: bold;
+	-webkit-transition:all 500ms ease;
+	-o-transition:all 500ms ease;
+	transition:all 500ms ease;
+}
+
+header nav a:hover{
+	background:#8ED5B6 ; /*color de borde de enlaces*/
+	border-radius: 50px; /*borde de color a los botones*/
+
+}
+
+.header2{
+	position: fixed;
+	height: 100px; /*cambiar el alto*/
+
+}
+
+.header2 .logo{
+	line-height: 100px;
+	font.size:30px;
+}
+
+.header2 nav{
+	line-height: 100px;
+}
+
+/*en caso de contenido , usar esta clase para que no la tape el banner*/
+.contenido{
+	padding-top: 100px;  /*tamaño de contenido al tope*/
+}
+
+.contenido p{
+	margin-bottom: 1em;
+}
+
+/*para que aparezcan los enlaces siempre en panatalla*/
+@media screen and (max-width: 950px){
+	header .logo,
+	header nav{
+		width: 100%;
+		text-align: center;
+		line-height: 85px; /*tamaño de header js*/
+	}
+	.header2 {
+		height: auto;
+	}
+	.header2 .logo,
+	.header2 nav{
+		line-height: 50px;
+	}
+}
+
+/*Kat*/
 

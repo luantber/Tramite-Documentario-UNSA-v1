@@ -14,6 +14,7 @@
 
 			$arr = array('name' => $_POST["pname"], 'lastname' => $_POST["plastname"], 'dni' => $_POST["pdni"], 'email' => $_POST["pemail"]);
 
+			echo "holo  ";
 			echo "<script> 
 			var datos ='" .json_encode($arr). "'; 
 			</script>";
