@@ -35,7 +35,7 @@
 
 			<nav>
 				<!--a href="<?php echo URLM ?>#" class="espacio-derecha">Inicio</a-->
-				<a href="<?php echo URLM ?>#" class="espacio-derecha">Inicio</a>
+				<a href="<?php echo URLM ?>" class="espacio-derecha">Inicio</a>
 				<a href="<?php echo URLM ?>registrar/index" class="espacio-derecha">Cliente Nuevo</a>
 				<a href="#">Otro</a>
 				<a href="#">Help</a>
