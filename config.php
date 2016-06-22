@@ -5,7 +5,7 @@
 	*/
 
 	//Coloquen aquí el nombre de su carpeta base
-	$nombre_carpeta = "tramitedocumentariocs";
+	$nombre_carpeta = "tramitedocumentario";
 
 
 	//Datos Futuros para conexion con bases de datos

@@ -5,16 +5,16 @@
 	<h3 class="pequeno carne">sitema ineficiente</h3>	
 	<h2 class="azul-claro ">TRÁMITE DOCUMENTARIO</h2>
 
-	<form action="#" method="post" id="ingresar">
+	<form action="<?php echo URLM; ?>empleados/login" method="post" id="ingresar">
 		<fieldset>
 
-			<input required type="text" id="juser" placeholder="Ingrese nombre de usuario" >
-			<input required type="password" id="juser" placeholder="Ingrese contraseña" >		
+			<input required type="text" id="juser" name="pusername" placeholder="Ingrese nombre de usuario" >
+			<input required type="password" id="juser" name="ppass" placeholder="Ingrese contraseña" >		
 
 			<button type="submit">Iniciar sesión</button>
 
-		</fieldset>
+		</fieldset>	
 		
-	</form>
+	</form> 
 
 </div>
