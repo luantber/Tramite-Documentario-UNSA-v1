@@ -195,7 +195,7 @@ header{
 
 header .logo{
 	color:#2F7959; /*color de titulo de cabecera*/
-	font-size: 45px;  /*tamaño de letra de título cabecera*/
+	font-size: 43px;  /*tamaño de letra de título cabecera*/
 	line-height: 150px; /*tamaño de header*/
 	float:left;
 }
@@ -232,12 +232,12 @@ header nav a:hover{
 }
 
 .header2 .logo{
-	line-height: 100px;
+	line-height: 100px; /*cambiar alto de logo*/
 	font.size:30px;
 }
 
 .header2 nav{
-	line-height: 100px;
+	line-height: 100px; /* cambiar alto de nav ( enlaces ) */
 }
 
 /*en caso de contenido , usar esta clase para que no la tape el banner*/
@@ -249,13 +249,13 @@ header nav a:hover{
 	margin-bottom: 1em;
 }
 
-/*para que aparezcan los enlaces siempre en panatalla*/
+/*para que aparezcan los enlaces siempre en pantalla*/
 @media screen and (max-width: 950px){
 	header .logo,
 	header nav{
 		width: 100%;
 		text-align: center;
-		line-height: 85px; /*tamaño de header js*/
+		line-height: 85px; /*tamaño de header .js*/
 	}
 	.header2 {
 		height: auto;

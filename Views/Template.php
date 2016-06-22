@@ -16,9 +16,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Formulario</title>
-	<!-- usando js-->
-	<script src="header.js" ></script>
-	<!--js-->
+
 	<link rel="stylesheet" type="text/css" href="<?php echo URL ?>css/main.css">
 	<!--<link rel="stylesheet" type="text/css" href="<?php echo URL ?>css/registrar.css">-->
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
