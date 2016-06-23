@@ -22,7 +22,9 @@
 
 		}
 		public function registro(){
-
+			if (!isset($_POST["pname"])){
+				return;
+			}
 			$arr = array('name' => $_POST["pname"], 'lastname' => $_POST["plastname"], 'dni' => $_POST["pdni"], 'email' => $_POST["pemail"]);
 			
 			$link = mysqli_connect("localhost", "root", "", "tramitedocumentario"); //localhost por ahora será el servidor local 

@@ -1,6 +1,6 @@
 
 <div id="Cliente" class="azul-claro">
-	<form action="<?php echo URLM; ?>empleados/registro" method="post"> 
+	<form action="<?php echo URLM; ?>empleados/pendiente" method="post"> 
 		<fieldset>
 			<h1 class="azul-oscuro">Cliente Nuevo</h1>	
 
