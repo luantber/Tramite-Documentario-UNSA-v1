@@ -43,11 +43,13 @@
 		</div>
 	</header>
 
+	<div id="div-grande">
+
 <?php 
 		}
 		public function __destruct(){
  ?>
-
+	</div>
 <p align="center" class="parrafo">By CS unsa</p>
 </body>
 </html>	

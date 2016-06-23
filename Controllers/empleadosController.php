@@ -25,7 +25,9 @@
 
 			$arr = array('name' => $_POST["pname"], 'lastname' => $_POST["plastname"], 'dni' => $_POST["pdni"], 'email' => $_POST["pemail"]);
 			
-			$link = mysqli_connect("localhost", "root", "", "tramitedocumentario"); //localhost por ahora será el servidor local
+			$link = mysqli_connect("localhost", "root", "", "tramitedocumentario"); //localhost por ahora será el servidor local 
+			//Estos datos los pasare despues al config.php ... 
+			
 			$query="INSERT INTO usuarios (Nombre,Apellido, DNI,Email,Sexo,Fecha_registro) VALUES ('".$arr['name']."','".$arr['lastname']."','".$arr['dni']."','".$arr['email']."','1','2016-06-20')";
 			$result = mysqli_query($link,$query);
 
