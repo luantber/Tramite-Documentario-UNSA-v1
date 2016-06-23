@@ -15,12 +15,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Formulario</title>
-	<!-- usando js
-	<script src="header.js" ></script>
-	js-->
+	<title>Trámite Documentario</title>
+
 	<link rel="stylesheet" type="text/css" href="<?php echo URL ?>css/main.css">
-	<!--<link rel="stylesheet" type="text/css" href="<?php echo URL ?>css/registrar.css">-->
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 </head>
@@ -34,9 +31,8 @@
 			</div>
 
 			<nav>
-				<!--a href="<?php echo URLM ?>#" class="espacio-derecha">Inicio</a-->
-				<a href="<?php echo URLM ?>" class="espacio-derecha">Inicio</a>
-				<a href="<?php echo URLM ?>registrar/index" class="espacio-derecha">Cliente Nuevo</a>
+				<a href="<?php echo URLM ?>">Inicio</a>
+				<a href="<?php echo URLM ?>clientes/registrocli" >Cliente Nuevo</a>
 				<a href="#">Otro</a>
 				<a href="#">Help</a>
 			</nav>
