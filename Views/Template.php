@@ -33,6 +33,7 @@
 			<nav>
 				<a href="<?php echo URLM ?>">Inicio</a>
 				<a href="<?php echo URLM ?>clientes/registrocli" >Cliente Nuevo</a>
+				<a href="">nuevo </a>
 				<a href="#">Otro</a>
 				<a href="#">Help</a>
 			</nav>
