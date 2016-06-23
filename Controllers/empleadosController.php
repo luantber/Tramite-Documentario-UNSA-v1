@@ -34,10 +34,10 @@
 			$result = mysqli_query($link,$query);
 
 			if ($result){
-				echo "Bueno\n";
+				echo "<br>Bueno\n";
 			}
 			else{
-				echo "ERROR\n";
+				echo "<br>ERROR\n";
 			}
 			print_r($query);
 
