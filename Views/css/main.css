@@ -12,7 +12,13 @@ body{
 	font-family: 'Montserrat', sans-serif;
 	background: #FFFFFF;  /*color de fondoK (blanco)*/
 }
+
 /*espacios*/
+#div-grande{
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
 .espacio-derecha{
 	margin-right: 1em;
 }
@@ -226,7 +232,7 @@ header nav a:hover{
 }
 
 .header2{
-	position: fixed;
+	/*position: fixed;*/ /* Estaba tapando los mensajes ... comentado¡ */ 
 	height: 100px; /*cambiar el alto*/
 
 }
