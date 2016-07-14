@@ -2,6 +2,8 @@
     /**
      *
      */
+    include_once "Include.php";
+    use Models\Query as Query;
     class Usuario
     {
       var $nombre;
@@ -28,5 +30,11 @@
       }
 
     }
+    $que=new Query();
+    echo $que->dbname;
+ ?>
 
+ <?php 
+
+    
  ?>

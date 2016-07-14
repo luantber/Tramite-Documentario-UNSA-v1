@@ -2,6 +2,7 @@
 		/**
 		* 	
 		*/
+		
 		use Models\Query as Query;
 
 		class Empleado
