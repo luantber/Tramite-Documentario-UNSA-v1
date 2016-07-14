@@ -1,11 +1,18 @@
 <?php 	namespace Models;
 		/**
-		* 	Clase Futura Abstracta
+		* 	
 		*/
+		use Models\Query as Query;
+
 		class Empleado
 		{
+			var $Query;
+
+			var $nombre 
+			public function  __construct(){
+				$Query = = new Query();
+			}
 			
-			public static $nombre = "Juan"; ///< Miembro */
 			public function ver()
 			{
 				echo "Funca .... ";

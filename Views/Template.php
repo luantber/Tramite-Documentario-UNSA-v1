@@ -17,10 +17,10 @@
 	<meta charset="utf-8">
 
 	<title>Trámite Documentario</title>
-	<script type="text/javascript" src="<?php echo URL ?>js/jquery-1.9.1.js"></script>!
+	<script type="text/javascript" src="<?php echo URLV ?>js/jquery-1.9.1.js"></script>!
 	
-	<link rel="stylesheet" type="text/css" href="<?php echo URL ?>css/bootstrap.min.css">
-	<script type="text/javascript" src="<?php echo URL ?>js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/bootstrap.min.css">
+	<script type="text/javascript" src="<?php echo URLV ?>js/bootstrap.min.js"></script>
 
 </head>
 

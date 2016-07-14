@@ -3,12 +3,15 @@
 	/**
 	* Empleados Controlador
 	*/
+	use Models\Empleado as Empleado;
+	
 
 	class empleadosController
 	{
 		
 		public function index()
 		{
+			
 			print "INdice empleadosController";
 		}
 		public function ver(){
@@ -21,10 +24,14 @@
 			</script>";
 
 		}
+
 		public function registro(){
-			if (!isset($_POST["pname"])){
+
+			if (empty($_POST)){
 				return;
 			}
+
+
 			$arr = array('name' => $_POST["pname"], 'lastname' => $_POST["plastname"], 'dni' => $_POST["pdni"], 'email' => $_POST["pemail"]);
 			
 			$link = mysqli_connect("localhost", "root", "", "tramitedocumentario"); //localhost por ahora será el servidor local 
@@ -42,6 +49,7 @@
 			print_r($query);
 
 		}
+		
 		public function login (){
 
 			$arr=array('username'=>$_POST["pusername"],'pass'=>$_POST["ppass"]);

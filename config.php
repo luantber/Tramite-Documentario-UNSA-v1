@@ -9,9 +9,13 @@
 
 
 	//Datos Futuros para conexion con bases de datos
-	$base_datos = "";
-
-	$user_bd = "";
-
+	global $server,$base_datos,$user_bd, $pass_bd;
+	$server = "localhost";
+	$base_datos = "tramite";
+	$user_bd = "root";
 	$pass_bd = "";
+
+
+
+
 ?>
