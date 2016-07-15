@@ -94,7 +94,7 @@
  ?>
 
 <?php 
-	
+	/*
 	$persona= new Empleado(8);
 	echo $persona->get_id()."</br>";
  	echo $persona->get_nombres()."</br>";
@@ -108,5 +108,5 @@
  	echo $persona->get_activo()."</br>";
  	echo $persona->get_correo()."</br>";
  	echo $persona->get_password()."</br>";
-	
+	*/
  ?>
