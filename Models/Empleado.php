@@ -83,11 +83,24 @@
 				return $this->correo;
 			}
 
+			public function cambiar_correo($Correo)
+			{
+				$request="UPDATE `empleados` SET `Correo`='".$Correo."' WHERE Id_Empleado=".$this->id;
+				$this->query->consulta($request);
+				$this->correo=$Correo;
+			}	
+
 			public function get_password()
 			{
 				return $this->password;
 			}
 			
+			public function cambiar_password($Password)
+			{
+				$request="UPDATE `empleados` SET `Password`='".$Password."' WHERE Id_Empleado=".$this->id;
+				$this->query->consulta($request);
+				$this->password=$Password;
+			}
 		}
 
 
@@ -95,7 +108,7 @@
 
 <?php 
 	/*
-	$persona= new Empleado(8);
+	$persona= new Empleado(6);
 	echo $persona->get_id()."</br>";
  	echo $persona->get_nombres()."</br>";
  	echo $persona->get_apellidos()."</br>";
@@ -108,5 +121,8 @@
  	echo $persona->get_activo()."</br>";
  	echo $persona->get_correo()."</br>";
  	echo $persona->get_password()."</br>";
+	$persona->cambiar_nombres("jano");
+	$persona->cambiar_correo("jano@jano.ja");
+	$persona->cambiar_password("1234");
 	*/
  ?>
