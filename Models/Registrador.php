@@ -2,8 +2,10 @@
 	/**
 	* 
 	*/
-	include_once "Include.php";
+	
     use Models\Query as Query;
+    include_once "Query.php";
+
 	class Registrador
 	{
 		var $query;
@@ -47,11 +49,16 @@
 			$this->query->consulta($request);
 		}
 
-		function crear_tramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino)
+		function crear_tramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad)
 		{
-			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Destino`) VALUES (".$Folios.",'2016-06-20','".$Asunto."',".$Id_Persona.",".$Id_Area_Destino.")";
+			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Destino`) VALUES (".$Folios.",'2016-07-15','".$Asunto."',".$Id_Persona.",".$Id_Area_Destino.")";
 			$this->query->consulta($request);
+			$tramite_id=$this->query->get_id();
+			$request2="INSERT INTO `tipo_tramite`(`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES (".$tramite_id.",'".$Tipo_Tramite."',".$Prioridad.")";
+			$this->query->consulta($request2);
 		}
+
+
 
 
 
@@ -59,4 +66,9 @@
 	}
  ?>
 
-
+<?php 
+	/*
+	$register= new Registrador();
+	$register->crear_tramite(7,"algun problema","7","1","algun tipo",3);
+ 	*/
+ ?>
