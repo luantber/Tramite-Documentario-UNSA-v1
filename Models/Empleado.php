@@ -1,10 +1,11 @@
-<?php 	namespace Models;
+<?php namespace Models;
 		/**
 		* 	
 		*/
-		
 		use Models\Query as Query;
-		include_once "Include.php";
+		use Models\Persona as Persona;
+		include_once "Query.php";
+		include_once "Persona.php";
 		class Empleado extends Persona
 		{
 			
