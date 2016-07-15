@@ -45,6 +45,15 @@
 
 			}
 			
+			public function get_nombre_cargo()
+			{
+				$request="SELECT Nombre_cargo FROM empleados  JOIN cargos ON empleados.Id_Cargo=cargos.Id_Cargo WHERE Id_Empleado=".$this->id;
+				$result=$this->query->consulta($request);
+				$datos=$result->fetch_assoc();
+
+				return $datos["Nombre_cargo"];
+			}
+
 			public function get_id_cargo()
 			{
 				return $this->id_cargo;
@@ -54,6 +63,15 @@
 			{
 				return $this->id_area;
 			}
+
+			public function get_nombre_area()
+			{
+
+				$request="SELECT Nom_Area FROM empleados  JOIN area ON empleados.Id_Area=area.Id_Area WHERE Id_Empleado=".$this->id;
+				$result=$this->query->consulta($request);
+				$datos=$result->fetch_assoc();
+				return $datos["Nom_Area"];
+			}			
 
 			public function get_activo()
 			{
@@ -76,7 +94,7 @@
  ?>
 
 <?php 
-	/*
+	
 	$persona= new Empleado(8);
 	echo $persona->get_id()."</br>";
  	echo $persona->get_nombres()."</br>";
@@ -84,9 +102,11 @@
  	echo $persona->get_dni()."</br>";
  	echo $persona->get_nombre_empresa()."</br>";
  	echo $persona->get_id_cargo()."</br>";
+ 	echo $persona->get_nombre_cargo()."</br>";
  	echo $persona->get_id_area()."</br>";
+ 	echo $persona->get_nombre_area()."</br>";
  	echo $persona->get_activo()."</br>";
  	echo $persona->get_correo()."</br>";
  	echo $persona->get_password()."</br>";
-	*/
+	
  ?>
