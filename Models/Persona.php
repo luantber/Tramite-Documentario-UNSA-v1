@@ -1,9 +1,9 @@
-<?php 	namespace Models;
+<?php namespace Models;
 		/**
 		* 	
 		*/
 		use Models\Query as Query;
-		include_once "Include.php";
+		include_once "Query.php";
 		class Persona
 		{
 			var $query;
