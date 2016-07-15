@@ -44,9 +44,23 @@
 				return $this->nombres;
 			}
 
+			public function cambiar_nombres($Nombres)
+			{
+				$request="UPDATE `personas` SET `Nombres`='".$Nombres."' WHERE Id_Persona=".$this->id;
+				$this->query->consulta($request);
+				$this->nombres=$Nombres;
+			}
+
 			public function get_apellidos()
 			{
 				return $this->apellidos;
+			}
+
+			public function cambiar_apellidos($Apellidos)
+			{
+				$request="UPDATE `personas` SET `Apellidos`='".$Apellidos."' WHERE Id_Persona=".$this->id;
+				$this->query->consulta($request);
+				$this->apellidos=$Apellidos;
 			}
 
 			public function get_dni()
@@ -54,10 +68,24 @@
 				return $this->dni;
 			}
 
+			public function cambiar_dni($Dni)
+			{
+				$request="UPDATE `personas` SET `Dni`='".$Dni."' WHERE Id_Persona=".$this->id;
+				$this->query->consulta($request);
+				$this->dni=$Dni;
+			}			
+
 			public function get_nombre_empresa()
 			{
 				return $this->nombre_empresa;
-			}			
+			}		
+
+			public function cambiar_empresa($Empresa)
+			{
+				$request="UPDATE `personas` SET `Nombre_Empresa`='".$Empresa."' WHERE Id_Persona=".$this->id;
+				$this->query->consulta($request);
+				$this->nombre_empresa=$Empresa;
+			}					
 			
 
 			
@@ -74,5 +102,13 @@
  	echo $persona->get_apellidos()."</br>";
  	echo $persona->get_dni()."</br>";
  	echo $persona->get_nombre_empresa()."</br>";
+  	$persona->cambiar_nombres("Panfilo");
+  	$persona->cambiar_apellidos("Smith");
+  	$persona->cambiar_dni(66666666);
+  	$persona->cambiar_empresa("ACME");
+  	echo $persona->get_nombres()."</br>";
+  	echo $persona->get_apellidos()."</br>";
+  	echo $persona->get_dni()."</br>";
+  	echo $persona->get_nombre_empresa()."</br>";
   	*/
   ?>
