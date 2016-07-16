@@ -15,8 +15,18 @@
 			var $correo;
 			var $password;
 
-			public function  __construct($Id_Empleado){
-				$this->query =  new Query();
+			public function  __construct($Id_Empleado)
+			{
+				$this-> query =  new Query();
+			}
+
+
+
+
+
+			public function obtenerDatos($Id_Empleado)
+			{
+
 				$request_empleado="SELECT `Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo`, `Dni_Empleado`, `Password` FROM `empleados` WHERE Id_Empleado=".$Id_Empleado;
 				$result_empleado=$this->query->consulta($request_empleado);
 				if($result_empleado->num_rows != 0){
@@ -32,19 +42,16 @@
 
 					$request_persona="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Id_Persona=".$Id_Empleado;
 					$result2=$this->query->consulta($request_persona);
-				    $datos_persona = $result2->fetch_assoc();
-				    $this->nombres=$datos_persona["Nombres"];
-				    $this->apellidos=$datos_persona["Apellidos"];
-				    $this->nombre_empresa=$datos_persona["Nombre_Empresa"];
+						$datos_persona = $result2->fetch_assoc();
+						$this->nombres=$datos_persona["Nombres"];
+						$this->apellidos=$datos_persona["Apellidos"];
+						$this->nombre_empresa=$datos_persona["Nombre_Empresa"];
 					return true;
 				}
 				else{
 					return false;
-				}
-
-
-
 			}
+		}
 
 			public function getNombreCargo()
 			{
