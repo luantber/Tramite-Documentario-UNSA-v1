@@ -12,15 +12,15 @@
       public function __construct()
       {
 
-        //$this->servername=$GLOBALS['server'];
-        //$this->dbname=$GLOBALS['base_datos'];
-        //$this->username=$GLOBALS['user_bd'];
-        //$this->password=$GLOBALS['pass_bd'];
+        $this->servername=$GLOBALS['server'];
+        $this->dbname=$GLOBALS['base_datos'];
+        $this->username=$GLOBALS['user_bd'];
+        $this->password=$GLOBALS['pass_bd'];
         // Check connection for testing
-        $this->servername="localhost";
-        $this->dbname="database4";
-        $this->username="root";
-        $this->password="";
+        //$this->servername="localhost";
+        //$this->dbname="database4";
+        //$this->username="root";
+        //$this->password="";
 
 
 
