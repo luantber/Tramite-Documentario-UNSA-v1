@@ -2,7 +2,10 @@
 	/**
 	* 
 	*/
-	class ClassName Tramite
+
+	include_once "Query.php";
+	use Models\Query as Query;
+	class Tramite
 	{
 		var $folios;
 		var $fecha_ingresa;
@@ -12,10 +15,13 @@
 		var $id_area_destino;
 		var $estado;
 		var $descripcionEstado;
+		var $query;
+
 
 		function __construct(argument)
 		{
 			# code...
+			$this->query= new Query();
 			
 		}
 

@@ -28,6 +28,7 @@
 				$id=$this->query->get_id();
 				$request="INSERT INTO `empleados`(`Id_Empleado`,`Id_Cargo`, `Id_Area`, `Activo`, `Correo`,`Dni_Empleado`, `Password`) VALUES (".$id.",4,".$Id_Area.",'".$Activo."','".$Correo."',".$Dni_Empleado.",'".$Password."')";
 				$this->query->consulta($request);
+				$this->obtenerDatos($this->query->get_id());
 			}
 
 
