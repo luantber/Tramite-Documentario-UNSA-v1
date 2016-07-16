@@ -1,6 +1,6 @@
 <?php namespace Models;
 		/**
-		* 	
+		*
 		*/
 		use Models\Query as Query;
 		use Models\Persona as Persona;
@@ -8,7 +8,7 @@
 		#include_once "Persona.php";
 		class Empleado extends Persona
 		{
-			
+
 			var $id_cargo;
 			var $id_area;
 			var $activo;
@@ -29,10 +29,10 @@
 					$this->id_cargo=$datos_empleado["Id_Cargo"];
 					$this->dni=$datos_empleado["Dni_Empleado"];
 					$this->password=$datos_empleado["Password"];
-				
+
 					$request_persona="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Id_Persona=".$Id_Empleado;
 					$result2=$this->query->consulta($request_persona);
-				    $datos_persona = $result2->fetch_assoc();				    			
+				    $datos_persona = $result2->fetch_assoc();
 				    $this->nombres=$datos_persona["Nombres"];
 				    $this->apellidos=$datos_persona["Apellidos"];
 				    $this->nombre_empresa=$datos_persona["Nombre_Empresa"];
@@ -42,11 +42,11 @@
 					return false;
 				}
 
-					
+
 
 			}
-			
-			public function get_nombre_cargo()
+
+			public function getNombreCargo()
 			{
 				$request="SELECT Nombre_cargo FROM empleados  JOIN cargos ON empleados.Id_Cargo=cargos.Id_Cargo WHERE Id_Empleado=".$this->id;
 				$result=$this->query->consulta($request);
@@ -55,48 +55,48 @@
 				return $datos["Nombre_cargo"];
 			}
 
-			public function get_id_cargo()
+			public function getIdCargo()
 			{
 				return $this->id_cargo;
 			}
 
-			public function get_id_area()
+			public function getIdArea()
 			{
 				return $this->id_area;
 			}
 
-			public function get_nombre_area()
+			public function getNombreArea()
 			{
 
 				$request="SELECT Nom_Area FROM empleados  JOIN area ON empleados.Id_Area=area.Id_Area WHERE Id_Empleado=".$this->id;
 				$result=$this->query->consulta($request);
 				$datos=$result->fetch_assoc();
 				return $datos["Nom_Area"];
-			}			
+			}
 
-			public function get_activo()
+			public function getActivo()
 			{
 				return $this->activo;
 			}
 
-			public function get_correo()
+			public function getCorreo()
 			{
 				return $this->correo;
 			}
 
-			public function cambiar_correo($Correo)
+			public function cambiarCorreo($Correo)
 			{
 				$request="UPDATE `empleados` SET `Correo`='".$Correo."' WHERE Id_Empleado=".$this->id;
 				$this->query->consulta($request);
 				$this->correo=$Correo;
-			}	
+			}
 
-			public function get_password()
+			public function getPassword()
 			{
 				return $this->password;
 			}
-			
-			public function cambiar_password($Password)
+
+			public function cambiarPassword($Password)
 			{
 				$request="UPDATE `empleados` SET `Password`='".$Password."' WHERE Id_Empleado=".$this->id;
 				$this->query->consulta($request);
@@ -107,7 +107,7 @@
 
  ?>
 
-<?php 
+<?php
 	/*
 	$persona= new Empleado(6);
 	echo $persona->get_id()."</br>";

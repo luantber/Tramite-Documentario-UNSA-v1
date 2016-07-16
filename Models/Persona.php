@@ -1,6 +1,6 @@
 <?php namespace Models;
 		/**
-		* 	
+		*
 		*/
 		use Models\Query as Query;
 		include_once "Query.php";
@@ -20,80 +20,80 @@
 				$request="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Id_Persona=".$Id_Persona;
 				$result=$this->query->consulta($request);
 				if ($result->num_rows != 0) {
-				    $datos = $result->fetch_assoc();				    			    
+				    $datos = $result->fetch_assoc();
 				    $this->id=$datos["Id_Persona"];
 				    $this->dni=$datos["Dni"];
 				    $this->nombres=$datos["Nombres"];
 				    $this->apellidos=$datos["Apellidos"];
 				    $this->nombre_empresa=$datos["Nombre_Empresa"];
-				    return true;				    
-				} 
+				    return true;
+				}
 				else {
 				    return false;
 				}
 
 			}
 
-			public function get_id()
+			public function getId()
 			{
 				return $this->id;
 			}
-			
-			public function get_nombres()
+
+			public function getNombres()
 			{
 				return $this->nombres;
 			}
 
-			public function cambiar_nombres($Nombres)
+			public function cambiarNombres($Nombres)
 			{
 				$request="UPDATE `personas` SET `Nombres`='".$Nombres."' WHERE Id_Persona=".$this->id;
 				$this->query->consulta($request);
 				$this->nombres=$Nombres;
 			}
 
-			public function get_apellidos()
+			public function getApellidos()
 			{
 				return $this->apellidos;
 			}
 
-			public function cambiar_apellidos($Apellidos)
+			public function cambiarApellidos($Apellidos)
 			{
 				$request="UPDATE `personas` SET `Apellidos`='".$Apellidos."' WHERE Id_Persona=".$this->id;
 				$this->query->consulta($request);
 				$this->apellidos=$Apellidos;
 			}
 
-			public function get_dni()
+			public function getDni()
 			{
 				return $this->dni;
 			}
 
-			public function cambiar_dni($Dni)
+			public function cambiarDni($Dni)
 			{
 				$request="UPDATE `personas` SET `Dni`='".$Dni."' WHERE Id_Persona=".$this->id;
 				$this->query->consulta($request);
 				$this->dni=$Dni;
-			}			
+			}
 
-			public function get_nombre_empresa()
+			public function getNombreEmpresa()
 			{
 				return $this->nombre_empresa;
-			}		
+			}
 
-			public function cambiar_empresa($Empresa)
+			public function cambiarEmpresa($Empresa)
 			{
 				$request="UPDATE `personas` SET `Nombre_Empresa`='".$Empresa."' WHERE Id_Persona=".$this->id;
 				$this->query->consulta($request);
 				$this->nombre_empresa=$Empresa;
-			}					
-			
+			}
 
-			
+
+
 		}
-	
+
  ?>
 
- <?php 
+ <?php
  	/*
  	$result=$persona=new Persona(7);
 

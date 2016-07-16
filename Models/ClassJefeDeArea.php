@@ -11,12 +11,12 @@ include "Include.php";
       # code...
     }
 
-    function VerTramites()
+    function verTramites()
     {
-        
+
     }
 
-    function DerivarTramite()
+    function derivarTramite()
     {
 
     }
