@@ -46,8 +46,31 @@
 				render("registrar/empleado");
 				
 			}
-			
-			
+
+		}
+
+		public function tramite(){
+
+			if (!empty($_POST)){
+				
+				$r = new Registrador();
+
+				//crearTramite(Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad)
+				$r->crearTramite(7,$_POST["descrip"],$_POST["ident"],1,1,1);
+				render("registrar/exito");
+			}
+			else{
+				$js = "
+				<script>
+					var cars = ['Saab', 'Volvo', 'BMW'];
+				</script>
+				";
+
+				echo "js";
+				render("acciones/nuevo");
+				
+			}
+
 		}
 		
 

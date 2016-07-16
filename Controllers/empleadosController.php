@@ -13,25 +13,10 @@
 		
 		public function index()
 		{
-			
+
 			print "INdice empleadosController";
 		}
-
-		public function registrar(){
-
-			if (empty($_POST)){
-				$r = new Registrador();
-				$r->registrarPersona($_POST[""]);
-			}
-			else{
-				$ruta = URLV."registrar/usuario.php";
-				echo $ruta;
-				#require_once URLV."registrar/usuario.php";
-			}
-			
-		}
 		
-
 	}
  ?>
 

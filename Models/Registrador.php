@@ -49,7 +49,7 @@
 			$request="UPDATE `empleados` SET `Id_Cargo`=".$Id_Cargo." WHERE Id_Empleado=".$Id_Empleado;
 			$this->query->consulta($request);
 		}
-
+																			//Id_Tipo_tramite?
 		function crearTramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad)
 		{
 			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Destino`) VALUES (".$Folios.",'2016-07-15','".$Asunto."',".$Id_Persona.",".$Id_Area_Destino.")";
