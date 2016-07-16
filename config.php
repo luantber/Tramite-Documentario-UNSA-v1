@@ -7,7 +7,6 @@
 	//Coloquen aquí el nombre de su carpeta base
 	$nombre_carpeta = "tramitedocumentariocs";
 
-
 	//Datos Futuros para conexion con bases de datos
 	global $server,$base_datos,$user_bd, $pass_bd;
 

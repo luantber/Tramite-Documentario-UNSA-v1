@@ -35,15 +35,16 @@
 		public function empleado(){
 
 			if (!empty($_POST)){
-				echo "<br> POST";
+				
 				$r = new Registrador();
-				$r->registrarPersona($_POST["nome"],$_POST["apee"],$_POST["dnie"]);
-				echo "Exito!";
+				//registrarEmpleado($Nombres,$Apellidos,$Id_Area,$Activo,$Correo,$Dni_Empleado,$Password)
+				$r->registrarEmpleado($_POST["nome"],$_POST["apee"],1,true,"mail@mail",$_POST["dnie"],$_POST["contrae"]);
+				render("registrar/exito");
 			}
 			else{
-				$ruta = URLV."registrar/usuario.php";
-				echo $ruta;
-				#require_once URLV."registrar/usuario.php";
+				
+				render("registrar/empleado");
+				
 			}
 			
 			
