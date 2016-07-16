@@ -15,7 +15,7 @@
 			var $correo;
 			var $password;
 
-			public function  __construct($Id_Empleado)
+			public function  __construct()
 			{
 				$this-> query =  new Query();
 			}
@@ -115,22 +115,7 @@
  ?>
 
 <?php
-	/*
-	$persona= new Empleado(6);
-	echo $persona->get_id()."</br>";
- 	echo $persona->get_nombres()."</br>";
- 	echo $persona->get_apellidos()."</br>";
- 	echo $persona->get_dni()."</br>";
- 	echo $persona->get_nombre_empresa()."</br>";
- 	echo $persona->get_id_cargo()."</br>";
- 	echo $persona->get_nombre_cargo()."</br>";
- 	echo $persona->get_id_area()."</br>";
- 	echo $persona->get_nombre_area()."</br>";
- 	echo $persona->get_activo()."</br>";
- 	echo $persona->get_correo()."</br>";
- 	echo $persona->get_password()."</br>";
-	$persona->cambiar_nombres("jano");
-	$persona->cambiar_correo("jano@jano.ja");
-	$persona->cambiar_password("1234");
-	*/
+
+
+
  ?>
