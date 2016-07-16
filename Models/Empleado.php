@@ -4,8 +4,8 @@
 		*/
 		use Models\Query as Query;
 		use Models\Persona as Persona;
-		include_once "Query.php";
-		include_once "Persona.php";
+		#include_once "Query.php";
+		#include_once "Persona.php";
 		class Empleado extends Persona
 		{
 			

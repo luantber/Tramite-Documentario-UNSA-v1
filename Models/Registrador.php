@@ -58,17 +58,5 @@
 			$this->query->consulta($request2);
 		}
 
-
-
-
-
-
 	}
- ?>
-
-<?php 
-	/*
-	$register= new Registrador();
-	$register->crear_tramite(7,"algun problema","7","1","algun tipo",3);
- 	*/
  ?>

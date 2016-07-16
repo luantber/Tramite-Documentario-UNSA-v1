@@ -3,9 +3,10 @@
 	/**
 	* Empleados Controlador
 	*/
-	use Models\Empleado as Empleado;
+
 	
 
+	use Models\Empleado as Empleado;
 	class empleadosController
 	{
 		
@@ -25,28 +26,11 @@
 
 		}
 
-		public function registro(){
+		public function registrar(){
 
-			if (empty($_POST)){
-				return;
-			}
-
-
-			$arr = array('name' => $_POST["pname"], 'lastname' => $_POST["plastname"], 'dni' => $_POST["pdni"], 'email' => $_POST["pemail"]);
-			
-			$link = mysqli_connect("localhost", "root", "", "tramitedocumentario"); //localhost por ahora será el servidor local 
-			//Estos datos los pasare despues al config.php ... 
-			
-			$query="INSERT INTO usuarios (Nombre,Apellido, DNI,Email,Sexo,Fecha_registro) VALUES ('".$arr['name']."','".$arr['lastname']."','".$arr['dni']."','".$arr['email']."','1','2016-06-20')";
-			$result = mysqli_query($link,$query);
-
-			if ($result){
-				echo "<br>Bueno\n";
-			}
-			else{
-				echo "<br>ERROR\n";
-			}
-			print_r($query);
+			$u = new Empleado(5);
+			//$u =  new Models\Registrador();
+			echo $u->get_correo();
 
 		}
 		
@@ -72,3 +56,4 @@
 		}
 	}
  ?>
+
