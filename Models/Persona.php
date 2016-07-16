@@ -33,7 +33,7 @@
 
 
 
-			public function getDatosPersona($Id_Persona)
+			public function obtenerDatosPersona($Id_Persona)
 			{
 
 				$request="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Id_Persona=".$Id_Persona;
