@@ -27,7 +27,7 @@
 			{
 				$request="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`) VALUES (".$Dni.",'".$Nombres."','".$Apellidos."')";
 				$this->query->consulta($request);
-				$this->getDatosPersona($this->query->get_id());
+				$this->obtenerDatosPersona($this->query->get_id());
 
 			}
 
@@ -129,6 +129,7 @@
   	echo $persona->get_dni()."</br>";
   	echo $persona->get_nombre_empresa()."</br>";
   	*/
+  	/*
   	$persona = new Persona();
   	$persona->registrarPersona("Yara","de Zuñiga",04623424);
   	echo $persona->getId()."</br>";
@@ -136,6 +137,6 @@
  	echo $persona->getApellidos()."</br>";
  	echo $persona->getDni()."</br>";
  	echo $persona->getNombreEmpresa()."</br>";
-
+	*/
 
   ?>

@@ -5,7 +5,7 @@
 		use Models\Query as Query;
 		use Models\Persona as Persona;
 		#include_once "Query.php";
-		#include_once "Persona.php";
+		include_once "Persona.php";
 		class Empleado extends Persona
 		{
 
@@ -28,11 +28,11 @@
 				$id=$this->query->get_id();
 				$request="INSERT INTO `empleados`(`Id_Empleado`,`Id_Cargo`, `Id_Area`, `Activo`, `Correo`,`Dni_Empleado`, `Password`) VALUES (".$id.",4,".$Id_Area.",'".$Activo."','".$Correo."',".$Dni_Empleado.",'".$Password."')";
 				$this->query->consulta($request);
-				$this->obtenerDatos($this->query->get_id());
+				$this->obtenerDatosId($id);
 			}
 
 
-			public function obtenerDatos($Id_Empleado)
+			public function obtenerDatosId($Id_Empleado)
 			{
 
 				$request_empleado="SELECT `Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo`, `Dni_Empleado`, `Password` FROM `empleados` WHERE Id_Empleado=".$Id_Empleado;
@@ -58,8 +58,70 @@
 				}
 				else{
 					return false;
+				}
 			}
-		}
+
+			public function obtenerDatosDni($Dni_Empleado)
+			{
+
+				$request_empleado="SELECT `Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo`, `Dni_Empleado`, `Password` FROM `empleados` WHERE Dni_Empleado=".$Dni_Empleado;
+				$result_empleado=$this->query->consulta($request_empleado);
+				if($result_empleado->num_rows != 0){
+					$datos_empleado = $result_empleado->fetch_assoc();
+					$this->id=$datos_empleado["Id_Empleado"];
+					$this->id_cargo=$datos_empleado["Id_Cargo"];
+					$this->id_area=$datos_empleado["Id_Area"];
+					$this->activo=$datos_empleado["Activo"];
+					$this->correo=$datos_empleado["Correo"];
+					$this->id_cargo=$datos_empleado["Id_Cargo"];
+					$this->dni=$datos_empleado["Dni_Empleado"];
+					$this->password=$datos_empleado["Password"];
+
+					$request_persona="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Dni=".$Dni_Empleado;
+					$result2=$this->query->consulta($request_persona);
+						$datos_persona = $result2->fetch_assoc();
+						$this->nombres=$datos_persona["Nombres"];
+						$this->apellidos=$datos_persona["Apellidos"];
+						$this->nombre_empresa=$datos_persona["Nombre_Empresa"];
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+
+			public function obtenerDatosCorreo($Correo_Empleado)
+			{
+
+				$request_empleado="SELECT `Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo`, `Dni_Empleado`, `Password` FROM `empleados` WHERE Correo='".$Correo_Empleado."'";
+				$result_empleado=$this->query->consulta($request_empleado);
+				if($result_empleado->num_rows != 0){
+					$datos_empleado = $result_empleado->fetch_assoc();
+					$this->id=$datos_empleado["Id_Empleado"];
+					$this->id_cargo=$datos_empleado["Id_Cargo"];
+					$this->id_area=$datos_empleado["Id_Area"];
+					$this->activo=$datos_empleado["Activo"];
+					$this->correo=$datos_empleado["Correo"];
+					$this->id_cargo=$datos_empleado["Id_Cargo"];
+					$this->dni=$datos_empleado["Dni_Empleado"];
+					$this->password=$datos_empleado["Password"];
+
+
+					$request_persona="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Id_Persona=".$this->id;
+					$result2=$this->query->consulta($request_persona);
+						$datos_persona = $result2->fetch_assoc();
+						$this->nombres=$datos_persona["Nombres"];
+						$this->apellidos=$datos_persona["Apellidos"];
+						$this->nombre_empresa=$datos_persona["Nombre_Empresa"];
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+
+
+
 
 			public function getNombreCargo()
 			{
@@ -123,7 +185,9 @@
  ?>
 
 <?php
-
-
-
+	/*
+	$cosa= new Empleado();
+	$cosa->obtenerDatosCorreo('lla@la');
+	echo $cosa->getApellidos();
+	*/
  ?>
