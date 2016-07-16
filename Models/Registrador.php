@@ -19,6 +19,7 @@
 
 			$request="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`) VALUES (".$Dni.",'".$Nombres."','".$Apellidos."')";
 			$this->query->consulta($request);
+			
 		}
 
 		function registrarArea($Nombre)

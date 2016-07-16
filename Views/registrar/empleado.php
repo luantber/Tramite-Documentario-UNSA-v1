@@ -1,15 +1,16 @@
-<form class="form-horizontal container">
+
+<form class="form-horizontal container"  method="POST" action=" <?php echo URLM?>registrar/empleado">
   <div class="row container form-group">
       <div class="col-xs-6">
         <label for="nombree" class="col-sm-5 control-label" >Nombre</label>
         <div class="col-sm-7">
-          <input name="nome" type="text" class="form-control" id="nombree" required placeholder="Ingrese nombre de trabajador">
+          <input name="nome" type="text" class="form-control" id="nombree"  required placeholder="Ingrese nombre de trabajador">
         </div>
       </div>
       <div class="col-xs-6">
         <label for="apellidoe" class="col-sm-4 control-label" >Apellidos</label>
         <div class="col-sm-8">
-          <input name="apee"type="text" class="form-control" id="apellidoe" required placeholder="Ingrese apellidos de trabajador">
+          <input name="apee"type="text" class="form-control" id="apellidoe"  required placeholder="Ingrese apellidos de trabajador">
         </div>
       </div>
   </div>

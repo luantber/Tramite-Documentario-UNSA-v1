@@ -5,7 +5,7 @@
 	*/
 	class Router
 	{
-		
+				
 		public static function run(Request $request)
 		{
 			$controlador = $request->getControlador() . "Controller";
@@ -33,6 +33,8 @@
 				print "<br> Advertencia_NO_GRAVE: No se encontro una Controlador para la ruta: ". $ruta." , ignorar si no estas cargando algun controlador.";
 			}
 
+			// Ahora sera MANUAL
+			/*
 			$ruta = ROOT . "Views" . DS . $request->getControlador() . DS . $metodo . ".php";
 			if(is_readable($ruta)){
 				print "<br> View: ". $ruta;
@@ -40,7 +42,8 @@
 			}
 			else{
 				print "<br> No se encontro una vista para la ruta: ". $ruta;
-			}
+			}*/
+			
 		}
 	}
 	

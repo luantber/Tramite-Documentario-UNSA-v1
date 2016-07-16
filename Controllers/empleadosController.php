@@ -19,10 +19,16 @@
 
 		public function registrar(){
 
-			//$u = new Empleado(5);
-			//$u =  new Models\Registrador();
-			//echo $u->get_correo();
-			$r = new Registrador()
+			if (empty($_POST)){
+				$r = new Registrador();
+				$r->registrarPersona($_POST[""]);
+			}
+			else{
+				$ruta = URLV."registrar/usuario.php";
+				echo $ruta;
+				#require_once URLV."registrar/usuario.php";
+			}
+			
 		}
 		
 

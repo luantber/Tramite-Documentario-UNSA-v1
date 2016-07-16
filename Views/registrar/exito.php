@@ -1,0 +1,1 @@
+<h2>Exito al registrar¡¡</h2>

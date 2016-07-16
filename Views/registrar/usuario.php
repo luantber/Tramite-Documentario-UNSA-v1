@@ -1,4 +1,4 @@
-<form class="form-horizontal container">
+<form class="form-horizontal container" method="POST" action=" <?php echo URLM ?>registrar/usuario">
   <div class="row container form-group">
       <div class="col-xs-6">
         <label for="nombreusu" class="col-sm-5 control-label" >Nombre</label>
@@ -20,14 +20,14 @@
           <input name="dniusu" type="text" class="form-control" id="dni" required placeholder=" Ingrese número de DNI">
       </div>
   </div>
-
+<!-- Comentado por ahora
   <div class="form-group">
       <label for="contrasñausu" class="col-sm-2 control-label" >Contraseña</label>
       <div class="col-sm-10">
           <input name="contrausu" type="text" class="form-control" id="contraseñausu" required placeholder="Escriba 123456">
       </div>
   </div>
-
+-->
 
   <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
