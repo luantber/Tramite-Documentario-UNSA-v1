@@ -15,38 +15,89 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Trámite Documentario</title>
 
-	<link rel="stylesheet" type="text/css" href="<?php echo URL ?>css/main.css">
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+	<title>Trámite Documentario</title>
+	<script type="text/javascript" src="<?php echo URLV ?>js/jquery-1.9.1.js"></script>!
+	
+	<link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/bootstrap.min.css">
+	<script type="text/javascript" src="<?php echo URLV ?>js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
 
-	<header class="header2">
-		<div class="wrapper">
-			<div class="logo">
-				Trámite Documentario
-			</div>
+<!-- BARRA DE NAVEGACION !!!!-->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<?php echo URLM ?>">Trámite Documentario</a>
+    </div>
+    <ul class="nav navbar-nav active">
+      <li class="active"><a href="#">Inicio</a></li>
+      <li><a href="#">Page 2</a></li> 
 
-			<nav>
-				<a href="<?php echo URLM ?>">Inicio</a>
-				<a href="<?php echo URLM ?>clientes/registrocli" >Cliente Nuevo</a>
-				<a href="">nuevo </a>
-				<a href="">Hello</a>
-				<a href="#">Otro</a>
-				<a href="#">Help</a>
-			</nav>
-		</div>
-	</header>
+      <!-- PARA MESA DE PARTES !-->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Acciones
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Trámites</a></li>
+          <li><a href="<?php echo URLM ?>/acciones/nuevo">Nuevo Trámite</a></li>
+          <li><a href="<?php echo URLM ?>/acciones/estado">Ver estado</a></li>
+          <li><a href="<?php echo URLM ?>/registrar/usuario">Registrar Usuario</a></li> 
+        </ul>
+      </li> <!-- AQUI TERMINA ... !-->
 
-	<div id="div-grande">
 
-<?php 
+      <!-- PARA SUPER USUARIO !-->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">AccionesSU
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="<?php echo URLM ?>/registrar/empleado">Registrar Empleado</a></li>
+
+        </ul>
+      </li> <!-- AQUI TERMINA ... !-->
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <!--PERFIL !-->
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
+
+      <!--INGRESAR!-->
+      <li><a href="<?php echo URLM ?>/ingresar/inde"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
+    
+      <!--SALIR!-->
+      <li><a href="<?php echo URLM ?>"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+
+    </ul>
+  </div>
+</nav>
+					<!-- ..............FIN BARRA DE NAVEGACION !!!......................!-->
+
+<div>
+
+	<p>MOSTRANDO POSIBLES ERRORES...</p>
+	<p>.............................</p>
+	<p>.............................</p>
+	<?php 
 		}
 		public function __destruct(){
  ?>
+</div>
+
+
+
+						<!-- ..............TÍTULO  !!!!.......................-->
+<div class="jumbotron text-center  ">
+  <h1>TRÁMITE DOCUMENTARIO</h1>
+  <p>Bienvenidos !</p> 
+</div>
+
+						<!-- ..............TÍTULO !!!!.......................-->
+
+					
+			
 	</div>
 <p align="center" class="parrafo">By CS unsa</p>
 </body>
