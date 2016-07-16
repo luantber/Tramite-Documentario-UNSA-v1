@@ -20,6 +20,9 @@
 
 			}
 
+
+
+
 			public function registrarPersona($Nombres,$Apellidos,$Dni)
 			{
 				$request="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`) VALUES (".$Dni.",'".$Nombres."','".$Apellidos."')";
@@ -32,7 +35,7 @@
 
 			public function getDatosPersona($Id_Persona)
 			{
-				
+
 				$request="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Id_Persona=".$Id_Persona;
 				$result=$this->query->consulta($request);
 				if ($result->num_rows != 0) {

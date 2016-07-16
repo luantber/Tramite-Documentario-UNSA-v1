@@ -21,7 +21,14 @@
 			}
 
 
-
+			function registrarEmpleado($Nombres,$Apellidos,$Id_Area,$Activo,$Correo,$Dni_Empleado,$Password)
+			{
+				$request2="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`) VALUES (".$Dni_Empleado.",'".$Nombres."','".$Apellidos."')";
+				$this->query->consulta($request2);
+				$id=$this->query->get_id();
+				$request="INSERT INTO `empleados`(`Id_Empleado`,`Id_Cargo`, `Id_Area`, `Activo`, `Correo`,`Dni_Empleado`, `Password`) VALUES (".$id.",4,".$Id_Area.",'".$Activo."','".$Correo."',".$Dni_Empleado.",'".$Password."')";
+				$this->query->consulta($request);
+			}
 
 
 			public function obtenerDatos($Id_Empleado)
@@ -116,6 +123,6 @@
 
 <?php
 
-
+$
 
  ?>
