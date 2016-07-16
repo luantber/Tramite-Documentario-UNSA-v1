@@ -7,22 +7,15 @@
     include_once "Include.php";
     class Query
     {
-      var $servername;
-      var $username;
-      var $password;
-      var $dbname;
-      var $connection;
-
-
+  
 
       public function __construct()
       {
         
-        $this->servername=constant("servername");
-        $this->dbname=constant("dbname");
-        $this->username=constant("username");
-        $this->password=constant("password");
-
+        $this->servername=$GLOBALS['server']; 
+        $this->dbname=$GLOBALS['base_datos']; 
+        $this->username=$GLOBALS['user_bd']; 
+        $this->password=$GLOBALS['pass_bd']; 
         // Check connection
         $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
         if ($this->connection->connect_error) {

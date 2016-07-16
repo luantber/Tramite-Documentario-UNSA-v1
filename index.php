@@ -8,12 +8,15 @@
 	require_once 'config.php';
 	define('URLV', 'http://localhost/'.$nombre_carpeta.'/Views/');
 	define('URLM', 'http://localhost/'.$nombre_carpeta.'/');
-/*
-	define('server', $server );
-	define('base_datos', $base_datos);
-	define('user_bd',$user_bd );
-	define('pass_bd', $pass_bd );
-*/
+
+
+global $server,$base_datos,$user_bd, $pass_bd; 
+  $server = "localhost"; 
+  $base_datos = "tramite"; 
+  $user_bd = "root"; 
+  $pass_bd = ""; 
+
+
 	//Carga automatica de clases
 	require_once 'Config/Autoload.php';
 	Config\Autoload::run();
