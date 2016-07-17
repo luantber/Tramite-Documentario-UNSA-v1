@@ -16,7 +16,7 @@
         $this->dbname=$GLOBALS['base_datos'];
         $this->username=$GLOBALS['user_bd'];
         $this->password=$GLOBALS['pass_bd'];
-
+        
         // Check connection for testing
 
         /*
