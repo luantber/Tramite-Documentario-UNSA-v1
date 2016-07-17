@@ -17,13 +17,15 @@
 		var $estado;
 		var $descripcionEstado;
 		var $query;
-
+		var $tipo_tramite;
+		var $prioridad;
 		function __construct()
 		{
 			# code...
 			$this->query= new Query();
 			
 		}
+
 
 		function obtenerDatosTramiteId($IdTramite)
 		{
@@ -44,6 +46,11 @@
 				    $this->descripcionEstado=$datos2["Descripcion"];
 				    $this->estado=$datos2["Estado"];
 
+				    $request3="SELECT `Id_Expediente`, `Tipo_Tramite`, `Prioridad` FROM `tipo_tramite` WHERE Id_Expediente=".$IdTramite;
+				    $result3=$this->query->consulta($request3);
+				    $datos3=$result3->fetch_assoc();
+				    $this->tipo_tramite=$datos3["Tipo_Tramite"];
+				    $this->prioridad=$datos3["Prioridad"];
 
 
 				    return true;
@@ -54,6 +61,41 @@
 
 		}
 
+		
+
+		function registrarTramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)
+		{
+			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Destino`) VALUES (".$Folios.",'2016-07-15','".$Asunto."',".$Id_Persona.",".$Id_Area_Destino.")";
+			$this->query->consulta($request);
+			$tramite_id=$this->query->get_id();
+			$request2="INSERT INTO `tipo_tramite`(`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES (".$tramite_id.",'".$Tipo_Tramite."',".$Prioridad.")";
+			$this->query->consulta($request2);
+			$request3="INSERT INTO `estado`(`Id_Expediente`, `Estado`, `Descripcion`) VALUES (".$tramite_id.",'".$Estado."','".$DescripcionEstado."')";
+			$this->query->consulta($request3);
+
+			$request4="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`) VALUES ($tramite_id,0,$Id_Area_Destino,$tramite_id,'2016-07-15')";
+			$this->query->consulta($request4);
+
+			$this->obtenerDatosTramiteId($tramite_id);
+
+		}
+
+		function getIdMovimientos()
+		{
+			$request="SELECT `Id_Movimiento` FROM `movimientos` WHERE Id_Expediente=".$this->id_expediente;
+			$result=$this->query->consulta($request);
+			$IdsMovimientos=array();
+			if ($result->num_rows > 0) {
+		    // output data of each row
+			    while($datos = $result->fetch_assoc()) {
+			        array_push($IdsMovimientos,$datos["Id_Movimiento"]);
+			    }
+			}
+			return $IdsMovimientos; 
+		}
+
+
+
 		function getFolios()
 		{
 			return $this->folios;
@@ -61,38 +103,55 @@
 
 		function getFechaIngreso()
 		{
-
-		}
-
-		function crearTramite($idPersona,$idAreaDestino,$asunto,$folios)
-		{
-
+			return $this->fecha_ingreso;
 		}
 
 		public function getFechaTermino()
 		{
-
+			return $this->fecha_termino;
 		}
 
 		public function getAsunto()
 		{
-
+			return $this->asunto;
 		}
 
 		public function getIdAreaDestino()
 		{
-
+			return $this->id_area_destino;
 		}
 
 		public function getEstado()
 		{
-
+			return $this->estado;
 		}
 
 		public function getDescripcionEstado()
 		{
-
+			return $this->descripcionEstado;
 		}
+
+		public function getPrioridad()
+		{
+			return $this->prioridad;
+		}
+
+		public function getIdPersona()
+		{
+			return $this->id_persona;
+		}
+
+		public function getTipoTramite()
+		{
+			return $this->tipo_tramite;
+		}
+
+		public function getIdExpediente()
+		{
+			return $this->id_expediente;
+		}
+
+
 
 
 
@@ -103,7 +162,11 @@
 
 
 <?php 
+	/*
 	$tram=new Tramite();
-	$tram->obtenerDatosTramiteId(2);
-	echo $tram->getFolios();
+	$tram->obtenerDatosTramiteId(8);
+	echo $tram->getFolios()."</br>";
+	echo $tram->getIdMovimientos()[0];
+	*/
+
  ?>

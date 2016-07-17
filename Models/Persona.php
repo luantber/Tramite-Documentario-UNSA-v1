@@ -137,6 +137,6 @@
  	echo $persona->getApellidos()."</br>";
  	echo $persona->getDni()."</br>";
  	echo $persona->getNombreEmpresa()."</br>";
-
+	*/
 
   ?>
