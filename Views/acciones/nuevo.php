@@ -63,15 +63,31 @@
   	
   	<div class="form-group">
     	<div class="col-sm-offset-6 col-sm-4">
-      		<button type="button" onclick="validar" class="btn btn-default">Agregar Trámite</button>
+      		<button type="button" onclick="validar()" class="btn btn-default">Agregar Trámite</button>
     	</div>
   	</div>
+
+    <script>
+    function validar () {
+      var x, text;
+
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("identificacion").value;
+
+    // If x is Not a Number or less than one or greater than 10
+    if (isNaN(x)) {
+        alert("mmmmmm");
+    } else {
+        text = "Input OK";
+    }
+    
+    }</script>
 
     <p> </p>
     <p> .</p>
     <p> .</p>
     <p>Please input a number:</p>
-
+<!--
 <input id="numb">
 
 <button type="button" onclick="myFunction()">Submit</button>
@@ -93,7 +109,7 @@ function myFunction() {
     }
     document.getElementById("demo").innerHTML = text;
 }
-</script>
+</script> !-->
 <!--
     <script>
 
