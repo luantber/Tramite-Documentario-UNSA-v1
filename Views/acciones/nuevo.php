@@ -1,18 +1,26 @@
 			<!--.............................NUEVO TRÁMITE .............................. !-->
 <h2 class="text-center" >Nuevo Trámite</h2>
-<form class="form-horizontal container">
-	<div class="form-group" >
-		<label for="in-tipo" class="col-sm-2 control-label">Tipo </label>
-		<div class="col-sm-10" >
-			<label class="radio-inline"><input type="radio" name="optradio" id="int-tipo">Persona Natural</label>			
-			<label class="radio-inline"><input type="radio" name="optradio" id="int-tipo">Empresa/Institución</label>
-		</div>		
-	</div>
+<form class="form-horizontal container" onsubmit="return validacion()" >
+
+  <div>
+    <div class="form-group">
+        <label for="tipo" class="col-sm-2 control-label" >Tipo </label>
+        <div class="col-sm-10">
+          <select class="form-control" id="tipo">
+            <option value="" >Seleccionar</option>
+            <option value="1" required>Persona Natural</option>
+            <option value="2" required>Empresa/institución</option>
+          </select>
+          <p id="notipo" ></p>
+      </div>
+      </div>
+     </div>
 
   <div class="form-group">
-      <label for="institucion" class="col-sm-2 control-label" >Empresa/Institución </label>
+      <label for="institucion" class="col-sm-2 control-label" id="nuevocampo" >Empresa/Institución</label>
       <div class="col-sm-10">
-          <input name="inst" type="text" class="form-control" id="institucion" required placeholder=" Ingrese nombre de empresa/institución">
+          <input name="inst" type="text" class="form-control" id="institucion" placeholder=" Ingrese solo en caso de institución">
+          <p id="inst" ></p>
       </div>
   </div>
   
@@ -26,32 +34,46 @@
   </div>
 
 
-  <div class="form-group">
-      <label for="destino" class="col-sm-2 control-label" >Destino </label>
-      <div class="col-sm-10">
-          <input name="dest" type="text" class="form-control" id="destino" required placeholder=" Ingrese destino del documento">
+      <div class="form-group">
+        <label for="destino" class="col-sm-2 control-label" >Destino</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="destino">
+            <option value="" >Seleccionar</option>
+            <option value="1" required>destino 1</option>
+            <option value="2" required>destino 2</option>
+            <option value="3" required>destino 3</option>
+          </select>
+          <p id="nodestino" ></p>
       </div>
-  </div>
+      </div>
 	
   	<div class="form-group">
   		<label for="descripcion" class="col-sm-2 control-label" >Descripción </label>
   		<div class="col-sm-10" >
-  			<input name="descrip" type="text" class="form-control" id="descripcion" required placeholder=" Ingrese número de indentifiación">
+  			<input name="descrip" type="text" class="form-control" id="descripcion" required placeholder=" Ingrese pequeña descripción">
   		</div>
   	</div>
+
+    <div class="form-group">
+      <label for="folios" class="col-sm-2 control-label" >Nro de Folios</label>
+      <div class="col-sm-10" >
+        <input name="folios" type="number" class="form-control" id="folios" required placeholder=" Ingrese número de folios">
+      </div>
+    </div>
 
   	
   		<div class="form-group">
   			<label for="prioridad" class="col-sm-2 control-label" >Prioridad </label>
   			<div class="col-sm-10">
-  				<select class="form-control" id="sel1">
-    				<option id="prioridad" value="urgente" required>Urgente</option>
-            <option id="prioridad" value="alta" required>Alta</option>
-    				<option id="prioridad" value="alta" required>Normal</option>
+  				<select class="form-control" id="opciones">
+            <option value="" >Seleccionar</option>
+    				<option value="urgente" required>Urgente</option>
+            <option value="alta" required>Alta</option>
+    				<option value="alta" required>Normal</option>
   				</select>
+          <p id="nopcion" ></p>
 			</div>
   		</div>
-	   </div>
 
       <div class="row">
         <div class="col-md-8 col-md-offset-3">
@@ -64,71 +86,51 @@
   	
   	<div class="form-group">
     	<div class="col-sm-offset-6 col-sm-4">
-      		<button type="button" onclick="validar()" class="btn btn-default">Agregar Trámite</button>
+      		<button type="submit" class="btn btn-default">Agregar Trámite</button>
     	</div>
   	</div>
 
+
+
     <script>
-    function validar () {
-      var x, text;
+      function validacion() {
+        var dni,indice,tipo,destino;//elemento= tipo de empresa
+        dni = document.getElementById('identificacion').value;
+        indice = document.getElementById("opciones").selectedIndex;
+        tipo = document.getElementById("tipo").selectedIndex;
+        destino = document.getElementById("destino").selectedIndex;
 
-    // Get the value of the input field with id="numb"
-    x = document.getElementById("identificacion").value;
+        if (tipo == null || tipo == 0) {
+          texto="Seleccione tipo";
+          document.getElementById("notipo").innerHTML = texto;
+          return false;
+        }
+        else if (!(/^\d{8}$/.test(dni))) {
+          texto ="Ingrese un numero de 8 digitos";
+          document.getElementById("noingreso").innerHTML = texto;
+          //alert('[ERROR] El campo debe tener un valor de...');
+          return false;
+          }
 
-    // If x is Not a Number or less than one or greater than 10
-    if (isNaN(x)) {
-        text = "Ingrese un numero de 8 digitos";
-    } else {
-        text = "Input OK";
-    }
+        else if (destino ==null || destino == 0){
+          texto="Seleccione un destino";
+          document.getElementById("nodestino").innerHTML = texto;
+          return false;
+        }
 
-    document.getElementById("noingreso").innerHTML = text;
-    
-    }</script>
+        else if( indice == null || indice == 0 ) {
+          texto="Seleccione una prioridad";
+          document.getElementById("nopcion").innerHTML = texto;
+          return false;
+          }
+
+        else return true;
+        }
+    </script>
 
     <p> </p>
     <p> .</p>
     <p> .</p>
-    <p>Please input a number:</p>
-<!--
-<input id="numb">
-
-<button type="button" onclick="myFunction()">Submit</button>
-
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-    var x, text;
-
-    // Get the value of the input field with id="numb"
-    x = document.getElementById("numb").value;
-
-    // If x is Not a Number or less than one or greater than 10
-    if (isNaN(x)) {
-        text = "Input not valid";
-    } else {
-        text = "Input OK";
-    }
-    document.getElementById("demo").innerHTML = text;
-}
-</script> !-->
-<!--
-    <script>
-
-    function validar () {
-      var valor;
-      valor = document.getElementById("identificacion").value;
-
-      if( !(/^\d{9}$/.test(valor)) ) {
-        alert("Ingrese 8 digitos");
-      }
-          // body...
-    }
-    </script>
-
-!-->
 
 </form> 
 			<!--.............................FIN NUEVO TRÁMITE .............................. !-->
-	

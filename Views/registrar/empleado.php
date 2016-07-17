@@ -23,9 +23,9 @@
   </div>
 
   <div class="form-group">
-      <label for="usuario" class="col-sm-2 control-label" >Usuario</label>
+      <label for="email" class="col-sm-2 control-label" >correo</label>
       <div class="col-sm-10">
-          <input name="contrae" type="text" class="form-control" id="usuario" required placeholder="Ingrese nombre de Usuario">
+          <input name="emaile" type="email" class="form-control" id="email" required placeholder="Ingrese correo del empleado">
       </div>
   </div>
 
