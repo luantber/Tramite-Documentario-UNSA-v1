@@ -1,6 +1,6 @@
 <?php namespace Models;
 	/**
-	* 
+	*
 	*/
 
 	include_once "Query.php";
@@ -17,8 +17,7 @@
 		var $descripcionEstado;
 		var $query;
 
-
-		function __construct(argument)
+		function __construct()
 		{
 			# code...
 			$this->query= new Query();
