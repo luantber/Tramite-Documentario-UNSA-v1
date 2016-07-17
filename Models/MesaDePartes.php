@@ -12,32 +12,40 @@
   class MesaDePartes extends Empleado
   {
 
-    function __construct(argument)
+    function __construct()
     {
       # code...
     }
 
-    public function crearTramiteMesa($Id_Persona)
+    public function crearTramiteMesa($idPersona,$idAreaDestino,$asunto,$folios)
     {
       $tramite = new Tramite();
+      $tramite -> crearTramite($idPersona,$idAreaDestino,$asunto,$folios);
 
     }
 
 
     public function editarTramiteMesa($Id_Tramite)
     {
-
+      $tramite = new Tramite();
+      $tramite -> obtenerDatosTramiteId($Id_Tramite);
+      $tramite -> editarDatosTramite();
     }
 
     public function verEstadoTramiteIdExpe($Id_Expediente)
     {
-
+      $tramite = new Tramite();
+      $tramite -> obtenerDatosTramiteId($Id_Tramite);
+      $tramite -> getEstado();
     }
 
-    public function verEstadoTramiteDNI($Dni)
+    public function verMovimiento($Id_Tramite)
     {
-
+      $tramite = new Tramite();
+      $tramite -> obtenerDatosTramiteId($Id_Tramite);
+      $tramite -> getMovimiento();
     }
+
 
     public function registrarUsuario($Nombres,$Apellidos,$Dni)
     {
