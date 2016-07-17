@@ -2,51 +2,114 @@
 <h2 class="text-center" >Nuevo Trámite</h2>
 <form class="form-horizontal container">
 	<div class="form-group" >
-		<label for="in-tipo" class="col-sm-2 control-label">Tipo: </label>
+		<label for="in-tipo" class="col-sm-2 control-label">Tipo </label>
 		<div class="col-sm-10" >
 			<label class="radio-inline"><input type="radio" name="optradio" id="int-tipo">Persona Natural</label>			
 			<label class="radio-inline"><input type="radio" name="optradio" id="int-tipo">Empresa/Institución</label>
 		</div>		
 	</div>
 
-	<div class="form-group">
-    	<label for="identificacion" class="col-sm-2 control-label" >ID</label>
-    	<div class="col-sm-10">
-      		<input name="ident" type="text" class="form-control" id="identificacion" required placeholder=" Ingrese nombre de usuario">
-    	</div>
+  <div class="form-group">
+      <label for="institucion" class="col-sm-2 control-label" >Empresa/Institución </label>
+      <div class="col-sm-10">
+          <input name="inst" type="text" class="form-control" id="institucion" required placeholder=" Ingrese nombre de empresa/institución">
+      </div>
+  </div>
+  
+
+  <div class="form-group">
+      <label for="identificacion" class="col-sm-2 control-label" >DNI </label>
+      <div class="col-sm-10">
+          <input name="ident" type="number" class="form-control" id="identificacion" required placeholder=" Ingrese DNI de usuario">
+      </div>
+  </div>
+
+
+  <div class="form-group">
+      <label for="destino" class="col-sm-2 control-label" >Destino </label>
+      <div class="col-sm-10">
+          <input name="dest" type="text" class="form-control" id="destino" required placeholder=" Ingrese destino del documento">
+      </div>
   </div>
 	
   	<div class="form-group">
-  		<label for="descripcion" class="col-sm-2 control-label" >Descripción</label>
+  		<label for="descripcion" class="col-sm-2 control-label" >Descripción </label>
   		<div class="col-sm-10" >
   			<input name="descrip" type="text" class="form-control" id="descripcion" required placeholder=" Ingrese número de indentifiación">
   		</div>
   	</div>
 
   	
-  	<div class="row container form-group">
-  		<div class="col-xs-6">
-  			<label for="numero" class="col-sm-4 control-label" >Nro: </label>
-  			<div class="col-sm-8">
-  				<input name="num" type="text" class="form-control" id="numero" required placeholder="numero de expediente">
-  			</div>
-  		</div>
-  		<div class="col-xs-6">
-  			<label for="prioridad" class="col-sm-4 control-label" >Prioridad: </label>
-  			<div class="col-sm-8">
+  		<div class="form-group">
+  			<label for="prioridad" class="col-sm-2 control-label" >Prioridad </label>
+  			<div class="col-sm-10">
   				<select class="form-control" id="sel1">
-    				<option id="prioridad" required>Alta</option>
-    				<option id="prioridad" required>Normal</option>
+    				<option id="prioridad" value="urgente" required>Urgente</option>
+            <option id="prioridad" value="alta" required>Alta</option>
+    				<option id="prioridad" value="alta" required>Normal</option>
   				</select>
 			</div>
   		</div>
-	</div>
+	   </div>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-3">
+          <label>Este documento esta siendo creado con fecha</label>
+          <script>
+            document.write(Date());
+          </script>
+        </div>
+      </div>
   	
   	<div class="form-group">
     	<div class="col-sm-offset-6 col-sm-4">
-      		<button type="submit" class="btn btn-default">Agregar Trámite</button>
+      		<button type="button" onclick="validar" class="btn btn-default">Agregar Trámite</button>
     	</div>
   	</div>
+
+    <p> </p>
+    <p> .</p>
+    <p> .</p>
+    <p>Please input a number:</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x, text;
+
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("numb").value;
+
+    // If x is Not a Number or less than one or greater than 10
+    if (isNaN(x)) {
+        text = "Input not valid";
+    } else {
+        text = "Input OK";
+    }
+    document.getElementById("demo").innerHTML = text;
+}
+</script>
+<!--
+    <script>
+
+    function validar () {
+      var valor;
+      valor = document.getElementById("identificacion").value;
+
+      if( !(/^\d{9}$/.test(valor)) ) {
+        alert("Ingrese 8 digitos");
+      }
+          // body...
+    }
+    </script>
+
+!-->
+
 </form> 
 			<!--.............................FIN NUEVO TRÁMITE .............................. !-->
 	
