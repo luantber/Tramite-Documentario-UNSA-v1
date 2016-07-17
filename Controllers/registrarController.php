@@ -68,7 +68,7 @@
 				</script>
 				";
 
-				echo "js";
+				echo $js;
 				render("acciones/nuevo");
 				
 			}
