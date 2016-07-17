@@ -11,20 +11,20 @@
 
       public function __construct()
       {
-        
+        /*
         $this->servername=$GLOBALS['server'];
         $this->dbname=$GLOBALS['base_datos'];
         $this->username=$GLOBALS['user_bd'];
         $this->password=$GLOBALS['pass_bd'];
-        
+        */
         // Check connection for testing
 
-        /*
+        
         $this->servername="localhost";
         $this->dbname="database4";
         $this->username="root";
         $this->password="";
-        */
+        
 
 
         $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
