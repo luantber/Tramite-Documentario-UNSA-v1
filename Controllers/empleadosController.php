@@ -13,19 +13,10 @@
 		
 		public function index()
 		{
-			
+
 			print "INdice empleadosController";
 		}
-
-		public function registrar(){
-
-			//$u = new Empleado(5);
-			//$u =  new Models\Registrador();
-			//echo $u->get_correo();
-			$r = new Registrador()
-		}
 		
-
 	}
  ?>
 

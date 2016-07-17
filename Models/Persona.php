@@ -14,9 +14,28 @@
 			var $nombre_empresa;
 
 
-			function  __construct($Id_Persona){
-
+			function  __construct()
+			{
 				$this->query =  new Query();
+
+			}
+
+
+
+
+			public function registrarPersona($Nombres,$Apellidos,$Dni)
+			{
+				$request="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`) VALUES (".$Dni.",'".$Nombres."','".$Apellidos."')";
+				$this->query->consulta($request);
+				$this->obtenerDatosPersona($this->query->get_id());
+
+			}
+
+
+
+			public function obtenerDatosPersona($Id_Persona)
+			{
+
 				$request="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Id_Persona=".$Id_Persona;
 				$result=$this->query->consulta($request);
 				if ($result->num_rows != 0) {
@@ -31,7 +50,6 @@
 				else {
 				    return false;
 				}
-
 			}
 
 			public function getId()
@@ -111,4 +129,14 @@
   	echo $persona->get_dni()."</br>";
   	echo $persona->get_nombre_empresa()."</br>";
   	*/
+  	/*
+  	$persona = new Persona();
+  	$persona->registrarPersona("Yara","de Zuñiga",04623424);
+  	echo $persona->getId()."</br>";
+ 	echo $persona->getNombres()."</br>";
+ 	echo $persona->getApellidos()."</br>";
+ 	echo $persona->getDni()."</br>";
+ 	echo $persona->getNombreEmpresa()."</br>";
+	*/
+
   ?>
