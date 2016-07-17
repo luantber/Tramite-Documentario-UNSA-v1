@@ -20,7 +20,8 @@
   <div class="form-group">
       <label for="identificacion" class="col-sm-2 control-label" >DNI </label>
       <div class="col-sm-10">
-          <input name="ident" type="number" class="form-control" id="identificacion" required placeholder=" Ingrese DNI de usuario">
+          <input name="ident" type="text" class="form-control" id="identificacion" required placeholder=" Ingrese DNI de usuario">
+          <p id="noingreso" ></p>
       </div>
   </div>
 
@@ -76,10 +77,12 @@
 
     // If x is Not a Number or less than one or greater than 10
     if (isNaN(x)) {
-        alert("mmmmmm");
+        text = "Ingrese un numero de 8 digitos";
     } else {
         text = "Input OK";
     }
+
+    document.getElementById("noingreso").innerHTML = text;
     
     }</script>
 
