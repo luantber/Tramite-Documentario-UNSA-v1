@@ -14,6 +14,12 @@
 			Js::prints($t->getAllTRamitesDatos(),"data",True);
 		}
 
+		function buscar()
+		{
+			# code...
+			render("tramites/buscar");
+		}
+
 		function ver($id){
 			/*
 				Checkear seguridad
