@@ -34,7 +34,7 @@
     </div>
     <ul class="nav navbar-nav active">
       <li class="active"><a href="#">Inicio</a></li>
-      <li><a href="#">Page 2</a></li> 
+      <li><a href="<?php echo URLM ?>/movimientos/id">Movimientos</a></li> 
 
       <!-- PARA AREAS !-->
       <li class="dropdown">
