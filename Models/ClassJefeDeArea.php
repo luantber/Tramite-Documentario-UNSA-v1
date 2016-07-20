@@ -13,7 +13,7 @@ include "Include.php";
 
     function verTramites()
     {
-
+      
     }
 
     function derivarTramite()

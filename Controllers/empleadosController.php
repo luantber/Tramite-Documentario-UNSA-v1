@@ -3,29 +3,43 @@
 	/**
 	* Empleados Controlador
 	*/
-
-	
-
 	use Models\Empleado as Empleado;
-	use Models\Registrador as Registrador;
 	class empleadosController
 	{
 		
 		public function index()
 		{
-			
+
 			print "INdice empleadosController";
 		}
 
-		public function registrar(){
+		function crear(){
+			if (!empty($_POST)){
+				
+				$r = new Empleado();
+				//registrarEmpleado($Nombres,$Apellidos,$Id_Area,$Activo,$Correo,$Dni_Empleado,$Password)
+				$data = array(
+					$_POST["nome"],
+					$_POST["apee"],
+					1,
+					true, //Activo?
+					$_POST["emaile"],
+					$_POST["dnie"],
+					$_POST["contrae"] 
+				);
 
-			//$u = new Empleado(5);
-			//$u =  new Models\Registrador();
-			//echo $u->get_correo();
-			$r = new Registrador()
+				$r->registrarEmpleado(...$data);
+				echo "exito";
+				Js::prints($data,true);
+				render("empleados/crear");
+			}
+			else{
+				
+				render("empleados/crear");
+				
+			}
 		}
 		
-
 	}
  ?>
 

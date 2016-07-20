@@ -5,7 +5,7 @@
 	*/
 	class Router
 	{
-		
+				
 		public static function run(Request $request)
 		{
 			$controlador = $request->getControlador() . "Controller";
@@ -13,7 +13,7 @@
 			$metodo = $request->getMetodo();
 			$argumento = $request->getArgumento();
 			
-			print "<br> Controlador: " . $ruta;
+			print "<br> Controlador: " . $ruta . "<br>";
 			if (is_readable($ruta)){
 				require_once $ruta;
 				$cont = "Controllers\\". $controlador;
@@ -33,6 +33,8 @@
 				print "<br> Advertencia_NO_GRAVE: No se encontro una Controlador para la ruta: ". $ruta." , ignorar si no estas cargando algun controlador.";
 			}
 
+			// Ahora sera MANUAL
+			/*
 			$ruta = ROOT . "Views" . DS . $request->getControlador() . DS . $metodo . ".php";
 			if(is_readable($ruta)){
 				print "<br> View: ". $ruta;
@@ -40,7 +42,8 @@
 			}
 			else{
 				print "<br> No se encontro una vista para la ruta: ". $ruta;
-			}
+			}*/
+			
 		}
 	}
 	

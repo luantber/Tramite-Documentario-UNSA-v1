@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-07-2016 a las 15:58:27
+-- Tiempo de generación: 17-07-2016 a las 08:25:10
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -82,11 +82,8 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo`, `Dni_Empleado`, `Password`) VALUES
-(5, 1, 1, 'Vacaciones', 'correo@correo', 23323233, 'pass'),
-(6, 1, 1, 'Vacaciones', 'correo@correo', 23323233, 'pass'),
-(7, 4, 1, 'activo', 'lala@lala.la', 32125632, 'loquesea'),
-(8, 4, 1, 'activo', 'lala@lala.la', 32125632, 'loquesea'),
-(9, 4, 1, 'activo', 'lala@lala.la', 32125632, 'loquesea');
+(14, 4, 1, 'vacaciones', 'lla@la', 22222222, 'pass'),
+(15, 4, 1, 'vacaciones', 'a@a', 11111111, 'cont');
 
 -- --------------------------------------------------------
 
@@ -97,8 +94,17 @@ INSERT INTO `empleados` (`Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo
 CREATE TABLE `estado` (
   `Id_Expediente` int(11) NOT NULL,
   `Estado` varchar(11) NOT NULL,
-  `Descripcion` int(11) NOT NULL
+  `Descripcion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`Id_Expediente`, `Estado`, `Descripcion`) VALUES
+(6, 'pendiente', 'Aun esta pendiente'),
+(7, 'pendiente', 'Aun esta pendiente'),
+(8, 'pendiente', 'Aun esta pendiente');
 
 -- --------------------------------------------------------
 
@@ -107,6 +113,7 @@ CREATE TABLE `estado` (
 --
 
 CREATE TABLE `movimientos` (
+  `Id_Movimiento` int(11) NOT NULL,
   `Id_Expediente` int(11) NOT NULL,
   `Id_Remitente` int(11) NOT NULL,
   `Id_Destino` int(11) NOT NULL,
@@ -114,6 +121,14 @@ CREATE TABLE `movimientos` (
   `Id_Personas` int(11) NOT NULL,
   `Fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `movimientos`
+--
+
+INSERT INTO `movimientos` (`Id_Movimiento`, `Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`) VALUES
+(1, 7, 0, 1, 6, 0, '2016-07-15'),
+(2, 8, 0, 1, 8, 0, '2016-07-15');
 
 -- --------------------------------------------------------
 
@@ -126,7 +141,7 @@ CREATE TABLE `personas` (
   `Dni` int(8) NOT NULL,
   `Nombres` varchar(30) NOT NULL,
   `Apellidos` varchar(30) NOT NULL,
-  `Nombre_Empresa` int(11) NOT NULL
+  `Nombre_Empresa` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -134,15 +149,9 @@ CREATE TABLE `personas` (
 --
 
 INSERT INTO `personas` (`Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa`) VALUES
-(1, 63828239, 'Juanito', 'Nose', 0),
-(2, 63828239, 'Juanito', 'Nose', 0),
-(3, 23323233, 'Pancho', 'Quispe', 0),
-(4, 23323233, 'Luis', 'Bernal', 0),
-(5, 23323233, 'Luis', 'Bernal', 0),
-(6, 23323233, 'Luis', 'Bernal', 0),
-(7, 32125632, 'Jeancarlos', 'Mendoza', 0),
-(8, 32125632, 'Rocio', 'Mendoza', 0),
-(9, 32125632, 'Rocio', 'Mendoza', 0);
+(13, 22222222, 'Alexis', 'Mendoza', ''),
+(14, 22222222, 'Alexis', 'Mendoza', ''),
+(15, 11111111, 'bryce', 'jano', '');
 
 -- --------------------------------------------------------
 
@@ -155,6 +164,19 @@ CREATE TABLE `tipo_tramite` (
   `Tipo_Tramite` varchar(20) NOT NULL,
   `Prioridad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tipo_tramite`
+--
+
+INSERT INTO `tipo_tramite` (`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES
+(2, 'Algun tipo', 3),
+(3, 'Algun tipo', 3),
+(4, 'Algun tipo', 3),
+(5, 'algun tipo', 3),
+(6, 'solicitud', 2),
+(7, 'solicitud', 2),
+(8, 'solicitud', 2);
 
 -- --------------------------------------------------------
 
@@ -177,7 +199,13 @@ CREATE TABLE `tramites` (
 --
 
 INSERT INTO `tramites` (`Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Area_Destino`) VALUES
-(1, 123, 2016, 0, 'Hacer un cargo', 4, 1);
+(2, 7, 2016, 0, 'algun problema', 6, 1),
+(3, 7, 2016, 0, 'algun problema', 6, 1),
+(4, 7, 2016, 0, 'algun problema', 6, 1),
+(5, 7, 2016, 0, 'algun problema', 7, 1),
+(6, 46, 2016, 0, 'algun asunto', 6, 1),
+(7, 46, 2016, 0, 'algun asunto', 6, 1),
+(8, 46, 2016, 0, 'algun asunto', 6, 1);
 
 --
 -- Índices para tablas volcadas
@@ -202,10 +230,22 @@ ALTER TABLE `empleados`
   ADD PRIMARY KEY (`Id_Empleado`);
 
 --
+-- Indices de la tabla `movimientos`
+--
+ALTER TABLE `movimientos`
+  ADD PRIMARY KEY (`Id_Movimiento`);
+
+--
 -- Indices de la tabla `personas`
 --
 ALTER TABLE `personas`
   ADD PRIMARY KEY (`Id_Persona`);
+
+--
+-- Indices de la tabla `tipo_tramite`
+--
+ALTER TABLE `tipo_tramite`
+  ADD PRIMARY KEY (`Id_Expediente`);
 
 --
 -- Indices de la tabla `tramites`
@@ -228,15 +268,20 @@ ALTER TABLE `area`
 ALTER TABLE `cargos`
   MODIFY `Id_Cargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT de la tabla `movimientos`
+--
+ALTER TABLE `movimientos`
+  MODIFY `Id_Movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `Id_Persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Id_Persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `tramites`
 --
 ALTER TABLE `tramites`
-  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

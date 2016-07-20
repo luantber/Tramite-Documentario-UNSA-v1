@@ -14,9 +14,61 @@
 			var $nombre_empresa;
 
 
-			function  __construct($Id_Persona){
-
+			function  __construct()
+			{
 				$this->query =  new Query();
+
+			}
+
+			public function getAllPersonasDatos()
+			{
+				$request="SELECT `Id_Persona` FROM `personas` WHERE 1";
+				$result=$this->query->consulta($request);
+				$personasIds=array();
+				$personasDatos=array();
+				if ($result->num_rows > 0) {
+			    
+				    while($datos = $result->fetch_assoc()) {
+
+				        array_push($personasIds,$datos["Id_Persona"]);
+				    }
+				}
+
+				foreach ($personasIds as $id_persona) {
+					
+					$persona_temp=new Persona();
+					$persona_temp->obtenerDatosPersona($id_persona);
+					array_push($personasDatos,$persona_temp->getAllDatos());
+
+				}
+
+				return $personasDatos; 
+			}
+
+			public function getAllDatos()
+			{
+				$datos=array();
+				array_push($datos,$this->id);
+				array_push($datos,$this->dni);
+				array_push($datos,$this->nombres);
+				array_push($datos,$this->apellidos);
+				array_push($datos,$this->nombre_empresa);
+				return $datos;
+			}
+
+			public function registrarPersona($Nombres,$Apellidos,$Dni)
+			{
+				$request="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`) VALUES (".$Dni.",'".$Nombres."','".$Apellidos."')";
+				$this->query->consulta($request);
+				$this->obtenerDatosPersona($this->query->get_id());
+
+			}
+
+
+
+			public function obtenerDatosPersona($Id_Persona)
+			{
+
 				$request="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Id_Persona=".$Id_Persona;
 				$result=$this->query->consulta($request);
 				if ($result->num_rows != 0) {
@@ -31,7 +83,25 @@
 				else {
 				    return false;
 				}
+			}
 
+			public function obtenerDatosPersonaByDni($Dni)
+			{
+
+				$request="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Dni=".$Dni;
+				$result=$this->query->consulta($request);
+				if ($result->num_rows != 0) {
+				    $datos = $result->fetch_assoc();
+				    $this->id=$datos["Id_Persona"];
+				    $this->dni=$datos["Dni"];
+				    $this->nombres=$datos["Nombres"];
+				    $this->apellidos=$datos["Apellidos"];
+				    $this->nombre_empresa=$datos["Nombre_Empresa"];
+				    return true;
+				}
+				else {
+				    return false;
+				}
 			}
 
 			public function getId()
@@ -111,4 +181,17 @@
   	echo $persona->get_dni()."</br>";
   	echo $persona->get_nombre_empresa()."</br>";
   	*/
+  	/*
+  	$persona = new Persona();
+  	$persona->registrarPersona("Yara","de Zuñiga",04623424);
+  	echo $persona->getId()."</br>";
+ 	echo $persona->getNombres()."</br>";
+ 	echo $persona->getApellidos()."</br>";
+ 	echo $persona->getDni()."</br>";
+ 	echo $persona->getNombreEmpresa()."</br>";
+	*/
+ 	/*
+ 	$p=new Persona();
+ 	echo $p->getAllPersonasDatos()[1][3];
+	*/
   ?>
