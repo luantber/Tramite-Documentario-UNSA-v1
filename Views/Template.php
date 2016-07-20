@@ -41,9 +41,9 @@
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="<?php echo URLM ?>/usuarios/crear">Registrar Usuario</a></li>
-          <li><a href="#">Editar</a></li>
+          <li><a href="<?php echo URLM ?>/usuarios/editar">Editar</a></li>
           <li><a href="<?php echo URLM ?>/usuarios/buscar">Buscar</a></li>
-          <li><a href="#">Todos</a></li> 
+          <li><a href="<?php echo URLM ?>/usuarios/ver">Usuarios</a></li> 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
