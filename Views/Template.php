@@ -41,9 +41,10 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Areas
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Crear</a></li>
-          <li><a href="<?php echo URLM ?>">Editar</a></li>
+          <li><a href="<?php echo URLM ?>/areas/crear">Crear</a></li>
+          <li><a href="<?php echo URLM ?>/areas/editar">Editar</a></li>
           <li><a href="<?php echo URLM ?>/areas/buscar">Buscar</a></li>
+          <li><a href="<?php echo URLM ?>/areas/ver">Ver</a></li>
           <li><a href="<?php echo URLM ?>/registrar/usuario">Todos</a></li> 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
