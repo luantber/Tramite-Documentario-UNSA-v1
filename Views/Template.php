@@ -34,7 +34,19 @@
     </div>
     <ul class="nav navbar-nav active">
       <li class="active"><a href="#">Inicio</a></li>
-      <li><a href="<?php echo URLM ?>/movimientos/id">Movimientos</a></li> 
+      <li><a href="<?php echo URLM ?>/movimientos/todos">Movimientos</a></li> 
+      <li><a href="<?php echo URLM ?>/usuarios/crear">Registrar Usuario</a></li> 
+      <!-- PARA USUARIOS !-->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Acciones Usuarios
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="<?php echo URLM ?>/usuarios/crear">Registrar Usuario</a></li>
+          <li><a href="#">Editar</a></li>
+          <li><a href="<?php echo URLM ?>/usuarios/buscar">Buscar</a></li>
+          <li><a href="#">Todos</a></li> 
+        </ul>
+      </li> <!-- AQUI TERMINA ... !-->
 
       <!-- PARA AREAS !-->
       <li class="dropdown">
@@ -49,13 +61,14 @@
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
+
       <!-- PARA MESA DE PARTES !-->
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Acciones
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Trámites
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Trámites</a></li>
-          <li><a href="<?php echo URLM ?>/tramites/crear">Nuevo Trámite</a></li>
+          <li><a href="#">Todos</a></li>
+          <li><a href="<?php echo URLM ?>/tramites/crear">Nuevo</a></li>
           <li><a href="<?php echo URLM ?>/tramites/buscar">Buscar</a></li>
           <li><a href="<?php echo URLM ?>/usuarios/crear">Registrar Usuario</a></li> 
         </ul>
@@ -68,6 +81,7 @@
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="<?php echo URLM ?>/empleados/crear">Registrar Empleado</a></li>
+          <li><a href="<?php echo URLM ?>personas/todas">Todas personas</a></li>
 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->

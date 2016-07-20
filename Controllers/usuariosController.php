@@ -32,6 +32,19 @@
 				render("usuarios/crear");
 				
 			}
+
+		}
+
+		function buscar()
+		{
+			# code...
+			render("usuarios/buscar");
+		}
+
+		function ver()
+		{
+			# code...
+			render("usuarios/ver");
 		}
 
 
