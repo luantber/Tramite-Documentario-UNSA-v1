@@ -1,6 +1,7 @@
 
 <div class="container">
-  <h2>Mis Trámites</h2>           
+  <h2>Mis Trámites</h2>  
+           
   <table class="table table-hover">
     <thead>
       <tr>
