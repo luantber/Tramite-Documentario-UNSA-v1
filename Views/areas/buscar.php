@@ -5,7 +5,7 @@
 	<div class="form-group" >
 		<label for="buscar" class="col-sm-2 control-label">Buscar por: </label>
 		<div class="col-sm-10" >
-			<label class="radio-inline"><input type="radio" name="bus" id="buscar"># Expediente</label>
+			<label class="radio-inline"><input type="radio" name="bus" id="buscar">Expediente</label>
 			<label class="radio-inline"><input type="radio" name="bus" id="buscar">Apellidos</label>			
 			<label class="radio-inline"><input type="radio" name="bus" id="buscar">DNI</label>
 			<label class="radio-inline"><input type="radio" name="bus" id="buscar">ID</label>
