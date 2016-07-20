@@ -1,5 +1,5 @@
 
-<form class="form-horizontal container"  method="POST" action=" <?php echo URLM?>registrar/empleado">
+<form class="form-horizontal container"  method="POST" action=" <?php echo URLM?>empleados/crear">
   <div class="row container form-group">
       <div class="col-xs-6">
         <label for="nombree" class="col-sm-5 control-label" >Nombre</label>

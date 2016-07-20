@@ -62,8 +62,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <!--PERFIL !-->
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
-
+      <li><a href="<?php echo URLM ?>/perfil/barrita"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
       <!--INGRESAR!-->
       <li><a href="<?php echo URLM ?>/ingresar/empleado"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
     
