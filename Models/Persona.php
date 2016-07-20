@@ -157,7 +157,14 @@
 				$this->nombre_empresa=$Empresa;
 			}
 
+			public function save()
+			{
+				$this->cambiarNombres($this->nombres);
+				$this->cambiarApellidos($this->apellidos);
+				$this->cambiarDni($this->dni);
+				$this->cambiarEmpresa($this->nombre_empresa);
 
+			}
 
 		}
 
@@ -193,5 +200,11 @@
  	/*
  	$p=new Persona();
  	echo $p->getAllPersonasDatos()[1][3];
+	*/
+ 	/*
+ 	$p=new Persona();
+ 	$p->obtenerDatosPersona(14);
+ 	$p->dni=99999999;
+ 	$p->save();
 	*/
   ?>
