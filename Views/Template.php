@@ -8,7 +8,7 @@
 	class Template
 	{
 
-		public function __construct()
+		public function  __construct()
 		{
       //Js::prints("heyy",True);
 ?>
@@ -55,8 +55,7 @@
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="<?php echo URLM ?>areas/crear">Crear</a></li>
-          <li><a href="<?php echo URLM ?>areas/ver">Todos</a></li>
-          <li><a href="<?php echo URLM ?>areas/buscar">Buscar</a></li>
+          <li><a href="<?php echo URLM ?>areas">Todos</a></li>
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
@@ -80,6 +79,7 @@
         <ul class="dropdown-menu">
           <li><a href="<?php echo URLM ?>empleados/crear">Registrar Empleado</a></li>
           <li><a href="<?php echo URLM ?>personas">Todas personas</a></li>
+          <li><a href="<?php echo URLM ?>empleados">Todos Empleados</a></li>
 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
