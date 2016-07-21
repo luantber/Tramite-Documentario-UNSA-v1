@@ -65,7 +65,7 @@
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
 
       <!--INGRESAR!-->
-      <li><a href="<?php echo URLM ?>/ingresar/inde"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
+      <li><a href="<?php echo URLM ?>/ingresar/empleado"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
     
       <!--SALIR!-->
       <li><a href="<?php echo URLM ?>"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
