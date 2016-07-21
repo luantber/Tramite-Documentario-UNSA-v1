@@ -42,7 +42,6 @@
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="<?php echo URLM ?>usuarios/crear">Registrar Usuario</a></li>
-          <li><a href="#">Editar</a></li>
           <li><a href="<?php echo URLM ?>usuarios/buscar">Buscar</a></li>
           <li><a href="#">Todos</a></li> 
         </ul>
@@ -54,8 +53,6 @@
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="<?php echo URLM ?>areas/crear">Crear</a></li>
-          <li><a href="<?php echo URLM ?>areas/editar">Editar</a></li>
-          <li><a href="<?php echo URLM ?>areas/buscar">Buscar</a></li>
           <li><a href="<?php echo URLM ?>areas/ver">Todos</a></li>
         </ul>
       </li> <!-- AQUI TERMINA ... !-->

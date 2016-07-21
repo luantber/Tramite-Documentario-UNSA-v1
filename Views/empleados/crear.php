@@ -32,7 +32,7 @@
   <div class="form-group">
       <label for="contrasñausu" class="col-sm-2 control-label" >Contraseña</label>
       <div class="col-sm-10">
-          <input name="contrae" type="password" class="form-control" id="contraseñausu" required placeholder="Escriba 123456">
+         <label>La contraseña por defecto es 123456</label> 
       </div>
   </div>
 
