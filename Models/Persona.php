@@ -20,8 +20,41 @@
 
 			}
 
+			public function getAllPersonasDatos()
+			{
+				$request="SELECT `Id_Persona` FROM `personas` WHERE 1";
+				$result=$this->query->consulta($request);
+				$personasIds=array();
+				$personasDatos=array();
+				if ($result->num_rows > 0) {
+			    
+				    while($datos = $result->fetch_assoc()) {
 
+				        array_push($personasIds,$datos["Id_Persona"]);
+				    }
+				}
 
+				foreach ($personasIds as $id_persona) {
+					
+					$persona_temp=new Persona();
+					$persona_temp->obtenerDatosPersona($id_persona);
+					array_push($personasDatos,$persona_temp->getAllDatos());
+
+				}
+
+				return $personasDatos; 
+			}
+
+			public function getAllDatos()
+			{
+				$datos=array();
+				array_push($datos,$this->id);
+				array_push($datos,$this->dni);
+				array_push($datos,$this->nombres);
+				array_push($datos,$this->apellidos);
+				array_push($datos,$this->nombre_empresa);
+				return $datos;
+			}
 
 			public function registrarPersona($Nombres,$Apellidos,$Dni)
 			{
@@ -157,5 +190,8 @@
  	echo $persona->getDni()."</br>";
  	echo $persona->getNombreEmpresa()."</br>";
 	*/
-
+ 	/*
+ 	$p=new Persona();
+ 	echo $p->getAllPersonasDatos()[1][3];
+	*/
   ?>
