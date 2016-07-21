@@ -35,8 +35,6 @@
       <a class="navbar-brand" href="<?php echo URLM ?>">Trámite Documentario</a>
     </div>
     <ul class="nav navbar-nav active">
-      <li class="active"><a href="#">Inicio</a></li>
-
       <li><a href="<?php echo URLM ?>movimientos">Movimientos</a></li> 
 
       <!-- PARA USUARIOS !-->
