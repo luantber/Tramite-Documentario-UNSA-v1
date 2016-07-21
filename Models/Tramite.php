@@ -5,8 +5,10 @@
 
 	include_once "Query.php";
 	include_once "Empleado.php";
+	include_once "Area.php";
 	use Models\Query as Query;
 	use Models\Persona as Persona;
+	use Models\Area as Area;
 	class Tramite
 	{
 		var $id_expediente; //int
@@ -153,17 +155,54 @@
 		
 		function moverTramite($Id_Area_Destino)
 		{
-			echo $this->id_area_actual;
-			echo $this->id_expediente;
-			echo $this->id_persona;
-			echo $Id_Area_Destino;
-			echo $this->id_persona;
+			
 			$request="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`)  VALUES (".$this->id_expediente.",".$this->id_area_actual.",".$Id_Area_Destino.",".$this->id_expediente.",".$this->id_persona.",'2016-06-20')";
 			$this->query->consulta($request);
 			$this->estado=0;
 			$this->save();
 		}
 
+		function getRutaIds()
+		{
+			$request="SELECT `Id_Movimiento`, `Id_Remitente`, `Id_Destino` FROM `movimientos` WHERE Id_Expediente=".$this->id_expediente;
+			$result=$this->query->consulta($request);
+			$idsRuta=array();
+			$destino="";
+			if($result->num_rows==1)
+			{
+				array_push($idsRuta,$this->id_area_actual);
+			}
+			else
+			{
+				while ($datos = $result->fetch_assoc()) {
+					if($datos["Id_Remitente"]!=0){
+						array_push($idsRuta,$datos["Id_Remitente"]);	
+						$destino=$datos["Id_Destino"];
+					}
+					
+				}	
+				if($this->recibido==1)
+				{
+					array_push($idsRuta,$destino);	
+				}
+				
+			}
+
+			return $idsRuta;
+			
+		}
+
+		function getRutaNombres()
+		{
+			$idsRutas=$this->getRutaIds();
+			$idsRutasNombres=array();
+			foreach($idsRutas as $idRuta) {
+				$area_temp=new Area();
+				$area_temp->obtenerDatosAreaById($idRuta);
+				array_push($idsRutasNombres,$area_temp->getNombreArea());
+			}
+			return $idsRutasNombres;
+		}
 
 		function getAllTramitesDatos()
 		{
@@ -422,16 +461,19 @@
 
 <?php 
 	
-	$tram=new Tramite();
-	$tram->obtenerDatosTramiteId(9);
-	$tram->moverTramite(2);
+	//$tram=new Tramite();
+	//$tram->obtenerDatosTramiteId(9);
+	//$tram->moverTramite(2);
 	/*
 	$tram=new Tramite();
 	
 	$tram->obtenerDatosTramiteId(9);
-	$tram->id_area_actual=1;
-	$tram->save();
+	$a=$tram->getRutaNombres();	
+	foreach ($a as $b) {
+		echo $b ."</br>";
+	}
 	*/
+	
 	
 
 
