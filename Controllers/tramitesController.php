@@ -9,6 +9,9 @@
 				Necesito getAllTRamites()
 			*/
 			echo "todos los tramites";
+			$t= new Tramite();
+			//print_r($t->getAllTRamitesDatos());
+			Js::prints($t->getAllTRamitesDatos(),"data",True);
 		}
 
 		function ver($id){
@@ -72,7 +75,7 @@
 				*/
 
 
-				$t->registrarTramiteByDni(
+				if($t->registrarTramiteByDni(
 					$_POST["folios"],
 					$_POST["descrip"],
 					$_POST["ident"],
@@ -83,11 +86,20 @@
 					//$_POST["descripcion_estado"]
 					"",
 					""
-					);
+					)) 
+				{
 
-				echo $t->getAsunto();
+					//error e
+					JS::error("HUbo un error al registrar el Tramite");
+				}
+				else{
+					//Exito
+					echo $t->getAsunto();
 
-				render("registrar/exito");
+					render("registrar/exito");
+
+				}
+
 			}
 			else{
 				

@@ -1,12 +1,40 @@
 <?php namespace Controllers;
 
+	use Models\Persona as Persona;
+	use Models\Js as Js;
 	class usuariosController
 	{
-		public index(){
+		function index(){
 			/*
 				GetALlUsers
 			*/
 		}
+
+		function crear(){
+			if (!empty($_POST)){
+				
+				$r = new Persona();
+
+				$data = array(
+					$_POST["nomusu"],
+					$_POST["apeusu"],
+					$_POST["dniusu"]
+				);
+
+				//Lo se esto .. esta bien fumado
+				$r->registrarPersona(...$data);
+				echo "exito";
+				Js::prints($data,true);
+				render("usuarios/crear");
+			}
+			else{
+				
+				render("usuarios/crear");
+				
+			}
+		}
+
+
 		
 	}
 ?>

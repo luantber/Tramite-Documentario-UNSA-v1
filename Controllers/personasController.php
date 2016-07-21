@@ -8,6 +8,8 @@
 
 	class personasController
 	{
-		
+		function index(){
+
+		}
 
 	}	
