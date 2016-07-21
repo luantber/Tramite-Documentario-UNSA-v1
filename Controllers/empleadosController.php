@@ -40,6 +40,10 @@
 				
 			}
 		}
+
+		function editar(){
+			
+		}
 		
 	}
  ?>
