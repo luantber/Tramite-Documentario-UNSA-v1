@@ -1,6 +1,7 @@
 <?php namespace Controllers;
 
 	use Models\Tramite as Tramite;
+	use Models\Area as Area;
 	use Models\Js as Js;
 	class tramitesController
 	{
@@ -8,10 +9,11 @@
 			/*
 				Necesito getAllTRamites()
 			*/
-			echo "todos los tramites";
 			$t= new Tramite();
 			//print_r($t->getAllTRamitesDatos());
-			Js::prints($t->getAllTRamitesDatos(),"data",True);
+			Js::prints($t->getAllTRamitesDatos(),True,"data");
+			render("tramites/barraTramites");
+			render("tramites/todos");
 		}
 
 		function mover()
@@ -27,12 +29,19 @@
 				redirect("panel",true);
 
 
-			}	
+			}else{
+
+			echo "OLA KE ASE, VIOLANDO LA SEGURIDAD O KE ASE";	
+			}
 		}
 
 		function buscar()
 		{
 			# code...
+			//$_POST = dat,
+			//bus
+			//0 apellido
+			//1 dni
 			render("tramites/buscar");
 		}
 
@@ -40,7 +49,9 @@
 			/*
 				Checkear seguridad
 			*/
-			echo $id;
+			if (isset($id)){
+
+				echo $id;
 			$t = new Tramite;
 			if ($t->obtenerDatosTramiteId($id)){
 				$tramite = array(
@@ -54,6 +65,9 @@
 			else{
 				JS::prints("No existe un tramite con id,".$id,"error",True);
 			}
+			}
+			redirect("error/e404");
+			
 		}
 
 		function editar($id){
@@ -85,29 +99,26 @@
 
 		function crear(){
 			if (!empty($_POST)){
-//function registrarTramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)				
+				
 				$t = new Tramite();
-				/*print_r(array($_POST["folios"],
-					$_POST["descrip"],
-					$_POST["ident"],
-					$_POST["destino"],
-					$_POST["tipo"],
-					$_POST["prioridad"]));
-				*/
+				
+				//registrarTramiteByDni($Folios,$Asunto,$Dni_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)
+				echo "Destino".$_POST["destino"];
 
 
 				if($t->registrarTramiteByDni(
 					$_POST["folios"],
-					$_POST["descrip"],
+					$_POST["asunto"],
 					$_POST["ident"],
 					$_POST["destino"],
-					$_POST["tipo"],
+					"tipo", //Tipo de tramite
 					$_POST["prioridad"],
-					//$_POST["estado"]
-					//$_POST["descripcion_estado"]
-					"",
-					""
-					)) 
+					"Pendiente",
+					 //Estado: Enproceso, finalizado y rechazado
+					"..."
+
+					)
+					) 
 				{
 
 					//error e
@@ -124,10 +135,52 @@
 
 			}
 			else{
-				
+				$a = new Area;
+				$at = $a->obtenerAreas();
+				Js::prints($at,true,"areas");
 				render("tramites/crear");
 				
 			}
+		}
+
+		function imprimir()
+		{
+			render("tramites/imprimir");
+			# code...
+		}
+
+		function recibido(){
+			if (!empty($_POST)){
+				$idt = $POST["idtramite"];
+				$r = $_POST["recibido"];
+
+				$t = new Tramite;
+				$t->recibido = $r;
+				$t->save();
+
+				redirect("panel");
+
+			}else{
+				
+			echo "OLA KE ASE, VIOLANDO LA SEGURIDAD O KE ASE";	
+			}
+
+		}
+
+		function proceso(){
+			
+			render("tramites/barraTramites");
+			render("tramites/todos");
+		}
+
+		function finalizado(){
+			render("tramites/barraTramites");
+			render("tramites/todos");
+		}
+
+		function rechazado(){
+			render("tramites/barraTramites");
+			render("tramites/todos");
 		}
 	}
 ?>

@@ -16,7 +16,7 @@
 				exit();
 	}
 
-	function getSesion($nameData){
+	function getSesion($nameData="session1"){
 		if (isset($_SESSION[$nameData])){
 			$s  = $_SESSION[$nameData];
 			unset($_SESSION[$nameData]);

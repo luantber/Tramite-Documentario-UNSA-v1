@@ -29,12 +29,6 @@
       </div>
   </div>
 
-  <div class="form-group">
-      <label for="contrasñausu" class="col-sm-2 control-label" >Contraseña</label>
-      <div class="col-sm-10">
-          <input name="contrae" type="password" class="form-control" id="contraseñausu" required placeholder="Escriba 123456">
-      </div>
-  </div>
 
   <div class="form-group">
       <label for="campo" class="col-sm-2 control-label" >Área</label>
@@ -42,9 +36,9 @@
         <select name="area" class="form-control" id="area" >
             <option value="" >Seleccionar</option>
             <script type="text/javascript">
-              var opciones=["Mesa de partes","Logistíca","Secretaria"]
-              for (var i=0;i<opciones.length;i++){
-                document.write("<option>"+opciones[i]+"</option>")
+              //var opciones=["Mesa de partes","Logistíca","Secretaria"]
+              for (var i=0;i<areas.length;i++){
+                document.write("<option>"+areas[i]+"</option>")
               }
             </script> 
           </select>
@@ -59,15 +53,21 @@
          <select name="cargo" class="form-control">
            <option value="">Seleccionar</option>
            <script type="text/javascript">
-            var cargo=["Jefe", "Encargado","Ayudante"]
-            for(var i=0;i<cargo.length;i++){
-              document.write("<option>"+cargo[i]+"</option>")
+            //var cargo=["Jefe", "Encargado","Ayudante"]
+            for(var i=0;i<cargos.length;i++){
+              document.write("<option>"+cargos[i]+"</option>")
             }
            </script>
          </select>
       </div>
   </div>
 
+  <div class="form-group">
+      <label for="contrasñausu" class="col-sm-2 control-label" >Contraseña</label>
+      <div class="col-sm-10">
+         <label>La contraseña por defecto es 123456</label> 
+      </div>
+  </div>
 
   <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">

@@ -12,13 +12,9 @@
 			$areas = $a->getAllAreasDatos();
 
 			Js::prints($areas,true,"areas");
+			render("areas/ver");
 		}
 
-		public function buscar()
-		{
-			# code..
-			render("areas/buscar");
-		}
 
 		public function crear()
 		{
@@ -26,16 +22,9 @@
 			render("areas/crear");
 		}
 
-		public function editar()
-		{
-			# code...
-			render("areas/editar");
-		}
-
 		public function ver()
-		{
-			
-			render("areas/ver");
+		{			
+			echo "Nada aun.";
 		}
 		
 	}
