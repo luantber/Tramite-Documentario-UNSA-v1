@@ -37,8 +37,10 @@
             <option value="" >Seleccionar</option>
             <script type="text/javascript">
               //var opciones=["Mesa de partes","Logistíca","Secretaria"]
+              var nuevo;
               for (var i=0;i<areas.length;i++){
-                document.write("<option>"+areas[i]+"</option>")
+                nuevo=areas[i];
+                document.write("<option value="+nuevo[0]+">"+nuevo[1]+"</option>")
               }
             </script> 
           </select>
@@ -54,8 +56,10 @@
            <option value="">Seleccionar</option>
            <script type="text/javascript">
             //var cargo=["Jefe", "Encargado","Ayudante"]
+            var nuevo;
             for(var i=0;i<cargos.length;i++){
-              document.write("<option>"+cargos[i]+"</option>")
+              nuevo=cargos[i];
+              document.write("<option value="+nuevo[0]+">"+nuevo[1]+"</option>")
             }
            </script>
          </select>

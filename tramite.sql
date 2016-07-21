@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-07-2016 a las 01:39:29
+-- Tiempo de generación: 22-07-2016 a las 01:54:23
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -28,22 +28,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `area` (
   `Id_Area` int(11) NOT NULL,
-  `Id_JefedeArea` int(11) NOT NULL,
   `Nom_Area` varchar(30) NOT NULL,
-  `Descripcion` text NOT NULL
+  `Descripcion` text NOT NULL,
+  `Id_JefedeArea` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `area`
 --
 
-INSERT INTO `area` (`Id_Area`, `Id_JefedeArea`, `Nom_Area`, `Descripcion`) VALUES
-(1, 0, 'Mesa de Partes', 'Se encarga de la recepción de documentos necesarios para la gestión de un tramite.'),
-(2, 0, 'Gerencia', 'Gestiona los tramites y los redirige a cada area especializada.'),
-(3, 10, 'Logistica', 'Area del personal encargando de gestion logistica.'),
-(4, 13, 'Recursos Humanos', 'Area que vela por las necesidades del personal'),
-(5, 5, 'Informatica', 'Area encargada del manejo de material informatico.'),
-(6, 1, 'Contabilidad', 'Area encargada los estudios contables.');
+INSERT INTO `area` (`Id_Area`, `Nom_Area`, `Descripcion`, `Id_JefedeArea`) VALUES
+(1, 'Mesa de Partes', 'Se encarga de la recepción de documentos necesarios para la gestión de un tramite.', 0),
+(2, 'Gerencia', 'Gestiona los tramites y los redirige a cada area especializada.', 0),
+(3, 'Logistica', 'Area del personal encargando de gestion logistica.', 10),
+(4, 'Recursos Humanos', 'Area que vela por las necesidades del personal', 13),
+(5, 'Informatica', 'Area encargada del manejo de material informatico.', 5),
+(6, 'Contabilidad', 'Area encargada los estudios contables.', 1);
 
 -- --------------------------------------------------------
 
