@@ -80,18 +80,37 @@
 
 		}
 
-		function getIdMovimientos()
+		//esto retorna un array con los Ids de los movimientos de este Tramite
+		function getIdsMovimientos()
 		{
 			$request="SELECT `Id_Movimiento` FROM `movimientos` WHERE Id_Expediente=".$this->id_expediente;
 			$result=$this->query->consulta($request);
 			$IdsMovimientos=array();
 			if ($result->num_rows > 0) {
-		    // output data of each row
+		    
 			    while($datos = $result->fetch_assoc()) {
 			        array_push($IdsMovimientos,$datos["Id_Movimiento"]);
 			    }
 			}
 			return $IdsMovimientos; 
+		}
+
+		function getMovimientoDatosById($Id_Movimiento)
+		{
+			$request="SELECT `Id_Movimiento`, `Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha` FROM `movimientos` WHERE Id_Movimiento=".$Id_Movimiento;
+			$result=$this->query->consulta($request);
+			$datos=$result->fetch_assoc();
+			$DatosMovimientos=array();
+			
+		    array_push($DatosMovimientos,$datos["Id_Movimiento"]);
+		    array_push($DatosMovimientos,$datos["Id_Expediente"]);
+		    array_push($DatosMovimientos,$datos["Id_Remitente"]);
+		    array_push($DatosMovimientos,$datos["Id_Destino"]);
+		    array_push($DatosMovimientos,$datos["Id_Estado"]);
+		    array_push($DatosMovimientos,$datos["Id_Personas"]);
+		    array_push($DatosMovimientos,$datos["Fecha"]);
+			
+			return $DatosMovimientos; 
 		}
 
 
