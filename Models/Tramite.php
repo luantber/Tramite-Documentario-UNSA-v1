@@ -4,7 +4,9 @@
 	*/
 
 	include_once "Query.php";
+	include_once "Empleado.php";
 	use Models\Query as Query;
+	use Models\Persona as Persona;
 	class Tramite
 	{
 		var $id_expediente;
@@ -80,18 +82,58 @@
 
 		}
 
-		function getIdMovimientos()
+
+		function registrarTramiteByDni($Folios,$Asunto,$Dni_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)
+		{
+			$persona=new Persona();
+			$persona->obtenerDatosPersonaByDni($Dni_Persona);
+			$Id_Persona=$persona->getId();
+			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Destino`) VALUES (".$Folios.",'2016-07-15','".$Asunto."',".$Id_Persona.",".$Id_Area_Destino.")";
+			$this->query->consulta($request);
+			$tramite_id=$this->query->get_id();
+			$request2="INSERT INTO `tipo_tramite`(`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES (".$tramite_id.",'".$Tipo_Tramite."',".$Prioridad.")";
+			$this->query->consulta($request2);
+			$request3="INSERT INTO `estado`(`Id_Expediente`, `Estado`, `Descripcion`) VALUES (".$tramite_id.",'".$Estado."','".$DescripcionEstado."')";
+			$this->query->consulta($request3);
+
+			$request4="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`) VALUES ($tramite_id,0,$Id_Area_Destino,$tramite_id,'2016-07-15')";
+			$this->query->consulta($request4);
+
+			$this->obtenerDatosTramiteId($tramite_id);
+
+		}
+
+		//esto retorna un array con los Ids de los movimientos de este Tramite
+		function getIdsMovimientos()
 		{
 			$request="SELECT `Id_Movimiento` FROM `movimientos` WHERE Id_Expediente=".$this->id_expediente;
 			$result=$this->query->consulta($request);
 			$IdsMovimientos=array();
 			if ($result->num_rows > 0) {
-		    // output data of each row
+		    
 			    while($datos = $result->fetch_assoc()) {
 			        array_push($IdsMovimientos,$datos["Id_Movimiento"]);
 			    }
 			}
 			return $IdsMovimientos; 
+		}
+		//obtiene los datos de un movimiento en un array usando el id_movimiento
+		function getMovimientoDatosById($Id_Movimiento)
+		{
+			$request="SELECT `Id_Movimiento`, `Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha` FROM `movimientos` WHERE Id_Movimiento=".$Id_Movimiento;
+			$result=$this->query->consulta($request);
+			$datos=$result->fetch_assoc();
+			$DatosMovimientos=array();
+			
+		    array_push($DatosMovimientos,$datos["Id_Movimiento"]);
+		    array_push($DatosMovimientos,$datos["Id_Expediente"]);
+		    array_push($DatosMovimientos,$datos["Id_Remitente"]);
+		    array_push($DatosMovimientos,$datos["Id_Destino"]);
+		    array_push($DatosMovimientos,$datos["Id_Estado"]);
+		    array_push($DatosMovimientos,$datos["Id_Personas"]);
+		    array_push($DatosMovimientos,$datos["Fecha"]);
+			
+			return $DatosMovimientos; 
 		}
 
 
@@ -164,9 +206,14 @@
 <?php 
 	/*
 	$tram=new Tramite();
+	$tram->registrarTramiteByDni(34,"dadsad",11111111,1,"jasas",2,"en proceso","asdaddsa");
+	
 	$tram->obtenerDatosTramiteId(8);
 	echo $tram->getFolios()."</br>";
 	echo $tram->getIdMovimientos()[0];
 	*/
+
+
+
 
  ?>
