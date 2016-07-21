@@ -173,6 +173,8 @@
 				return $this->password;
 			}
 
+			
+
 			public function cambiarPassword($Password)
 			{
 				$request="UPDATE `empleados` SET `Password`='".$Password."' WHERE Id_Empleado=".$this->id;
