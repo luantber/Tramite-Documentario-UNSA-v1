@@ -5,6 +5,7 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand active" href="<?php echo URLM ?>/perfil/barrita">Perfil</a>
+      
     </div>
  
     <ul class="nav navbar-nav active">
