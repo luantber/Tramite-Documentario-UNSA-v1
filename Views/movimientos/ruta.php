@@ -1,4 +1,5 @@
 <div class="container">
+
   <h2>Movimientos</h2>
   <br>
   <dt>Nombre de tramite:</dt>

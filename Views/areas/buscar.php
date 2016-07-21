@@ -2,6 +2,7 @@
 		<!--............................. ESTO NO VA AÚN  .............................. !-->
 
 <h2 class="text-center">Buscar Área</h2>
+
 <form class="form-horizontal container">
 	<div class="form-group" >
 		<label for="buscar" class="col-sm-2 control-label">Buscar por: </label>

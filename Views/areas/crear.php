@@ -1,4 +1,5 @@
 <h2 class="text-center">Nueva Área</h2>
+
  <form role="form" class="form-horizontal container">
 
   <div class="form-group">

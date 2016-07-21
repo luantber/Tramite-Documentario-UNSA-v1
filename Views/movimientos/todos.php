@@ -1,5 +1,6 @@
 
 <div class="container">
+
   <h2>Todos los movimientos</h2>           
   <table class="table table-hover">
     <thead>

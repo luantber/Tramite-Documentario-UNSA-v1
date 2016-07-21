@@ -1,4 +1,5 @@
 <h2 class="text-center">Trámite</h2>
+
 <form class="form-horizontal container">
   <div class="form-group" >
     <label for="movi" class="col-sm-2 control-label">Buscar por: </label>

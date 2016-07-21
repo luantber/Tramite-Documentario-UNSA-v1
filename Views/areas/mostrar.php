@@ -1,5 +1,6 @@
 
 <div class ="container">
+
    <div class="form-group">
  
       <br>
@@ -19,6 +20,7 @@
        </div>  
     </div>  
     <div class="form-group">
+    
       <div class="col-sm-offset-2 col-sm-10">
           <a class="btn btn-primary" href="<?php echo URLM ?>/areas/editar" role="button">Editar</a>
           <!--<button type="submit" class="btn btn-default">Buscar Área</button>-->
