@@ -7,14 +7,19 @@
 	use Models\Cargo as Cargo;
 	use Models\Area as Area;
 	use Models\Empleado as Empleado;
+	use Models\Persona as Persona;
 	class empleadosController
 	{
 		
 		public function index()
 		{
-			$p = new Persona();
-			Js::prints($p->getAllEmpleadosDatos());
-			render("empleados/todas");
+			$p = new Empleado();
+			$pd = $p->getAllEmpleadosDatos();
+
+			Js::prints("Empleados ",True,"title");
+			Js::prints($pd,True);
+			render("personas/todas");
+	
 		}
 
 		function crear(){

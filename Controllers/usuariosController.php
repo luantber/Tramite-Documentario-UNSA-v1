@@ -5,9 +5,12 @@
 	class usuariosController
 	{
 		function index(){
-			/*
-				GetALlUsers
-			*/
+			$p = new Persona();
+			$pd = $p->getAllClientes();
+
+			Js::prints("Clientes(ususarios)",True,"title");
+			Js::prints($pd,True);
+			render("personas/todas");
 		}
 
 		function crear(){
