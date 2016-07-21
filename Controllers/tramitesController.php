@@ -166,5 +166,21 @@
 			}
 
 		}
+
+		function proceso(){
+			
+			render("tramites/barraTramites");
+			render("tramites/todos");
+		}
+
+		function finalizado(){
+			render("tramites/barraTramites");
+			render("tramites/todos");
+		}
+
+		function rechazado(){
+			render("tramites/barraTramites");
+			render("tramites/todos");
+		}
 	}
 ?>
