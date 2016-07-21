@@ -8,10 +8,9 @@
 			/*
 				Necesito getAllTRamites()
 			*/
-			echo "todos los tramites";
 			$t= new Tramite();
-			print_r($t->getAllTRamitesDatos());
-			Js::prints($t->getAllTRamitesDatos(),"data",True);
+			//print_r($t->getAllTRamitesDatos());
+			Js::prints($t->getAllTRamitesDatos(),True,"data");
 			render("tramites/barraTramites");
 			render("tramites/todos");
 		}
@@ -166,6 +165,22 @@
 			echo "OLA KE ASE, VIOLANDO LA SEGURIDAD O KE ASE";	
 			}
 
+		}
+
+		function proceso(){
+			
+			render("tramites/barraTramites");
+			render("tramites/todos");
+		}
+
+		function finalizado(){
+			render("tramites/barraTramites");
+			render("tramites/todos");
+		}
+
+		function rechazado(){
+			render("tramites/barraTramites");
+			render("tramites/todos");
 		}
 	}
 ?>

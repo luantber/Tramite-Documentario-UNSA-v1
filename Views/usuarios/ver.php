@@ -1,3 +1,33 @@
-<div>
-	
+<div class="container">
+  <h2>Usuarios</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>DNI</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>012</td>
+        <td>77846525</td>
+        <td>Juana</td>
+        <td>Ramirez</td>
+      </tr>
+      <tr>
+        <td>014</td>
+        <td>71521125</td>
+        <td>Pablo</td>
+        <td>Velazquez</td>
+      </tr>
+      <tr>
+        <td>015</td>
+        <td>78876123</td>
+        <td>Maria</td>
+        <td>Apaza</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
