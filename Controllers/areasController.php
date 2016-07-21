@@ -14,6 +14,11 @@
 			Js::prints($areas,true,"areas");
 
 		}
+		public function buscar()
+		{
+			# code..
+			render("areas/buscar");
+		}
 		
 	}
  ?>
