@@ -3,10 +3,12 @@
 	/**
 	* Empleados Controlador
 	*/
+	use Models\Auth as Auth;
 	use Models\Js as Js;
 	use Models\Cargo as Cargo;
 	use Models\Area as Area;
 	use Models\Empleado as Empleado;
+
 	class empleadosController
 	{
 		
@@ -47,6 +49,33 @@
 				Js::prints($at,true,"areas");
 				Js::prints($c,true,"cargos");
 				render("empleados/crear");
+				
+			}
+		}
+
+		function ingresar()
+		{
+			if (!empty($_POST)){
+				
+				$emp = new Empleado;
+				if ($emp->obtenerDatosDni($_POST["username"]))
+				{
+					if ($emp->getPassword()==$_POST["password"])
+					{
+						Auth::set_session($emp);
+						echo Auth::get_session()->getNombres();	
+						render("ingresar/exito");
+					}
+					else
+						echo "<br>Contraseña incorrecta";
+				}
+				else
+					echo "No estas registrado";
+
+			}
+			else{
+				
+				render("empleados/ingresar");
 				
 			}
 		}
