@@ -10,7 +10,7 @@
 	{
 		function index(){
 			$p = new Persona();
-			Js::prints($p->getAllPersonasDatos(),true);
+			Js::prints($p->getAllPersonasDatos());
 			render("personas/todas");
 
 		}

@@ -12,6 +12,7 @@
 			$areas = $a->getAllAreasDatos();
 
 			Js::prints($areas,true,"areas");
+			render("areas/ver");
 		}
 
 
@@ -22,9 +23,8 @@
 		}
 
 		public function ver()
-		{
-			
-			render("areas/ver");
+		{			
+			echo "Nada aun.";
 		}
 		
 	}
