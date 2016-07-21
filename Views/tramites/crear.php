@@ -39,9 +39,12 @@
         <div class="col-sm-10">
           <select name="destino" class="form-control" id="destino">
             <option value="" >Seleccionar</option>
-            <option value="1" required>destino 1</option>
-            <option value="2" required>destino 2</option>
-            <option value="3" required>destino 3</option>
+            <script type="text/javascript">
+              var opciones=["logistica","secretaria","Dirección Academica","Sistemas"];
+              for (var i=0;i<opciones.length;i++){
+                document.write("<option>"+opciones[i]+"</option>")
+              }
+            </script>
           </select>
           <p id="nodestino" ></p>
       </div>

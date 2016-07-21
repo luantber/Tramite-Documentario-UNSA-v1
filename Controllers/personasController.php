@@ -11,6 +11,7 @@
 		function index(){
 			$p = new Persona();
 			Js::prints($p->getAllPersonasDatos(),true);
+			render("personas/todas");
 
 		}
 
