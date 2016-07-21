@@ -52,6 +52,25 @@
 				}
 			}
 
+			public function obtenerDatosPersonaByDni($Dni)
+			{
+
+				$request="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Dni=".$Dni;
+				$result=$this->query->consulta($request);
+				if ($result->num_rows != 0) {
+				    $datos = $result->fetch_assoc();
+				    $this->id=$datos["Id_Persona"];
+				    $this->dni=$datos["Dni"];
+				    $this->nombres=$datos["Nombres"];
+				    $this->apellidos=$datos["Apellidos"];
+				    $this->nombre_empresa=$datos["Nombre_Empresa"];
+				    return true;
+				}
+				else {
+				    return false;
+				}
+			}
+
 			public function getId()
 			{
 				return $this->id;
