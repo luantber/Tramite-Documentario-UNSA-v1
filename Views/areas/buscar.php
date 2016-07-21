@@ -21,7 +21,7 @@
 
   	<div class="form-group">
     	<div class="col-sm-offset-2 col-sm-10">
-    	    <a class="btn btn-primary" href="<?php echo URLM ?>/areas/mostrar" role="button">Ver área</a>
+    	    <a class="btn btn-primary" href="<?php echo URLM ?>/areas/mostrar" role="button">Mostrar area</a>
       		<!--<button type="submit" class="btn btn-default">Buscar Área</button>-->
     	</div>
   	</div>

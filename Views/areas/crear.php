@@ -28,20 +28,19 @@
     <input name="jefeArea" type="text" class="form-control" id="person" required placeholder="Ingrese nombre de nuevo jefe">
     </div>
   </div>
-
+<!--
   <div class="form-group">
     <label for="person" class="col-sm-2 control-label">Descripción </label>
     <div class="col-sm-10" >
     <input name="desArea" type="text" class="form-control" id="person" required placeholder="Ingrese descripción acerca de la nueva área">
-    </div>
+    </div> -->
 <!-->>>>>>> master-->
-  </div>
-
+ 
    <div class="form-group">
   	
   	<label for="descrip" class="col-sm-2 control-label">Descripción del área:</label>
   	<div class="col-sm-10" >
-  	<textarea class="form-control" rows="3" id="descrip"></textarea>
+  	 <textarea class="form-control" rows="3" id="descrip" required placeholder="Ingrese descripción acerca de la nueva área"></textarea>-->
     </div>
    </div>
 

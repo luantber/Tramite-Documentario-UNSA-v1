@@ -66,6 +66,7 @@
         <ul class="dropdown-menu">
           <li><a href="<?php echo URLM ?>areas/crear">Crear</a></li>
           <li><a href="<?php echo URLM ?>areas/ver">Todos</a></li>
+          <li><a href="<?php echo URLM ?>areas/buscar">Buscar</a></li>
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
@@ -77,7 +78,7 @@
         <ul class="dropdown-menu">
           <li><a href="<?php echo URLM ?>tramites/crear">Nuevo</a></li>
           <li><a href="<?php echo URLM ?>tramites/buscar">Buscar</a></li> 
-          <li><a href="<?php echo URLM ?>tramites">Todos</a></li>
+          <li><a href="<?php echo URLM ?>tramites/todos">Todos</a></li>
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
