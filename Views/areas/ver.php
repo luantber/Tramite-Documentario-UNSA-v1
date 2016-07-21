@@ -1,6 +1,5 @@
 
 <div class="container">
-
   <h2>Áreas</h2>           
   <table class="table table-hover">
     <thead>
