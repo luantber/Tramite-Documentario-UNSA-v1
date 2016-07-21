@@ -11,17 +11,18 @@
 
       public function __construct()
       {
-        
+
         $this->servername=$GLOBALS['server'];
         $this->dbname=$GLOBALS['base_datos'];
         $this->username=$GLOBALS['user_bd'];
         $this->password=$GLOBALS['pass_bd'];
         
+
         // Check connection for testing
 
         /*
         $this->servername="localhost";
-        $this->dbname="database4";
+        $this->dbname="tramite";
         $this->username="root";
         $this->password="";
         */
@@ -46,6 +47,12 @@
         return $this->connection->insert_id;
       }
 
+      function getFecha()
+      {
+        $timezone  = -5; //(GMT -5:00) EST (U.S. & Canada)
+		    $a = gmdate("Y-m-j", time() + 3600*($timezone));
+		    return $a ;
+      }
 
     }
 
