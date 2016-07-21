@@ -3,6 +3,7 @@
 	/**
 	* Empleados Controlador
 	*/
+	use Models\Js as Js;
 	use Models\Empleado as Empleado;
 	class empleadosController
 	{
