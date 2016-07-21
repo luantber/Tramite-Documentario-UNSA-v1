@@ -23,7 +23,7 @@
 				//print_r($argumento);
 				if(!isset($argumento)){
 					if(is_callable(array($controlador,$metodo))) {
-						echo "here";
+						
 						call_user_func(array($controlador,$metodo));	
 					} else{
 						redirect("error/e404",$ruta);
@@ -40,6 +40,7 @@
 			}
 			else
 			{
+				//print_r($ruta);
 				redirect("error/e404",$ruta);
 			}
 

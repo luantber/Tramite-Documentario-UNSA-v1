@@ -3,7 +3,7 @@
 	$template = new Template();
 	/**
 	* Clase para Plantilla
-	*/
+	*/ 
   //use Models\Js as Js;
 	class Template
 	{
@@ -36,7 +36,7 @@
     </div>
     <ul class="nav navbar-nav active">
       <li class="active"><a href="#">Inicio</a></li>
-      <li><a href="<?php echo URLM ?>movimientos/todos">Movimientos</a></li> 
+      <li><a href="<?php echo URLM ?>movimientos">Movimientos</a></li> 
       <li><a href="<?php echo URLM ?>usuarios/crear">Registrar Usuario</a></li> 
       <!-- PARA USUARIOS !-->
       <li class="dropdown">
