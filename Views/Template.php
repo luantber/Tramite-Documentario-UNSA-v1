@@ -4,11 +4,13 @@
 	/**
 	* Clase para Plantilla
 	*/
+  //use Models\Js as Js;
 	class Template
 	{
-		
+
 		public function __construct()
 		{
+      //Js::prints("heyy",True);
 ?>
 
 <!DOCTYPE html>
