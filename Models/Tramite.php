@@ -34,7 +34,7 @@
 		function obtenerDatosTramiteId($IdTramite)
 		{
 			
-			$request="SELECT `Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Area_Destino`, `Id_Encargado`,`Recibido` FROM `tramites` WHERE Id_Expediente=".$IdTramite;
+			$request="SELECT `Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Area_Destino`, `Id_Encargado`,`Recibido`, `Id_Area_Actual` FROM `tramites` WHERE Id_Expediente=".$IdTramite;
 				$result=$this->query->consulta($request);
 				if ($result->num_rows != 0) {
 				    $datos = $result->fetch_assoc();
@@ -46,6 +46,8 @@
 				    $this->id_expediente=$datos["Id_Expediente"];
 				    $this->id_encargado=$datos["Id_Encargado"];
 				    $this->recibido=$datos["Recibido"];
+				    $this->id_area_actual=$datos["Id_Area_Actual"];
+
 				    $request2="SELECT * FROM tramites  JOIN estado ON tramites.Id_Expediente=estado.Id_Expediente WHERE tramites.Id_Expediente=".$IdTramite;
 				    $result2=$this->query->consulta($request2);
 				    $datos2=$result2->fetch_assoc();
@@ -149,6 +151,18 @@
 			return $DatosMovimientos; 
 		}
 		
+		function moverTramite($Id_Area_Destino)
+		{
+			echo $this->id_area_actual;
+			echo $this->id_expediente;
+			echo $this->id_persona;
+			echo $Id_Area_Destino;
+			echo $this->id_persona;
+			$request="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`)  VALUES (".$this->id_expediente.",".$this->id_area_actual.",".$Id_Area_Destino.",".$this->id_expediente.",".$this->id_persona.",'2016-06-20')";
+			$this->query->consulta($request);
+			$this->estado=0;
+			$this->save();
+		}
 
 
 		function getAllTramitesDatos()
@@ -409,7 +423,8 @@
 <?php 
 	
 	$tram=new Tramite();
-	echo $cosa=$tram->getAllTramitesDatosByIdAreaActual(1)[0][0];
+	$tram->obtenerDatosTramiteId(9);
+	$tram->moverTramite(2);
 	/*
 	$tram=new Tramite();
 	
