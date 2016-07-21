@@ -1,11 +1,11 @@
 	<!--............................. BUSCAR USUARIO.............................. !-->
 <h2 class="text-center">Buscar Usuario</h2>
-<form class="form-horizontal container">
+<form class="form-horizontal container" >
 	<div class="form-group" >
 		<label for="buscar" class="col-sm-2 control-label">Buscar por: </label>
 		<div class="col-sm-10" >
-			<label class="radio-inline"><input type="radio" name="bus" id="buscar">Apellidos</label>			
-			<label class="radio-inline"><input type="radio" name="bus" id="buscar">DNI</label>
+			<label class="radio-inline"><input type="radio" name="bus" id="buscar" value="0">Apellidos</label>			
+			<label class="radio-inline"><input type="radio" name="bus" id="buscar" value="1" >DNI</label>
 		</div>		
 	</div>
 

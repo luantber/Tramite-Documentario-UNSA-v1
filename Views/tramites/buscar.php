@@ -1,13 +1,11 @@
 	<!--............................. VER ESTADO .............................. !-->
 <h2 class="text-center">Buscar trámite</h2>
-<form class="form-horizontal container">
+<form class="form-horizontal container" method="get" action="<?php echo URLM ?>tramites/buscar" >
 	<div class="form-group" >
-		<label for="buscar" class="col-sm-2 control-label">Buscar por: </label>
+		<label for="buscar" class="col-sm-2 control-label">Buscar por </label>
 		<div class="col-sm-10" >
-			<label class="radio-inline"><input type="radio" name="bus" id="buscar"># Expediente</label>
-			<label class="radio-inline"><input type="radio" name="bus" id="buscar">Apellidos</label>			
-			<label class="radio-inline"><input type="radio" name="bus" id="buscar">DNI</label>
-			<label class="radio-inline"><input type="radio" name="bus" id="buscar">ID</label>
+			<label class="radio-inline"><input required type="radio" name="bus" id="buscar" value="1" >Apellidos</label>			
+			<label class="radio-inline"><input type="radio" name="bus" id="buscar" value="0" >DNI</label>
 		</div>		
 	</div>
 

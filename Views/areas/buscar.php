@@ -1,17 +1,15 @@
 	<!--............................. VER ESTADO .............................. !-->
 		<!--............................. ESTO NO VA AÚN  .............................. !-->
+
 <h2 class="text-center">Buscar Área</h2>
 <form class="form-horizontal container">
 	<div class="form-group" >
 		<label for="buscar" class="col-sm-2 control-label">Buscar por: </label>
 		<div class="col-sm-10" >
-			<label class="radio-inline"><input type="radio" name="bus" id="buscar">Expediente</label>
-			<label class="radio-inline"><input type="radio" name="bus" id="buscar">Apellidos</label>			
-			<label class="radio-inline"><input type="radio" name="bus" id="buscar">DNI</label>
-			<label class="radio-inline"><input type="radio" name="bus" id="buscar">ID</label>
+			<label class="radio-inline"><input type="radio" name="bus" id="buscar">Nombre</label>
+			<label class="radio-inline"><input type="radio" name="bus" id="buscar">ID</label>			
 		</div>		
 	</div>
-
 	
 	<div class="form-group">
   		<label for="dato" class="col-sm-2 control-label" ></label>
@@ -22,7 +20,8 @@
 
   	<div class="form-group">
     	<div class="col-sm-offset-2 col-sm-10">
-      		<button type="submit" class="btn btn-default">Buscar Trámite</button>
+    	    <a class="btn btn-primary" href="<?php echo URLM ?>/areas/mostrar" role="button">Ver área</a>
+      		<!--<button type="submit" class="btn btn-default">Buscar Área</button>-->
     	</div>
   	</div>
 

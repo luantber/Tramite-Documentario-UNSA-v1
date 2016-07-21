@@ -83,7 +83,12 @@
 				if ($result->num_rows > 0) {
 			    // output data of each row
 				    while($datos = $result->fetch_assoc()) {
-				        array_push($nombresAreas,$datos["Nom_Area"]);
+				        array_push($nombresAreas,
+				        	array(
+				        		$datos["Id_Area"],
+				        		$datos["Nom_Area"]
+				        		)
+				        	);
 				    }
 				}
 				return $nombresAreas; 

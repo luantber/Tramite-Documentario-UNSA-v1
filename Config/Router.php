@@ -22,15 +22,25 @@
 				//echo  $metodo;
 				//print_r($argumento);
 				if(!isset($argumento)){
-					call_user_func(array($controlador,$metodo));
+					if(is_callable(array($controlador,$metodo))) {
+						echo "here";
+						call_user_func(array($controlador,$metodo));	
+					} else{
+						redirect("error/e404",$ruta);
+					}
 				}
 				else{
-					call_user_func_array(array($controlador,$metodo),$argumento);
+					//if(is_callable(array($controlador,$metodo),$argumento) {
+						call_user_func_array(array($controlador,$metodo),$argumento);
+						
+					//} else {
+					//	redirect("error/e404",$ruta);
+					//}
 				}
 			}
 			else
 			{
-				print "<br> Advertencia_NO_GRAVE: No se encontro una Controlador para la ruta: ". $ruta." , ignorar si no estas cargando algun controlador.";
+				redirect("error/e404",$ruta);
 			}
 
 			// Ahora sera MANUAL

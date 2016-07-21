@@ -69,8 +69,8 @@
 
     public function editarIdAreaDestino($Id_Tramite,$Id_Area_Destino)
     {
-      $request="UPDATE `tramites` SET `Id_Area_Destino`=".$Id_Area_Destino." WHERE Id_Expediente=".$Id_Tramite;
-      $this->query->consulta($request);
+      //$request="UPDATE `tramites` SET `Id_Area_Destino`=".$Id_Area_Destino." WHERE Id_Expediente=".$Id_Tramite;
+      //$this->query->consulta($request);
     }
 
     public function editarTipoTramiteById($Id_Tramite,$Tipo_Tramite)
@@ -128,6 +128,6 @@
   $ids=$mesa->getListIdMovimientos(8)[0];
   echo $mesa->getMovimientoDatos($ids)["idDestino"];
   */
-  $prueba=new MesaDePartes();
-  $a=$prueba->getListIdMovimientos(7);
+  //$prueba=new MesaDePartes();
+  //$a=$prueba->getListIdMovimientos(7);
  ?>

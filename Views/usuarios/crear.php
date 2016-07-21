@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="col-xs-6">
-        <label for="apellidousu" class="col-sm-4 control-label" >Apellidos</label>
+        <label for="apellidousu" class="col-sm-4 control-label" >Apellido</label>
         <div class="col-sm-8">
           <input name="apeusu"type="text" class="form-control" id="apellidousu" required placeholder="Ingrese apellidos de usuario">
         </div>

@@ -17,7 +17,8 @@
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">Ver movimientos</button>
+          <a class="btn btn-primary" href="<?php echo URLM ?>/movimientos/ruta" role="button">Ver movimientos</a>
+          <!--<button type="submit" class="btn btn-default"><a href="<?php echo URLM ?>/movimientos/ruta">Ver movimientos</a></button>-->
       </div>
     </div>
 </form>

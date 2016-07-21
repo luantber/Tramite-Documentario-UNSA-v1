@@ -38,6 +38,8 @@
 		function buscar()
 		{
 			# code...
+			//bus , dat .... 0 apel
+
 			render("usuarios/buscar");
 		}
 

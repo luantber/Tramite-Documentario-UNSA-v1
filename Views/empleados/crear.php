@@ -32,14 +32,22 @@
   <div class="form-group">
       <label for="contrasñausu" class="col-sm-2 control-label" >Contraseña</label>
       <div class="col-sm-10">
-          <input name="contrae" type="password" class="form-control" id="contraseñausu" required placeholder="Escriba 123456">
+         <label>La contraseña por defecto es 123456</label> 
       </div>
   </div>
 
   <div class="form-group">
       <label for="campo" class="col-sm-2 control-label" >Área</label>
       <div class="col-sm-10">
-          <input name="camp" type="text" class="form-control" id="campo" required placeholder="Ingrese al área a la que pertenece">
+        <select name="area" class="form-control" id="area" >
+            <option value="" >Seleccionar</option>
+            <script type="text/javascript">
+              var opciones=["Mesa de partes","Logistíca","Secretaria"]
+              for (var i=0;i<opciones.length;i++){
+                document.write("<option>"+opciones[i]+"</option>")
+              }
+            </script> 
+          </select>
       </div>
   </div>
 
@@ -48,7 +56,15 @@
   <div class="form-group">
       <label for="cargo" class="col-sm-2 control-label" >Cargo</label>
       <div class="col-sm-10">
-          <input name="carg" type="text" class="form-control" id="cargo" required placeholder="Ingrese Cargo">
+         <select name="cargo" class="form-control">
+           <option value="">Seleccionar</option>
+           <script type="text/javascript">
+            var cargo=["Jefe", "Encargado","Ayudante"]
+            for(var i=0;i<cargo.length;i++){
+              document.write("<option>"+cargo[i]+"</option>")
+            }
+           </script>
+         </select>
       </div>
   </div>
 

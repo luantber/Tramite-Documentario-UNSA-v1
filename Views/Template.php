@@ -4,11 +4,13 @@
 	/**
 	* Clase para Plantilla
 	*/
+  //use Models\Js as Js;
 	class Template
 	{
-		
+
 		public function __construct()
 		{
+      //Js::prints("heyy",True);
 ?>
 
 <!DOCTYPE html>
@@ -40,10 +42,16 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Acciones Usuarios
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
+<<<<<<< HEAD
           <li><a href="<?php echo URLM ?>/usuarios/crear">Registrar Usuario</a></li>
           <li><a href="<?php echo URLM ?>/usuarios/editar">Editar</a></li>
           <li><a href="<?php echo URLM ?>/usuarios/buscar">Buscar</a></li>
           <li><a href="<?php echo URLM ?>/usuarios/ver">Usuarios</a></li> 
+=======
+          <li><a href="<?php echo URLM ?>usuarios/crear">Registrar Usuario</a></li>
+          <li><a href="<?php echo URLM ?>usuarios/buscar">Buscar</a></li>
+          <li><a href="#">Todos</a></li> 
+>>>>>>> master
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
@@ -52,11 +60,13 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Areas
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="<?php echo URLM ?>/areas/crear">Crear</a></li>
-          <li><a href="<?php echo URLM ?>/areas/editar">Editar</a></li>
-          <li><a href="<?php echo URLM ?>/areas/buscar">Buscar</a></li>
-          <li><a href="<?php echo URLM ?>/areas/ver">Ver</a></li>
-          <li><a href="<?php echo URLM ?>/registrar/usuario">Todos</a></li> 
+<<<<<<< HEAD
+          <li><a href="<?php echo URLM ?>/areas/crear">Crear </a></li>
+          <li><a href="<?php echo URLM ?>/areas/editar">Editar </a></li>
+          <li><a href="<?php echo URLM ?>/areas/buscar">Buscar </a></li>
+          <li><a href="<?php echo URLM ?>/areas/ver">Ver </a></li>
+=======
+>>>>>>> master
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
@@ -71,15 +81,21 @@
       </li>
 
 
-      <!-- PARA MESA DE PARTES !-->
+      <!-- TRÁMITES !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Trámites
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
+<<<<<<< HEAD
           <li><a href="#">Todos</a></li>
           <li><a href="<?php echo URLM ?>/tramites/crear">Nuevo</a></li>
           <li><a href="<?php echo URLM ?>/tramites/buscar">Buscar</a></li>
           <li><a href="<?php echo URLM ?>/usuarios/crear">Registrar Usuario</a></li> 
+=======
+          <li><a href="<?php echo URLM ?>tramites/crear">Nuevo</a></li>
+          <li><a href="<?php echo URLM ?>tramites/buscar">Buscar</a></li> 
+          <li><a href="#">Todos</a></li>
+>>>>>>> master
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
@@ -89,8 +105,13 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">AccionesSU
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
+<<<<<<< HEAD
           <li><a href="<?php echo URLM ?>/empleados/crear">Registrar Empleado</a></li>
           <li><a href="<?php echo URLM ?>personas/todas">Todas personas</a></li>
+=======
+          <li><a href="<?php echo URLM ?>empleados/crear">Registrar Empleado</a></li>
+          <li><a href="<?php echo URLM ?>personas">Todas personas</a></li>
+>>>>>>> master
 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
@@ -118,16 +139,30 @@
 	<p>....................... .-. .</p>
 
   <div>
+
   <ul>
     <li><a href="<?php echo URLM ?>usuarios/crear">Crear Usuarios</a></li>
+  </ul>
+
+
+  <ul>
     <li><a href="<?php echo URLM ?>empleados/crear">Crear Empleados</a></li>
+  </ul>
+
+
+  <ul>
     <li><a href="<?php echo URLM ?>personas">Todas Las Personas</a></li>
+    <li><a href="<?php echo URLM ?>personas/ver/13">Ver Persona por Id</a></li>
+  </ul>
+
+  <ul>
     <li><a href="<?php echo URLM ?>tramites/crear">Crear Tramite</a></li>
     <li><a href="<?php echo URLM ?>tramites">Todos los Tramite</a></li>
     <li><a href="<?php echo URLM ?>tramites/editar/2">Editar tr #2</a></li>
     <li><a href="<?php echo URLM ?>tramites/ver/2">Muestra tramite #2</a></li>
-
   </ul>
+
+ 
 </div>
 
 
