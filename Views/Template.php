@@ -36,15 +36,27 @@
       <li class="active"><a href="#">Inicio</a></li>
       <li><a href="#">Page 2</a></li> 
 
+      <!-- PARA AREAS !-->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Areas
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Crear</a></li>
+          <li><a href="<?php echo URLM ?>">Editar</a></li>
+          <li><a href="<?php echo URLM ?>/areas/buscar">Buscar</a></li>
+          <li><a href="<?php echo URLM ?>/registrar/usuario">Todos</a></li> 
+        </ul>
+      </li> <!-- AQUI TERMINA ... !-->
+
       <!-- PARA MESA DE PARTES !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Acciones
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">Trámites</a></li>
-          <li><a href="<?php echo URLM ?>/acciones/nuevo">Nuevo Trámite</a></li>
-          <li><a href="<?php echo URLM ?>/acciones/estado">Ver estado</a></li>
-          <li><a href="<?php echo URLM ?>/registrar/usuario">Registrar Usuario</a></li> 
+          <li><a href="<?php echo URLM ?>/tramites/crear">Nuevo Trámite</a></li>
+          <li><a href="<?php echo URLM ?>/tramites/buscar">Buscar</a></li>
+          <li><a href="<?php echo URLM ?>/usuarios/crear">Registrar Usuario</a></li> 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
@@ -54,7 +66,7 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">AccionesSU
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="<?php echo URLM ?>/registrar/empleado">Registrar Empleado</a></li>
+          <li><a href="<?php echo URLM ?>/empleados/crear">Registrar Empleado</a></li>
 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
@@ -65,7 +77,7 @@
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
 
       <!--INGRESAR!-->
-      <li><a href="<?php echo URLM ?>/ingresar/inde"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
+      <li><a href="<?php echo URLM ?>/ingresar/empleado"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
     
       <!--SALIR!-->
       <li><a href="<?php echo URLM ?>"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
@@ -77,9 +89,25 @@
 
 <div>
 
+
 	<p>MOSTRANDO POSIBLES ERRORES...</p>
 	<p>.............................</p>
-	<p>.............................</p>
+	<p>....................... .-. .</p>
+
+  <div>
+  <ul>
+    <li><a href="<?php echo URLM ?>usuarios/crear">Crear Usuarios</a></li>
+    <li><a href="<?php echo URLM ?>empleados/crear">Crear Empleados</a></li>
+    <li><a href="<?php echo URLM ?>personas">Todas Las Personas</a></li>
+    <li><a href="<?php echo URLM ?>tramites/crear">Crear Tramite</a></li>
+    <li><a href="<?php echo URLM ?>tramites">Todos los Tramite</a></li>
+    <li><a href="<?php echo URLM ?>tramites/editar/2">Editar tr #2</a></li>
+    <li><a href="<?php echo URLM ?>tramites/ver/2">Muestra tramite #2</a></li>
+
+  </ul>
+</div>
+
+
 	<?php 
 		}
 		public function __destruct(){

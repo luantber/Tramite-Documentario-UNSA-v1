@@ -6,44 +6,36 @@
 
 	
 	use Models\Empleado as Empleado;
-	use Models\Registrador as Registrador;
-	class registrarController
+
+	class ingresarController
 	{
 		
 		public function index()
 		{
 			
-			print "INdice empleadosController";
+			print "Indice ingresarController";
 		}
 
-		public function usuario(){
-
-			if (!empty($_POST)){
-				
-				$r = new Registrador();
-				$r->registrarPersona($_POST["nomusu"],$_POST["apeusu"],$_POST["dniusu"]);
-				render("registrar/exito");
-			}
-			else{
-				
-				render("registrar/usuario");
-				
-			}
-			
-			
-		}
 		public function empleado(){
 
+			#$arpost=array('name'=>$_POST["username"],'pass'=>$_POST["password"]);
 			if (!empty($_POST)){
 				
-				$r = new Registrador();
-				//registrarEmpleado($Nombres,$Apellidos,$Id_Area,$Activo,$Correo,$Dni_Empleado,$Password)
-				$r->registrarEmpleado($_POST["nome"],$_POST["apee"],1,true,"mail@mail",$_POST["dnie"],$_POST["contrae"]);
-				render("registrar/exito");
+				$emp = new Empleado;
+				if ($emp->obtenerDatosDni($_POST["username"]))
+				{
+					if ($emp->getPassword()==$_POST["password"])
+						render("ingresar/exito");
+					else
+						echo "<br>Contraseña incorrecta";
+				}
+				else
+					echo "No estas registrado we";
+
 			}
 			else{
 				
-				render("registrar/empleado");
+				render("ingresar/empleado");
 				
 			}
 
