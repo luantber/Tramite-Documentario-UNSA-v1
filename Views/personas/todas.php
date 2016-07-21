@@ -1,7 +1,8 @@
+
+<h2 class="text-center">Todas las personas</h2>
 <div class="container">
-  <h2>Todas las personas</h2>
   <table class="table table-striped">
-    <thead>
+  <thead>
       <tr>
         <th>ID</th>
         <th>DNI</th>
@@ -9,23 +10,21 @@
         <th>Apellido</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>martis</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+  
+    <tbody>      
+      <script type="text/javascript">
+        var nuevo,tamanio;
+        //nuevo=data[0];
+        tamanio=data.length; 
+        for(var i=0; i<tamanio;i++){
+          nuevo=data[i];
+          document.write("<tr><td>"+nuevo[0]+"</td>");
+          document.write("<td>"+nuevo[1]+"</td>");
+          document.write("<td>"+nuevo[2]+"</td>");
+          document.write("<td>"+nuevo[3]+"</td></tr>");
+        }
+
+      </script>
     </tbody>
   </table>
 </div>
