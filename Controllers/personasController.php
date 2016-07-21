@@ -14,4 +14,10 @@
 
 		}
 
+		function todas()
+		{
+			# code...
+			render("personas/todas");
+		}
+
 	}	
