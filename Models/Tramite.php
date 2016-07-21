@@ -204,10 +204,10 @@
 
 
 <?php 
-	
+	/*
 	$tram=new Tramite();
 	$tram->registrarTramiteByDni(34,"dadsad",11111111,1,"jasas",2,"en proceso","asdaddsa");
-	/*
+	
 	$tram->obtenerDatosTramiteId(8);
 	echo $tram->getFolios()."</br>";
 	echo $tram->getIdMovimientos()[0];
