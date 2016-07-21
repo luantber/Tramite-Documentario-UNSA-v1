@@ -29,13 +29,13 @@
 		function __construct()
 		{
 			# code...
-			$this->query= new Query();			
+			$this->query= new Query();
 		}
 
 
 		function obtenerDatosTramiteId($IdTramite)
 		{
-			
+
 			$request="SELECT `Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Encargado`,`Recibido`, `Id_Area_Actual` FROM `tramites` WHERE Id_Expediente=".$IdTramite;
 				$result=$this->query->consulta($request);
 				if ($result->num_rows != 0) {
@@ -72,11 +72,12 @@
 
 		}
 
-		
+
 
 		function registrarTramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)
 		{
-			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`,`Id_Area_Actual`) VALUES (".$Folios.",'2016-07-15','".$Asunto."',".$Id_Persona.",'1')";
+			$fecha = $this->query->getFecha();
+			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`,`Id_Area_Actual`) VALUES (".$Folios.",'".$fecha."','".$Asunto."',".$Id_Persona.",'1')";
 			$this->query->consulta($request);
 			$tramite_id=$this->query->get_id();
 			$request2="INSERT INTO `tipo_tramite`(`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES (".$tramite_id.",'".$Tipo_Tramite."',".$Prioridad.")";
@@ -86,7 +87,7 @@
 
 			$request4="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'0','1',".$tramite_id.",'2016-07-15',".$Id_Persona.")";
 				$this->query->consulta($request4);
-				
+
 			$request5="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'1',".$Id_Area_Destino.",".$tramite_id.",'2016-07-15',".$Id_Persona.")";
 			$this->query->consulta($request5);
 
@@ -110,12 +111,12 @@
 
 				$request4="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'0','1',".$tramite_id.",'2016-07-15',".$Id_Persona.")";
 				$this->query->consulta($request4);
-				
+
 				$request5="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'1',".$Id_Area_Destino.",".$tramite_id.",'2016-07-15',".$Id_Persona.")";
 				$this->query->consulta($request5);
 
 
-				$this->obtenerDatosTramiteId($tramite_id);	
+				$this->obtenerDatosTramiteId($tramite_id);
 				return true;
 			}
 			else{
@@ -133,12 +134,12 @@
 			$result=$this->query->consulta($request);
 			$IdsMovimientos=array();
 			if ($result->num_rows > 0) {
-		    
+
 			    while($datos = $result->fetch_assoc()) {
 			        array_push($IdsMovimientos,$datos["Id_Movimiento"]);
 			    }
 			}
-			return $IdsMovimientos; 
+			return $IdsMovimientos;
 		}
 		//obtiene los datos de un movimiento en un array usando el id_movimiento
 		function getMovimientoDatosById($Id_Movimiento)
@@ -147,7 +148,7 @@
 			$result=$this->query->consulta($request);
 			$datos=$result->fetch_assoc();
 			$DatosMovimientos=array();
-			
+
 		    array_push($DatosMovimientos,$datos["Id_Movimiento"]);
 		    array_push($DatosMovimientos,$datos["Id_Expediente"]);
 		    array_push($DatosMovimientos,$datos["Id_Remitente"]);
@@ -155,13 +156,13 @@
 		    array_push($DatosMovimientos,$datos["Id_Estado"]);
 		    array_push($DatosMovimientos,$datos["Id_Personas"]);
 		    array_push($DatosMovimientos,$datos["Fecha"]);
-			
-			return $DatosMovimientos; 
+
+			return $DatosMovimientos;
 		}
-		
+
 		function moverTramite($Id_Area_Destino)
 		{
-			
+
 			$request="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`)  VALUES (".$this->id_expediente.",".$this->id_area_actual.",".$Id_Area_Destino.",".$this->id_expediente.",".$this->id_persona.",'2016-06-20')";
 			$this->query->consulta($request);
 			$this->estado=0;
@@ -182,20 +183,20 @@
 			{
 				while ($datos = $result->fetch_assoc()) {
 					if($datos["Id_Remitente"]!=0){
-						array_push($idsRuta,$datos["Id_Remitente"]);	
+						array_push($idsRuta,$datos["Id_Remitente"]);
 						$destino=$datos["Id_Destino"];
 					}
-					
-				}	
+
+				}
 				if($this->recibido==1)
 				{
-					array_push($idsRuta,$destino);	
+					array_push($idsRuta,$destino);
 				}
-				
+
 			}
 
 			return $idsRuta;
-			
+
 		}
 
 		function getRutaNombres()
@@ -217,7 +218,7 @@
 			$tramitesIds=array();
 			$tramitesDatos=array();
 			if ($result->num_rows > 0) {
-		    
+
 			    while($datos = $result->fetch_assoc()) {
 
 			        array_push($tramitesIds,$datos["Id_Expediente"]);
@@ -225,14 +226,14 @@
 			}
 
 			foreach ($tramitesIds as $id_tramite) {
-				
+
 				$tramite_temp=new Tramite();
 				$tramite_temp->obtenerDatosTramiteId($id_tramite);
 				array_push($tramitesDatos,$tramite_temp->getAllDatos());
 
 			}
 
-			return $tramitesDatos; 
+			return $tramitesDatos;
 		}
 
 
@@ -243,7 +244,7 @@
 			$tramitesIds=array();
 			$tramitesDatos=array();
 			if ($result->num_rows > 0) {
-		    
+
 			    while($datos = $result->fetch_assoc()) {
 
 			        array_push($tramitesIds,$datos["Id_Expediente"]);
@@ -251,20 +252,20 @@
 			}
 
 			foreach ($tramitesIds as $id_tramite) {
-				
+
 				$tramite_temp=new Tramite();
 				$tramite_temp->obtenerDatosTramiteId($id_tramite);
 				if($tramite_temp->estado!="finalizado")
 				{
-					array_push($tramitesDatos,$tramite_temp->getAllDatos());	
+					array_push($tramitesDatos,$tramite_temp->getAllDatos());
 				}
-				
+
 
 			}
 
-			return $tramitesDatos; 
+			return $tramitesDatos;
 		}
-			
+
 		function getAllTramitesDatosByIdAreaDestino($Id_Area_Destino)
 		{
 			//por implementar
@@ -341,7 +342,7 @@
 		{
 			return $this->id_area_actual;
 		}
-		//devuelve todos los datos como un array 
+		//devuelve todos los datos como un array
 		public function getAllDatos()
 		{
 			$datos=array();
@@ -362,11 +363,11 @@
 
 		//------------------------------------funciones para editar
 		//
-		
+
 		public function editarIdAreaActual()
 		{
 		  $request="UPDATE `tramites` SET `Id_Area_Actual`=".$this->id_area_actual." WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);	
+	      $this->query->consulta($request);
 		}
 
 		public function editarRecibido()
@@ -391,7 +392,7 @@
 	    {
 	      $request="UPDATE `tramites` SET `Fecha_Ingreso`=".$this->fecha_ingreso." WHERE Id_Expediente=".$this->id_expediente;
 	      $this->query->consulta($request);
-	    }  
+	    }
 
 
 	    public function editarFechaTermino()
@@ -436,7 +437,7 @@
 	      $this->query->consulta($request);
 	    }
 
-	    
+
 	    public function editarDescripcionEstado()
 	    {
 	      $request="UPDATE `estado` SET `Descripcion`='".$this->descripcionEstado."' WHERE Id_Expediente=".$this->id_expediente;
@@ -467,21 +468,21 @@
 	}
 
  ?>
-	    
 
 
-<?php 
-	
+
+<?php
+
 	//$tram=new Tramite();
 	//$tram->obtenerDatosTramiteId(9);
 	//$tram->moverTramite(2);
-	
+
 	$tram=new Tramite();
-	$tram->registrarTramite(41,"mas pruebas",18,3,"con fe funciona",1,"pendiente","en redireccionamiento");
-	
-	
-	
-	
+	$tram->registrarTramite(41,"mas pruebasx122",18,3,"con fe zhy funciona",1,"pendiente","en redireccionamiento");
+
+
+
+
 
 
 
