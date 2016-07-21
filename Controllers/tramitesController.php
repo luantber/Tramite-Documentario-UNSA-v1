@@ -52,8 +52,9 @@
 			if (isset($id)){
 
 				echo $id;
-			$t = new Tramite;
-			if ($t->obtenerDatosTramiteId($id)){
+			$t = new Tramite();
+			$r = $t->obtenerDatosTramiteId($id);
+			if ($r){
 				$tramite = array(
 				'id' => $t->id_expediente, 
 				'asunto'=>$t->getAsunto(),
@@ -66,7 +67,9 @@
 				JS::prints("No existe un tramite con id,".$id,"error",True);
 			}
 			}
-			redirect("error/e404");
+			#redirect("error/e404");
+			echo "NO se recibiio..";
+			print($id);
 			
 		}
 
