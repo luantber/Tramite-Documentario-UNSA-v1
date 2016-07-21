@@ -3,7 +3,7 @@
 	$template = new Template();
 	/**
 	* Clase para Plantilla
-	*/ 
+	*/
   //use Models\Js as Js;
 	class Template
 	{
@@ -35,23 +35,17 @@
       <a class="navbar-brand" href="<?php echo URLM ?>">Trámite Documentario</a>
     </div>
     <ul class="nav navbar-nav active">
-      <!--<li><a href="<?php echo URLM ?>movimientos">Movimientos</a></li> -->
-
+      <li class="active"><a href="#">Inicio</a></li>
+      <li><a href="<?php echo URLM ?>movimientos/todos">Movimientos</a></li> 
+      <li><a href="<?php echo URLM ?>usuarios/crear">Registrar Usuario</a></li> 
       <!-- PARA USUARIOS !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Acciones Usuarios
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-
-          <li><a href="<?php echo URLM ?>/usuarios/crear">Registrar Usuario</a></li>
-          <li><a href="<?php echo URLM ?>/usuarios/editar">Editar</a></li>
-          <li><a href="<?php echo URLM ?>/usuarios/buscar">Buscar</a></li>
-          <li><a href="<?php echo URLM ?>/usuarios/ver">Usuarios</a></li> 
-
           <li><a href="<?php echo URLM ?>usuarios/crear">Registrar Usuario</a></li>
           <li><a href="<?php echo URLM ?>usuarios/buscar">Buscar</a></li>
           <li><a href="#">Todos</a></li> 
-
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
@@ -60,27 +54,10 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Areas
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-
-          <li><a href="<?php echo URLM ?>/areas/crear">Crear </a></li>
-          <li><a href="<?php echo URLM ?>/areas/editar">Editar </a></li>
-          <li><a href="<?php echo URLM ?>/areas/buscar">Buscar </a></li>
-          <li><a href="<?php echo URLM ?>/areas/ver">Ver </a></li>
-
           <li><a href="<?php echo URLM ?>areas/crear">Crear</a></li>
           <li><a href="<?php echo URLM ?>areas">Todos</a></li>
-
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
-
-      <!--Movimientos-->
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Movimientos
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="<?php echo URLM ?>movimientos">Ver todos</a></li>
-          <li><a href="<?php echo URLM ?>/movimientos/ver">Buscar</a></li>
-        </ul>
-      </li>
 
 
       <!-- TRÁMITES !-->
@@ -88,19 +65,9 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Trámites
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-
-          <li><a href="#">Todos</a></li>
-          <li><a href="<?php echo URLM ?>/tramites/crear">Nuevo</a></li>
-          <li><a href="<?php echo URLM ?>/tramites/buscar">Buscar</a></li>
-          <li><a href="<?php echo URLM ?>/usuarios/crear">Registrar Usuario</a></li> 
-
           <li><a href="<?php echo URLM ?>tramites/crear">Nuevo</a></li>
           <li><a href="<?php echo URLM ?>tramites/buscar">Buscar</a></li> 
-
-          <li><a href="#">Todos</a></li>
-
           <li><a href="<?php echo URLM ?>tramites">Todos</a></li>
-
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
@@ -110,13 +77,8 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">AccionesSU
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-
-          <li><a href="<?php echo URLM ?>/empleados/crear">Registrar Empleado</a></li>
-          <li><a href="<?php echo URLM ?>personas/todas">Todas personas</a></li>
-
           <li><a href="<?php echo URLM ?>empleados/crear">Registrar Empleado</a></li>
           <li><a href="<?php echo URLM ?>personas">Todas personas</a></li>
-
 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
@@ -168,3 +130,6 @@
 		}
 		
 	}
+
+
+ ?>
