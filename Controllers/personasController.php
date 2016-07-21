@@ -28,6 +28,7 @@
 				'empresa'=>$t->getNombreEmpresa()
 				);
 				Js::prints($tramite,True);
+				render("perfil/barrita");
 			}
 			else{
 				JS::prints("No existe una persona con id,".$id,"error",True);
