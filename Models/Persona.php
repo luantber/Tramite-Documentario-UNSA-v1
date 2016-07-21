@@ -20,6 +20,28 @@
 
 			}
 
+			public function getAllClientes()
+			{
+				$request="SELECT Id_Persona FROM personas  WHERE Id_Persona NOT IN (SELECT Id_Empleado FROM empleados)";
+				$result=$this->query->consulta($request);
+				$clientesIds=array();
+				$clientesDatos=array();
+				if ($result->num_rows > 0) {
+			    
+				    while($datos = $result->fetch_assoc()) {
+				        array_push($clientesIds,$datos["Id_Persona"]);
+				    }
+				}
+				foreach ($clientesIds as $id_cliente) {
+					
+					$persona_temp=new Persona();
+					$persona_temp->obtenerDatosPersona($id_cliente);
+					array_push($clientesDatos,$persona_temp->getAllDatos());
+
+				}
+				return $clientesDatos;
+			}
+
 			public function getAllPersonasDatos()
 			{
 				$request="SELECT `Id_Persona` FROM `personas` WHERE 1";
@@ -207,4 +229,6 @@
  	$p->dni=99999999;
  	$p->save();
 	*/
+
+ 	
   ?>
