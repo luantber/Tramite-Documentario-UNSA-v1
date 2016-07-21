@@ -4,11 +4,12 @@
 
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand active" href="#">Perfil</a>
+      <a class="navbar-brand" href="<?php echo URLM ?>/perfil/barrita">Perfil</a>
+      <!--<a class="navbar-brand active" href="#">Perfil</a>-->
     </div>
  
     <ul class="nav navbar-nav active">
-      <li ><a href="<?php echo URLM ?>/perfil/barrita">Mi perfil</a></li>
+      <!--<li ><a href="<?php echo URLM ?>/perfil/barrita">Mi perfil</a></li>-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mis trámites
         <span class="caret"></span></a>
