@@ -39,6 +39,40 @@
 			}
 		}
 
+		public function getAllAreasDatos()
+		{
+			$request="SELECT `Id_Area` FROM `area` WHERE 1";
+			$result=$this->query->consulta($request);
+			$areasIds=array();
+			$areasDatos=array();
+			if ($result->num_rows > 0) {
+		    
+			    while($datos = $result->fetch_assoc()) {
+
+			        array_push($areasIds,$datos["Id_Area"]);
+			    }
+			}
+
+			foreach ($areasIds as $id_area) {
+				
+				$area_temp=new Area();
+				$area_temp->obtenerDatosAreaById($id_area);
+				array_push($areasDatos,$area_temp->getAllDatos());
+
+			}
+
+			return $areasDatos; 
+		}
+
+		#devuelve array de los datos de este area orden id , nombre, descripcion
+		public function getAllDatos()
+		{
+			$datos=array();
+			array_push($datos,$this->id_area);
+			array_push($datos,$this->nombre_area);
+			array_push($datos,$this->descripcion_area);
+			return $datos;
+		}
 
 		public function obtenerAreas()
 		{
@@ -84,5 +118,6 @@
  	echo $cosa->getNombreArea();
  	*/
   
-
+ 	//$cosa=new Area();
+ 	//echo $cosa->getAllAreasDatos()[0][1];
   ?>

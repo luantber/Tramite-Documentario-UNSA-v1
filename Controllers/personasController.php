@@ -14,6 +14,12 @@
 
 		}
 
+		function todas()
+		{
+			# code...
+			render("personas/todas");
+		}
+
 		function ver($id){
 			echo $id;
 			$t = new Persona;

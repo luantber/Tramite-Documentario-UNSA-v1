@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-07-2016 a las 08:25:10
+-- Tiempo de generación: 21-07-2016 a las 09:39:21
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -37,7 +37,12 @@ CREATE TABLE `area` (
 --
 
 INSERT INTO `area` (`Id_Area`, `Nom_Area`, `Descripcion`) VALUES
-(1, 'CS', '');
+(1, 'Mesa de Partes', 'Se encarga de la recepción de documentos necesarios para la gestión de un tramite.'),
+(2, 'Gerencia', 'Gestiona los tramites y los redirige a cada area especializada.'),
+(3, 'Logistica', 'Area del personal encargando de gestion logistica.'),
+(4, 'Recursos Humanos', 'Area que vela por las necesidades del personal'),
+(5, 'Informatica', 'Area encargada del manejo de material informatico.'),
+(6, 'Contabilidad', 'Area encargada los estudios contables.');
 
 -- --------------------------------------------------------
 
@@ -59,7 +64,7 @@ INSERT INTO `cargos` (`Id_Cargo`, `Nombre_Cargo`, `Descripcion`) VALUES
 (1, 'Jefe de Area', 'Gestor estrategico de sitio'),
 (2, 'Encargado', 'Se encarga de gestionar los tramites'),
 (3, 'Mesa de Partes', 'Se encarga de direccionar los tramites'),
-(4, 'Obrero', 'Se encarga de trabajar');
+(5, 'Gerente', 'Encargado de la administración de la empresa.');
 
 -- --------------------------------------------------------
 
@@ -82,8 +87,17 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo`, `Dni_Empleado`, `Password`) VALUES
-(14, 4, 1, 'vacaciones', 'lla@la', 22222222, 'pass'),
-(15, 4, 1, 'vacaciones', 'a@a', 11111111, 'cont');
+(1, 1, 6, 'Trabajando', 'alejandrolarraondo@gmail.com', 70125996, 'karlaConK'),
+(4, 2, 3, 'Trabajando', 'CatGirl_26@gmail.com', 78947568, 'elbryce'),
+(5, 1, 5, 'Trabajando', 'alrus27@gmail.com', 76439586, 'ggladotanub'),
+(6, 2, 5, 'Trabajando', 'luisbch@gmail.com', 78452375, 'luzithoMazNah'),
+(7, 2, 1, 'Trabajando', 'margarcuae.19.29.46@gmail.com', 75463211, 'viskmokjojo'),
+(10, 1, 3, 'Trabajando', 'mapo100@outlook.com', 74658346, 'nekochan'),
+(12, 2, 4, 'Trabajando', 'JosueZabalaR@gmail.com', 78945634, 'jembo21_1'),
+(13, 1, 4, 'Trabajando', 'BrianArrospide@hotmail.com', 76534567, 'elBrayan'),
+(15, 2, 6, 'Trabajando', 'd1llarmando_13@hotmail.com', 77865454, 'yaNoTeAmoTeffy'),
+(16, 5, 2, 'Trabajando', 'alexithoMakerito@hotmail.com', 77865487, 'elDineroEsDinero'),
+(19, 3, 1, 'Vacaciones', 'tuAmigaAl100@hotmail.com', 76543644, 'teAmoDill');
 
 -- --------------------------------------------------------
 
@@ -92,19 +106,17 @@ INSERT INTO `empleados` (`Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo
 --
 
 CREATE TABLE `estado` (
-  `Id_Expediente` int(11) NOT NULL,
-  `Estado` varchar(11) NOT NULL,
-  `Descripcion` text NOT NULL
+  `Descripcion` varchar(100) NOT NULL,
+  `Estado` varchar(20) NOT NULL,
+  `Id_Expediente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `estado`
 --
 
-INSERT INTO `estado` (`Id_Expediente`, `Estado`, `Descripcion`) VALUES
-(6, 'pendiente', 'Aun esta pendiente'),
-(7, 'pendiente', 'Aun esta pendiente'),
-(8, 'pendiente', 'Aun esta pendiente');
+INSERT INTO `estado` (`Descripcion`, `Estado`, `Id_Expediente`) VALUES
+('esta es una prueba', 'pendiente', 9);
 
 -- --------------------------------------------------------
 
@@ -127,8 +139,7 @@ CREATE TABLE `movimientos` (
 --
 
 INSERT INTO `movimientos` (`Id_Movimiento`, `Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`) VALUES
-(1, 7, 0, 1, 6, 0, '2016-07-15'),
-(2, 8, 0, 1, 8, 0, '2016-07-15');
+(3, 9, 0, 1, 9, 0, '2016-07-15');
 
 -- --------------------------------------------------------
 
@@ -149,9 +160,26 @@ CREATE TABLE `personas` (
 --
 
 INSERT INTO `personas` (`Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa`) VALUES
-(13, 22222222, 'Alexis', 'Mendoza', ''),
-(14, 22222222, 'Alexis', 'Mendoza', ''),
-(15, 11111111, 'bryce', 'jano', '');
+(1, 70125996, 'Alejandro Jesús', 'Larraondo Lamchog', ''),
+(2, 70293485, 'Alexis Aldo', 'Mendoza Villarroel', 'Inmobiliaria Mendoza'),
+(3, 45964813, 'Yara Jeanette', 'Quispe Quispe', 'YaraXDiana - Eventos Infantiles'),
+(4, 78947568, 'Katherine Rocio', 'Uñapilco Chambi', ''),
+(5, 76439586, 'Alexander Rusvell', 'Apaza Torrez', ''),
+(6, 78452375, 'Luis Antonio', 'Bernal Chahuayo', ''),
+(7, 75463211, 'Margarita', 'Lacuaña Apaza', ''),
+(8, 78990034, 'Ademir Clemente', 'Villena Zevallos', 'YaraXDiana - Eventos Infantiles'),
+(9, 72396743, 'Carla', 'Torres Flores', 'Enapu SRL'),
+(10, 74658346, 'Maria Pia', 'Vargas Galdos', ''),
+(11, 77777777, 'Luis Enrique', 'Zevallos Zeballos', 'Zevallos Catering'),
+(12, 78945634, 'Jesús Josue', 'Zabala Ramirez', ''),
+(13, 76534567, 'Brian Paolo', 'Arrospide Lopez', ''),
+(14, 78956456, 'Maria Angelica', 'Rivera Zegarra', 'Metales Zegarra SRL'),
+(15, 77865454, 'Dillarmando', 'Zevallos Zeballos', ''),
+(16, 77865487, 'Alexander', 'Maquera Chuctaya', ''),
+(17, 78896543, 'Miluska Samantha', 'Quispe Maldonado', ''),
+(18, 77243545, 'Beatriz del Milagro', 'Meza Chipoco', 'Servicios de Limpieza - La Bea'),
+(19, 76543644, 'Estefany Paola', 'Mamani Gutierrez', ''),
+(20, 76546571, 'Diana Milagros', 'Zuñiga Diaz', '');
 
 -- --------------------------------------------------------
 
@@ -170,13 +198,7 @@ CREATE TABLE `tipo_tramite` (
 --
 
 INSERT INTO `tipo_tramite` (`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES
-(2, 'Algun tipo', 3),
-(3, 'Algun tipo', 3),
-(4, 'Algun tipo', 3),
-(5, 'algun tipo', 3),
-(6, 'solicitud', 2),
-(7, 'solicitud', 2),
-(8, 'solicitud', 2);
+(9, 'seguros', 3);
 
 -- --------------------------------------------------------
 
@@ -187,25 +209,22 @@ INSERT INTO `tipo_tramite` (`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES
 CREATE TABLE `tramites` (
   `Id_Expediente` int(11) NOT NULL,
   `Folios` int(11) NOT NULL,
-  `Fecha_Ingreso` int(11) NOT NULL,
-  `Fecha_Termino` int(11) NOT NULL,
+  `Fecha_Ingreso` date NOT NULL,
+  `Fecha_Termino` date NOT NULL,
   `Asunto` varchar(500) NOT NULL,
   `Id_Persona` int(11) NOT NULL,
-  `Id_Area_Destino` int(11) NOT NULL
+  `Id_Area_Destino` int(11) NOT NULL,
+  `Id_Encargado` int(11) NOT NULL,
+  `Recibido` tinyint(1) NOT NULL,
+  `Id_Area_Actual` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tramites`
 --
 
-INSERT INTO `tramites` (`Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Area_Destino`) VALUES
-(2, 7, 2016, 0, 'algun problema', 6, 1),
-(3, 7, 2016, 0, 'algun problema', 6, 1),
-(4, 7, 2016, 0, 'algun problema', 6, 1),
-(5, 7, 2016, 0, 'algun problema', 7, 1),
-(6, 46, 2016, 0, 'algun asunto', 6, 1),
-(7, 46, 2016, 0, 'algun asunto', 6, 1),
-(8, 46, 2016, 0, 'algun asunto', 6, 1);
+INSERT INTO `tramites` (`Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Area_Destino`, `Id_Encargado`, `Recibido`, `Id_Area_Actual`) VALUES
+(9, 12, '0000-00-00', '0000-00-00', 'noidea', 1, 1, 4, 0, 1);
 
 --
 -- Índices para tablas volcadas
@@ -261,27 +280,27 @@ ALTER TABLE `tramites`
 -- AUTO_INCREMENT de la tabla `area`
 --
 ALTER TABLE `area`
-  MODIFY `Id_Area` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Area` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `cargos`
 --
 ALTER TABLE `cargos`
-  MODIFY `Id_Cargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id_Cargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `movimientos`
 --
 ALTER TABLE `movimientos`
-  MODIFY `Id_Movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_Movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `Id_Persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Id_Persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `tramites`
 --
 ALTER TABLE `tramites`
-  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

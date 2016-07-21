@@ -21,6 +21,9 @@
 		var $query;  //query xD
 		var $tipo_tramite;	//varchar
 		var $prioridad;	//int supuestamente puede ser 1,2,o 3
+		var $id_encargado;//int
+		var $recibido;//1 o 0
+		var $id_area_actual;
 		function __construct()
 		{
 			# code...
@@ -31,7 +34,7 @@
 		function obtenerDatosTramiteId($IdTramite)
 		{
 			
-			$request="SELECT `Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Area_Destino` FROM `tramites` WHERE Id_Expediente=".$IdTramite;
+			$request="SELECT `Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Area_Destino`, `Id_Encargado`,`Recibido`, `Id_Area_Actual` FROM `tramites` WHERE Id_Expediente=".$IdTramite;
 				$result=$this->query->consulta($request);
 				if ($result->num_rows != 0) {
 				    $datos = $result->fetch_assoc();
@@ -41,12 +44,16 @@
 				    $this->fecha_ingreso=$datos["Fecha_Ingreso"];
 				    $this->asunto=$datos["Asunto"];
 				    $this->id_expediente=$datos["Id_Expediente"];
+				    $this->id_encargado=$datos["Id_Encargado"];
+				    $this->recibido=$datos["Recibido"];
+				    $this->id_area_actual=$datos["Id_Area_Actual"];
 
 				    $request2="SELECT * FROM tramites  JOIN estado ON tramites.Id_Expediente=estado.Id_Expediente WHERE tramites.Id_Expediente=".$IdTramite;
 				    $result2=$this->query->consulta($request2);
 				    $datos2=$result2->fetch_assoc();
 				    $this->descripcionEstado=$datos2["Descripcion"];
 				    $this->estado=$datos2["Estado"];
+
 
 				    $request3="SELECT `Id_Expediente`, `Tipo_Tramite`, `Prioridad` FROM `tipo_tramite` WHERE Id_Expediente=".$IdTramite;
 				    $result3=$this->query->consulta($request3);
@@ -67,7 +74,7 @@
 
 		function registrarTramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)
 		{
-			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Destino`) VALUES (".$Folios.",'2016-07-15','".$Asunto."',".$Id_Persona.",".$Id_Area_Destino.")";
+			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Destino`,`Id_Area_Actual`) VALUES (".$Folios.",'2016-07-15','".$Asunto."',".$Id_Persona.",".$Id_Area_Destino.",'1')";
 			$this->query->consulta($request);
 			$tramite_id=$this->query->get_id();
 			$request2="INSERT INTO `tipo_tramite`(`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES (".$tramite_id.",'".$Tipo_Tramite."',".$Prioridad.")";
@@ -89,7 +96,7 @@
 			$resultado=$persona->obtenerDatosPersonaByDni($Dni_Persona);
 			if($resultado==true){
 				$Id_Persona=$persona->getId();
-				$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Destino`) VALUES (".$Folios.",'2016-07-15','".$Asunto."',".$Id_Persona.",".$Id_Area_Destino.")";
+				$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Destino`,`Id_Area_Actual`) VALUES (".$Folios.",'2016-07-15','".$Asunto."',".$Id_Persona.",".$Id_Area_Destino.",'1')";
 				$this->query->consulta($request);
 				$tramite_id=$this->query->get_id();
 				$request2="INSERT INTO `tipo_tramite`(`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES (".$tramite_id.",'".$Tipo_Tramite."',".$Prioridad.")";
@@ -144,6 +151,20 @@
 			return $DatosMovimientos; 
 		}
 		
+		function moverTramite($Id_Area_Destino)
+		{
+			echo $this->id_area_actual;
+			echo $this->id_expediente;
+			echo $this->id_persona;
+			echo $Id_Area_Destino;
+			echo $this->id_persona;
+			$request="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`)  VALUES (".$this->id_expediente.",".$this->id_area_actual.",".$Id_Area_Destino.",".$this->id_expediente.",".$this->id_persona.",'2016-06-20')";
+			$this->query->consulta($request);
+			$this->estado=0;
+			$this->save();
+		}
+
+
 		function getAllTramitesDatos()
 		{
 			$request="SELECT `Id_Expediente` FROM `tramites` WHERE 1";
@@ -168,11 +189,46 @@
 
 			return $tramitesDatos; 
 		}
+
+
+		function getAllTramitesDatosByIdAreaActual($Id_Area)
+		{
+			$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area;
+			$result=$this->query->consulta($request);
+			$tramitesIds=array();
+			$tramitesDatos=array();
+			if ($result->num_rows > 0) {
+		    
+			    while($datos = $result->fetch_assoc()) {
+
+			        array_push($tramitesIds,$datos["Id_Expediente"]);
+			    }
+			}
+
+			foreach ($tramitesIds as $id_tramite) {
+				
+				$tramite_temp=new Tramite();
+				$tramite_temp->obtenerDatosTramiteId($id_tramite);
+				if($tramite_temp->estado!="finalizado")
+				{
+					array_push($tramitesDatos,$tramite_temp->getAllDatos());	
+				}
+				
+
+			}
+
+			return $tramitesDatos; 
+		}
 		
 
 		function getFolios()
 		{
 			return $this->folios;
+		}
+
+		function getRecibido()
+		{
+			return $this->recibido;
 		}
 
 		function getFechaIngreso()
@@ -224,6 +280,16 @@
 		{
 			return $this->id_expediente;
 		}
+
+		public function getIdEncargado()
+		{
+			return $this->id_encargado;
+		}
+
+		public function getAreaActual()
+		{
+			return $this->id_area_actual;
+		}
 		//devuelve todos los datos como un array 
 		public function getAllDatos()
 		{
@@ -239,11 +305,32 @@
 			array_push($datos,$this->prioridad);
 			array_push($datos,$this->estado);
 			array_push($datos,$this->descripcionEstado);
+			array_push($datos,$this->id_encargado);
+			array_push($datos,$this->recibido);
 			return $datos;
 		}
 
 		//------------------------------------funciones para editar
+		//
 		
+		public function editarIdAreaActual()
+		{
+		  $request="UPDATE `tramites` SET `Id_Area_Actual`=".$this->id_area_actual." WHERE Id_Expediente=".$this->id_expediente;
+	      $this->query->consulta($request);	
+		}
+
+		public function editarRecibido()
+	    {
+	      $request="UPDATE `tramites` SET `Recibido`=".$this->recibido." WHERE Id_Expediente=".$this->id_expediente;
+	      $this->query->consulta($request);
+	    }
+		public function editarEncargado()
+	    {
+	      $request="UPDATE `tramites` SET `Id_Encargado`=".$this->id_encargado." WHERE Id_Expediente=".$this->id_expediente;
+	      $this->query->consulta($request);
+	    }
+
+
 		public function editarFolios()
 	    {
 	      $request="UPDATE `tramites` SET `Folios`=".$this->folios." WHERE Id_Expediente=".$this->id_expediente;
@@ -319,6 +406,9 @@
 			$this->editarTramitePrioridad();
 			$this->editarEstado();
 			$this->editarDescripcionEstado();
+			$this->editarEncargado();
+			$this->editarRecibido();
+			$this->editarIdAreaActual();
 
 		}
 
@@ -333,9 +423,16 @@
 <?php 
 	
 	$tram=new Tramite();
+	$tram->obtenerDatosTramiteId(9);
+	$tram->moverTramite(2);
+	/*
+	$tram=new Tramite();
 	
+	$tram->obtenerDatosTramiteId(9);
+	$tram->id_area_actual=1;
+	$tram->save();
+	*/
 	
-
 
 
 
