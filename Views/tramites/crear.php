@@ -42,7 +42,7 @@
             <script type="text/javascript">
               var opciones=["logistica","secretaria","Dirección Academica","Sistemas"];
               for (var i=0;i<opciones.length;i++){
-                document.write("<option value='"+i+"'>"+opciones[i]+"</option>")
+                document.write("<option value='" +i+"'>"+opciones[i]+"</option>")
               }
             </script>
           </select>

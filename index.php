@@ -9,16 +9,19 @@
 
 	//Deben ser rutas absolutas porque el router las va a transformar
 	require_once 'config.php';
+	
 	define('URLV', 'http://localhost/'.$nombre_carpeta.'/Views/');
 	define('URLM', 'http://localhost/'.$nombre_carpeta.'/');
 
 	//Carga automatica de clases
 	require_once 'Config/Autoload.php';
 	Config\Autoload::run();
+
+	//HELpers
+	require_once 'Config/Helpers.php';
 	
 	require_once 'Views/Template.php';
 
-	require_once 'Config/Helpers.php';
 
 
 	Config\Router::run(new Config\Request());

@@ -1,4 +1,4 @@
-<form action="<?php echo URLM."tramites/mover/" ?>" method="POST">
+<form id="nyform" action="<?php echo URLM."tramites/mover/" ?>" method="POST">
 	mover a:
 	<input id="idtramite" type="hidden" name="idtramite" value="">
 	<input type="number" name="destino">

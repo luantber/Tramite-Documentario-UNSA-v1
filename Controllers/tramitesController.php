@@ -27,12 +27,19 @@
 				redirect("panel",true);
 
 
-			}	
+			}else{
+
+			echo "OLA KE ASE, VIOLANDO LA SEGURIDAD O KE ASE";	
+			}
 		}
 
 		function buscar()
 		{
 			# code...
+			//$_POST = dat,
+			//bus
+			//0 apellido
+			//1 dni
 			render("tramites/buscar");
 		}
 
@@ -85,7 +92,7 @@
 
 		function crear(){
 			if (!empty($_POST)){
-//function registrarTramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)				
+				
 				$t = new Tramite();
 				/*print_r(array($_POST["folios"],
 					$_POST["descrip"],
@@ -128,6 +135,24 @@
 				render("tramites/crear");
 				
 			}
+		}
+
+		function recibido(){
+			if (!empty($_POST)){
+				$idt = $POST["idtramite"];
+				$r = $_POST["recibido"];
+
+				$t = new Tramite;
+				$t->recibido = $r;
+				$t->save();
+
+				redirect("panel");
+
+			}else{
+				
+			echo "OLA KE ASE, VIOLANDO LA SEGURIDAD O KE ASE";	
+			}
+
 		}
 	}
 ?>
