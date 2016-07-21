@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 21-07-2016 a las 08:22:30
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-07-2016 a las 09:39:21
 -- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.6.21
+-- Versión de PHP: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `database_cs`
+-- Base de datos: `database4`
 --
 
 -- --------------------------------------------------------
@@ -111,6 +111,13 @@ CREATE TABLE `estado` (
   `Id_Expediente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`Descripcion`, `Estado`, `Id_Expediente`) VALUES
+('esta es una prueba', 'pendiente', 9);
+
 -- --------------------------------------------------------
 
 --
@@ -126,6 +133,13 @@ CREATE TABLE `movimientos` (
   `Id_Personas` int(11) NOT NULL,
   `Fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `movimientos`
+--
+
+INSERT INTO `movimientos` (`Id_Movimiento`, `Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`) VALUES
+(3, 9, 0, 1, 9, 0, '2016-07-15');
 
 -- --------------------------------------------------------
 
@@ -179,6 +193,13 @@ CREATE TABLE `tipo_tramite` (
   `Prioridad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `tipo_tramite`
+--
+
+INSERT INTO `tipo_tramite` (`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES
+(9, 'seguros', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -192,8 +213,18 @@ CREATE TABLE `tramites` (
   `Fecha_Termino` date NOT NULL,
   `Asunto` varchar(500) NOT NULL,
   `Id_Persona` int(11) NOT NULL,
-  `Id_Area_Destino` int(11) NOT NULL
+  `Id_Area_Destino` int(11) NOT NULL,
+  `Id_Encargado` int(11) NOT NULL,
+  `Recibido` tinyint(1) NOT NULL,
+  `Id_Area_Actual` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tramites`
+--
+
+INSERT INTO `tramites` (`Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Area_Destino`, `Id_Encargado`, `Recibido`, `Id_Area_Actual`) VALUES
+(9, 12, '0000-00-00', '0000-00-00', 'noidea', 1, 1, 4, 0, 1);
 
 --
 -- Índices para tablas volcadas
@@ -259,7 +290,7 @@ ALTER TABLE `cargos`
 -- AUTO_INCREMENT de la tabla `movimientos`
 --
 ALTER TABLE `movimientos`
-  MODIFY `Id_Movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_Movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
@@ -269,7 +300,7 @@ ALTER TABLE `personas`
 -- AUTO_INCREMENT de la tabla `tramites`
 --
 ALTER TABLE `tramites`
-  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
