@@ -34,6 +34,7 @@
     </div>
     <ul class="nav navbar-nav active">
       <li class="active"><a href="#">Inicio</a></li>
+      <li><a href="<?php echo URLM ?>/movimientos/id">Movimientos</a></li> 
       <li><a href="<?php echo URLM ?>/usuarios/crear">Registrar Usuario</a></li> 
       <!-- PARA USUARIOS !-->
       <li class="dropdown">
@@ -52,9 +53,10 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Areas
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Crear</a></li>
-          <li><a href="<?php echo URLM ?>">Editar</a></li>
+          <li><a href="<?php echo URLM ?>/areas/crear">Crear</a></li>
+          <li><a href="<?php echo URLM ?>/areas/editar">Editar</a></li>
           <li><a href="<?php echo URLM ?>/areas/buscar">Buscar</a></li>
+          <li><a href="<?php echo URLM ?>/areas/ver">Ver</a></li>
           <li><a href="<?php echo URLM ?>/registrar/usuario">Todos</a></li> 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
@@ -87,8 +89,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <!--PERFIL !-->
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
-
+      <li><a href="<?php echo URLM ?>/perfil/barrita"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
       <!--INGRESAR!-->
       <li><a href="<?php echo URLM ?>/ingresar/empleado"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
     
