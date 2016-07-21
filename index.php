@@ -1,5 +1,7 @@
 <?php
 
+	ob_start(); //Redirects
+	session_start(); //Sesiones
 
 	define('DS', DIRECTORY_SEPARATOR);
 	define('ROOT', realpath(dirname(__FILE__)) . DS);
@@ -16,11 +18,8 @@
 	
 	require_once 'Views/Template.php';
 
-	function render($view)
-	{
-		//echo "C?".str_replace("/", DS, $view).".php";
-		require_once(ROOT . "Views" . DS . str_replace("/", DS, $view).".php");
-	}
+	require_once 'Config/Helpers.php';
+
 
 	Config\Router::run(new Config\Request());
 

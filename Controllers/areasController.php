@@ -9,10 +9,9 @@
 		{
 
 			$a = new Area();
-			$areas = $a->obtenerAreas();
+			$areas = $a->getAllAreasDatos();
 
 			Js::prints($areas,true,"areas");
-
 		}
 
 		public function buscar()
@@ -35,7 +34,7 @@
 
 		public function ver()
 		{
-			# code...
+			
 			render("areas/ver");
 		}
 		

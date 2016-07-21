@@ -153,11 +153,12 @@
 		
 		function moverTramite($Id_Area_Destino)
 		{
-			echo $this->id_area_actual;
-			echo $this->id_expediente;
-			echo $this->id_persona;
-			echo $Id_Area_Destino;
-			echo $this->id_persona;
+			//echo $this->id_area_actual;
+			//echo $this->id_expediente;
+			//echo $this->id_persona;
+			//echo $Id_Area_Destino;
+			//echo $this->id_persona;
+			$this->id_area_actual = $Id_Area_Destino;
 			$request="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`)  VALUES (".$this->id_expediente.",".$this->id_area_actual.",".$Id_Area_Destino.",".$this->id_expediente.",".$this->id_persona.",'2016-06-20')";
 			$this->query->consulta($request);
 			$this->estado=0;
@@ -316,7 +317,8 @@
 		public function editarIdAreaActual()
 		{
 		  $request="UPDATE `tramites` SET `Id_Area_Actual`=".$this->id_area_actual." WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);	
+	      $this->query->consulta($request);
+	      echo " hey"	;
 		}
 
 		public function editarRecibido()
@@ -422,9 +424,9 @@
 
 <?php 
 	
-	$tram=new Tramite();
-	$tram->obtenerDatosTramiteId(9);
-	$tram->moverTramite(2);
+	//$tram=new Tramite();
+	//$tram->obtenerDatosTramiteId(9);
+	//$tram->moverTramite(2);
 	/*
 	$tram=new Tramite();
 	

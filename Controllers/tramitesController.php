@@ -14,6 +14,22 @@
 			Js::prints($t->getAllTRamitesDatos(),"data",True);
 		}
 
+		function mover()
+		{
+			if (!empty($_POST)){
+
+				$t = new Tramite;
+				$t->obtenerDatosTramiteId($_POST["idtramite"]);
+
+				$t->moverTramite($_POST["destino"]);
+
+
+				redirect("panel",true);
+
+
+			}	
+		}
+
 		function buscar()
 		{
 			# code...
@@ -24,7 +40,6 @@
 			/*
 				Checkear seguridad
 			*/
-
 			echo $id;
 			$t = new Tramite;
 			if ($t->obtenerDatosTramiteId($id)){
@@ -34,6 +49,7 @@
 				'estado'=>$t->getEstado()
 				);
 				Js::prints($tramite,True);
+				render("tramites/ver");
 			}
 			else{
 				JS::prints("No existe un tramite con id,".$id,"error",True);
@@ -65,7 +81,6 @@
 
 			}
 			
-
 		}
 
 		function crear(){
@@ -96,13 +111,14 @@
 				{
 
 					//error e
-					JS::error("HUbo un error al registrar el Tramite");
+					echo " Exito";
+					echo $t->getAsunto();
 				}
 				else{
-					//Exito
-					echo $t->getAsunto();
 
-					render("registrar/exito");
+					JS::error("HUbo un error al registrar el Tramite, probablemente no exista el DNI");
+
+					//render("registrar/exito");
 
 				}
 
