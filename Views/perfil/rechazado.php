@@ -5,7 +5,7 @@
     <div class="navbar-header">
       <!--<a class="navbar-brand active" href="#">Perfil</a>-->
       <a class="navbar-brand" href="<?php echo URLM ?>/perfil/barrita">Perfil</a>
-      
+
     </div>
  
     <ul class="nav navbar-nav active">
@@ -15,10 +15,10 @@
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
  
-          <li><a href="<?php echo URLM ?>/perfil/MiTramite">Todos</a></li>
-          <li><a href="<?php echo URLM ?>/perfil/proceso">En proceso</a></li>
-          <li><a href="<?php echo URLM ?>/perfil/finalizado">Finalizados</a></li>
-          <li class="active"><a href="<?php echo URLM ?>/perfil/rechazado">Rechazados</a></li>
+          <li><a href="<?php echo URLM ?>perfil/MiTramite">Todos</a></li>
+          <li><a href="<?php echo URLM ?>perfil/proceso">En proceso</a></li>
+          <li><a href="<?php echo URLM ?>perfil/finalizado">Finalizados</a></li>
+          <li class="active"><a href="<?php echo URLM ?>perfil/rechazado">Rechazados</a></li>
  
         </ul>
       </li>
