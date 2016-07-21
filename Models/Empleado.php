@@ -49,6 +49,42 @@
 				return $empleadosDatos; 
 			}
 
+			public function getEmpleadosIdNombreByIdArea($Id_Area)
+			{
+				$request="SELECT `Id_Empleado` FROM `empleados` WHERE Id_Area=".$Id_Area;
+					$result=$this->query->consulta($request);
+					$empleadosIds=array();
+					$empleadosDatos=array();
+					if ($result->num_rows > 0) {
+				    
+					    while($datos = $result->fetch_assoc()) {
+
+					        array_push($empleadosIds,$datos["Id_Empleado"]);
+					    }
+					}
+
+					foreach ($empleadosIds as $id_empleado) {
+						
+						$empleado_temp=new Empleado();
+						$empleado_temp->obtenerDatosId($id_empleado);
+												
+
+						if($empleado_temp->getActivo()=="disponible"){
+				
+							$dato_empleado=array();
+							array_push($dato_empleado,$empleado_temp->getId());
+							array_push($dato_empleado,$empleado_temp->nombres);
+							array_push($empleadosDatos,$dato_empleado);	
+							
+							
+						}
+						
+
+					}
+
+					return $empleadosDatos; 
+			}
+
 			# retorna array de datos de esta persona el orden seria id, dni , nombres .... mire abajo
 			function getAllDatos()
 			{
@@ -100,15 +136,18 @@
 					$result2=$this->query->consulta($request_persona);
 						$datos_persona = $result2->fetch_assoc();
 						$this->nombres=$datos_persona["Nombres"];
+					
 						$this->apellidos=$datos_persona["Apellidos"];
 						$this->nombre_empresa=$datos_persona["Nombre_Empresa"];
 					$this->getNombreArea();
 					$this->getNombreCargo();
+					
 					return true;
 				}
 				else{
 					return false;
 				}
+				
 			}
 
 			public function obtenerDatosDni($Dni_Empleado)
@@ -291,4 +330,6 @@
 	$cosa->correo="hhhh@hhh";
 	$cosa->saveEmpleado();
 	*/
+	//$cosa=new Empleado();
+	//echo $cosa->getEmpleadosIdNombreByIdArea(5)[1][1];
  ?>
