@@ -8,6 +8,11 @@
 
 			print "INdice empleadosController";
 		}
+		public function buscar()
+		{
+			# code..
+			render("areas/buscar");
+		}
 		
 	}
  ?>

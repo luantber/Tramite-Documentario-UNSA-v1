@@ -1,3 +1,4 @@
+<h2 class="text-center" >Registrar Usuario</h2>
 <form class="form-horizontal container" method="POST" action=" <?php echo URLM ?>usuarios/Crear">
   <div class="row container form-group">
       <div class="col-xs-6">

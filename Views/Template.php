@@ -36,15 +36,27 @@
       <li class="active"><a href="#">Inicio</a></li>
       <li><a href="#">Page 2</a></li> 
 
+      <!-- PARA AREAS !-->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Areas
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Crear</a></li>
+          <li><a href="<?php echo URLM ?>">Editar</a></li>
+          <li><a href="<?php echo URLM ?>/areas/buscar">Buscar</a></li>
+          <li><a href="<?php echo URLM ?>/registrar/usuario">Todos</a></li> 
+        </ul>
+      </li> <!-- AQUI TERMINA ... !-->
+
       <!-- PARA MESA DE PARTES !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Acciones
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">Trámites</a></li>
-          <li><a href="<?php echo URLM ?>/acciones/nuevo">Nuevo Trámite</a></li>
-          <li><a href="<?php echo URLM ?>/acciones/estado">Ver estado</a></li>
-          <li><a href="<?php echo URLM ?>/registrar/usuario">Registrar Usuario</a></li> 
+          <li><a href="<?php echo URLM ?>/tramites/crear">Nuevo Trámite</a></li>
+          <li><a href="<?php echo URLM ?>/tramites/buscar">Buscar</a></li>
+          <li><a href="<?php echo URLM ?>/usuarios/crear">Registrar Usuario</a></li> 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
@@ -54,7 +66,7 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">AccionesSU
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="<?php echo URLM ?>/registrar/empleado">Registrar Empleado</a></li>
+          <li><a href="<?php echo URLM ?>/empleados/crear">Registrar Empleado</a></li>
 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->

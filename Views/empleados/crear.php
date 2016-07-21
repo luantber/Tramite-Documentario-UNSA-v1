@@ -1,4 +1,4 @@
-
+<h2 class="text-center" >Registrar Empleado</h2>
 <form class="form-horizontal container"  method="POST" action=" <?php echo URLM?>empleados/crear">
   <div class="row container form-group">
       <div class="col-xs-6">
