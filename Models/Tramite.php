@@ -9,18 +9,18 @@
 	use Models\Persona as Persona;
 	class Tramite
 	{
-		var $id_expediente;
-		var $folios;
-		var $fecha_ingreso;
-		var $fecha_termino;
-		var $asunto;
-		var $id_persona;
-		var $id_area_destino;
-		var $estado;
-		var $descripcionEstado;
-		var $query;
-		var $tipo_tramite;
-		var $prioridad;
+		var $id_expediente; //int
+		var $folios;  //int
+		var $fecha_ingreso; //date
+		var $fecha_termino;	//date
+		var $asunto; //varchar
+		var $id_persona; //int
+		var $id_area_destino; //int
+		var $estado;	//varchar
+		var $descripcionEstado;	//string
+		var $query;  //query xD
+		var $tipo_tramite;	//varchar
+		var $prioridad;	//int supuestamente puede ser 1,2,o 3
 		function __construct()
 		{
 			# code...
@@ -143,30 +143,32 @@
 			
 			return $DatosMovimientos; 
 		}
-		/*
+		
 		function getAllTramitesDatos()
 		{
 			$request="SELECT `Id_Expediente` FROM `tramites` WHERE 1";
-			$resulta=$this->query->consulta->($request);
+			$result=$this->query->consulta($request);
 			$tramitesIds=array();
 			$tramitesDatos=array();
 			if ($result->num_rows > 0) {
 		    
 			    while($datos = $result->fetch_assoc()) {
+
 			        array_push($tramitesIds,$datos["Id_Expediente"]);
 			    }
 			}
 
 			foreach ($tramitesIds as $id_tramite) {
-				$datosTramite=array()
+				
 				$tramite_temp=new Tramite();
-				$tramite_temp->obtenerDatosId($id_tramite);
+				$tramite_temp->obtenerDatosTramiteId($id_tramite);
+				array_push($tramitesDatos,$tramite_temp->getAllDatos());
 
 			}
 
 			return $tramitesDatos; 
 		}
-		*/
+		
 
 		function getFolios()
 		{
@@ -222,7 +224,7 @@
 		{
 			return $this->id_expediente;
 		}
-		//devuelve todos los datos como un array
+		//devuelve todos los datos como un array 
 		public function getAllDatos()
 		{
 			$datos=array();
@@ -237,6 +239,7 @@
 			array_push($datos,$this->prioridad);
 			array_push($datos,$this->estado);
 			array_push($datos,$this->descripcionEstado);
+			return $datos;
 		}
 
 		//------------------------------------funciones para editar
@@ -328,16 +331,9 @@
 
 
 <?php 
-	/*
+	
 	$tram=new Tramite();
-	$res=$tram->registrarTramiteByDni(34,"dadsad",11111111,1,"jasas",2,"en proceso","asdaddsa");
-	if($res==true){
-		echo "true";
-	}
-	else{
-		echo "false";
-	}
-	*/
+	
 	
 
 
