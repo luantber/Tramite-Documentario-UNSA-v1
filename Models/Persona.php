@@ -190,8 +190,8 @@
  	echo $persona->getDni()."</br>";
  	echo $persona->getNombreEmpresa()."</br>";
 	*/
-
+ 	/*
  	$p=new Persona();
  	echo $p->getAllPersonasDatos()[1][3];
-
+	*/
   ?>
