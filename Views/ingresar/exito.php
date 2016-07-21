@@ -1,8 +1,9 @@
 <?php
-	use Models\Auth as Auth;
+	use Config\Auth as Auth;
 
 
-	echo "<h2>Exito al ingresar!!, Bienvenido </h2>";
+	echo "<h2>Exito al ingresar!!, Bienvenido ".Auth::get_session()[0]." eres ".Auth::get_session()[1]." </h2>";
+	?>
 
-	
-?>
+
+
