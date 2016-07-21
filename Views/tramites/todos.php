@@ -25,7 +25,7 @@
 				document.write("<h6>"+"Estado: "+nuevo[8]+"</h6></form></td>");
 				document.write("<td>"+nuevo[2]+"</td>");
 				document.write("<td>"+nuevo[3]+"</td>");
-				document.write("<td><a href='<?php echo URLM ?>empleados/crear'><span class='glyphicon glyphicon-envelope'></span></a>"+"</td>");
+				document.write("<td><a href='<?php echo URLM ?>tramites/asignar'><span class='glyphicon glyphicon-envelope'></span></a>"+"</td>");
           document.write("<td><a href='<?php echo URLM ?>empleados/crear'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td></tr>");
 			}
 		</script>
