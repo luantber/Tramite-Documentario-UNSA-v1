@@ -67,7 +67,7 @@
         <ul class="dropdown-menu">
           <li><a href="<?php echo URLM ?>tramites/crear">Nuevo</a></li>
           <li><a href="<?php echo URLM ?>tramites/buscar">Buscar</a></li> 
-          <li><a href="#">Todos</a></li>
+          <li><a href="<?php echo URLM ?>tramites/todos">Todos</a></li>
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 

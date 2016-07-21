@@ -141,6 +141,16 @@
 				
 			}
 		}
+		function todos()
+		{
+			# code...
+			render("tramites/todos");
+		}
+		function imprimir()
+		{
+			render("tramites/imprimir");
+			# code...
+		}
 
 		function recibido(){
 			if (!empty($_POST)){
