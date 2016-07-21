@@ -31,7 +31,7 @@
   	<div class="form-group">
   		<label for="asunto" class="col-sm-2 control-label" >Asunto </label>
   		<div class="col-sm-10" >
-  			<input name="asunto" type="text" class="form-control" id="asunto" required placeholder=" Ingrese asunto">
+  			<textarea class="form-control" rows="3" id="descrip" placeholder="ingrese asunto"></textarea>
   		</div>
   	</div>
 

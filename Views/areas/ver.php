@@ -4,37 +4,27 @@
   <table class="table table-hover">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Nombre</th>
-        <th>Jefe de áre</th>
-        <th>Creación</th>
-        <th>Estado</th>
+        <th>Descripción</th>
+        <th>Jefe</th>
+        <th><span class="glyphicon glyphicon-pencil"></span> Editar</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Gerencia</td>
-        <td>Persona1</td>
-        <td>24/02/14</td>
-        <td>Activo</td>
-      </tr>
-      <tr>
-        <td>Mesa de partes</td>
-        <td>Persona2</td>
-        <td>19/06/13</td>
-        <td>Eliminado</td>
-      </tr>
-       <tr>
-        <td>Contabilidad</td>
-        <td>Persona3</td>
-        <td>21/07/13</td>
-        <td>Activo</td>
-      </tr>
-       <tr>
-        <td>Logística</td>
-        <td>Persona4</td>
-        <td>05/02/15</td>
-        <td>Activo</td>
-      </tr>
+     <script type="text/javascript">
+     var nuevo,tamanio;
+     tamanio=areas.length;
+     for(var i =0; i<tamanio;i++){
+      nuevo=areas[i];
+      document.write("<tr><td>"+nuevo[0]+"</td>");
+      document.write("<td>"+nuevo[1]+"</td>");
+      document.write("<td>"+nuevo[2]+"</td>");
+      document.write("<td>"+nuevo[3]+"</td>");
+      document.write("<td><a href='<?php echo URLM ?>areas/crear'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td></tr>");
+
+     }
+     </script>
     </tbody>
   </table>
 </div>
