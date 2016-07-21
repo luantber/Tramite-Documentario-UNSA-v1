@@ -10,7 +10,7 @@
 			*/
 			echo "todos los tramites";
 			$t= new Tramite();
-			//print_r($t->getAllTRamitesDatos());
+			print_r($t->getAllTRamitesDatos());
 			Js::prints($t->getAllTRamitesDatos(),"data",True);
 			render("tramites/barraTramites");
 			render("tramites/todos");
