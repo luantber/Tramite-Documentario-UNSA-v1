@@ -26,16 +26,18 @@
 		var $id_encargado;//int
 		var $recibido;//1 o 0
 		var $id_area_actual;
+		var $fecha; // fecha actual
 		function __construct()
 		{
 			# code...
 			$this->query= new Query();
+			$this->fecha = $this->query->getFecha();
 		}
 
 
 		function obtenerDatosTramiteId($IdTramite)
 		{
-			
+
 			$request="SELECT `Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`,`Id_Area_Destino`, `Id_Encargado`,`Recibido`, `Id_Area_Actual` FROM `tramites` WHERE Id_Expediente=".$IdTramite;
 				$result=$this->query->consulta($request);
 				if ($result->num_rows != 0) {
@@ -51,7 +53,7 @@
 				    $this->fecha_ingreso=$datos["Fecha_Ingreso"];
 				    $this->asunto=$datos["Asunto"];
 				    $this->id_expediente=$datos["Id_Expediente"];
-					
+
 					$p2 = new Persona();
 				    $p2->obtenerDatosPersona($datos["Id_Encargado"]);
 				   $this->id_encargado=$p2->getNombres().$p2->getApellidos();
@@ -94,8 +96,8 @@
 
 		function registrarTramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)
 		{
-			$fecha = $this->query->getFecha();
-			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`,`Id_Area_Actual`) VALUES (".$Folios.",'".$fecha."','".$Asunto."',".$Id_Persona.",'1')";
+
+			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`,`Id_Area_Actual`) VALUES (".$Folios.",'".$this->fecha."','".$Asunto."',".$Id_Persona.",'1')";
 			$this->query->consulta($request);
 			$tramite_id=$this->query->get_id();
 			$request2="INSERT INTO `tipo_tramite`(`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES (".$tramite_id.",'".$Tipo_Tramite."',".$Prioridad.")";
@@ -103,10 +105,10 @@
 			$request3="INSERT INTO `estado`(`Id_Expediente`, `Estado`, `Descripcion`) VALUES (".$tramite_id.",'".$Estado."','".$DescripcionEstado."')";
 			$this->query->consulta($request3);
 
-			$request4="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'0','1',".$tramite_id.",'2016-07-15',".$Id_Persona.")";
+			$request4="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'0','1',".$tramite_id.",'".$this->fecha."',".$Id_Persona.")";
 				$this->query->consulta($request4);
 
-			$request5="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'1',".$Id_Area_Destino.",".$tramite_id.",'2016-07-15',".$Id_Persona.")";
+			$request5="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'1',".$Id_Area_Destino.",".$tramite_id.",'".$this->fecha."',".$Id_Persona.")";
 			$this->query->consulta($request5);
 
 
@@ -122,17 +124,17 @@
 				$Id_Persona=$persona->getId();
 
 
-				$request="INSERT INTO 
+				$request="INSERT INTO
 				`tramites`
 				(`Folios`,
 				 `Fecha_Ingreso`,
-				 `Asunto`, 
+				 `Asunto`,
 				 `Id_Persona`,
 				  `Id_Area_Actual`,
 				  `Id_Area_Destino`
-				  ) 
+				  )
 
-				  VALUES (".$Folios.",'2016-07-15','".$Asunto."',".$Id_Persona.",1,".$Id_Area_Destino.")";
+				  VALUES (".$Folios.",'".$this->fecha."','".$Asunto."',".$Id_Persona.",1,".$Id_Area_Destino.")";
 
 
 				$this->query->consulta($request);
@@ -143,10 +145,10 @@
 				$request3="INSERT INTO `estado`(`Id_Expediente`, `Estado`, `Descripcion`) VALUES (".$tramite_id.",'".$Estado."','".$DescripcionEstado."')";
 				$this->query->consulta($request3);
 
-				$request4="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'0','1',".$tramite_id.",'2016-07-15',".$Id_Persona.")";
+				$request4="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'0','1',".$tramite_id.",'".$this->fecha."',".$Id_Persona.")";
 				$this->query->consulta($request4);
 
-				$request5="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'1',".$Id_Area_Destino.",".$tramite_id.",'2016-07-15',".$Id_Persona.")";
+				$request5="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'1',".$Id_Area_Destino.",".$tramite_id.",'".$this->fecha."',".$Id_Persona.")";
 				$this->query->consulta($request5);
 
 
@@ -510,13 +512,13 @@
 	//$tram=new Tramite();
 	//$tram->obtenerDatosTramiteId(9);
 	//$tram->moverTramite(2);
-	
+/*
 	$tram=new Tramite();
-	$tram->registrarTramite(41,"mas pruebas",18,3,"con fe funciona",1,"pendiente","en redireccionamiento");
-	
-	
-	
-	
+	$tram->registrarTramite(41,"mas testing",18,3,"con fe funciona",1,"pendiente","en redireccionamiento");
+
+
+*/
+
 
 
 
