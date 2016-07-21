@@ -44,6 +44,13 @@
 			render("tramites/buscar");
 		}
 
+		function asignar()
+		{
+			render("tramites/asignar");
+			render("tramites/editar");
+			# code...
+
+		}
 		function ver($id){
 			/*
 				Checkear seguridad
@@ -93,6 +100,7 @@
 				}
 
 			}
+			render("tramites/editar");
 			
 		}
 
