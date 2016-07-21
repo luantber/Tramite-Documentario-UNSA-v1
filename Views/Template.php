@@ -35,7 +35,7 @@
       <a class="navbar-brand" href="<?php echo URLM ?>">Trámite Documentario</a>
     </div>
     <ul class="nav navbar-nav active">
-      <li><a href="<?php echo URLM ?>movimientos">Movimientos</a></li> 
+      <!--<li><a href="<?php echo URLM ?>movimientos">Movimientos</a></li> -->
 
       <!-- PARA USUARIOS !-->
       <li class="dropdown">
@@ -77,7 +77,7 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Movimientos
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="<?php echo URLM ?>/movimientos/todos">Ver todos</a></li>
+          <li><a href="<?php echo URLM ?>movimientos">Ver todos</a></li>
           <li><a href="<?php echo URLM ?>/movimientos/ver">Buscar</a></li>
         </ul>
       </li>
