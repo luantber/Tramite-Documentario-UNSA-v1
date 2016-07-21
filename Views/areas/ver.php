@@ -9,6 +9,7 @@
         <th>Descripción</th>
         <th>Jefe</th>
         <th><span class="glyphicon glyphicon-pencil"></span> Editar</th>
+        <th><span class="glyphicon glyphicon-trash"></span> Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -21,8 +22,8 @@
       document.write("<td>"+nuevo[1]+"</td>");
       document.write("<td>"+nuevo[2]+"</td>");
       document.write("<td>"+nuevo[3]+"</td>");
-      document.write("<td><a href='<?php echo URLM ?>areas/crear'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td></tr>");
-
+      document.write("<td><a href='<?php echo URLM ?>areas/crear'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td>");
+      document.write("<td><a href='#'><span class='glyphicon glyphicon-trash'></span></a>"+"</td></tr>");
      }
      </script>
     </tbody>
