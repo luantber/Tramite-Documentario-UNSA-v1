@@ -1,6 +1,7 @@
 <?php namespace Controllers;
 
 	use Models\Tramite as Tramite;
+	use Models\Area as Area;
 	use Models\Js as Js;
 	class tramitesController
 	{
@@ -100,27 +101,24 @@
 			if (!empty($_POST)){
 				
 				$t = new Tramite();
-				/*print_r(array($_POST["folios"],
-					$_POST["descrip"],
-					$_POST["ident"],
-					$_POST["destino"],
-					$_POST["tipo"],
-					$_POST["prioridad"]));
-				*/
+				
+				//registrarTramiteByDni($Folios,$Asunto,$Dni_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)
+				echo "Destino".$_POST["destino"];
 
 
 				if($t->registrarTramiteByDni(
 					$_POST["folios"],
-					$_POST["descrip"],
+					$_POST["asunto"],
 					$_POST["ident"],
 					$_POST["destino"],
-					$_POST["tipo"],
+					"tipo", //Tipo de tramite
 					$_POST["prioridad"],
-					//$_POST["estado"]
-					//$_POST["descripcion_estado"]
-					"",
-					""
-					)) 
+					"Pendiente",
+					 //Estado: Enproceso, finalizado y rechazado
+					"..."
+
+					)
+					) 
 				{
 
 					//error e
@@ -137,7 +135,9 @@
 
 			}
 			else{
-				
+				$a = new Area;
+				$at = $a->obtenerAreas();
+				Js::prints($at,true,"areas");
 				render("tramites/crear");
 				
 			}
