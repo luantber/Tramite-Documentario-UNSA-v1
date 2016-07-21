@@ -1,4 +1,6 @@
 <h2>Delegacion de Trámite</h2>
+<div class="container"> 
+<form method="post" action="#">
 <div>
 	<div class="form-group">
 		<label for="tipo" class="col-sm-2 control-label" >Tipo </label>
@@ -16,4 +18,6 @@
 		<p id="notipo" ></p>
 		</div>
 	</div>
+</div>
+</form>
 </div>
