@@ -9,13 +9,7 @@
 		class Empleado extends Persona
 		{
 
-			var $query;
-			var $id;
-			var $dni;
-			var $nombres;
-			var $apellidos;
-			var $nombre_empresa;
-
+			
 			var $id_cargo; //int
 			var $id_area;	//int
 			var $activo;	//varchar

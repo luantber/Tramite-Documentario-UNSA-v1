@@ -14,9 +14,32 @@
 			Js::prints($t->getAllTRamitesDatos(),"data",True);
 		}
 
+		function mover()
+		{
+			if (!empty($_POST)){
+
+				$t = new Tramite;
+				$t->obtenerDatosTramiteId($_POST["idtramite"]);
+
+				$t->moverTramite($_POST["destino"]);
+
+
+				redirect("panel",true);
+
+
+			}else{
+
+			echo "OLA KE ASE, VIOLANDO LA SEGURIDAD O KE ASE";	
+			}
+		}
+
 		function buscar()
 		{
 			# code...
+			//$_POST = dat,
+			//bus
+			//0 apellido
+			//1 dni
 			render("tramites/buscar");
 		}
 
@@ -24,7 +47,6 @@
 			/*
 				Checkear seguridad
 			*/
-
 			echo $id;
 			$t = new Tramite;
 			if ($t->obtenerDatosTramiteId($id)){
@@ -34,6 +56,7 @@
 				'estado'=>$t->getEstado()
 				);
 				Js::prints($tramite,True);
+				render("tramites/ver");
 			}
 			else{
 				JS::prints("No existe un tramite con id,".$id,"error",True);
@@ -65,12 +88,11 @@
 
 			}
 			
-
 		}
 
 		function crear(){
 			if (!empty($_POST)){
-//function registrarTramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)				
+				
 				$t = new Tramite();
 				/*print_r(array($_POST["folios"],
 					$_POST["descrip"],
@@ -96,13 +118,14 @@
 				{
 
 					//error e
-					JS::error("HUbo un error al registrar el Tramite");
+					echo " Exito";
+					echo $t->getAsunto();
 				}
 				else{
-					//Exito
-					echo $t->getAsunto();
 
-					render("registrar/exito");
+					JS::error("HUbo un error al registrar el Tramite, probablemente no exista el DNI");
+
+					//render("registrar/exito");
 
 				}
 
@@ -112,6 +135,24 @@
 				render("tramites/crear");
 				
 			}
+		}
+
+		function recibido(){
+			if (!empty($_POST)){
+				$idt = $POST["idtramite"];
+				$r = $_POST["recibido"];
+
+				$t = new Tramite;
+				$t->recibido = $r;
+				$t->save();
+
+				redirect("panel");
+
+			}else{
+				
+			echo "OLA KE ASE, VIOLANDO LA SEGURIDAD O KE ASE";	
+			}
+
 		}
 	}
 ?>

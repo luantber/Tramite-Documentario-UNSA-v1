@@ -1,12 +1,17 @@
 <?php namespace Controllers;
 
+	use Models\Area as Area;
+	use Models\Js as Js;
 	class areasController
 	{
 		
 		public function index()
 		{
 
-			print "INdice empleadosController";
+			$a = new Area();
+			$areas = $a->getAllAreasDatos();
+
+			Js::prints($areas,true,"areas");
 		}
 
 
@@ -18,7 +23,7 @@
 
 		public function ver()
 		{
-			# code...
+			
 			render("areas/ver");
 		}
 		
