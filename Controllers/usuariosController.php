@@ -3,7 +3,10 @@
 	class usuariosController
 	{
 		public index(){
-			echo "",
+			/*
+				GetALlUsers
+			*/
 		}
+		
 	}
 ?>

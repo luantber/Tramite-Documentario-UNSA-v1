@@ -24,13 +24,13 @@
 		function __construct()
 		{
 			# code...
-			$this->query= new Query();
-			
+			$this->query= new Query();			
 		}
 
 
 		function obtenerDatosTramiteId($IdTramite)
 		{
+			
 			$request="SELECT `Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Area_Destino` FROM `tramites` WHERE Id_Expediente=".$IdTramite;
 				$result=$this->query->consulta($request);
 				if ($result->num_rows != 0) {

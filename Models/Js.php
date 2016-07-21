@@ -5,10 +5,11 @@
 
 	class Js
 	{
-		static function prints($areas)
+		static function prints($areas,$name="data",$ver=False)
 		{
+			if ( $ver) echo " <br>var ".$name." =".json_encode($areas);
 			echo "<script>";
-			echo "var areas =";
+			echo "var ".$name." =";
 			echo json_encode($areas);
 
 			echo ";</script>";
