@@ -4,7 +4,7 @@
 	* Empleados Controlador
 	*/
 
-	
+	use Models\Auth as Auth;
 	use Models\Empleado as Empleado;
 
 	class ingresarController
@@ -30,7 +30,7 @@
 						echo "<br>Contraseña incorrecta";
 				}
 				else
-					echo "No estas registrado we";
+					echo "No estas registrado";
 
 			}
 			else{
