@@ -22,18 +22,20 @@
 					$_POST["nome"],
 					$_POST["apee"],
 					1,
-					true,
-					"mail@mail"
-					,$_POST["dnie"],
+					true, //Activo?
+					$_POST["emaile"],
+					$_POST["dnie"],
 					$_POST["contrae"] 
 				);
 
 				$r->registrarEmpleado(...$data);
-				render("registrar/exito");
+				echo "exito";
+				Js::prints($data,true);
+				render("empleados/crear");
 			}
 			else{
 				
-				render("registrar/empleado");
+				render("empleados/crear");
 				
 			}
 		}
