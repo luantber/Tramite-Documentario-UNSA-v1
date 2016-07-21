@@ -1,5 +1,6 @@
 
 <div class="container">
+  
   <h2>Mis Trámites</h2>           
   <table class="table table-hover">
     <thead>
@@ -24,5 +25,6 @@
         <td>24/03/16</td>
       </tr>
     </tbody>
+  
   </table>
 </div>
