@@ -1,0 +1,276 @@
+@charset "utf-8";
+
+body, div, h1, form, fieldset, input{
+	margin: 0; padding: 0;border: 0; outline: none;
+}
+
+html{
+	height: 100%
+}
+
+body{
+	font-family: 'Montserrat', sans-serif;
+	background: #FFFFFF;  /*color de fondoK (blanco)*/
+}
+
+/*espacios*/
+#div-grande{
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+.espacio-derecha{
+	margin-right: 1em;
+}
+.espacio-izquierda{
+	margin-left: 1em;
+}
+
+/*tipos de letras*/
+.muli{
+	font-family: 'Muli', sans-serif;
+}
+.montserrat{
+	font-family: 'Montserrat', sans-serif;
+}
+
+/*tamaños de letras*/
+.pequeno{
+	font-size: 0.8em;
+}
+.grande{
+	font-size: 2em;
+}
+/* COLORES*/
+.carne{
+	color: #F5E49B;
+}
+
+.carne-oscuro{
+	color: #BDB37D;
+}
+
+.azul-claro{
+	color: #338C8D;
+}
+
+.azul-oscuro{
+	color: #35353E;
+}
+
+/*******************************************/
+/*solo para */
+#Inicio{
+	margin: 150px auto;
+
+}
+/*******************************************/
+/* cuadro del formulario*/
+form{
+	border: 0px solid #338C8D;
+	width: 720px; /*tamaño del recuadro*/
+	margin: 50px auto; /*para centrar 50 arriba y abajo, se centra automaticamente a los costados*/
+
+}
+/*para el titulo*/
+form h1 {
+	text-align:center;
+	font-size: 30pt;
+	margin: 40px 0; /*centrar dentro de la caja*/
+	font-family: 'Montserrat', sans-serif;
+}
+
+form h3{
+	margin: 30px 20px;
+}
+
+form input{
+	width: 660px; /*ancho de cada caja input*/
+	height: 30px; /*alto de cada caja input*/
+	padding: 0px 10px;/* los espacios que va a tener las letras dentro de la caja input...->costados/arriba y abajo 10*/
+	margin: 10px 20px;/*espaciado entre cajas input arriba y abajo / costados*/
+	color: #35353E;/**/
+	border-top: 1px solid #338C8D;/*raya de arriba grosor, colido y color*/
+	font-family: 'Muli', sans-serif;
+}
+
+
+form label{
+	margin: 0px 20px;
+}
+
+form button{
+	width:135px;
+	margin: 40px 0px 30px 150px;
+	height: 30px;
+	background: #b5bdc8; /* Old browsers */
+	background: -moz-linear-gradient(top,  #b5bdc8 0%, #828c95 36%, #28343b 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); /* IE6-9 */
+	border: 0px solid #338C8D;
+	color: #fff;
+	box-shadow: 0px 2px 0px #000;/*sombra aplica en la parte de abajo*/
+	-moz-box-shadow: 0px 2px 0px #000;
+	-webkit-box-shadow: 0px 2px 0px #000;	
+	border-radius: 3px; /*para las puntas esten redondas*/
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+form button:hover{
+	background: #3a3a3a; /*cuando el puntero se acerca al boton este cambia de color*/
+}
+
+form button:active{
+	background: #28343b; /* almomento de hacer click el boton vuelve a cambiar de color */
+	background: -moz-linear-gradient(top,  #28343b 0%, #828c95 64%, #b5bdc8 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #28343b 0%,#828c95 64%,#b5bdc8 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #28343b 0%,#828c95 64%,#b5bdc8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28343b', endColorstr='#b5bdc8',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+/*para ingresar iniciar sesion *********************************************************************************/
+/*el '#' se aplica para hacer cambios en algo especifico dandole primero un 'id' en el 'form', 'div'  al que se quiere acceder*/
+/*al parecer funciona con todo.... ahhh en el form o supongo en todo ... se pone luego el'input', 'label' etc... */
+#ingresar {
+	width: 400px; /*tamaño del recuadro*/
+	margin: 50px auto; /*para centrar 50 arriba y abajo, se centra automaticamente a los costados*/
+
+}
+
+#ingresar input{
+	width: 310px; /*ancho de cada caja input*/
+	height: 25px; /*alto de cada caja input*/
+	padding: 0px 10px;/* los espacios que va a tener las letras dentro de la caja input...->costados/arriba y abajo 10*/
+	margin: 10px 20px;/*espaciado entre cajas input arriba y abajo / costados*/
+	color: #35353E;/**/
+	border-top: 1px solid #338C8D;/*raya de arriba grosor, colido y color*/
+	font-family: 'Muli', sans-serif;
+}
+
+#ingresar button{
+	width:135px;
+	margin: 35px auto;
+	height: 30px;
+	background: #b5bdc8; /* Old browsers */
+	background: -moz-linear-gradient(top,  #b5bdc8 0%, #828c95 36%, #28343b 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); /* IE6-9 */
+	border: 0px solid #338C8D;
+	color: #fff;
+	box-shadow: 0px 2px 0px #000;/*sombra aplica en la parte de abajo*/
+	-moz-box-shadow: 0px 2px 0px #000;
+	-webkit-box-shadow: 0px 2px 0px #000;	
+	border-radius: 3px; /*para las puntas esten redondas*/
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+#ingresar button:hover{
+	background: #3a3a3a; /*cuando el puntero se acerca al boton este cambia de color*/
+}
+
+#ingresa button:active{
+	background: #28343b; /* almomento de hacer click el boton vuelve a cambiar de color */
+	background: -moz-linear-gradient(top,  #28343b 0%, #828c95 64%, #b5bdc8 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #28343b 0%,#828c95 64%,#b5bdc8 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #28343b 0%,#828c95 64%,#b5bdc8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28343b', endColorstr='#b5bdc8',GradientType=0 ); /* IE6-9 */
+}
+
+/*kat*/
+
+header{
+	width: 100%;
+	overflow: hidden;
+	background: #D5FFEE; /*color de fondo de cabecera*/
+	margin-bottom: 20px;
+}
+
+/*clase para centrar*/
+.wrapper {
+	width:90%;
+	max-width: 1000 px;
+	margin:auto;
+	overflow: hidden;
+}
+
+header .logo{
+	color:#2F7959; /*color de titulo de cabecera*/
+	font-size: 43px;  /*tamaño de letra de título cabecera*/
+	line-height: 150px; /*tamaño de header*/
+	float:left;
+}
+
+header nav{
+	float:right;
+	line-height: 150px; /*tamaño de header*/
+
+}
+
+header nav a{
+	display:inline-block;
+	color:#688D7D;           /*cambiar color de enlaces*/
+	text-decoration:none;
+	padding:10px 20px;
+	line-height: normal;
+	font-size: 17px;     /*tamaño de letra de enlaces*/
+	font-weight: bold;
+	-webkit-transition:all 500ms ease;
+	-o-transition:all 500ms ease;
+	transition:all 500ms ease;
+}
+
+header nav a:hover{
+	background:#8ED5B6 ; /*color de borde de enlaces*/
+	border-radius: 50px; /*borde de color a los botones*/
+
+}
+
+.header2{
+	/*position: fixed;*/ /* Estaba tapando los mensajes ... comentado¡ */ 
+	height: 100px; /*cambiar el alto*/
+
+}
+
+.header2 .logo{
+	line-height: 100px; /*cambiar alto de logo*/
+	font.size:30px;
+}
+
+.header2 nav{
+	line-height: 100px; /* cambiar alto de nav ( enlaces ) */
+}
+
+/*en caso de contenido , usar esta clase para que no la tape el banner*/
+.contenido{
+	padding-top: 100px;  /*tamaño de contenido al tope*/
+}
+
+.contenido p{
+	margin-bottom: 1em;
+}
+
+/*para que aparezcan los enlaces siempre en pantalla*/
+@media screen and (max-width: 950px){
+	header .logo,
+	header nav{
+		width: 100%;
+		text-align: center;
+		line-height: 85px; /*tamaño de header .js*/
+	}
+	.header2 {
+		height: auto;
+	}
+	.header2 .logo,
+	.header2 nav{
+		line-height: 50px;
+	}
+}
+
+/*Kat*/
+

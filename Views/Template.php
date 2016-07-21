@@ -89,9 +89,25 @@
 
 <div>
 
+
 	<p>MOSTRANDO POSIBLES ERRORES...</p>
 	<p>.............................</p>
-	<p>.............................</p>
+	<p>....................... .-. .</p>
+
+  <div>
+  <ul>
+    <li><a href="<?php echo URLM ?>usuarios/crear">Crear Usuarios</a></li>
+    <li><a href="<?php echo URLM ?>empleados/crear">Crear Empleados</a></li>
+    <li><a href="<?php echo URLM ?>personas">Todas Las Personas</a></li>
+    <li><a href="<?php echo URLM ?>tramites/crear">Crear Tramite</a></li>
+    <li><a href="<?php echo URLM ?>tramites">Todos los Tramite</a></li>
+    <li><a href="<?php echo URLM ?>tramites/editar/2">Editar tr #2</a></li>
+    <li><a href="<?php echo URLM ?>tramites/ver/2">Muestra tramite #2</a></li>
+
+  </ul>
+</div>
+
+
 	<?php 
 		}
 		public function __destruct(){
