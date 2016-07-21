@@ -19,8 +19,28 @@
 
 		function getIdsTramitesEncargados()
 		{
-			$request="SELECT `Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Area_Destino`, `Id_Encargado`, `Recibido`, `Id_Area_Actual` FROM `tramites` WHERE Id_Encargado=".$this->id;
+			$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Encargado=".$this->id;
+			$result=$this->query->consulta($request);
+			$idsTramitesEncargados=array();
+			if ($result->num_rows > 0) {
+		    
+			    while($datos = $result->fetch_assoc()) {
+			        array_push($idsTramitesEncargados,$datos["Id_Expediente"]);
+			    }
+			}
+			return $idsTramitesEncargados;
 		}
+
+
 	}
 	
  ?>
+
+
+ <?php 
+ 	/*
+ 	$encargado=new Encargado();
+ 	$encargado->obtenerDatosId(4);
+ 	echo $encargado->getIdsTramitesEncargados()[0];
+ 	*/
+  ?>

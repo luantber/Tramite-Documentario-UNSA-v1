@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-07-2016 a las 09:39:21
+-- Tiempo de generación: 21-07-2016 a las 18:00:08
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -116,7 +116,13 @@ CREATE TABLE `estado` (
 --
 
 INSERT INTO `estado` (`Descripcion`, `Estado`, `Id_Expediente`) VALUES
-('esta es una prueba', 'pendiente', 9);
+('esta es una prueba', '0', 9),
+('en redireccionamiento', 'pendiente', 10),
+('en redireccionamiento', 'pendiente', 11),
+('en redireccionamiento', 'pendiente', 0),
+('en redireccionamiento', 'pendiente', 0),
+('en redireccionamiento', 'pendiente', 0),
+('en redireccionamiento', 'pendiente', 12);
 
 -- --------------------------------------------------------
 
@@ -139,7 +145,21 @@ CREATE TABLE `movimientos` (
 --
 
 INSERT INTO `movimientos` (`Id_Movimiento`, `Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`) VALUES
-(3, 9, 0, 1, 9, 0, '2016-07-15');
+(3, 9, 0, 1, 9, 0, '2016-07-15'),
+(4, 9, 1, 3, 9, 10, '2016-06-20'),
+(5, 9, 3, 2, 9, 1, '2016-06-20'),
+(6, 10, 0, 1, 10, 0, '2016-07-15'),
+(7, 10, 1, 3, 10, 0, '2016-07-15'),
+(8, 11, 0, 1, 11, 19, '2016-07-15'),
+(9, 11, 1, 3, 11, 19, '2016-07-15'),
+(10, 0, 0, 1, 0, 19, '2016-07-15'),
+(11, 0, 1, 3, 0, 19, '2016-07-15'),
+(12, 0, 0, 1, 0, 19, '2016-07-15'),
+(13, 0, 1, 3, 0, 19, '2016-07-15'),
+(14, 0, 0, 1, 0, 19, '2016-07-15'),
+(15, 0, 1, 3, 0, 19, '2016-07-15'),
+(16, 12, 0, 1, 12, 19, '2016-07-15'),
+(17, 12, 1, 3, 12, 19, '2016-07-15');
 
 -- --------------------------------------------------------
 
@@ -198,7 +218,11 @@ CREATE TABLE `tipo_tramite` (
 --
 
 INSERT INTO `tipo_tramite` (`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES
-(9, 'seguros', 3);
+(0, 'aun mas cosas', 2),
+(9, 'seguros', 3),
+(10, 'cosas', 3),
+(11, 'mas cosas', 2),
+(12, 'aun mas cosas', 2);
 
 -- --------------------------------------------------------
 
@@ -213,7 +237,6 @@ CREATE TABLE `tramites` (
   `Fecha_Termino` date NOT NULL,
   `Asunto` varchar(500) NOT NULL,
   `Id_Persona` int(11) NOT NULL,
-  `Id_Area_Destino` int(11) NOT NULL,
   `Id_Encargado` int(11) NOT NULL,
   `Recibido` tinyint(1) NOT NULL,
   `Id_Area_Actual` int(11) NOT NULL
@@ -223,8 +246,11 @@ CREATE TABLE `tramites` (
 -- Volcado de datos para la tabla `tramites`
 --
 
-INSERT INTO `tramites` (`Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Area_Destino`, `Id_Encargado`, `Recibido`, `Id_Area_Actual`) VALUES
-(9, 12, '0000-00-00', '0000-00-00', 'noidea', 1, 1, 4, 0, 1);
+INSERT INTO `tramites` (`Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Encargado`, `Recibido`, `Id_Area_Actual`) VALUES
+(9, 12, '0000-00-00', '0000-00-00', 'noidea', 1, 5, 1, 1),
+(10, 321, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1),
+(11, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1),
+(12, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1);
 
 --
 -- Índices para tablas volcadas
@@ -290,7 +316,7 @@ ALTER TABLE `cargos`
 -- AUTO_INCREMENT de la tabla `movimientos`
 --
 ALTER TABLE `movimientos`
-  MODIFY `Id_Movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id_Movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
@@ -300,7 +326,7 @@ ALTER TABLE `personas`
 -- AUTO_INCREMENT de la tabla `tramites`
 --
 ALTER TABLE `tramites`
-  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
