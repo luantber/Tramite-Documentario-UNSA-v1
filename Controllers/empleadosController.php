@@ -12,8 +12,9 @@
 		
 		public function index()
 		{
-
-			print "INdice empleadosController";
+			$p = new Persona();
+			Js::prints($p->getAllEmpleadosDatos());
+			render("empleados/todas");
 		}
 
 		function crear(){
@@ -35,8 +36,7 @@
 				echo "exito";
 				Js::prints($data,true);
 
-				//CAmbiar Todos Empleados
-				render("empleados/crear");
+				redirect('empleados');
 			}
 			else{
 				$a = new Area;

@@ -47,7 +47,9 @@
 			/*
 				Checkear seguridad
 			*/
-			echo $id;
+			if (isset($id)){
+
+				echo $id;
 			$t = new Tramite;
 			if ($t->obtenerDatosTramiteId($id)){
 				$tramite = array(
@@ -61,6 +63,9 @@
 			else{
 				JS::prints("No existe un tramite con id,".$id,"error",True);
 			}
+			}
+			redirect("error/e404");
+			
 		}
 
 		function editar($id){

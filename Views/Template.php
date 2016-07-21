@@ -100,50 +100,20 @@
 
 <div>
 
-
-	<p>MOSTRANDO POSIBLES ERRORES...</p>
-	<p>.............................</p>
-	<p>....................... .-. .</p>
-
-  <div>
-
-  <ul>
-    <li><a href="<?php echo URLM ?>usuarios/crear">Crear Usuarios</a></li>
-  </ul>
-
-
-  <ul>
-    <li><a href="<?php echo URLM ?>empleados/crear">Crear Empleados</a></li>
-  </ul>
-
-
-  <ul>
-    <li><a href="<?php echo URLM ?>personas">Todas Las Personas</a></li>
-    <li><a href="<?php echo URLM ?>personas/ver/13">Ver Persona por Id</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="<?php echo URLM ?>tramites/crear">Crear Tramite</a></li>
-    <li><a href="<?php echo URLM ?>tramites">Todos los Tramite</a></li>
-    <li><a href="<?php echo URLM ?>tramites/editar/2">Editar tr #2</a></li>
-    <li><a href="<?php echo URLM ?>tramites/ver/2">Muestra tramite #2</a></li>
-  </ul>
-
- 
-</div>
-
-
+<br><br>
 	<?php 
 		}
 		public function __destruct(){
  ?>
 </div>
 
-
+<br>
+<br>
+<br>
 
 						<!-- ..............TÍTULO  !!!!.......................-->
 <div class="jumbotron text-center  ">
-  <h1>TRÁMITE DOCUMENTARIO</h1>
+  <h3>TRÁMITE DOCUMENTARIO</h3>
   <p>Bienvenidos !</p> 
 </div>
 
@@ -152,7 +122,7 @@
 					
 			
 	</div>
-<p align="center" class="parrafo">By CS unsa</p>
+<p align="center" class="parrafo">By CS unsa <span class="glyphicon glyphicon-copyright-mark"></span> Todos Los Derechos Reservados</p>
 </body>
 </html>	
 
