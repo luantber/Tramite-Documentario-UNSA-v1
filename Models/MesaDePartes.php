@@ -39,42 +39,50 @@
     public function editarFoliosById($Id_Tramite,$Folios)
     {
       $request="UPDATE `tramites` SET `Folios`=".$Folios." WHERE Id_Expediente=".$Id_Tramite;
+      $this->query->consulta($request);
     }
 
     public function editarFechaIngresoById($Id_Tramite,$Fecha_Ingreso)
     {
       $request="UPDATE `tramites` SET `Fecha_Ingreso`=".$Fecha_Ingreso." WHERE Id_Expediente=".$Id_Tramite;
+      $this->query->consulta($request);
     }  
 
 
     public function editarFechaTerminoById($Id_Tramite,$Fecha_Termino)
     {
       $request="UPDATE `tramites` SET `Fecha_Termino`=".$Fecha_Termino." WHERE Id_Expediente=".$Id_Tramite;
+      $this->query->consulta($request);
     }
 
     public function editarAsunto($Id_Tramite,$Asunto)
     {
       $request="UPDATE `tramites` SET `Asunto`='".$Asunto."' WHERE Id_Expediente=".$Id_Tramite;
+      $this->query->consulta($request);
     }
 
     public function editarIdPersonaById($Id_Tramite,$Id_Persona)
     {
       $request="UPDATE `tramites` SET `Id_Persona`=".$Id_Persona." WHERE Id_Expediente=".$Id_Tramite;
+      $this->query->consulta($request);
     }
 
     public function editarIdAreaDestino($Id_Tramite,$Id_Area_Destino)
     {
       $request="UPDATE `tramites` SET `Id_Area_Destino`=".$Id_Area_Destino." WHERE Id_Expediente=".$Id_Tramite;
+      $this->query->consulta($request);
     }
 
     public function editarTipoTramiteById($Id_Tramite,$Tipo_Tramite)
     {
       $request="UPDATE `tipo_tramite` SET `Tipo_Tramite`='".$Tipo_Tramite."' WHERE  Id_Expediente=".$Id_Tramite;
+      $this->query->consulta($request);
     }
 
     public function editarTramitePrioridadById($Id_Tramite,$Prioridad)
     {
       $request="UPDATE `tipo_tramite` SET `Prioridad`='".$Prioridad."' WHERE  Id_Expediente=".$Id_Tramite;
+      $this->query->consulta($request);
     }
   
     function getListIdMovimientos($Id_Expediente)
