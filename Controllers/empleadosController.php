@@ -14,9 +14,13 @@
 		
 		public function index()
 		{
-			$p = new Persona();
-			Js::prints($p->getAllEmpleadosDatos());
-			render("empleados/todas");
+			$p = new Empleado();
+			$pd = $p->getAllEmpleadosDatos();
+
+			Js::prints("Empleados ",True,"title");
+			Js::prints($pd,True);
+			render("personas/todas");
+	
 		}
 
 		function crear(){
