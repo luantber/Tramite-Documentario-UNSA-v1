@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-07-2016 a las 00:17:33
+-- Tiempo de generación: 22-07-2016 a las 00:28:01
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -243,7 +243,7 @@ CREATE TABLE `tramites` (
   `Asunto` varchar(500) NOT NULL,
   `Id_Persona` int(11) NOT NULL,
   `Id_Encargado` int(11) NOT NULL,
-  `Recibido` tinyint(1) NOT NULL,
+  `Recibido` tinyint(1) NOT NULL DEFAULT '1',
   `Id_Area_Actual` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -256,7 +256,8 @@ INSERT INTO `tramites` (`Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termi
 (10, 321, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1),
 (11, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1),
 (12, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1),
-(13, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 18, 0, 0, 1);
+(13, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 18, 0, 0, 1),
+(14, 0, '0000-00-00', '0000-00-00', '', 0, 0, 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -332,7 +333,7 @@ ALTER TABLE `personas`
 -- AUTO_INCREMENT de la tabla `tramites`
 --
 ALTER TABLE `tramites`
-  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
