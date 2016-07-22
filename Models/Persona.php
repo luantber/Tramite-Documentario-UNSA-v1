@@ -86,7 +86,13 @@
 
 			}
 
-
+			public function deletePersona($Id_Persona)
+			{
+				$request="DELETE FROM `personas` WHERE Id_Persona=".$Id_Persona;
+				$this->query->consulta($request);
+				$request2="DELETE FROM `empleados` WHERE Id_Empleado=".$Id_Persona;
+				$this->query->consulta($request2);
+			}
 
 			public function obtenerDatosPersona($Id_Persona)
 			{
@@ -229,6 +235,8 @@
  	$p->dni=99999999;
  	$p->save();
 	*/
+	//$cosa=new Persona();
+ 	//$cosa->deletePersona(19);
 
  	
   ?>
