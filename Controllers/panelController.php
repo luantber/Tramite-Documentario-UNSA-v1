@@ -6,18 +6,23 @@
 	//use Models\Persona as Persona;
 	use Models\Tramite as Tramite;
 	use Models\Js as Js;
+	use Config\Auth as Auth;
 
 	class panelController
 	{
 		function index(){
-			$t = new Tramite;
-			$areas = $t->getAllTramitesDatosByIdAreaActual(1);
-			$s = getSesion("sesion1");
+			
+			logueado();			
 
+			$t = new Tramite;
+			$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::getareaId());
+			Js::prints($areas,true);
+
+			
+			$s = getSesion("sesion1");
 			if ($s){
 				Js::prints($s,true,"exitoMover");
 			}
-
-			Js::prints($areas,true);
+			render("tramites/todos");
 		}
 	}

@@ -3,8 +3,16 @@
 	/**
 	* 
 	*/
-	use Models\Query as Query;
 	include_once "Query.php";
+	include_once "Empleado.php";
+	include_once "Persona.php";
+	include_once "Area.php";
+	include_once "Tramite.php";
+	use Models\Query as Query;
+	use Models\Persona as Persona;
+	use Models\Empleado as Empleado;
+	use Models\Area as Area;
+	use Models\Tramite as Tramite;
 	class Movimiento
 	{
 		var $id_movimiento;
@@ -36,8 +44,30 @@
 			}
 		}
 
+		function getAllDatosNombres()
+		{
+			$datos=array();
+			$tramite_temp=new Tramite();
+			$tramite_temp->obtenerDatosTramiteId($this->id_expediente);
+			$persona_temp=new Persona();
+			$persona_temp->obtenerDatosPersona($this->id_persona);
+			$area_remitente=new Area();
+			$area_remitente->obtenerDatosAreaById($this->id_remitente);
+			$area_destino=new Area();
+			$area_destino->obtenerDatosAreaById($this->id_destino);
+			array_push($datos, $this->id_movimiento);
+			array_push($datos, $this->id_expediente);
+			array_push($datos, $area_remitente->nombre_area);
+			array_push($datos, $area_destino->nombre_area);
+			array_push($datos, $tramite_temp->estado);
+			array_push($datos, $persona_temp->nombres." ".$persona_temp->apellidos);
+			array_push($datos, $this->fecha);
+			return $datos;
+		}
+
 		function getAllDatos()
 		{
+
 			$datos=array();
 			array_push($datos, $this->id_movimiento);
 			array_push($datos, $this->id_expediente);
@@ -81,7 +111,7 @@
 				
 				$movimiento_temp=new Movimiento();
 				$movimiento_temp->obtenerDatosById($id_movimiento);
-				array_push($movimientosDatos,$movimiento_temp->getAllDatos());
+				array_push($movimientosDatos,$movimiento_temp->getAllDatosNombres());
 
 			}
 
@@ -113,6 +143,15 @@
 
 
  <?php 
- 	//$cosa= new Movimiento();
- 	//echo $cosa->getAllMovimientos()[4][3];
+ 	/*
+ 	$cosas= new Movimiento();
+ 	
+ 	$cosa=$cosas->getAllMovimientos();
+	foreach ($cosa as $key) {
+		foreach ($key as $value) {
+			echo $value." ";
+		}
+		echo "</br>";
+	}
+	*/
   ?>

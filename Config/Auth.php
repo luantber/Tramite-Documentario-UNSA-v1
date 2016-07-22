@@ -1,4 +1,4 @@
-<?php namespace Models;
+<?php namespace Config;
 
 	class Auth
 	{
@@ -24,11 +24,17 @@
 			$_SESSION[$ses]=$obj;
 		}
 
-		static function getuser($cargo,$sesion="sesion")
+
+		static function getuser($cargo,$ses="sesion")
 		{
-			if ($_SESSION[$sesion]->getNombreCargo()==$cargo)
+			if ($_SESSION[$ses][1]==$cargo)
 				return true;
 			return false;
+		}
+
+		static function getareaId($ses="sesion")
+		{
+			return $_SESSION[$ses][2];
 		}
 
 		static function destroy()

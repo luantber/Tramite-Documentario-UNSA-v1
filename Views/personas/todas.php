@@ -14,6 +14,7 @@ document.write(title);
         <!--<th><li><a href="<?php echo URLM ?>empleados/crear">Registar</a></li></th>!-->
         <th><span class="glyphicon glyphicon-user"></span> Ver</th>
         <th><span class="glyphicon glyphicon-pencil"></span> Editar</th>
+        <th><span class="glyphicon glyphicon-trash"></span> Eliminar</th>
       </tr>
     </thead>
   
@@ -29,9 +30,9 @@ document.write(title);
           document.write("<td>"+nuevo[2]+"</td>");
           document.write("<td>"+nuevo[3]+"</td>");
           document.write("<td><a href='<?php echo URLM ?>personas/Ver/"+nuevo[0]+"'><span class='glyphicon glyphicon-user'></span></a>"+"</td>");
-          document.write("<td><a href='<?php echo URLM ?>empleados/crear'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td></tr>");
+          document.write("<td><a href='<?php echo URLM ?>empleados/crear'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td>");
+          document.write("<td><a href='<?php echo URLM ?>personas'><span class='glyphicon glyphicon-trash'></span></a>"+"</td></tr>");
         }
-
       </script>
     </tbody>
   </table>

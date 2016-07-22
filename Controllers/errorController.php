@@ -6,5 +6,10 @@
 			echo getSesion();
 			render("error/404");
 		}
+
+		function eseguridad(){
+			//echo getSesion();
+			render("error/seguridad");
+		}
 	}
 ?>

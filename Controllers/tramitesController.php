@@ -1,7 +1,9 @@
 <?php namespace Controllers;
 
 	use Models\Tramite as Tramite;
+	use Models\Empleado as Empleado;
 	use Models\Area as Area;
+	use Config\Auth as Auth;
 	use Models\Js as Js;
 	class tramitesController
 	{
@@ -45,20 +47,15 @@
 			render("tramites/buscar");
 		}
 
-		function asignar()
-		{
-			render("tramites/asignar");
-			render("tramites/editar");
-			# code...
-
-		}
+		
+	
 		function ver($id){
 			/*
 				Checkear seguridad
 			*/
 			if (isset($id)){
 
-				echo $id;
+			echo $id;
 			$t = new Tramite();
 			$r = $t->obtenerDatosTramiteId($id);
 			if ($r){
@@ -67,8 +64,17 @@
 				'asunto'=>$t->getAsunto(),
 				'estado'=>$t->getEstado()
 				);
-				Js::prints($tramite,True);
-				render("tramites/ver");
+			Js::prints($tramite,True);
+			
+
+			$e = new Empleado();
+			$d = $e->getEmpleadosIdNombreByIdArea(Auth::getareaId());
+			Js::prints($d,True,"empleados");
+
+
+			render("tramites/asignar");
+			render("tramites/editar");
+
 			}
 			else{
 				JS::prints("No existe un tramite con id,".$id,"error",True);

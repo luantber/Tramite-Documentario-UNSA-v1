@@ -1,6 +1,6 @@
 <h2 class="text-center">Área</h2>
 
- <form role="form" class="form-horizontal container">
+ <form method="post" action="<?php echo URLM ?>areas/crear" role="form" class="form-horizontal container">
 
   <div class="form-group">
 
@@ -27,7 +27,7 @@
   	
   	<label for="descrip" class="col-sm-2 control-label">Descripción del área:</label>
   	<div class="col-sm-10" >
-  	<textarea class="form-control" rows="3" id="descrip"></textarea>
+  	 <textarea class="form-control" rows="3" id="descrip" required placeholder="Ingrese descripción acerca de la nueva área"></textarea>
     </div>
    </div>
 

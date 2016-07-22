@@ -37,7 +37,15 @@
 
   </ul>
 </nav>
-			
+		
+
+<nav>
+  <ul class="pager">
+    <li><button><span class="glyphicon glyphicon-trash"></span>Eliminar</button></li>
+
+  </ul>
+</nav>
+
 </form>
 
 
