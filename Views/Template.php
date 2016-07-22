@@ -1,16 +1,31 @@
 <?php namespace Views;
 
+  use Config\Auth as Auth;
+
+
+
+  //Auth::get_session()->getNombres();
+  //echo Auth::get_session("prueba");
 	$template = new Template();
+
+
 	/**
 	* Clase para Plantilla
 	*/
-  //use Models\Js as Js;
+  //use Models\Js as Js;  
+
 	class Template
 	{
 
 		public function  __construct()
 		{
       //Js::prints("heyy",True);
+      //Auth::get_session()->getNombres();
+    if (Auth::get_session()[1]=="Jefe de Area")
+      echo "Cargo: bien";
+    else 
+      echo "No igual";
+
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +50,17 @@
       <a class="navbar-brand" href="<?php echo URLM ?>">Trámite Documentario</a>
     </div>
     <ul class="nav navbar-nav active">
+    <?php
+    if (Auth::exist())
+    {                                    ?>
       <li class="active"><a href="#">Inicio</a></li>
       <li><a href="<?php echo URLM ?>movimientos">Movimientos</a></li> 
+    <?php
+
+      if (Auth::getuser("Mesa de Partes"))
+      {                         ?>
       <li><a href="<?php echo URLM ?>usuarios/crear">Registrar Usuario</a></li> 
+                                    
       <!-- PARA USUARIOS !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Acciones Usuarios
@@ -48,7 +71,11 @@
           <li><a href="#">Todos</a></li> 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
+    <?php
+      }
 
+      if (Auth::getuser("Jefe de Area"))
+      {                     ?>
       <!-- PARA AREAS !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Areas
@@ -59,6 +86,8 @@
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
+      <?php
+      }                 ?>
 
       <!-- TRÁMITES !-->
       <li class="dropdown">
@@ -71,7 +100,10 @@
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
+      <?php
 
+      if (Auth::getuser("Gerente"))
+      {                       ?>
       <!-- PARA SUPER USUARIO !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">AccionesSU
@@ -84,17 +116,30 @@
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
-    </ul>
+      <?php
+      }                           ?>
+          </ul>
     <ul class="nav navbar-nav navbar-right">
     <!--PERFIL !-->
       <li><a href="<?php echo URLM ?>perfil/barrita"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
-      <!--INGRESAR!-->
-      <li><a href="<?php echo URLM ?>ingresar/empleado"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
-    
-      <!--SALIR!-->
-      <li><a href="<?php echo URLM ?>"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
 
+
+      <!--SALIR!-->
+      <li><a href="<?php echo URLM ?>empleados/salir"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
     </ul>
+    <?php
+    }
+
+    else
+    {
+    ?>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!--INGRESAR!-->
+        <li><a href="<?php echo URLM ?>empleados/ingresar"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
+      </ul>
+    <?php
+    } ?>
   </div>
 </nav>
 					<!-- ..............FIN BARRA DE NAVEGACION !!!......................!-->

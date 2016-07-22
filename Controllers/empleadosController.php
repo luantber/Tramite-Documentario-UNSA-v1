@@ -3,11 +3,11 @@
 	/**
 	* Empleados Controlador
 	*/
-	use Models\Auth as Auth;
 	use Models\Js as Js;
 	use Models\Cargo as Cargo;
 	use Models\Area as Area;
 	use Models\Empleado as Empleado;
+	use Config\Auth as Auth;
 
 	class empleadosController
 	{
@@ -59,6 +59,7 @@
 
 		function ingresar()
 		{
+			Auth::set_session("Esta es prueba auth completa","prueba");
 			if (!empty($_POST)){
 				
 				$emp = new Empleado;
@@ -66,8 +67,12 @@
 				{
 					if ($emp->getPassword()==$_POST["password"])
 					{
-						Auth::set_session($emp);
-						echo Auth::get_session()->getNombres();	
+						$ar=array(); 
+						array_push($ar, $emp->getNombres());
+						array_push($ar,$emp->getNombreCargo());
+						Auth::set_session($ar);
+						//$_SESSION["sesion"]=$emp->getNombres();
+						//echo "desde controlador:".Auth::get_session()->getNombres();	
 						render("ingresar/exito");
 					}
 					else
@@ -82,6 +87,12 @@
 				render("empleados/ingresar");
 				
 			}
+		}
+
+		function salir()
+		{
+			Auth::destroy();
+			header("Location:".URLM);
 		}
 
 		function editar(){
