@@ -35,7 +35,7 @@
 
 		static function getusername($ses="sesion")
 		{
-			return $_SESSION[$ses][0];
+			return $_SESSION[$ses]["nombres"];
 				
 		}		
 
@@ -51,7 +51,7 @@
 
 		static function getuserId($ses="sesion")
 		{
-			return $_SESSION[$ses][3];
+			return $_SESSION[$ses]["id"];
 		}
 
 		static function destroy()
