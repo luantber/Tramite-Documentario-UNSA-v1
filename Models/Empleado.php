@@ -88,19 +88,19 @@
 			# retorna array de datos de esta persona el orden seria id, dni , nombres .... mire abajo
 			function getAllDatos()
 			{
-				$datos=array();
-				array_push($datos,$this->id);
-				array_push($datos,$this->dni);
-				array_push($datos,$this->nombres);
-				array_push($datos,$this->apellidos);
-				array_push($datos,$this->nombre_empresa);
-				array_push($datos,$this->id_area);
-				array_push($datos,$this->nombre_area);
-				array_push($datos,$this->id_cargo);
-				array_push($datos,$this->nombre_cargo);
-				array_push($datos,$this->activo);
-				array_push($datos,$this->correo);
-				array_push($datos,$this->password);
+				$datos=array(
+				"id"=>$this->id,
+				"dni"=>$this->dni,
+				"nombres"=>$this->nombres,
+				"apellidos"=>$this->apellidos,
+				"nombre_empresa"=>$this->nombre_empresa,
+				"id_area"=>$this->id_area,
+				"nombre_area"=>$this->nombre_area,
+				"id_cargo"=>$this->id_cargo,
+				"nombre_cargo"=>$this->nombre_cargo,
+				"activo"=>$this->activo,
+				"correo"=>$this->correo,
+				"password"=>$this->password);
 				return $datos;
 
 			}

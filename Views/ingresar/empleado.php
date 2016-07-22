@@ -5,7 +5,7 @@
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label" >Usuario</label>
     <div class="col-sm-10">
-      <input name="username" type="text" class="form-control" id="inputEmail3" required placeholder=" Ingrese nombre de usuario">
+      <input name="username" type="text" class="form-control" id="inputEmail3" required placeholder=" Ingrese su DNI">
     </div>
   </div>
   <div class="form-group">
