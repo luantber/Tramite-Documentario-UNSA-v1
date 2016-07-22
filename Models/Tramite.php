@@ -38,7 +38,7 @@
 		function obtenerDatosTramiteId($IdTramite)
 		{
 			$request="SELECT `Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`,`Id_Area_Destino`, `Id_Encargado`,`Recibido`, `Id_Area_Actual` FROM `tramites` WHERE Id_Expediente=".$IdTramite;
-			print_r($request);
+			
 			$result=$this->query->consulta($request);
 				print_r($result);
 				if ($result->num_rows != 0) {

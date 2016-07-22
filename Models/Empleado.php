@@ -297,6 +297,14 @@
 				$this->password=$Password;
 			}
 
+
+			public function getuser($cargo)
+			{
+				if ($this->nombre_cargo==$cargo)
+					return true;
+				return false;
+			}
+			
 			public function saveEmpleado()
 			{
 				$this->cambiarNombres($this->nombres);

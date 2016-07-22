@@ -19,6 +19,8 @@
 
 	//HELpers
 	require_once 'Config/Helpers.php';
+	//Auth
+	require_once 'Config/Auth.php';
 	
 	require_once 'Views/Template.php';
 
