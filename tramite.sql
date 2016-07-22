@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-07-2016 a las 00:28:01
+-- Tiempo de generación: 22-07-2016 a las 01:54:23
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -28,22 +28,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `area` (
   `Id_Area` int(11) NOT NULL,
-  `Id_JefedeArea` int(11) NOT NULL,
   `Nom_Area` varchar(30) NOT NULL,
-  `Descripcion` text NOT NULL
+  `Descripcion` text NOT NULL,
+  `Id_JefedeArea` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `area`
 --
 
-INSERT INTO `area` (`Id_Area`, `Id_JefedeArea`, `Nom_Area`, `Descripcion`) VALUES
-(1, 0, 'Mesa de Partes', 'Se encarga de la recepción de documentos necesarios para la gestión de un tramite.'),
-(2, 0, 'Gerencia', 'Gestiona los tramites y los redirige a cada area especializada.'),
-(3, 0, 'Logistica', 'Area del personal encargando de gestion logistica.'),
-(4, 0, 'Recursos Humanos', 'Area que vela por las necesidades del personal'),
-(5, 0, 'Informatica', 'Area encargada del manejo de material informatico.'),
-(6, 0, 'Contabilidad', 'Area encargada los estudios contables.');
+INSERT INTO `area` (`Id_Area`, `Nom_Area`, `Descripcion`, `Id_JefedeArea`) VALUES
+(1, 'Mesa de Partes', 'Se encarga de la recepción de documentos necesarios para la gestión de un tramite.', 0),
+(2, 'Gerencia', 'Gestiona los tramites y los redirige a cada area especializada.', 0),
+(3, 'Logistica', 'Area del personal encargando de gestion logistica.', 10),
+(4, 'Recursos Humanos', 'Area que vela por las necesidades del personal', 13),
+(5, 'Informatica', 'Area encargada del manejo de material informatico.', 5),
+(6, 'Contabilidad', 'Area encargada los estudios contables.', 1);
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,16 @@ INSERT INTO `estado` (`Descripcion`, `Estado`, `Id_Expediente`) VALUES
 ('en redireccionamiento', 'pendiente', 0),
 ('en redireccionamiento', 'pendiente', 0),
 ('en redireccionamiento', 'pendiente', 12),
-('en redireccionamiento', 'pendiente', 13);
+('en redireccionamiento', 'pendiente', 13),
+('en redireccionamiento', 'pendiente', 15),
+('en redireccionamiento', 'pendiente', 16),
+('en redireccionamiento', 'pendiente', 17),
+('en redireccionamiento', 'pendiente', 18),
+('en redireccionamiento', 'pendiente', 19),
+('en redireccionamiento', 'pendiente', 20),
+('en redireccionamiento', 'pendiente', 21),
+('en redireccionamiento', 'pendiente', 22),
+('en redireccionamiento', 'pendiente', 23);
 
 -- --------------------------------------------------------
 
@@ -163,7 +172,25 @@ INSERT INTO `movimientos` (`Id_Movimiento`, `Id_Expediente`, `Id_Remitente`, `Id
 (16, 12, 0, 1, 12, 19, '2016-07-15'),
 (17, 12, 1, 3, 12, 19, '2016-07-15'),
 (18, 13, 0, 1, 13, 18, '2016-07-15'),
-(19, 13, 1, 3, 13, 18, '2016-07-15');
+(19, 13, 1, 3, 13, 18, '2016-07-15'),
+(20, 15, 0, 1, 15, 18, '2016-07-15'),
+(21, 15, 1, 3, 15, 18, '2016-07-15'),
+(22, 16, 0, 1, 16, 18, '2016-07-15'),
+(23, 16, 1, 3, 16, 18, '2016-07-15'),
+(24, 17, 0, 1, 17, 18, '2016-07-15'),
+(25, 17, 1, 3, 17, 18, '2016-07-15'),
+(26, 18, 0, 1, 18, 18, '2016-07-15'),
+(27, 18, 1, 3, 18, 18, '2016-07-15'),
+(28, 19, 0, 1, 19, 18, '2016-07-15'),
+(29, 19, 1, 3, 19, 18, '2016-07-15'),
+(30, 20, 0, 1, 20, 18, '2016-07-15'),
+(31, 20, 1, 3, 20, 18, '2016-07-15'),
+(32, 21, 0, 1, 21, 18, '2016-07-15'),
+(33, 21, 1, 3, 21, 18, '2016-07-15'),
+(34, 22, 0, 1, 22, 18, '2016-07-15'),
+(35, 22, 1, 3, 22, 18, '2016-07-15'),
+(36, 23, 0, 1, 23, 18, '2016-07-21'),
+(37, 23, 1, 3, 23, 18, '2016-07-21');
 
 -- --------------------------------------------------------
 
@@ -227,7 +254,16 @@ INSERT INTO `tipo_tramite` (`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES
 (10, 'cosas', 3),
 (11, 'mas cosas', 2),
 (12, 'aun mas cosas', 2),
-(13, 'con fe funciona', 1);
+(13, 'con fe funciona', 1),
+(15, 'con fe zhy funciona', 1),
+(16, 'con fe zhy funciona', 1),
+(17, 'con fe zhy funciona', 1),
+(18, 'con fe zhy funciona', 1),
+(19, 'con fe zhy funciona', 1),
+(20, 'con fe funciona', 1),
+(21, 'con fe funciona', 1),
+(22, 'con fe funciona', 1),
+(23, 'con fe funciona', 1);
 
 -- --------------------------------------------------------
 
@@ -244,20 +280,30 @@ CREATE TABLE `tramites` (
   `Id_Persona` int(11) NOT NULL,
   `Id_Encargado` int(11) NOT NULL,
   `Recibido` tinyint(1) NOT NULL DEFAULT '1',
-  `Id_Area_Actual` int(11) NOT NULL
+  `Id_Area_Actual` int(11) NOT NULL,
+  `Id_Area_Destino` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tramites`
 --
 
-INSERT INTO `tramites` (`Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Encargado`, `Recibido`, `Id_Area_Actual`) VALUES
-(9, 12, '0000-00-00', '0000-00-00', 'noidea', 1, 5, 1, 1),
-(10, 321, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1),
-(11, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1),
-(12, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1),
-(13, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 18, 0, 0, 1),
-(14, 0, '0000-00-00', '0000-00-00', '', 0, 0, 1, 0);
+INSERT INTO `tramites` (`Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Encargado`, `Recibido`, `Id_Area_Actual`, `Id_Area_Destino`) VALUES
+(9, 12, '0000-00-00', '0000-00-00', 'noidea', 1, 5, 1, 1, 0),
+(10, 321, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1, 0),
+(11, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1, 0),
+(12, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1, 0),
+(13, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 18, 0, 0, 1, 0),
+(14, 0, '0000-00-00', '0000-00-00', '', 0, 0, 1, 0, 0),
+(15, 41, '2016-07-15', '0000-00-00', 'mas pruebasx2', 18, 0, 1, 1, 0),
+(16, 41, '0000-00-00', '0000-00-00', 'mas pruebasx122', 18, 0, 1, 1, 0),
+(17, 41, '0000-00-00', '0000-00-00', 'mas pruebasx122', 18, 0, 1, 1, 0),
+(18, 41, '0000-00-00', '0000-00-00', 'mas pruebasx122', 18, 0, 1, 1, 0),
+(19, 41, '2016-07-21', '0000-00-00', 'mas pruebasx122', 18, 0, 1, 1, 0),
+(20, 41, '0000-00-00', '0000-00-00', 'mas testing', 18, 0, 1, 1, 0),
+(21, 41, '0000-00-00', '0000-00-00', 'mas testing', 18, 0, 1, 1, 0),
+(22, 41, '2016-07-21', '0000-00-00', 'mas testing', 18, 0, 1, 1, 0),
+(23, 41, '2016-07-21', '0000-00-00', 'mas testing', 18, 0, 1, 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -323,7 +369,7 @@ ALTER TABLE `cargos`
 -- AUTO_INCREMENT de la tabla `movimientos`
 --
 ALTER TABLE `movimientos`
-  MODIFY `Id_Movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `Id_Movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
@@ -333,7 +379,7 @@ ALTER TABLE `personas`
 -- AUTO_INCREMENT de la tabla `tramites`
 --
 ALTER TABLE `tramites`
-  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
