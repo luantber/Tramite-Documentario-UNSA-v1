@@ -32,12 +32,20 @@
       </div>
   </div>
 
-	<div class="form-group">
-  		<label for="estade" class="col-sm-2 control-label" >Estado</label>
-  		<div class="col-sm-10" >
-  			<input  name="estade" class="form-control" rows="3" id="estade" disabled="">
-  		</div>
-  	</div>
+  <div class="row container form-group">
+      <div class="col-xs-6">
+        <label for="estade" class="col-sm-5 control-label" >Estado</label>
+        <div class="col-sm-7">
+          <input name="estade" type="text" class="form-control" id="estade" disabled="">
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <label for="priori" class="col-sm-4 control-label" >Prioridad</label>
+        <div class="col-sm-8">
+          <input name="priori"type="text" class="form-control" id="priori" disabled="">
+        </div>
+      </div>
+  </div>
 
 	<div class="form-group">
   		<label for="asunte" class="col-sm-2 control-label" >Asunto </label>

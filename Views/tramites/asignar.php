@@ -14,8 +14,8 @@
 <form method="post" action="#">
 <div>
 	<div class="form-group">
-		<label for="tipo" class="col-sm-2 control-label" >Enviar a : </label>
-		<div class="col-sm-10">
+			<label for="tipo" class="col-sm-2 control-label" >Enviar a : </label>
+			<div class="col-sm-10">
 			<select name="tipo" class="form-control" id="tipo" >
 				<option value="" >Seleccionar</option>
 				<script type="text/javascript">
