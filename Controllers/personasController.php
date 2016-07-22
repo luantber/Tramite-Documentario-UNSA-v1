@@ -10,7 +10,8 @@
 	{
 		function index(){
 			$p = new Persona();
-			Js::prints($p->getAllPersonasDatos());
+			Js::prints("Empleados ",True,"title");
+			Js::prints($p->getAllPersonasDatos(),True);
 			render("personas/todas");
 
 		}

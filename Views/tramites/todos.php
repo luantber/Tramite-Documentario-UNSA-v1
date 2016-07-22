@@ -1,15 +1,21 @@
-<div class="container">
-	
+
+<nav role="navigation" class="navbar navbar-inverse">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="<?php echo URLM ?>/tramite/todos">Todos</a></li>
+		<li ><a href="<?php echo URLM ?>/tramite/proceso">En Proceso</a></li>
+		<li ><a href="<?php echo URLM ?>/tramite/finalizados">Finalizados</a></li>
+		<li ><a href="<?php echo URLM ?>/tramite/rechazados">Rechazados</a></li>
+	</ul>
+</nav>
+
 <table class="table table-hover">
     <thead>
       <tr>
         <th><span class="glyphicon glyphicon-folder-open"></span></th>
-        <th>Asunto</th>
+        <th>Estado</th>
         <th>Datos</th>
         <th>Fecha de Inicio</th>
         <th>Fecha de Finalización</th>
-        <th><span class="glyphicon glyphicon-envelope"></span> Ver</th>
-        <th><span class="glyphicon glyphicon-pencil"></span> Editar</th>
       </tr>
     </thead>
 	<tbody>
@@ -32,7 +38,6 @@
 		
 	</tbody>
 </table>
-</div>
 
 
 

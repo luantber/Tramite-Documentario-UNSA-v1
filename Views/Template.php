@@ -8,7 +8,7 @@
 	class Template
 	{
 
-		public function __construct()
+		public function  __construct()
 		{
       //Js::prints("heyy",True);
 ?>
@@ -79,6 +79,7 @@
         <ul class="dropdown-menu">
           <li><a href="<?php echo URLM ?>empleados/crear">Registrar Empleado</a></li>
           <li><a href="<?php echo URLM ?>personas">Todas personas</a></li>
+          <li><a href="<?php echo URLM ?>empleados">Todos Empleados</a></li>
 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
