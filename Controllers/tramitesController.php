@@ -70,13 +70,9 @@
 			$t = new Tramite();
 			$r = $t->obtenerDatosTramiteId($id);
 			if ($r){
-				$tramite = array(
-				'id' => $t->id_expediente, 
-				'asunto'=>$t->getAsunto(),
-				'estado'=>$t->getEstado()
-				);
-			Js::prints($tramite,True);
-			
+				$tramite = $t->getAllDatosNombres();
+				Js::prints($tramite,True);
+						
 
 			$e = new Empleado();
 			$d = $e->getEmpleadosIdNombreByIdArea(Auth::getareaId());
