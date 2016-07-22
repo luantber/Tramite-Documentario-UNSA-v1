@@ -73,7 +73,7 @@
 						Auth::set_session($ar);
 						//$_SESSION["sesion"]=$emp->getNombres();
 						//echo "desde controlador:".Auth::get_session()->getNombres();	
-						render("ingresar/exito");
+						redirect("tramites");
 					}
 					else
 						echo "<br>Contraseña incorrecta";
