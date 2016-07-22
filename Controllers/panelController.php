@@ -15,6 +15,7 @@
 			logueado();			
 
 			$t = new Tramite;
+			echo Auth::getareaId();
 			$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::getareaId());
 			Js::prints($areas,true);
 
