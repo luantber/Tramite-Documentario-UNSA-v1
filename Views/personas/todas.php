@@ -1,5 +1,8 @@
 
-<h2 class="text-center">Todas las personas</h2>
+<h2 class="text-center">
+<script type="text/javascript">
+document.write(title);
+</script></h2>
 <div class="container">
   <table class="table table-striped">
   <thead>
