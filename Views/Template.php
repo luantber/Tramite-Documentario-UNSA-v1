@@ -125,7 +125,10 @@
 
        </ul>
     <ul class="nav navbar-nav navbar-right">
+          <!--Cargo -->
+      <li><a href="<?php echo URLM ?>panel"><span class="glyphicon glyphicon-briefcase"></span> <?php echo Auth::getdato("nombre_cargo")?></a></li>
     <!--PERFIL !-->
+      <li><a href="<?php echo URLM ?>perfil/barrita"><span class="glyphicon glyphicon-user"></span><?php echo Auth::getdato("nombres") ?></a></li>
 
       <li><a href="<?php echo URLM ?>perfil"><span class="glyphicon glyphicon-user"></span> <?php echo Auth::getusername();
         ?></a></li>

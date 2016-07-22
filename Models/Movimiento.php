@@ -139,6 +139,35 @@
 			return $DatosMovimientos; 
 		}
 
+		function getMovimientosNombresRutaByDate($date)
+		{
+			$request="SELECT `Id_Expediente` FROM `tramites` WHERE Fecha_Ingreso=".$date;
+			$result=$this->query->consulta($request);
+			$tramitesIds=array();
+			$rutas=array();
+			if ($result->num_rows > 0) {
+		    
+			    while($datos = $result->fetch_assoc()) {
+
+			        array_push($tramitesIds,$datos["Id_Expediente"]);
+			    }
+			}
+
+			foreach ($tramitesIds as $id_tramite) {
+				$ruta_temp=array();
+				array_push($ruta_temp,$id_tramite);
+				$tramite_temp=new Tramite();
+				$tramite_temp->obtenerDatosTramiteId($id_tramite);
+				$nombresRutas=$tramite_temp->getRutaNombres();
+				foreach ($nombresRutas as $nombre ) {
+					array_push($ruta_temp,$nombre);
+				}
+				array_push($rutas,$ruta_temp);
+
+			}
+			return $rutas;
+		}
+
 	}
 
  ?>
