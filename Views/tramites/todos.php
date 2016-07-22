@@ -11,6 +11,7 @@
         <th><span class="glyphicon glyphicon-envelope"></span> </th>
         <th><span class="glyphicon glyphicon-pencil"></span> </th>
         <th><span class="glyphicon glyphicon-trash"></span> </th>
+        <th>Recibido ?</th>
       </tr>
     </thead>
 	<tbody>
@@ -28,7 +29,26 @@
 				document.write("<td>"+nuevo[3]+"</td>");
 				document.write("<td><a href='<?php echo URLM ?>tramites/ver/"+nuevo[0]+"'><span class='glyphicon glyphicon-envelope'></span></a>"+"</td>");
         		document.write("<td><a href='<?php echo URLM ?>empleados/crear'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td>");
-        		document.write("<td><a href='#'><span class='glyphicon glyphicon-trash'></span></a>"+"</td></tr>");
+        		document.write("<td><a href='#'><span class='glyphicon glyphicon-trash'></span></a>"+"</td>");
+
+        		//checkbox
+        		var str = "";
+        		str += "<td><input type='checkbox'";
+        		if (nuevo[nuevo.length-1] == "1") {
+        			str+=" checked ";
+
+        		} else {
+        			str+=" ";
+        		}
+        		str+= "onclick='window.location.assign(`";
+        		str+="<?php echo URLM ?>panel/recibido/";
+        		str+=nuevo[0]+"`";
+        		str+=")' /></td></tr>";
+
+        		console.log(str);
+
+        		document.write(str);
+
 			}
 		</script>
 		

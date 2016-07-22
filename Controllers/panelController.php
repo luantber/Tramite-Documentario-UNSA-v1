@@ -26,5 +26,26 @@
 			render("tramites/todos");
 		}
 
+		function recibido($id){
+			if(isset($id)){
+				$t = new Tramite;
+				$t->obtenerDatosTramiteId($id);
+				$actual = $t->recibido ;
+				echo $actual;
+				//echo gettype($actual);
+				if ($actual == "0"){
+					$t->recibido = "1";
+				}
+				else{
+					$t->recibido = "0";
+				}
+				$t->save();
+				redirect("panel");
+			}
+			else{
+				echo "nada recibido";			
+			}
+		}
+
 		
 	}
