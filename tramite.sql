@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-07-2016 a las 16:28:54
+-- Tiempo de generación: 22-07-2016 a las 19:14:18
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -88,16 +88,16 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo`, `Dni_Empleado`, `Password`) VALUES
-(1, 1, 6, 'Trabajando', 'alejandrolarraondo@gmail.com', 70125996, 'karlaConK'),
-(4, 2, 3, 'Trabajando', 'CatGirl_26@gmail.com', 78947568, 'elbryce'),
-(5, 1, 5, 'Trabajando', 'alrus27@gmail.com', 76439586, 'ggladotanub'),
-(6, 2, 5, 'Trabajando', 'luisbch@gmail.com', 78452375, 'luzithoMazNah'),
-(7, 2, 1, 'Trabajando', 'margarcuae.19.29.46@gmail.com', 75463211, 'viskmokjojo'),
-(10, 1, 3, 'Trabajando', 'mapo100@outlook.com', 74658346, 'nekochan'),
-(12, 2, 4, 'Trabajando', 'JosueZabalaR@gmail.com', 78945634, 'jembo21_1'),
-(13, 1, 4, 'Trabajando', 'BrianArrospide@hotmail.com', 76534567, 'elBrayan'),
-(15, 2, 6, 'Trabajando', 'd1llarmando_13@hotmail.com', 77865454, 'yaNoTeAmoTeffy'),
-(16, 5, 2, 'Trabajando', 'alexithoMakerito@hotmail.com', 77865487, 'elDineroEsDinero'),
+(1, 1, 6, 'Disponible', 'alejandrolarraondo@gmail.com', 70125996, 'karlaConK'),
+(4, 2, 3, 'Disponible', 'CatGirl_26@gmail.com', 78947568, 'elbryce'),
+(5, 1, 5, 'Disponible', 'alrus27@gmail.com', 76439586, 'ggladotanub'),
+(6, 2, 5, 'Disponible', 'luisbch@gmail.com', 78452375, 'luzithoMazNah'),
+(7, 2, 1, 'Disponible', 'margarcuae.19.29.46@gmail.com', 75463211, 'viskmokjojo'),
+(10, 1, 3, 'Disponible', 'mapo100@outlook.com', 74658346, 'nekochan'),
+(12, 2, 4, 'Disponible', 'JosueZabalaR@gmail.com', 78945634, 'jembo21_1'),
+(13, 1, 4, 'Disponible', 'BrianArrospide@hotmail.com', 76534567, 'elBrayan'),
+(15, 2, 6, 'Disponible', 'd1llarmando_13@hotmail.com', 77865454, 'yaNoTeAmoTeffy'),
+(16, 5, 2, 'Disponible', 'alexithoMakerito@hotmail.com', 77865487, 'elDineroEsDinero'),
 (19, 3, 1, 'Vacaciones', 'tuAmigaAl100@hotmail.com', 76543644, 'teAmoDill');
 
 -- --------------------------------------------------------
@@ -107,33 +107,34 @@ INSERT INTO `empleados` (`Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo
 --
 
 CREATE TABLE `estado` (
-  `Descripcion` varchar(100) NOT NULL,
+  `Id_` int(11) NOT NULL,
+  `Id_Expediente` int(11) NOT NULL,
   `Estado` varchar(20) NOT NULL,
-  `Id_Expediente` int(11) NOT NULL
+  `Descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `estado`
 --
 
-INSERT INTO `estado` (`Descripcion`, `Estado`, `Id_Expediente`) VALUES
-('esta es una prueba', '0', 9),
-('en redireccionamiento', 'pendiente', 10),
-('en redireccionamiento', 'pendiente', 11),
-('en redireccionamiento', 'pendiente', 0),
-('en redireccionamiento', 'pendiente', 0),
-('en redireccionamiento', 'pendiente', 0),
-('en redireccionamiento', 'pendiente', 12),
-('en redireccionamiento', 'pendiente', 13),
-('en redireccionamiento', 'pendiente', 15),
-('en redireccionamiento', 'pendiente', 16),
-('en redireccionamiento', 'pendiente', 17),
-('en redireccionamiento', 'pendiente', 18),
-('en redireccionamiento', 'pendiente', 19),
-('en redireccionamiento', 'pendiente', 20),
-('en redireccionamiento', 'pendiente', 21),
-('en redireccionamiento', 'pendiente', 22),
-('en redireccionamiento', 'pendiente', 23);
+INSERT INTO `estado` (`Id_`, `Id_Expediente`, `Estado`, `Descripcion`) VALUES
+(1, 9, '0', 'esta es una prueba'),
+(2, 10, 'pendiente', 'en redireccionamiento'),
+(3, 11, 'pendiente', 'en redireccionamiento'),
+(4, 0, 'pendiente', 'en redireccionamiento'),
+(5, 0, 'pendiente', 'en redireccionamiento'),
+(6, 0, 'pendiente', 'en redireccionamiento'),
+(7, 12, 'pendiente', 'en redireccionamiento'),
+(8, 13, 'pendiente', 'en redireccionamiento'),
+(9, 15, 'pendiente', 'en redireccionamiento'),
+(10, 16, 'pendiente', 'en redireccionamiento'),
+(11, 17, 'pendiente', 'en redireccionamiento'),
+(12, 18, 'pendiente', 'en redireccionamiento'),
+(13, 19, 'pendiente', 'en redireccionamiento'),
+(14, 20, 'pendiente', 'en redireccionamiento'),
+(15, 21, 'pendiente', 'en redireccionamiento'),
+(16, 22, 'pendiente', 'en redireccionamiento'),
+(17, 23, 'pendiente', 'en redireccionamiento');
 
 -- --------------------------------------------------------
 
@@ -289,8 +290,8 @@ CREATE TABLE `tramites` (
 --
 
 INSERT INTO `tramites` (`Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Encargado`, `Recibido`, `Id_Area_Actual`, `Id_Area_Destino`) VALUES
-(9, 12, '0000-00-00', '0000-00-00', 'noidea', 1, 5, 1, 1, 0),
-(10, 321, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1, 0),
+(9, 12, '2016-07-12', '0000-00-00', 'Petición', 1, 5, 1, 1, 0),
+(10, 321, '2016-07-15', '0000-00-00', 'Queja', 19, 0, 0, 1, 0),
 (11, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1, 0),
 (12, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 19, 0, 0, 1, 0),
 (13, 41, '2016-07-15', '0000-00-00', 'mas pruebas', 18, 0, 0, 1, 0),
@@ -326,6 +327,12 @@ ALTER TABLE `cargos`
 --
 ALTER TABLE `empleados`
   ADD PRIMARY KEY (`Id_Empleado`);
+
+--
+-- Indices de la tabla `estado`
+--
+ALTER TABLE `estado`
+  ADD PRIMARY KEY (`Id_`);
 
 --
 -- Indices de la tabla `movimientos`
@@ -365,6 +372,11 @@ ALTER TABLE `area`
 --
 ALTER TABLE `cargos`
   MODIFY `Id_Cargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT de la tabla `estado`
+--
+ALTER TABLE `estado`
+  MODIFY `Id_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `movimientos`
 --
