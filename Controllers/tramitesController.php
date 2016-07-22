@@ -1,7 +1,9 @@
 <?php namespace Controllers;
 
 	use Models\Tramite as Tramite;
+	use Models\Empleado as Empleado;
 	use Models\Area as Area;
+	use Config\Auth as Auth;
 	use Models\Js as Js;
 	class tramitesController
 	{
@@ -53,7 +55,7 @@
 			*/
 			if (isset($id)){
 
-				echo $id;
+			echo $id;
 			$t = new Tramite();
 			$r = $t->obtenerDatosTramiteId($id);
 			if ($r){
@@ -62,8 +64,14 @@
 				'asunto'=>$t->getAsunto(),
 				'estado'=>$t->getEstado()
 				);
-				Js::prints($tramite,True);
+			Js::prints($tramite,True);
 			
+
+			$e = new Empleado();
+			$d = $e->getEmpleadosIdNombreByIdArea(Auth::getareaId());
+			Js::prints($d,True,"empleados");
+
+
 			render("tramites/asignar");
 			render("tramites/editar");
 

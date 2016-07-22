@@ -1,6 +1,6 @@
 <h2 class="text-center">Área</h2>
 
- <form role="form" class="form-horizontal container">
+ <form method="post" action="<?php echo URLM ?>areas/crear" role="form" class="form-horizontal container">
 
   <div class="form-group">
 

@@ -32,7 +32,7 @@
 			return false;
 		}
 
-		static function getuserId($ses="sesion")
+		static function getareaId($ses="sesion")
 		{
 			return $_SESSION[$ses][2];
 		}

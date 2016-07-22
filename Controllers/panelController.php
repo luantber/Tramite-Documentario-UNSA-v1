@@ -15,14 +15,14 @@
 			logueado();			
 
 			$t = new Tramite;
-			$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::getuserId());
-			$s = getSesion("sesion1");
+			$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::getareaId());
+			Js::prints($areas,true);
 
+			
+			$s = getSesion("sesion1");
 			if ($s){
 				Js::prints($s,true,"exitoMover");
 			}
-
-			Js::prints($areas,true);
 			render("tramites/todos");
 		}
 	}

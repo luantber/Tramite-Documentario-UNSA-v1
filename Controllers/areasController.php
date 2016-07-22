@@ -1,7 +1,9 @@
 <?php namespace Controllers;
 
 	use Models\Area as Area;
+	use Models\Empleado as Empleado;
 	use Models\Js as Js;
+	use Config\Auth as Auth;
 	class areasController
 	{
 		
@@ -18,7 +20,14 @@
 
 		public function crear()
 		{
-			# code...
+			if (!empty($_POST)){
+
+			}
+			
+			$e = new Empleado();
+			$d = $e->getEmpleadosIdNombreByIdArea(Auth::getareaId());
+			Js::prints($d,True,"empleados");
+
 			render("areas/crear");
 		}
 
@@ -28,5 +37,8 @@
 		}
 		
 	}
+
+	//$a = new Area();
+	//$a->obtenerDatosAreaById(Auth::getareaId());
  ?>
 
