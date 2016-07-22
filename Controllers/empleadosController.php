@@ -32,10 +32,10 @@
 					$_POST["nome"],
 					$_POST["apee"],
 					1, //Area Trabajo
-					true, //Activo?
+					"activo", //Activo?
 					$_POST["emaile"],
 					$_POST["dnie"],
-					$_POST["contrae"] 
+					123456 
 				);
 
 				$r->registrarEmpleado(...$data);
@@ -69,9 +69,9 @@
 					{
 						$ar=array(); 
 						array_push($ar, $emp->getNombres());
-						array_push($ar,$emp->
-							getNombreCargo());
+						array_push($ar,$emp->getNombreCargo());
 						array_push($ar,$emp->getIdArea());
+						array_push($ar,$emp->id);
 						Auth::set_session($ar);
 						//$_SESSION["sesion"]=$emp->getNombres();
 						//echo "desde controlador:".Auth::get_session()->getNombres();	

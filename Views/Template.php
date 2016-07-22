@@ -117,22 +117,28 @@
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
-      <?//php
-      //}                           ?>
-          </ul>
+      <?php 
+      if(Auth::exist())
+      {
+        ?>
+
+
+       </ul>
     <ul class="nav navbar-nav navbar-right">
     <!--PERFIL !-->
-      <li><a href="<?php echo URLM ?>perfil/barrita"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
+
+      <li><a href="<?php echo URLM ?>perfil"><span class="glyphicon glyphicon-user"></span> <?php echo Auth::getusername();
+        ?></a></li>
 
 
       <!--SALIR!-->
       <li><a href="<?php echo URLM ?>empleados/salir"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
     </ul>
     <?php
-    //}
+    }
 
-    //else
-    //{
+    else
+    {
     ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -140,7 +146,9 @@
         <li><a href="<?php echo URLM ?>empleados/ingresar"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
       </ul>
     <?php
-    //} ?>
+    }
+
+     ?>
   </div>
 </nav>
 					<!-- ..............FIN BARRA DE NAVEGACION !!!......................!-->

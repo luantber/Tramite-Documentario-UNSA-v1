@@ -5,6 +5,7 @@
 	use Models\Area as Area;
 	use Config\Auth as Auth;
 	use Models\Js as Js;
+	use Models\MesaDePartes as Mesa;
 	class tramitesController
 	{
 		function index(){
@@ -20,15 +21,20 @@
 
 		function mover()
 		{
+			logueado();
 			if (!empty($_POST)){
 
 				$t = new Tramite;
 				$t->obtenerDatosTramiteId($_POST["idtramite"]);
 
-				$t->moverTramite($_POST["destino"]);
+				//$t->moverTramite($_POST["destino"]);
+				$datos = array($t->id_expediente,Auth::getareaId(),$_POST["destino"]);
+				print_r($datos);
+				$m = new Mesa;
+				$m->moverTramite(...$datos);
 
 
-				redirect("panel",true);
+				//redirect("panel",true);
 
 
 			}else{
@@ -55,17 +61,18 @@
 			*/
 			if (isset($id)){
 
+			$a = new Area;
+			$at = $a->obtenerAreas();
+			Js::prints($at,true,"areas");
+				
+
 			echo $id;
 			$t = new Tramite();
 			$r = $t->obtenerDatosTramiteId($id);
 			if ($r){
-				$tramite = array(
-				'id' => $t->id_expediente, 
-				'asunto'=>$t->getAsunto(),
-				'estado'=>$t->getEstado()
-				);
-			Js::prints($tramite,True);
-			
+				$tramite = $t->getAllDatosNombres();
+				Js::prints($tramite,True);
+						
 
 			$e = new Empleado();
 			$d = $e->getEmpleadosIdNombreByIdArea(Auth::getareaId());
