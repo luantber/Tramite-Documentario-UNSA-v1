@@ -1,5 +1,9 @@
 <?php 
+	function logueado(){
+		if (!Config\Auth::exist()) redirect("error/eseguridad");
 
+	}
+	
 	function render($view)
 	{
 		//echo "C?".str_replace("/", DS, $view).".php";

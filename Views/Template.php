@@ -21,11 +21,12 @@
 		{
       //Js::prints("heyy",True);
       //Auth::get_session()->getNombres();
+    /*
     if (Auth::get_session()[1]=="Jefe de Area")
       echo "Cargo: bien";
     else 
       echo "No igual";
-
+  */
 ?>
 
 <!DOCTYPE html>
@@ -50,15 +51,15 @@
       <a class="navbar-brand" href="<?php echo URLM ?>">Trámite Documentario</a>
     </div>
     <ul class="nav navbar-nav active">
-    <?php
-    if (Auth::exist())
-    {                                    ?>
+   <?php
+    //if (Auth::exist())
+    //{                                    ?>
       <li class="active"><a href="#">Inicio</a></li>
       <li><a href="<?php echo URLM ?>movimientos">Movimientos</a></li> 
     <?php
 
-      if (Auth::getuser("Mesa de Partes"))
-      {                         ?>
+      //if (Auth::getuser("Mesa de Partes"))
+     // {                         ?>
       <li><a href="<?php echo URLM ?>usuarios/crear">Registrar Usuario</a></li> 
                                     
       <!-- PARA USUARIOS !-->
@@ -72,10 +73,10 @@
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
     <?php
-      }
+      //}
 
-      if (Auth::getuser("Jefe de Area"))
-      {                     ?>
+     // if (Auth::getuser("Jefe de Area"))
+      //{                     ?>
       <!-- PARA AREAS !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Areas
@@ -87,23 +88,24 @@
       </li> <!-- AQUI TERMINA ... !-->
 
       <?php
-      }                 ?>
+      //}                 ?>
 
       <!-- TRÁMITES !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Trámites
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
+        <li><a href="<?php echo URLM ?>panel">Panel/Cola</a></li>
           <li><a href="<?php echo URLM ?>tramites/crear">Nuevo</a></li>
           <li><a href="<?php echo URLM ?>tramites/buscar">Buscar</a></li> 
-          <li><a href="<?php echo URLM ?>tramites/todos">Todos</a></li>
+          <li><a href="<?php echo URLM ?>tramites">Todos</a></li>
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
       <?php
 
-      if (Auth::getuser("Gerente"))
-      {                       ?>
+      //if (Auth::getuser("Gerente"))
+     // {                       ?>
       <!-- PARA SUPER USUARIO !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">AccionesSU
@@ -116,8 +118,8 @@
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
-      <?php
-      }                           ?>
+      <?//php
+      //}                           ?>
           </ul>
     <ul class="nav navbar-nav navbar-right">
     <!--PERFIL !-->
@@ -128,10 +130,10 @@
       <li><a href="<?php echo URLM ?>empleados/salir"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
     </ul>
     <?php
-    }
+    //}
 
-    else
-    {
+    //else
+    //{
     ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -139,7 +141,7 @@
         <li><a href="<?php echo URLM ?>empleados/ingresar"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
       </ul>
     <?php
-    } ?>
+    //} ?>
   </div>
 </nav>
 					<!-- ..............FIN BARRA DE NAVEGACION !!!......................!-->
