@@ -26,7 +26,7 @@
 
 				$t = new Tramite;
 				$t->obtenerDatosTramiteId($_POST["idtramite"]);
-
+				print_r("here".$_POST["idtramite"]."<br>");
 				//$t->moverTramite($_POST["destino"]);
 				$datos = array($t->id_expediente,Auth::getareaId(),$_POST["destino"]);
 				print_r($datos);
