@@ -1,6 +1,6 @@
 <?php 
 	function logueado(){
-		if (!Config\Auth::exist()) redirect("error/eseguridad");
+		if (!Config\Auth::exist()) redirect("ingresar/empleado");
 
 	}
 	

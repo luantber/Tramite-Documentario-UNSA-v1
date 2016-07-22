@@ -12,10 +12,10 @@
 	{
 		function index(){
 			
-			//logueado();			
+			logueado();			
 
 			$t = new Tramite;
-			$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::get_session()->getIdArea());
+			$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::getuserId());
 			$s = getSesion("sesion1");
 
 			if ($s){

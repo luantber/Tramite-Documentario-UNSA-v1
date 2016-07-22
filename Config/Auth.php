@@ -32,6 +32,11 @@
 			return false;
 		}
 
+		static function getuserId($ses="sesion")
+		{
+			return $_SESSION[$ses][2];
+		}
+
 		static function destroy()
 		{
 			@session_destroy();

@@ -45,13 +45,8 @@
 			render("tramites/buscar");
 		}
 
-		function asignar()
-		{
-			render("tramites/asignar");
-			render("tramites/editar");
-			# code...
-
-		}
+		
+	
 		function ver($id){
 			/*
 				Checkear seguridad
@@ -68,7 +63,10 @@
 				'estado'=>$t->getEstado()
 				);
 				Js::prints($tramite,True);
-				render("tramites/ver");
+			
+			render("tramites/asignar");
+			render("tramites/editar");
+
 			}
 			else{
 				JS::prints("No existe un tramite con id,".$id,"error",True);
