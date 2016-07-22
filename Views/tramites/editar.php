@@ -1,57 +1,36 @@
 <div class="container">
-	
-<form>
-	
-		<div class="row">
-			<div class="col-md-6">
-				<label for="identificacion" class="col-sm-2 control-label" >ID Trámite:</label>
-				<div class="col-sm-6">
-					<input name="idtra" type="text" class="form-control"  required placeholder="Ponga el ID del Trámite">
-				</div>
-			</div>
-			
-			<div class="col-md-6">
-				<label for="identificacion" class="col-sm-2 control-label" >DNI:</label>
-				<div class="col-sm-6">
-					<input name="dniusu" type="number" class="form-control"  required placeholder="">
-				</div>
-			</div>
-		</div>
+<p>.</p>
+<p></p>	
+<form class="form-horizontal">
+  <div class="row container form-group">
+      <div class="col-xs-6">
+        <label for="nombreusu" class="col-sm-5 control-label" >ID Trámite</label>
+        <div class="col-sm-7">
+          <input name="nomusu" type="text" class="form-control" id="nombreusu" required>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <label for="apellidousu" class="col-sm-4 control-label" >Destino</label>
+        <div class="col-sm-8">
+          <input name="apeusu"type="text" class="form-control" id="apellidousu" disable required placeholder="Ingrese apellidos de usuario">
+        </div>
+      </div>
+  </div>
 
-		<div class="row">
-			<div class="col-md-6">
-				<label for="identificacion" class="col-sm-2 control-label" >Remitente:</label>
-				<div class="col-sm-6">
-					<input name="idtra" type="text" class="form-control"  required placeholder="Remitente">
-				</div>
-			</div>
-			
-			<div class="col-md-6">
-				<label for="identificacion" class="col-sm-2 control-label" >Destino:</label>
-				<div class="col-sm-6">
-					<input name="dniusu" type="number" class="form-control"  required placeholder="">
-				</div>
-			</div>
-		</div>
-
-		<div class="col-md-6">
-			<label for="identificacion" class="col-sm-2 control-label" >Asunto:</label>
-			<div class="col-sm-6">
-				<input name="idtra" type="text" class="form-control">
-			</div>
-		</div>
-
-  		<div class="form-group">
-  			<label for="prioridad" class="col-sm-2 control-label" >Prioridad </label>
-  			<div class="col-sm-10">
-  				<select name="prioridad"  class="form-control" id="opciones">
-            <option value="" >Seleccionar</option>
-    				<option value="urgente" required>Urgente</option>
-            <option value="alta" required>Alta</option>
-    				<option value="alta" required>Normal</option>
-  				</select>
-          <p id="nopcion" ></p>
-			</div>
-  		</div>
+ <div class="row container form-group">
+      <div class="col-xs-6">
+        <label for="nombreusu" class="col-sm-5 control-label" >Remitente</label>
+        <div class="col-sm-7">
+          <input name="nomusu" type="text" class="form-control" id="nombreusu" required placeholder="Ingrese nombre de usuario">
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <label for="apellidousu" class="col-sm-4 control-label" >DNI</label>
+        <div class="col-sm-8">
+          <input name="apeusu"type="text" class="form-control" id="apellidousu" required placeholder="Ingrese apellidos de usuario">
+        </div>
+      </div>
+  </div>	
+		
 </form>
 </div>

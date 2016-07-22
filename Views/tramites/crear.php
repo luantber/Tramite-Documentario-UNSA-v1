@@ -19,8 +19,11 @@
             <option value="" >Seleccionar</option>
             <script type="text/javascript">
               var opciones=["logistica","secretaria","Dirección Academica","Sistemas"];
-              for (var i=0;i<opciones.length;i++){
-                document.write("<option value='" +i+"'>"+opciones[i]+"</option>")
+              var nuevo,tamanio;
+              tamanio=areas.length;
+              for (var i=0;i<tamanio;i++){
+                nuevo=areas[i];
+                document.write("<option value='" +nuevo[0]+"'>"+nuevo[1]+"</option>");
               }
             </script>
           </select>
