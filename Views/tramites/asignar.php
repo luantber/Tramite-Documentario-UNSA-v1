@@ -18,16 +18,15 @@
 		<div class="col-sm-10">
 			<select name="tipo" class="form-control" id="tipo" >
 				<option value="" >Seleccionar</option>
-			<script type="text/javascript">
-              var opciones=["Mesa de partes","Logistíca","Secretaria"]
-              var nuevo,areas;
-
-              for (var i=0;i<opciones.length;i++){
-                //nuevo=areas[i];
-                document.write("<option>"+opciones[i]+"</option>")
-              }
-            </script>
-
+				<script type="text/javascript">
+              		//var opciones=["logistica","secretaria","Dirección Academica","Sistemas"];
+              		var nuevo,tamanio;
+              		tamanio=areas.length;
+              		for (var i=0;i<tamanio;i++){
+                	nuevo=areas[i];
+                	document.write("<option value='" +nuevo[0]+"'>"+nuevo[1]+"</option>");
+              		}
+            	</script>
 			</select>
 		</div>
 	</div>
