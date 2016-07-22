@@ -1,13 +1,5 @@
-
-<nav role="navigation" class="navbar navbar-inverse">
-	<ul class="nav nav-tabs">
-		<li class="active"><a href="<?php echo URLM ?>/tramite/todos">Todos</a></li>
-		<li ><a href="<?php echo URLM ?>/tramite/proceso">En Proceso</a></li>
-		<li ><a href="<?php echo URLM ?>/tramite/finalizados">Finalizados</a></li>
-		<li ><a href="<?php echo URLM ?>/tramite/rechazados">Rechazados</a></li>
-	</ul>
-</nav>
-
+<div class="container">
+	
 <table class="table table-hover">
     <thead>
       <tr>
@@ -16,6 +8,9 @@
         <th>Datos</th>
         <th>Fecha de Inicio</th>
         <th>Fecha de Finalización</th>
+        <th><span class="glyphicon glyphicon-envelope"></span> </th>
+        <th><span class="glyphicon glyphicon-pencil"></span> </th>
+        <th><span class="glyphicon glyphicon-trash"></span> </th>
       </tr>
     </thead>
 	<tbody>
@@ -32,13 +27,14 @@
 				document.write("<td>"+nuevo[2]+"</td>");
 				document.write("<td>"+nuevo[3]+"</td>");
 				document.write("<td><a href='<?php echo URLM ?>tramites/ver/"+nuevo[0]+"'><span class='glyphicon glyphicon-envelope'></span></a>"+"</td>");
-        		document.write("<td><a href='<?php echo URLM ?>empleados/crear'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td></tr>");
-        		document.write("<td><a href='#'><span class='glyphicon glyphicon-trash'></span></a>"+"</td>");
+        		document.write("<td><a href='<?php echo URLM ?>empleados/crear'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td>");
+        		document.write("<td><a href='#'><span class='glyphicon glyphicon-trash'></span></a>"+"</td></tr>");
 			}
 		</script>
 		
 	</tbody>
 </table>
+</div>
 
 
 

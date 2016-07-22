@@ -5,52 +5,35 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Nombre de trámite</th>
         <th>ID</th>
-        <th>Fecha de Movimiento</th>
-        <th>Persona encargada</th>
-        <th>Partida</th>
+        <th>Expediente</th>
+        <th>Remitente</th>
         <th>Destino</th>
+        <th>Estado</th>
+        <th>Persona</th>
+        <th>Fecha</th>
+        <th><span class="glyphicon glyphicon-trash"></span> </th>
+
 
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Consultas</td>
-        <td>13</td>
-        <td>06/07/14</td>
-        <td>Pedro</td>
-        <td>Mesa de Partes</td>
-        <td>Contabilidad</td>
-        <td><button><span class="glyphicon glyphicon-trash"></span>Eliminar</button></td>
-      </tr>
-      <tr>
-        <td>Solicitud</td>
-        <td>17</td>
-        <td>27/07/14</td>
-        <td>Pedro</td>
-        <td>Mesa de Partes</td>
-        <td>Recepcion</td>
-        <td><button><span class="glyphicon glyphicon-trash"></span>Eliminar</button></td>
-      </tr>
-      <tr>
-        <td>Solicitud</td>
-        <td>17</td>
-        <td>06/01/15</td>
-        <td>María</td>
-        <td>Recepción</td>
-        <td>Gerencia</td>
-        <td><button><span class="glyphicon glyphicon-trash"></span>Eliminar</button></td>
-      </tr>
-      <tr>
-        <td>Consultas</td>
-        <td>13</td>
-        <td>06/04/15</td>
-        <td>Juan</td>
-        <td>Contabilidad</td>
-        <td>Gerencia</td>
-        <td><button><span class="glyphicon glyphicon-trash"></span>Eliminar</button></td>
-      </tr>
+
+      <script type="text/javascript">
+        var nuevo,tamanio;
+        tamanio=data.length;
+        for (var i=0;i<tamanio;i++){
+          nuevo=data[i];
+          document.write("<tr><td>"+nuevo[0]+"</td>");
+          document.write("<td>"+nuevo[1]+"</td>");
+          document.write("<td>"+nuevo[2]+"</td>");
+          document.write("<td>"+nuevo[3]+"</td>");
+          document.write("<td>"+nuevo[4]+"</td>");
+          document.write("<td>"+nuevo[5]+"</td>");
+          document.write("<td>"+nuevo[6]+"</td>");
+          document.write("<td><a href='<?php echo URLM ?>movimientos'><span class='glyphicon glyphicon-trash'></span></a>"+"</td></tr>");
+        }
+      </script>
     </tbody>
   </table>
 </div>

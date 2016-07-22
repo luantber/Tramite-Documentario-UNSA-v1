@@ -12,9 +12,9 @@ document.write(title);
         <th>Nombre</th>
         <th>Apellido</th>
         <!--<th><li><a href="<?php echo URLM ?>empleados/crear">Registar</a></li></th>!-->
-        <th><span class="glyphicon glyphicon-user"></span> Ver</th>
-        <th><span class="glyphicon glyphicon-pencil"></span> Editar</th>
-        <th><span class="glyphicon glyphicon-trash"></span> Eliminar</th>
+        <th><span class="glyphicon glyphicon-user"></span> </th>
+        <th><span class="glyphicon glyphicon-pencil"></span> </th>
+        <th><span class="glyphicon glyphicon-trash"></span> </th>
       </tr>
     </thead>
   
