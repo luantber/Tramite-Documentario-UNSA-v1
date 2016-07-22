@@ -2,6 +2,7 @@
 
 	class Auth
 	{
+		//nombres,cargo,id_area
 		static function start()
 		{
 			@session_start();
@@ -32,9 +33,20 @@
 			return false;
 		}
 
+		static function getusername($ses="sesion")
+		{
+			return $_SESSION[$ses][0];
+				
+		}		
+
 		static function getareaId($ses="sesion")
 		{
 			return $_SESSION[$ses][2];
+		}
+
+		static function getuserId($ses="sesion")
+		{
+			return $_SESSION[$ses][3];
 		}
 
 		static function destroy()

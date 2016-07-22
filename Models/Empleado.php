@@ -60,7 +60,6 @@
 					    while($datos = $result->fetch_assoc()) {
 
 					        array_push($empleadosIds,$datos["Id_Empleado"]);
-					        //echo "Aqui".$datos["Id_Empleado"]."<br>";
 					    }
 					}
 

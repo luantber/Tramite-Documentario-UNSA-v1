@@ -8,7 +8,7 @@
 	include_once "Persona.php";
 	include_once "Area.php";
 	use Models\Query as Query;
-	use Models\Persona as Persona;
+	use Models\Persona as Persona; 
 	use Models\Empleado as Empleado;
 	use Models\Area as Area;
 	class Tramite
@@ -100,13 +100,20 @@
 		}
 
 
+		function cancelarTramite($Id_Tramite)
+		{
+			$request="UPDATE `estado` SET `Estado`='cancelado' WHERE Id_Expediente=".$Id_Tramite;
+			$this->query->consulta($request);
+		}
+
+
 		function registrarTramiteByDni($Folios,$Asunto,$Dni_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)
 		{
 			$persona=new Persona();
 			$resultado=$persona->obtenerDatosPersonaByDni($Dni_Persona);
 			if($resultado==true){
 				$Id_Persona=$persona->getId();
-				$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Actual`) VALUES (".$Folios.",'2016-07-15','".$Asunto."',".$Id_Persona.",'1')";
+				$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Actual`) VALUES (".$Folios.",'".$this->fecha."','".$Asunto."',".$Id_Persona.",'1')";
 				$this->query->consulta($request);
 				$tramite_id=$this->query->get_id();
 				$request2="INSERT INTO `tipo_tramite`(`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES (".$tramite_id.",'".$Tipo_Tramite."',".$Prioridad.")";
@@ -146,6 +153,9 @@
 			}
 			return $IdsMovimientos;
 		}
+
+
+
 		//obtiene los datos de un movimiento en un array usando el id_movimiento
 		function getMovimientoDatosById($Id_Movimiento)
 		{
@@ -165,10 +175,12 @@
 			return $DatosMovimientos;
 		}
 
+
+
 		function moverTramite($Id_Area_Destino)
 		{
 
-			$request="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`)  VALUES (".$this->id_expediente.",".$this->id_area_actual.",".$Id_Area_Destino.",".$this->id_expediente.",".$this->id_persona.",'2016-06-20')";
+			$request="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`)  VALUES (".$this->id_expediente.",".$this->id_area_actual.",".$Id_Area_Destino.",".$this->id_expediente.",".$this->id_persona.",'".$this->fecha."')";
 			$this->query->consulta($request);
 			$this->estado=0;
 			$this->save();
@@ -505,14 +517,6 @@
 <?php
 	/*
 	$tram=new Tramite();
-	$tram->obtenerDatosTramiteId(19);
-	$cosa=$tram->getAllDatosNombres();
-	foreach ($cosa as $key ) {
-		echo $key."</br>";
-	}
-	*/
-	/*
-	$tram=new Tramite();
 	$cosa=$tram->getAllTramitesDatosByIdAreaActual(0);
 	foreach ($cosa as $key) {
 		foreach ($key as $value) {
@@ -522,9 +526,10 @@
 	}
 	*/
 
-
-
-
+	/*
+	$cosa=new Tramite();
+	$cosa->cancelarTramite(23);
+	*/
 
 
  ?>
