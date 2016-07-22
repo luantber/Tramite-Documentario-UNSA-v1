@@ -27,14 +27,19 @@
 
 		static function getuser($cargo,$ses="sesion")
 		{
-			if ($_SESSION[$ses][1]==$cargo)
+			if ($_SESSION[$ses]["nombre_cargo"]==$cargo)
 				return true;
 			return false;
 		}
 
 		static function getareaId($ses="sesion")
 		{
-			return $_SESSION[$ses][2];
+			return $_SESSION[$ses]["id_area"];
+		}
+
+		static function getdato($dato,$ses="sesion")
+		{
+			return $_SESSION[$ses][$dato];
 		}
 
 		static function destroy()

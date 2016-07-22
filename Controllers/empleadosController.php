@@ -67,11 +67,7 @@
 				{
 					if ($emp->getPassword()==$_POST["password"])
 					{
-						$ar=array(); 
-						array_push($ar, $emp->getNombres());
-						array_push($ar,$emp->
-							getNombreCargo());
-						array_push($ar,$emp->getIdArea());
+						$ar=$emp->getAllDatos();
 						Auth::set_session($ar);
 						//$_SESSION["sesion"]=$emp->getNombres();
 						//echo "desde controlador:".Auth::get_session()->getNombres();	
