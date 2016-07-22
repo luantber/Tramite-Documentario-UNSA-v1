@@ -12,7 +12,6 @@
         <th><span class="glyphicon glyphicon-user"></span> Ver</th>
         <th><span class="glyphicon glyphicon-pencil"></span> Editar</th>
         <th><span class="glyphicon glyphicon-trash"></span> Eliminar</th>
-        
       </tr>
     </thead>
   
