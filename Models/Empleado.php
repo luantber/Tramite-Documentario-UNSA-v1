@@ -42,7 +42,7 @@
 					
 					$empleado_temp=new Empleado();
 					$empleado_temp->obtenerDatosId($id_empleado);
-					array_push($empleadosDatos,$empleado_temp->getAllDatos());
+					array_push($empleadosDatos,$empleado_temp->getAllDatos2());
 
 				}
 
@@ -101,6 +101,26 @@
 				"activo"=>$this->activo,
 				"correo"=>$this->correo,
 				"password"=>$this->password);
+				return $datos;
+
+			}
+
+
+			function getAllDatos2()
+			{
+				$datos=array(
+				$this->id,
+				$this->dni,
+				$this->nombres,
+				$this->apellidos,
+				$this->nombre_empresa,
+				$this->id_area,
+				$this->nombre_area,
+				$this->id_cargo,
+				$this->nombre_cargo,
+				$this->activo,
+				$this->correo,
+				$this->password);
 				return $datos;
 
 			}

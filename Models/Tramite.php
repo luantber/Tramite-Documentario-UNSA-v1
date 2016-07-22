@@ -283,6 +283,35 @@
 			return $tramitesDatos;
 		}
 
+		function getAllTramitesDatosByIdAreaActual2($Id_Area)
+		{
+			$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area;
+			$result=$this->query->consulta($request);
+			$tramitesIds=array();
+			$tramitesDatos=array();
+			if ($result->num_rows > 0) {
+
+			    while($datos = $result->fetch_assoc()) {
+
+			        array_push($tramitesIds,$datos["Id_Expediente"]);
+			    }
+			}
+
+			foreach ($tramitesIds as $id_tramite) {
+
+				$tramite_temp=new Tramite();
+				$tramite_temp->obtenerDatosTramiteId($id_tramite);
+				if($tramite_temp->estado!="finalizado")
+				{
+					array_push($tramitesDatos,$tramite_temp->getAllDatosNombres2());
+				}
+
+
+			}
+
+			return $tramitesDatos;
+		}
+
 		function getAllTramitesDatosByIdAreaDestino($Id_Area_Destino)
 		{
 			//por implementar
@@ -384,6 +413,35 @@
 			return $datos;
 		}
 
+
+		public function getAllDatosNombres2()
+		{
+			$persona_temp=new Persona();
+			$persona_temp->obtenerDatosPersona($this->id_persona);
+			$empleado_temp=new Empleado();
+			$empleado_temp->obtenerDatosId($this->id_encargado);
+			$area_actual=new Area();
+			$area_actual->obtenerDatosAreaById($this->id_area_actual);
+			$area_destino=new Area();
+			$area_destino->obtenerDatosAreaById($this->id_area_destino);
+			$datos=array();
+			array_push($datos,$this->id_expediente);
+			array_push($datos,$this->folios);
+			array_push($datos,$this->fecha_ingreso);
+			array_push($datos,$this->fecha_termino);
+			array_push($datos,$this->asunto);
+			array_push($datos,$persona_temp->nombres." ".$persona_temp->apellidos);
+			array_push($datos,$this->tipo_tramite);
+			array_push($datos,$this->prioridad);
+			array_push($datos,$this->estado);
+			array_push($datos,$this->descripcionEstado);
+			array_push($datos,$empleado_temp->nombres." ".$empleado_temp->apellidos);
+			array_push($datos,$this->recibido);
+			array_push($datos,$persona_temp->dni);
+			array_push($datos,$area_actual->nombre_area);
+			array_push($datos,$area_destino->nombre_area);
+			return $datos;
+		}
 
 		public function getAllDatos()
 		{
@@ -517,7 +575,7 @@
 <?php
 	/*
 	$tram=new Tramite();
-	$cosa=$tram->getAllTramitesDatosByIdAreaActual(0);
+	$cosa=$tram->getAllTramitesDatosByIdAreaActual2(1);
 	foreach ($cosa as $key) {
 		foreach ($key as $value) {
 			echo $value." ";

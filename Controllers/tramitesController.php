@@ -34,7 +34,7 @@
 				$m->moverTramite(...$datos);
 
 
-				//redirect("panel",true);
+				redirect("panel",true);
 
 
 			}else{
@@ -70,7 +70,7 @@
 			$t = new Tramite();
 			$r = $t->obtenerDatosTramiteId($id);
 			if ($r){
-				$tramite = $t->getAllDatosNombres();
+				$tramite = $t->getAllDatosNombres2();
 				Js::prints($tramite,True);
 						
 
@@ -146,8 +146,9 @@
 				{
 
 					//error e
-					echo " Exito";
-					echo $t->getAsunto();
+					echo " Exito Al crear el TRamite";
+					redirect("panel");
+//					echo $t->getAsunto();
 				}
 				else{
 

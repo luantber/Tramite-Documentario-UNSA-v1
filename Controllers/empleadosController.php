@@ -16,9 +16,12 @@
 		{
 			$p = new Empleado();
 			$pd = $p->getAllEmpleadosDatos();
-
-			Js::prints("Empleados ",True,"title");
-			Js::prints($pd,True);
+			$noa = array();
+			$noa = array_merge($noa, $pd);
+			Js::prints("Empleados ",false,"title");
+			print_r($noa);
+			Js::prints($noa,false);
+			
 			render("personas/todas");
 	
 		}
@@ -40,7 +43,7 @@
 
 				$r->registrarEmpleado(...$data);
 				echo "exito";
-				Js::prints($data,true);
+				Js::prints($data,false);
 
 				redirect('empleados');
 			}
@@ -50,8 +53,8 @@
 
 				$c = Cargo::getCargos();
 				//print_r($at);
-				Js::prints($at,true,"areas");
-				Js::prints($c,true,"cargos");
+				Js::prints($at,false,"areas");
+				Js::prints($c,false,"cargos");
 				render("empleados/crear");
 				
 			}

@@ -7,7 +7,7 @@ class estadisticaController{
 		$a = new Area;
 			$at = $a->obtenerAreas();
 			Js::prints($at,true,"areas");
-
+		echo "separado: <br>";
 		render("estadisticas/estadisticas");
 	}
 }

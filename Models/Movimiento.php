@@ -30,6 +30,9 @@
 			$this->fecha=$this->query->getFecha();
 		}
 
+		function obtenerUltimoMovimientoDestinoById(){
+			
+		}
 		function obtenerDatosById($id_movimiento)
 		{
 			$request="SELECT `Id_Movimiento`, `Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha` FROM `movimientos` WHERE Id_Movimiento=".$id_movimiento;

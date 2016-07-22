@@ -113,6 +113,7 @@
           <li><a href="<?php echo URLM ?>empleados/crear">Registrar Empleado</a></li>
           <li><a href="<?php echo URLM ?>personas">Todas personas</a></li>
           <li><a href="<?php echo URLM ?>empleados">Todos Empleados</a></li>
+          <li><a href="<?php echo URLM ?>estadistica">Estadisticas</a></li>
 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->

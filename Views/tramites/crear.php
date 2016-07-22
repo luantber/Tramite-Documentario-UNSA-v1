@@ -34,7 +34,7 @@
   	<div class="form-group">
   		<label for="asunto" class="col-sm-2 control-label" >Asunto </label>
   		<div class="col-sm-10" >
-  			<textarea class="form-control" rows="3" id="descrip" placeholder="ingrese asunto"></textarea>
+  			<textarea name="asunto" class="form-control" rows="3" id="descrip" placeholder="ingrese asunto"></textarea>
   		</div>
   	</div>
 

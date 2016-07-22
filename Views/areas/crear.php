@@ -27,7 +27,7 @@
   	
   	<label for="descrip" class="col-sm-2 control-label">Descripción del área:</label>
   	<div class="col-sm-10" >
-  	 <textarea class="form-control" rows="3" id="descrip" required placeholder="Ingrese descripción acerca de la nueva área"></textarea>
+  	 po<textarea name="" class="form-control" rows="3" id="descrip" required placeholder="Ingrese descripción acerca de la nueva área"></textarea>
     </div>
    </div>
 

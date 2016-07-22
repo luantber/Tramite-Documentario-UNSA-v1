@@ -13,7 +13,7 @@
 			$a = new Area();
 			$areas = $a->getAllAreasDatos();
 
-			Js::prints($areas,true,"areas");
+			Js::prints($areas,false,"areas");
 			render("areas/ver");
 		}
 
@@ -26,7 +26,7 @@
 			
 			$e = new Empleado();
 			$d = $e->getEmpleadosIdNombreByIdArea(Auth::getareaId());
-			Js::prints($d,True,"empleados");
+			Js::prints($d,false,"empleados");
 
 			render("areas/crear");
 		}

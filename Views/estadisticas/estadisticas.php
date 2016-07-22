@@ -1,12 +1,24 @@
+<?php namespace Views;
+	use Models\Query;
+	use Models\Movimiento;
+
+	//$q=new Query();
+
+	$mov=new Movimiento();
+
+
+?>
+
+
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<title>Ejemplos de gr&#225;ficos usando Chart.js</title>
+<title>Estadistica</title>
 </head>
 <body>
-<h1>Ejemplos de gr&#225;ficos usando Chart.js</h1><br>
+<h1>Estadistica Grafica</h1><br>
 
 <script src="<?php echo URLV ?>js/Chart.js"></script>
 <div id="canvas-holder">
@@ -16,7 +28,7 @@
 <canvas id="chart-area4" width="600" height="300"></canvas>
 </div>
 <script>
-var f = new Date();
+/*var f = new Date();
 var fecha;
 if (f.getMonth()<10) {
   fecha = f.getDate() + "/" + 1 + f.getMonth() + "/" + f.getFullYear();
@@ -25,12 +37,39 @@ else {
   fecha = f.getDate() + "/" + f.getMonth() + "/" + f.getFullYear();
 }
 
-var areas = ["Area1","Area2","Area3","Area4","Area5","Area6"]; //aqui la funcion de obtener todas las areas
-//getMovimientosNombresRutaByDate();
-var query = new Query();
-var fecha = query->getFecha();
-var tramite = getMovimientosNombresRutaByDate(fecha)
+var areas = ["Mesa de Partes","","","Area4","Area5","Area6"]; //aqui la funcion de obtener todas las areass
+//getMovimientosNombresRutaByDate();*/
+//var query = new Query();
+//var fecha = query->getFecha();
+//var tramite = getMovimientosNombresRutaByDate(fecha)
+<?php 
+	
+	//$fecha= $q->getFecha();
+	$a=$mov->getMovimientosNombresRutaByDate(2016-07-22);
+
+	/*$a = array();
+	$aux=array();
+	array_push($aux, "Tramite1");
+	array_push($aux, "Area1");
+	array_push($aux, "Area2");
+	array_push($aux, "Area3");
+	array_push($a,$aux);*/
+	echo "var tramite=[";	
+	foreach ($a as $re) {
+		echo "[";
+		foreach ($re as $r ) {
+			echo "\"$r\",";
+		}
+		echo "],";
+	}
+	echo "];";
+
+?>
+
+
+
 //var tramite = [["Tramite1","Area1","Area2","Area3"],["Tramite2","Area3","Area2","Area4"],["Tramite3","Area6","Area3","Area5"],["Tramite4","Area5","Area1","Area4"],["Tramite5","Area2","Area3","Area1"],["Tramite6","Area4","Area2","Area5"]]; //aqui va la funcion de alexis
+var areas = ["Mesa de Partes","Gerencia","Logistica","Recursos Humanos","Informatica","Contabilidad"];
 var contadores = [0,0,0,0,0,0];
 var a = 0;
 while (a < tramite.length) {
@@ -69,7 +108,7 @@ while (a < tramite.length) {
   a = a + 1;
 }
 
-document.write(fecha);
+document.write(contadores);
 var pieData = [{value: contadores[0],color:"#0b82e7",highlight: "#0c62ab",label: areas[0]},
 				{
 					value: contadores[1],
@@ -102,7 +141,7 @@ var pieData = [{value: contadores[0],color:"#0b82e7",highlight: "#0c62ab",label:
 					label: areas[5]
 				}
 			];
-  var asd = ["Area1","Area2","Area3","Area4","Area5","Area6","Area7"];
+  var asd = areas;
 	var barChartData = {
 		labels : asd,
 		datasets : [
@@ -111,20 +150,13 @@ var pieData = [{value: contadores[0],color:"#0b82e7",highlight: "#0c62ab",label:
 				strokeColor : "#ffffff",
 				highlightFill: "#1864f2",
 				highlightStroke: "#ffffff",
-				data : [90,30,10,80,15,5,15]
-			},
-			{
-				fillColor : "#e9e225",
-				strokeColor : "#ffffff",
-				highlightFill : "#ee7f49",
-				highlightStroke : "#ffffff",
-				data : [40,50,70,40,85,55,15]
+				data : contadores
 			}
 		]
 
 	}
 		var lineChartData = {
-			labels : ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio"],
+			labels : asd,
 			datasets : [
 				{
 					label: "Primera serie de datos",
@@ -134,7 +166,7 @@ var pieData = [{value: contadores[0],color:"#0b82e7",highlight: "#0c62ab",label:
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(220,220,220,1)",
-					data : [90,30,10,80,15,5,15]
+					data : contadores
 				},
 				{
 					label: "Segunda serie de datos",
@@ -144,7 +176,7 @@ var pieData = [{value: contadores[0],color:"#0b82e7",highlight: "#0c62ab",label:
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(151,187,205,1)",
-					data : [40,50,70,40,85,55,15]
+					data : contadores
 				}
 			]
 

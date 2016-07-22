@@ -41,6 +41,17 @@
 					$t->recibido = "0";
 				}
 				$t->save();
+
+				$ruta = $t->getRutaIds();
+
+				foreach ($ruta as $key) {
+					$ul = $key;
+				}
+
+				echo "-->".$ul;
+				$t->id_area_actual = $ul;
+				$t->save();
+
 				redirect("panel");
 			}
 			else{
