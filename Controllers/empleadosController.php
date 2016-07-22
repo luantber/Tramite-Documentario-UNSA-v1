@@ -69,9 +69,9 @@
 					{
 						$ar=array(); 
 						array_push($ar, $emp->getNombres());
-						array_push($ar,$emp->
-							getNombreCargo());
+						array_push($ar,$emp->getNombreCargo());
 						array_push($ar,$emp->getIdArea());
+						array_push($ar,$emp->id);
 						Auth::set_session($ar);
 						//$_SESSION["sesion"]=$emp->getNombres();
 						//echo "desde controlador:".Auth::get_session()->getNombres();	

@@ -2,12 +2,31 @@
 /**
 * 
 */
+use Config\Auth as Auth;
+use Models\Persona as Persona;
+use Models\Js as Js;
 class perfilController
 {
 	
 	function index()
 	{
-		print "indice perfil";
+		$id = Auth::getuserId();
+		echo $id;
+		$t = new Persona;
+			if ($t->obtenerDatosPersona($id)){
+				$tramite = array(
+				'id' => $t->getID(), 
+				'nombres'=>$t->getNombres(),
+				'apellidos'=>$t->getApellidos(),
+				'dni'=>$t->getDni(),
+				'empresa'=>$t->getNombreEmpresa()
+				);
+				Js::prints($tramite,True);
+				render("perfil/barrita");
+			}
+			else{
+				JS::prints("No existe una persona con id,".$id,"error",True);
+			}
 			# code...
 	}
 
