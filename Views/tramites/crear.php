@@ -64,12 +64,20 @@
           </script>
         </div>
       </div>
+
+    <nav>
+      <ul class="pager">
+        <li><a href="<?php echo URLM ?>/tramites">Cancelar</a></li>
+
+      </ul>
+    </nav>
   	
   	<div class="form-group">
-    	<div class="col-sm-offset-6 col-sm-4">
-      		<button type="submit" class="btn btn-default">Agregar Trámite</button>
+    	<div class="text-center">
+      		<button type="submit" class="btn btn-link">Agregar Trámite</button>
     	</div>
   	</div>
+
 
     <script>
       function validacion() {

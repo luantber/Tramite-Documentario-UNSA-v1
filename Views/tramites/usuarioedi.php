@@ -28,9 +28,15 @@
 	</div>
 </div>
 
+<nav>
+  <ul class="pager">
+    <li><a href="<?php echo URLM ?>/tramites">Cancelar</a></li>
+
+  </ul>
+</nav>
 
 <div class="form-group">
-	<div class="col-sm-offset-6 col-sm-4">
-		<button  class="btn btn-default">Guardar Cambios</button>
+	<div class="text-center">
+		<button  class="btn btn-link">Guardar Cambios</button>
 	</div>
 </div>

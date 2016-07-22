@@ -11,6 +11,7 @@
         <th>Persona encargada</th>
         <th>Partida</th>
         <th>Destino</th>
+
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
         <td>Pedro</td>
         <td>Mesa de Partes</td>
         <td>Contabilidad</td>
+        <td><button><span class="glyphicon glyphicon-trash"></span>Eliminar</button></td>
       </tr>
       <tr>
         <td>Solicitud</td>
@@ -29,6 +31,7 @@
         <td>Pedro</td>
         <td>Mesa de Partes</td>
         <td>Recepcion</td>
+        <td><button><span class="glyphicon glyphicon-trash"></span>Eliminar</button></td>
       </tr>
       <tr>
         <td>Solicitud</td>
@@ -37,6 +40,7 @@
         <td>María</td>
         <td>Recepción</td>
         <td>Gerencia</td>
+        <td><button><span class="glyphicon glyphicon-trash"></span>Eliminar</button></td>
       </tr>
       <tr>
         <td>Consultas</td>
@@ -45,6 +49,7 @@
         <td>Juan</td>
         <td>Contabilidad</td>
         <td>Gerencia</td>
+        <td><button><span class="glyphicon glyphicon-trash"></span>Eliminar</button></td>
       </tr>
     </tbody>
   </table>
