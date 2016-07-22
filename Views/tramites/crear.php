@@ -18,7 +18,7 @@
           <select name="destino" class="form-control" id="destino">
             <option value="" >Seleccionar</option>
             <script type="text/javascript">
-              var opciones=["logistica","secretaria","Dirección Academica","Sistemas"];
+              //var opciones=["logistica","secretaria","Dirección Academica","Sistemas"];
               var nuevo,tamanio;
               tamanio=areas.length;
               for (var i=0;i<tamanio;i++){

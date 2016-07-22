@@ -32,10 +32,10 @@
 					$_POST["nome"],
 					$_POST["apee"],
 					1, //Area Trabajo
-					true, //Activo?
+					"activo", //Activo?
 					$_POST["emaile"],
 					$_POST["dnie"],
-					$_POST["contrae"] 
+					123456 
 				);
 
 				$r->registrarEmpleado(...$data);

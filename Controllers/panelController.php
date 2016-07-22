@@ -25,4 +25,6 @@
 			}
 			render("tramites/todos");
 		}
+
+		
 	}

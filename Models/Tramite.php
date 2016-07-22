@@ -8,7 +8,7 @@
 	include_once "Persona.php";
 	include_once "Area.php";
 	use Models\Query as Query;
-	use Models\Persona as Persona;
+	use Models\Persona as Persona; 
 	use Models\Empleado as Empleado;
 	use Models\Area as Area;
 	class Tramite
