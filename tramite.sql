@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-07-2016 a las 01:54:23
+-- Tiempo de generación: 22-07-2016 a las 16:28:54
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -80,7 +80,7 @@ CREATE TABLE `empleados` (
   `Activo` varchar(20) NOT NULL,
   `Correo` varchar(100) NOT NULL,
   `Dni_Empleado` int(8) NOT NULL,
-  `Password` varchar(20) NOT NULL
+  `Password` varchar(20) NOT NULL DEFAULT '123456'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
