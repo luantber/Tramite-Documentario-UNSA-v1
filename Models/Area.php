@@ -3,35 +3,45 @@
 	* 
 	*/
 
+	include_once "Query.php";
+	include_once "Empleado.php";
+	include_once "Persona.php";
+	
 	use Models\Query as Query;
-    include_once "Query.php";
+	use Models\Persona as Persona;
+	use Models\Empleado as Empleado;
+	
 	class Area
 	{
 		var $query;	
 		var $nombre_area;
 		var $descripcion_area;
 		var $id_area;
+		var $id_jefe_de_area;
 		function __construct()
 		{
 			$this->query=new Query();
 		}
 
-		public function registrarArea($nombre_area,$descripcion_area)
+		
+
+		public function registrarArea($nombre_area,$descripcion_area,$Id_JefedeArea)
 		{
-			$request="INSERT INTO `area`(`Nom_Area`, `Descripcion`) VALUES ('".$nombre_area."','".$descripcion_area."')";
+			$request="INSERT INTO `area`(`Nom_Area`, `Descripcion`, `Id_JefedeArea`) VALUES ('".$nombre_area."','".$descripcion_area."',".$Id_JefedeArea.")";
 				$this->query->consulta($request);
 				$this->obtenerDatosAreaById($this->query->get_id());
 		}
 
 		public function obtenerDatosAreaById($id_area)
 		{
-			$request="SELECT `Id_Area`, `Nom_Area`, `Descripcion` FROM `area` WHERE Id_Area=".$id_area;
+			$request="SELECT `Id_Area`, `Nom_Area`, `Descripcion`, `Id_JefedeArea` FROM `area` WHERE Id_Area=".$id_area;
 			$result=$this->query->consulta($request);
 			if ($result->num_rows != 0) {
 			    $datos = $result->fetch_assoc();
 			    $this->id_area=$datos["Id_Area"];
 			    $this->nombre_area=$datos["Nom_Area"];
 			    $this->descripcion_area=$datos["Descripcion"];
+			    $this->id_jefe_de_area=$datos["Id_JefedeArea"];
 			    return true;
 			}
 			else {
@@ -71,6 +81,7 @@
 			array_push($datos,$this->id_area);
 			array_push($datos,$this->nombre_area);
 			array_push($datos,$this->descripcion_area);
+			array_push($datos,$this->getNombreJefe($this->id_jefe_de_area));
 			return $datos;
 		}
 
@@ -109,7 +120,17 @@
 			return $this->id_area;
 		}
 
-		
+		public function getIdJefe()
+		{
+			return $this->id_jefe_de_area;
+		}		
+
+		public function getNombreJefe()
+		{
+			$temp=new Persona();
+			$temp->obtenerDatosPersona($this->id_jefe_de_area);
+			return $temp->nombres." ".$temp->apellidos;
+		}
 
 	}
 
@@ -125,4 +146,15 @@
   
  	//$cosa=new Area();
  	//echo $cosa->getAllAreasDatos()[0][1];
+ 	/*
+ 	$cosas= new Area();
+ 	
+ 	$cosa=$cosas->getAllAreasDatos();
+	foreach ($cosa as $key) {
+		foreach ($key as $value) {
+			echo $value." ";
+		}
+		echo "</br>";
+	}
+	*/
   ?>
