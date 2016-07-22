@@ -28,11 +28,11 @@
     {
       $tramite = new Tramite();
       $tramite -> registrarTramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado);
-      $this->idLastTramite=$tramite->getIdExpediente();
+      $this->idLastTramite=$tramite->getIdExpediente(); 
     }
 
 
-    //esto crea un movimiento y actualiza el estado de Recivido a 0
+    //esto crea un movimiento y actualiza el estado de Recibido a 0
     function moverTramite($Id_Expediente,$Id_Remitente,$Id_Destino)
     {
       $tramite_temp=new Tramite();
