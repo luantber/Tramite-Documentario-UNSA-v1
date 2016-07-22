@@ -41,6 +41,30 @@
 				}
 				return $clientesDatos;
 			}
+			
+			public function getAllClientesByNombreLike($Nombre_pattern)
+			{
+
+					
+				$request="SELECT Id_Persona FROM personas  WHERE (Id_Persona NOT IN (SELECT Id_Empleado FROM empleados)) and (Nombres LIKE '%".$Nombre_pattern."%' OR Apellidos Like '%".$Nombre_pattern."%')";
+				$result=$this->query->consulta($request);
+				$clientesIds=array();
+				$clientesDatos=array();
+				if ($result->num_rows > 0) {
+			    
+				    while($datos = $result->fetch_assoc()) {
+				        array_push($clientesIds,$datos["Id_Persona"]);
+				    }
+				}
+				foreach ($clientesIds as $id_cliente) {
+					
+					$persona_temp=new Persona();
+					$persona_temp->obtenerDatosPersona($id_cliente);
+					array_push($clientesDatos,$persona_temp->getAllDatos());
+
+				}
+				return $clientesDatos;
+			}			
 
 			public function getAllPersonasDatos()
 			{
@@ -86,7 +110,13 @@
 
 			}
 
-
+			public function deletePersona($Id_Persona)
+			{
+				$request="DELETE FROM `personas` WHERE Id_Persona=".$Id_Persona;
+				$this->query->consulta($request);
+				$request2="DELETE FROM `empleados` WHERE Id_Empleado=".$Id_Persona;
+				$this->query->consulta($request2);
+			}
 
 			public function obtenerDatosPersona($Id_Persona)
 			{
@@ -229,6 +259,15 @@
  	$p->dni=99999999;
  	$p->save();
 	*/
-
- 	
+ 	/*
+	$tram=new Persona();
+ 	$cosa=$tram->getAllClientesByNombreLike("mendoz");
+	
+	foreach ($cosa as $key) {
+		foreach ($key as $value) {
+			echo $value." ";
+		}
+		echo "</br>";
+	}
+ 	*/
   ?>

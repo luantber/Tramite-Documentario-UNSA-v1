@@ -23,9 +23,11 @@
 		var $id_persona;
 		var $query;
 		var $fecha;
+
 		function __construct()
 		{
 			$this->query=new Query();
+			$this->fecha=$this->query->getFecha();
 		}
 
 		function obtenerDatosById($id_movimiento)

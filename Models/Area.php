@@ -49,6 +49,13 @@
 			}
 		}
 
+		public function deleteAreaById($Id_Area)
+		{
+			$request="DELETE FROM `area` WHERE Id_Area=".$Id_Area;
+			$this->query->consulta($request);
+		
+		}
+
 		public function getAllAreasDatos()
 		{
 			$request="SELECT `Id_Area` FROM `area` WHERE 1";

@@ -16,9 +16,11 @@
   {
     var $idLastTramite;
     var $query;
+    var $fecha;
     function __construct()
     {
       $this->query=new Query();
+      $this->fecha=$this->query->getFecha();
     }
 
 
@@ -28,6 +30,20 @@
       $tramite -> registrarTramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado);
       $this->idLastTramite=$tramite->getIdExpediente();
     }
+
+
+    //esto crea un movimiento y actualiza el estado de Recivido a 0
+    function moverTramite($Id_Expediente,$Id_Remitente,$Id_Destino)
+    {
+      $tramite_temp=new Tramite();
+      $tramite_temp->obtenerDatosTramiteId($Id_Expediente);
+
+      $request="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`)  VALUES (".$Id_Expediente.",".$Id_Remitente.",".$Id_Destino.",".$Id_Expediente.",".$tramite_temp->id_persona.",'".$this->fecha."')";
+      $this->query->consulta($request);
+      $tramite_temp->estado=0;
+      $tramite_temp->save();
+    }
+
     //Esta funcion devuelve el id de el ultimo tramite creado
     public function getIdLastTramite()
     {
@@ -69,8 +85,8 @@
 
     public function editarIdAreaDestino($Id_Tramite,$Id_Area_Destino)
     {
-      //$request="UPDATE `tramites` SET `Id_Area_Destino`=".$Id_Area_Destino." WHERE Id_Expediente=".$Id_Tramite;
-      //$this->query->consulta($request);
+      $request="UPDATE `tramites` SET `Id_Area_Destino`=".$Id_Area_Destino." WHERE Id_Expediente=".$Id_Tramite;
+      $this->query->consulta($request);
     }
 
     public function editarTipoTramiteById($Id_Tramite,$Tipo_Tramite)
@@ -90,7 +106,7 @@
       $tramite=new Tramite();
       $tramite->obtenerDatosTramiteId($Id_Expediente);
       return $tramite->getIdsMovimientos();
-
+    }  
     function getMovimientoDatos($IdMovimiento)
     {
       $request="SELECT `Id_Movimiento`, `Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha` FROM `movimientos` WHERE Id_Movimiento=".$IdMovimiento;
@@ -104,30 +120,27 @@
       return $datos;
     }
 
-    /*   
-    public function registrarUsuario($Nombres,$Apellidos,$Dni)
-    {
-      $persona = new Persona();
-      $persona -> registrarPersona($Nombres,$Apellidos,$Dni);
-    }
-    */
+
+
+    
+
+   
    
     
     
 
+  
+
   }
-
-
 
 
  ?>
 
 <?php
-  /* 
-  $mesa=new MesaDePartes();
-  $ids=$mesa->getListIdMovimientos(8)[0];
-  echo $mesa->getMovimientoDatos($ids)["idDestino"];
-  */
+  
+  //$mesa=new MesaDePartes();
+  //$mesa->moverTramite(13,1,6);
+  
   //$prueba=new MesaDePartes();
   //$a=$prueba->getListIdMovimientos(7);
  ?>
