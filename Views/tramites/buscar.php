@@ -1,6 +1,6 @@
 	<!--............................. VER ESTADO .............................. !-->
 <h2 class="text-center">Buscar trámite</h2>
-<form class="form-horizontal container" method="get" action="<?php echo URLM ?>tramites/buscar" >
+<form class="form-horizontal container" method="post" action="<?php echo URLM ?>tramites/buscar" >
 	<div class="form-group" >
 		<label for="buscar" class="col-sm-2 control-label">Buscar por </label>
 		<div class="col-sm-10" >

@@ -50,6 +50,11 @@
 			//bus
 			//0 apellido
 			//1 dni
+			if(!empty($_POST)){
+				$ar = Persona::getAllClientesByNombreLike($_POST["dat"]);
+				print_r($ar);
+			}
+
 			render("tramites/buscar");
 		}
 
@@ -163,6 +168,8 @@
 				$a = new Area;
 				$at = $a->obtenerAreas();
 				Js::prints($at,true,"areas");
+				
+				render("usuarios/crear");
 				render("tramites/crear");
 				
 			}

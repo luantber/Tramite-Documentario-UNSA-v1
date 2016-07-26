@@ -42,10 +42,10 @@
 				return $clientesDatos;
 			}
 			
-			public function getAllClientesByNombreLike($Nombre_pattern)
+			static function getAllClientesByNombreLike($Nombre_pattern)
 			{
 
-					
+				$this->query =  new Query();	
 				$request="SELECT Id_Persona FROM personas  WHERE (Id_Persona NOT IN (SELECT Id_Empleado FROM empleados)) and (Nombres LIKE '%".$Nombre_pattern."%' OR Apellidos Like '%".$Nombre_pattern."%')";
 				$result=$this->query->consulta($request);
 				$clientesIds=array();
@@ -217,6 +217,8 @@
 				$this->cambiarEmpresa($this->nombre_empresa);
 
 			}
+
+		
 
 		}
 
