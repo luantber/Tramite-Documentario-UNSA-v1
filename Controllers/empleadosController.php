@@ -57,19 +57,21 @@
 
 					if ($e->obtenerDatosId($id)){
 						$ae = $e->getAllDatos();
-
+						//print_r($ae);
 						$tramite = array(
 						'id' => $t->getID(), 
 						'nombres'=>$t->getNombres(),
 						'apellidos'=>$t->getApellidos(),
 						'dni'=>$t->getDni(),
 						'empresa'=>$t->getNombreEmpresa(),
-						'email' => $ae["nombre_area"],
-						'nombre_cargo' => $ae["nombre_cargo"],
+						'email' => $ae["correo"],
+						'id_cargo' => $ae["id_cargo"],
+						'id_area' => $ae["id_area"],
 						'activo' => $ae["activo"]
 						);
-
+					$a = new Area;
 					$c = Cargo::getCargos();
+					$at = $a->obtenerAreas();
 					//print_r($at);
 					Js::prints($at,true,"areas");
 					Js::prints($c,true,"cargos");
@@ -175,5 +177,4 @@
 
 		
 	}
- ?>
-
+ }
