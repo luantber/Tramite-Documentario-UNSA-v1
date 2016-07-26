@@ -33,8 +33,8 @@
 				'dni'=>$t->getDni(),
 				'empresa'=>$t->getNombreEmpresa(),
 				'email' => $ae["correo"],
-				'nombre_area' => $ae["nombre_area"],
-				'nombre_cargo' => $ae["nombre_cargo"],
+				'area' => $ae["nombre_area"],
+				'cargo' => $ae["nombre_cargo"],
 				'activo' => $ae["activo"]
 
 				);
