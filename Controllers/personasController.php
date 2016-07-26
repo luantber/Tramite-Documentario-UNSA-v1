@@ -25,14 +25,15 @@
 				
 				if ($e->obtenerDatosId($t->getID())){
 				$ae = $e->getAllDatos();
-
+				print_r($ae);
 				$tramite = array(
 				'id' => $t->getID(), 
 				'nombres'=>$t->getNombres(),
 				'apellidos'=>$t->getApellidos(),
 				'dni'=>$t->getDni(),
 				'empresa'=>$t->getNombreEmpresa(),
-				'email' => $ae["nombre_area"],
+				'email' => $ae["correo"],
+				'nombre_area' => $ae["nombre_area"],
 				'nombre_cargo' => $ae["nombre_cargo"],
 				'activo' => $ae["activo"]
 

@@ -42,7 +42,25 @@
 		{
 			# code...
 			//bus , dat .... 0 apel
- 
+ 			$t = new Persona;
+			$ar = array();
+			if(!empty($_POST)){
+				if($_POST["bus"]==0){
+					$ar = $t->getAllClientesByNombreLike($_POST["dat"]);
+					
+				}
+				else if($_POST["bus"]==1){
+					echo "here";
+					$t->obtenerDatosPersonaByDni($_POST["dat"]);
+					$ar = $t->getAllDatos();
+					$ar = array($ar);
+				}
+				//print_r($ar);
+				Js::prints($ar,True);
+				render("usuarios/buscar");
+				render("personas/todas");
+			}
+			
 			render("usuarios/buscar");
 		}
 
@@ -52,7 +70,5 @@
 			render("usuarios/ver");
 		}
 
-
-		
 	}
 ?>

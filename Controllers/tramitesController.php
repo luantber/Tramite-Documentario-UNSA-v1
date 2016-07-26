@@ -51,19 +51,22 @@
 			//bus
 			//0 apellido
 			//1 dni
+
 			$t = new Tramite;
 			$ar = array();
 			if(!empty($_POST)){
-				if($_POST["bus"]==0){
-					//$ar = Persona::getAllClientesByNombreLike($_POST["dat"]);
-					echo "here";
+				if($_POST["bus"]==1){
+					$ar = $t->getAllTramitesDatosByNombreLike($_POST["dat"]);
+					//echo "here";
 				}
-				else if($_POST["bus"]==1){
+				else if($_POST["bus"]==0){
 					$ar = $t->getAllTramitesDatosByDniPersona($_POST["dat"]);
 				}
-				print_r($ar);
+				//print_r($ar);
+				Js::prints($ar,True);
+				render("tramites/buscar");
+				render("tramites/todos");
 			}
-
 			render("tramites/buscar");
 		}
 
