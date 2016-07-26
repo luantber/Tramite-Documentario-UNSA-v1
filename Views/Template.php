@@ -126,8 +126,9 @@
 
        </ul>
     <ul class="nav navbar-nav navbar-right">
-          <!--Cargo -->
-      <li><a href="<?php echo URLM ?>panel"><span class="glyphicon glyphicon-briefcase"></span> <?php echo Auth::get_session()["nombre_cargo"]?></a></li>
+
+         <!--Cargo -->
+      <li><a href="<?php echo URLM ?>panel"><span class="glyphicon glyphicon-briefcase"></span> <?php echo Auth::get_session()["nombre_area"]."/".Auth::get_session()["nombre_cargo"]?></a></li>
     <!--PERFIL !-->
       <li><a href="<?php echo URLM ?>perfil"><span class="glyphicon glyphicon-user"></span><?php echo Auth::get_session()["nombres"] ?></a></li>
 <!--

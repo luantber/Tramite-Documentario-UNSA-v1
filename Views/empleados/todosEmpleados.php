@@ -38,7 +38,7 @@ document.write(title);
           document.write("<td>"+nuevo[10]+"</td>");
           document.write("<td><a href='<?php echo URLM ?>personas/Ver/"+nuevo[0]+"'><span class='glyphicon glyphicon-user'></span></a>"+"</td>");
           document.write("<td><a href='<?php echo URLM ?>empleados/editar/"+nuevo[0]+"'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td>");          
-          document.write("<td><a href='<?php echo URLM ?>personas/eliminar/"+ nuevo[0] +"'><span class='glyphicon glyphicon-trash'></span></a>"+"</td></tr>");
+          document.write("<td><a href='<?php echo URLM ?>empleados/eliminar/"+ nuevo[0] +"'><span class='glyphicon glyphicon-trash'></span></a>"+"</td></tr>");
         }
       </script>
 

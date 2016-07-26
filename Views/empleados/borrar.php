@@ -1,4 +1,4 @@
-<form method="post" action="<?php echo URLM ?>personas/borrar">
+<form method="post" action="<?php echo URLM ?>empleados/borrar">
 	<input id="id" type="hidden" name="iduser" value="">
 	<input type="submit" value="Borrar Persona">
 </form>
