@@ -135,6 +135,11 @@
 				$this->obtenerDatosId($id);
 			}
 
+			public function deleteEmpleado($Id_Empleado){
+				$request="DELETE FROM `empleados` WHERE Id_Empleado=".$Id_Empleado;
+				$this->query->consulta($request);
+			}
+
 
 			public function obtenerDatosId($Id_Empleado)
 			{
@@ -155,8 +160,7 @@
 					$request_persona="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Id_Persona=".$Id_Empleado;
 					$result2=$this->query->consulta($request_persona);
 						$datos_persona = $result2->fetch_assoc();
-						$this->nombres=$datos_persona["Nombres"];
-					
+						$this->nombres=$datos_persona["Nombres"];					
 						$this->apellidos=$datos_persona["Apellidos"];
 						$this->nombre_empresa=$datos_persona["Nombre_Empresa"];
 					$this->getNombreArea();
@@ -360,4 +364,6 @@
 	*/
 	//$cosa=new Empleado();
 	//echo $cosa->getEmpleadosIdNombreByIdArea(5)[1][1];
+	//$cosa=new Empleado();
+	//$cosa->deleteEmpleado(5);
  ?>
