@@ -114,6 +114,7 @@
 				    return false;
 				}
 			}
+			
 
 			public function getAllClientesByNombreLike($Nombre_pattern)
 			{

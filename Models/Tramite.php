@@ -167,9 +167,11 @@
 
 			$request="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`)  VALUES (".$this->id_expediente.",".$this->id_area_actual.",".$Id_Area_Destino.",".$this->id_expediente.",".$this->id_persona.",'".$this->fecha."')";
 			$this->query->consulta($request);
+			$this->id_area_actual=$Id_Area_Destino;
 			$this->id_encargado=0;
-			$this->adjuntado=0;
 			$this->asignado=0;
+			$this->obtenerDatosEncargado();
+			$this->obtenerDatosAreas();
 			$this->save();
 		}
 
@@ -231,6 +233,41 @@
 				$tramite_temp=new Tramite();
 				$tramite_temp->obtenerDatosTramiteId($id_tramite);
 				array_push($tramitesDatos,$tramite_temp->getAllDatos());
+
+			}
+
+			return $tramitesDatos;
+		}
+
+		public function getAllTramitesDatosByIdEncargado($Id_Encargado,$finalizado)
+		{
+			if($finalizado==true){
+				$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Encargado=".$Id_Encargado." AND Estado='finalizado'";
+			}
+			else{
+				$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Encargado=".$Id_Encargado." AND Estado!='finalizado'";	
+			}
+			
+			$result=$this->query->consulta($request);
+			$tramitesIds=array();
+			$tramitesDatos=array();
+			if ($result->num_rows > 0) {
+
+			    while($datos = $result->fetch_assoc()) {
+
+			        array_push($tramitesIds,$datos["Id_Expediente"]);
+			    }
+			}
+
+			foreach ($tramitesIds as $id_tramite) {
+
+				$tramite_temp=new Tramite();
+				$tramite_temp->obtenerDatosTramiteId($id_tramite);
+				if($tramite_temp->estado!="cancelado")
+				{
+					array_push($tramitesDatos,$tramite_temp->getAllDatos());
+				}
+
 
 			}
 
@@ -300,9 +337,15 @@
 			return $tramitesDatos;
 		}
 
-		function getAllTramitesDatosByIdAreaActual($Id_Area)
+		function getAllTramitesDatosByIdAreaActual($Id_Area,$finalizado)
 		{
-			$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area;
+			if($finalizado==true){
+				$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area." AND Estado='finalizado'";
+			}
+			else{
+				$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area." AND Estado!='finalizado'";	
+			}
+			
 			$result=$this->query->consulta($request);
 			$tramitesIds=array();
 			$tramitesDatos=array();
@@ -318,7 +361,7 @@
 
 				$tramite_temp=new Tramite();
 				$tramite_temp->obtenerDatosTramiteId($id_tramite);
-				if($tramite_temp->estado!="finalizado" && $tramite_temp->estado!="cancelado")
+				if($tramite_temp->estado!="cancelado")
 				{
 					array_push($tramitesDatos,$tramite_temp->getAllDatos());
 				}
@@ -436,16 +479,16 @@
 		echo $key."</br>";
 	}
 	*/
-/*
+	/*
 	$cosa=new Tramite();
-	$cosas=$cosa->getAllTramitesDatosByNombreLike('Katherine');
+	$cosas=$cosa->getAllTramitesDatosByIdAreaActual(1,false);
 	foreach ($cosas as $key ) {
 		foreach ($key as  $value) {
 			echo $value." ";
 		}
 		echo "</br>";
 	}
-*/	
+	*/
 	
 
 
