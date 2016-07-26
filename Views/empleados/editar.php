@@ -1,5 +1,5 @@
 <h2 class="text-center" >Editar</h2>
-<form class="form-horizontal container"  method="POST" action=" <?php echo URLM?>empleados/crear">
+<form class="form-horizontal container"  method="POST" action=" <?php echo URLM?>empleados/editar">
   <div class="row container form-group">
       <div class="col-xs-6">
         <label for="nombree" class="col-sm-5 control-label" >Nombre</label>
@@ -77,7 +77,7 @@
   </div>
 
 
-  <div class="form-group" id="ocultar">
+  <div class="form-group" >
       <label for="cargo" class="col-sm-2 control-label" >Cargo</label>
       <div class="col-sm-10">
         <script type="text/javascript">
