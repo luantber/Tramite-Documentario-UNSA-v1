@@ -5,6 +5,7 @@
 use Config\Auth as Auth;
 use Models\Persona as Persona;
 use Models\Js as Js;
+use Models\Empleado as Empleado;
 class perfilController
 {
 	
@@ -14,13 +15,29 @@ class perfilController
 		echo $id;
 		$t = new Persona;
 			if ($t->obtenerDatosPersona($id)){
-				$tramite = array(
-				'id' => $t->getID(), 
-				'nombres'=>$t->getNombres(),
-				'apellidos'=>$t->getApellidos(),
-				'dni'=>$t->getDni(),
-				'empresa'=>$t->getNombreEmpresa()
-				);
+				$e = new Empleado;
+				if($e->obtenerDatosId($t->getID())){
+					$tramite = array(
+					'id' => $t->getID(), 
+					'nombres'=>$t->getNombres(),
+					'apellidos'=>$t->getApellidos(),
+					'dni'=>$t->getDni(),
+					'empresa'=>$t->getNombreEmpresa(),
+					'email' => $e->correo,
+					"cargo" =>$e->nombre_cargo,
+					"area" =>$e->nombre_area
+					);
+				}
+				else{
+					$tramite = array(
+					'id' => $t->getID(), 
+					'nombres'=>$t->getNombres(),
+					'apellidos'=>$t->getApellidos(),
+					'dni'=>$t->getDni(),
+					'empresa'=>$t->getNombreEmpresa()
+					);
+				}
+		
 				Js::prints($tramite,True);
 				render("perfil/barrita");
 			}

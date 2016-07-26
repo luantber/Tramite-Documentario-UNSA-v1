@@ -13,11 +13,17 @@
 		function index(){
 			
 			logueado();			
-
 			$t = new Tramite;
-			echo Auth::getareaId();
-			$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::getareaId());
-			Js::prints($areas,true);
+
+			if (Auth::getuser("Jefe de Area")){
+				echo Auth::getareaId();
+				$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::getareaId());
+				Js::prints($areas,true);
+			}
+			else if (Auth::getuser("Encargado")){
+				echo "Metodo para obtener tramites por encargado";
+			}
+			
 
 			
 			$s = getSesion("sesion1");

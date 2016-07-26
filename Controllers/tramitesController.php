@@ -51,47 +51,57 @@
 			//bus
 			//0 apellido
 			//1 dni
+			$t = new Tramite;
+			$ar = array();
 			if(!empty($_POST)){
-				$ar = Persona::getAllClientesByNombreLike($_POST["dat"]);
+				if($_POST["bus"]==0){
+					//$ar = Persona::getAllClientesByNombreLike($_POST["dat"]);
+					echo "here";
+				}
+				else if($_POST["bus"]==1){
+					$ar = $t->getAllTramitesDatosByDniPersona($_POST["dat"]);
+				}
 				print_r($ar);
 			}
 
 			render("tramites/buscar");
 		}
 
-		
-	
 		function ver($id){
 			/*
 				Checkear seguridad
 			*/
 			if (isset($id)){
+				$a = new Area;
+				$at = $a->obtenerAreas();
+				Js::prints($at,true,"areas");
+					
+				echo $id;
+				$t = new Tramite();
+				$r = $t->obtenerDatosTramiteId($id);
 
-			$a = new Area;
-			$at = $a->obtenerAreas();
-			Js::prints($at,true,"areas");
-				
+				if ($r){
 
-			echo $id;
-			$t = new Tramite();
-			$r = $t->obtenerDatosTramiteId($id);
-			if ($r){
-				$tramite = $t->getAllDatosNombres2();
-				Js::prints($tramite,True);
-						
+					$tramite = $t->getAllDatos();
+					Js::prints($tramite,True);
+							
+					$e = new Empleado();
+					$jefe = false;
+					if(Auth::getuser("Jefe de Personal")){
+						$jefe = true;
+					}
+					$d = $e->getEmpleadosIdNombreByIdArea(Auth::getareaId());
 
-			$e = new Empleado();
-			$d = $e->getEmpleadosIdNombreByIdArea(Auth::getareaId());
-			Js::prints($d,True,"empleados");
+					Js::prints($jefe,True,"jefe");
+					Js::prints($d,True,"empleados");
 
+					render("tramites/asignar");
+					render("tramites/editar");
 
-			render("tramites/asignar");
-			render("tramites/editar");
-
-			}
-			else{
-				JS::prints("No existe un tramite con id,".$id,"error",True);
-			}
+				}
+				else{
+					JS::prints("No existe un tramite con id,".$id,"error",True);
+				}
 			}
 			#redirect("error/e404");
 			echo "NO se recibiio..";
@@ -157,14 +167,11 @@
 //					echo $t->getAsunto();
 				}
 				else{
-
 					JS::error("HUbo un error al registrar el Tramite, probablemente no exista el DNI");
-
 					//render("registrar/exito");
-
 				}
-
 			}
+
 			else{
 				$a = new Area;
 				$at = $a->obtenerAreas();
@@ -172,7 +179,7 @@
 				
 				render("usuarios/crear");
 				render("tramites/crear");
-				
+
 			}
 		}
 

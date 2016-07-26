@@ -48,7 +48,7 @@
 		}
 
 
-		function editar($id=0){
+	function editar($id=0){
 	logueado();
 	if (empty($_POST)){
 		if(Auth::getuser("Gerente") or Auth::getuserId() == $id){
@@ -68,7 +68,8 @@
 					'email' => $ae["correo"],
 					'id_cargo' => $ae["id_cargo"],
 					'id_area' => $ae["id_area"],
-					'activo' => $ae["activo"]
+					'activo' => $ae["activo"],
+					'password' => $ae["password"]
 				);
 				$a = new Area;
 				$c = Cargo::getCargos();
@@ -90,20 +91,27 @@
 	}
 	else{
 		$e = new Empleado;
-		echo "aquiiiii";
+
 		$e->obtenerDatosId($_POST["id"]);
+		
+		if(isset($_POST["cargo"])){
+			$e->id_cargo = $_POST["cargo"];
+			$e->id_area = $_POST["area"];
+		}
 
-		$e->correo = $_POST["emaile"];
-		$e->nombres = $_POST["nome"];
-		$e->apellidos = $_POST["apee"];
+		if(isset($_POST["emaile"])){
+			$e->correo = $_POST["emaile"];
+			$e->password = $_POST["password"];
+	
+		}
+			
+		//$e->nombres = $_POST["nome"];
+		//$e->apellidos = $_POST["apee"];
+		
+		//$e->activo = $_POST["activo"];
 
-		$e->password = $_POST["password"];
-
-		$e->id_cargo = $_POST["cargo"];
-		$e->id_area = $_POST["area"];
-		$e->activo = $_POST["activo"];
-
-		$e->save();
+		$e->saveEmpleado();
+		redirect("empleados");
 	}
 }
 

@@ -69,7 +69,7 @@
 						$empleado_temp->obtenerDatosId($id_empleado);
 												
 
-						if($empleado_temp->getActivo()=="disponible"){
+						if($empleado_temp->getActivo()=="activo"){
 				
 							$dato_empleado=array();
 							array_push($dato_empleado,$empleado_temp->getId());

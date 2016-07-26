@@ -1,6 +1,6 @@
 	<!--............................. BUSCAR USUARIO.............................. !-->
 <h2 class="text-center">Buscar Usuario</h2>
-<form class="form-horizontal container" >
+<form class="form-horizontal container" method="post" action="<?php echo URLM ?>usuarios/buscar" >
 	<div class="form-group" >
 		<label for="buscar" class="col-sm-2 control-label">Buscar por: </label>
 		<div class="col-sm-10" >
