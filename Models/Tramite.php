@@ -14,21 +14,44 @@
 	class Tramite
 	{
 		var $id_expediente; //int
-		var $folios;  //int
 		var $fecha_ingreso; //date
-		var $fecha_termino;	//date
-		var $asunto; //varchar
-		var $id_persona; //int
-		var $id_area_destino; //int
-		var $estado;	//varchar
-		var $descripcionEstado;	//string
-		var $query;  //query xD
+		var $fecha_termino;	//date		
+		var $estado;	//varchar		
 		var $tipo_tramite;	//varchar
+		var $asunto; //varchar
 		var $prioridad;	//int supuestamente puede ser 1,2,o 3
-		var $id_encargado;//int
-		var $recibido;//1 o 0
+		var $asignado;
+		var $adjuntado;
+
 		var $id_area_actual;
+		var $nombre_area_actual;
+
+		var $id_area_destino; //int
+		var $nombre_area_destino;
+
+		//Datos de la persona
+		var $id_persona; 
+		var $nombres_persona;
+		var $apellidos_persona;
+		var $dni_persona;
+		var $nombre_empresa_persona;
+
+		//Datos del encargado
+		var $id_encargado;//int
+		var $nombres_encargado;
+		var $apellidos_encargado;
+		var $dni_encargado;
+		var $id_area_encargado;
+		var $nombre_area_encargado;
+
+
+
+
+
+		var $query;  //query xD
 		var $fecha; // fecha actual
+		
+
 		function __construct()
 		{
 			# code...
@@ -36,37 +59,51 @@
 			$this->fecha = $this->query->getFecha();
 		}
 
+		//------------------------------------------------------REGISTRAR-------------------------------------------------
+
+		function registrarTramite($Asunto,$Id_Persona,$Id_Encargado,$Id_Area_Destino,$Estado,$Tipo_Tramite,$Prioridad)
+		{
+			$request="INSERT INTO `tramites`(`Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Encargado`, `Id_Area_Actual`, `Id_Area_Destino`, `Estado`, `Asignado`, `Adjuntado`, `Tipo_Tramite`, `Prioridad`) VALUES ('".$this->fecha."','".$Asunto."',".$Id_Persona.",'".$Id_Encargado."','1',".$Id_Area_Destino.",'".$Estado."','0','0','".$Tipo_Tramite."',".$Prioridad.")";
+			$this->query->consulta($request);
+			
+		}
+
+		function registrarTramiteByDni($Asunto,$Dni_Persona,$Id_Encargado,$Id_Area_Destino,$Estado,$Tipo_Tramite,$Prioridad)
+		{
+			$persona=new Persona();
+			$resultado=$persona->obtenerDatosPersonaByDni($Dni_Persona);
+			if($resultado==true){
+				$Id_Persona=$persona->id;
+				$this->registrarTramiteById($Asunto,$Id_Persona,$Id_Encargado,$Id_Area_Destino,$Estado,$Tipo_Tramite,$Prioridad);
+			}
+
+		}
+
+		//-------------------------------------------------OBTENCION DE DATOS EN UN OBJETO-----------------------------------------
 
 		function obtenerDatosTramiteId($IdTramite)
 		{
-			$request="SELECT `Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Encargado`, `Recibido`, `Id_Area_Actual`, `Id_Area_Destino` FROM `tramites` WHERE  Id_Expediente=".$IdTramite;
+			$request="SELECT `Id_Expediente`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Encargado`, `Id_Area_Actual`, `Id_Area_Destino`, `Estado`, `Asignado`, `Adjuntado`, `Tipo_Tramite`, `Prioridad` FROM `tramites` WHERE Id_Expediente=".$IdTramite;
 			$result=$this->query->consulta($request);
 			if ($result->num_rows != 0) {
 			    $datos = $result->fetch_assoc();
-			    $this->id_persona=$datos["Id_Persona"];
-			    $this->folios=$datos["Folios"];
-			    $this->fecha_termino=$datos["Fecha_Termino"];
+			    $this->id_expediente=$datos["Id_Expediente"];			    
 			    $this->fecha_ingreso=$datos["Fecha_Ingreso"];
+			    $this->fecha_termino=$datos["Fecha_Termino"];			    
 			    $this->asunto=$datos["Asunto"];
-			    $this->id_expediente=$datos["Id_Expediente"];
+			    $this->id_persona=$datos["Id_Persona"];
 			    $this->id_encargado=$datos["Id_Encargado"];
-			    $this->recibido=$datos["Recibido"];
 			    $this->id_area_actual=$datos["Id_Area_Actual"];
-			    $this->id_encargado=$datos["Id_Encargado"];
 			    $this->id_area_destino=$datos["Id_Area_Destino"];
-
-			    $request2="SELECT * FROM tramites  JOIN estado ON tramites.Id_Expediente=estado.Id_Expediente WHERE tramites.Id_Expediente=".$IdTramite;
-			    $result2=$this->query->consulta($request2);
-			    $datos2=$result2->fetch_assoc();
-			    $this->descripcionEstado=$datos2["Descripcion"];
-			    $this->estado=$datos2["Estado"];
-
-
-			    $request3="SELECT `Id_Expediente`, `Tipo_Tramite`, `Prioridad` FROM `tipo_tramite` WHERE Id_Expediente=".$IdTramite;
-			    $result3=$this->query->consulta($request3);
-			    $datos3=$result3->fetch_assoc();
-			    $this->tipo_tramite=$datos3["Tipo_Tramite"];
-			    $this->prioridad=$datos3["Prioridad"];
+			    $this->estado=$datos["Estado"];
+			    $this->asignado=$datos["Asignado"];
+			    $this->adjuntado=$datos["Adjuntado"];
+			    $this->tipo_tramite=$datos["Tipo_Tramite"];
+			    $this->prioridad=$datos["Prioridad"];
+			    
+			    $this->obtenerDatosCliente();
+			    $this->obtenerDatosEncargado();
+   				$this->obtenerDatosAreas();
 
 
 			    return true;
@@ -77,66 +114,161 @@
 
 		}
 
+		function obtenerDatosAreas()
+		{
+			$area_actual=new Area();
+			$area_actual->obtenerDatosAreaById($this->id_area_actual);
+			$area_destino=new Area();
+			$area_destino->obtenerDatosAreaById($this->id_area_destino);
+			$this->nombre_area_actual=$area_actual->nombre_area;
+			$this->nombre_area_destino=$area_destino->nombre_area;
+		}
 
 
-		function registrarTramite($Folios,$Asunto,$Id_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)
+		function obtenerDatosCliente()
+		{
+						
+			$cliente=new Persona();
+			$cliente->obtenerDatosPersona($this->id_persona);
+			$this->dni_persona=$cliente->dni;
+			$this->nombres_persona=$cliente->nombres;
+			$this->apellidos_persona=$cliente->apellidos;
+			$this->nombre_empresa_persona=$cliente->nombre_empresa;
+		}
+
+		function obtenerDatosEncargado()
+		{
+			$encargado=new Empleado();
+			$encargado->obtenerDatosId($this->id_encargado);
+			$this->dni_encargado=$encargado->dni;
+			$this->nombres_encargado=$encargado->nombres;
+			$this->apellidos_encargado=$encargado->apellidos;
+			$this->nombre_area_encargado=$encargado->nombre_area;
+			$this->id_area_encargado=$encargado->id_area;
+			
+		}
+
+		//---------------------------------------OPERACIONES CON EL TRAMITE---------------------------------
+
+		public function save()
+		{			
+			$request="UPDATE `tramites` SET `Id_Expediente`=".$this->id_expediente.",`Fecha_Ingreso`=".$this->fecha_ingreso.",`Fecha_Termino`=".$this->fecha_termino.",`Asunto`='".$this->asunto."',`Id_Persona`=".$this->id_persona.",`Id_Encargado`=".$this->id_encargado.",`Id_Area_Actual`=".$this->id_area_actual.",`Id_Area_Destino`=".$this->id_area_destino.",`Estado`='".$this->estado."',`Asignado`=".$this->asignado.",`Adjuntado`=".$this->adjuntado.",`Tipo_Tramite`='".$this->tipo_tramite."',`Prioridad`=".$this->prioridad." WHERE Id_Expediente=".$this->id_expediente;
+
+			$this->query->consulta($request);
+			$this->obtenerDatosCliente();
+			$this->obtenerDatosEncargado();
+		}
+
+
+
+
+		function moverTramite($Id_Area_Destino)
 		{
 
-			$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`,`Id_Area_Actual`) VALUES (".$Folios.",'".$this->fecha."','".$Asunto."',".$Id_Persona.",'1')";
+			$request="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`)  VALUES (".$this->id_expediente.",".$this->id_area_actual.",".$Id_Area_Destino.",".$this->id_expediente.",".$this->id_persona.",'".$this->fecha."')";
 			$this->query->consulta($request);
-			$tramite_id=$this->query->get_id();
-			$request2="INSERT INTO `tipo_tramite`(`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES (".$tramite_id.",'".$Tipo_Tramite."',".$Prioridad.")";
-			$this->query->consulta($request2);
-			$request3="INSERT INTO `estado`(`Id_Expediente`, `Estado`, `Descripcion`) VALUES (".$tramite_id.",'".$Estado."','".$DescripcionEstado."')";
-			$this->query->consulta($request3);
-			/*
-			$request4="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'0','1',".$tramite_id.",'".$this->fecha."',".$Id_Persona.")";
-				$this->query->consulta($request4);
-
-			$request5="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'1',".$Id_Area_Destino.",".$tramite_id.",'".$this->fecha."',".$Id_Persona.")";
-			$this->query->consulta($request5);
-			*/
-
+			$this->id_encargado=0;
+			$this->adjuntado=0;
+			$this->asignado=0;
+			$this->save();
 		}
 
 
 		function cancelarTramite($Id_Tramite)
 		{
-			$request="UPDATE `estado` SET `Estado`='cancelado' WHERE Id_Expediente=".$Id_Tramite;
-			$this->query->consulta($request);
+			$this->estado="cancelado";
+			$this->save();
 		}
 
 
-		function registrarTramiteByDni($Folios,$Asunto,$Dni_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)
+		//------------------------------------------------>GET DATOS<----------------------------------------------
+
+		public function getAllDatos()
 		{
-			$persona=new Persona();
-			$resultado=$persona->obtenerDatosPersonaByDni($Dni_Persona);
-			if($resultado==true){
-				$Id_Persona=$persona->getId();
-				$request="INSERT INTO `tramites`(`Folios`, `Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Area_Actual`) VALUES (".$Folios.",'".$this->fecha."','".$Asunto."',".$Id_Persona.",'1')";
-				$this->query->consulta($request);
-				$tramite_id=$this->query->get_id();
-				$request2="INSERT INTO `tipo_tramite`(`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES (".$tramite_id.",'".$Tipo_Tramite."',".$Prioridad.")";
-				$this->query->consulta($request2);
-				$request3="INSERT INTO `estado`(`Id_Expediente`, `Estado`, `Descripcion`) VALUES (".$tramite_id.",'".$Estado."','".$DescripcionEstado."')";
-				$this->query->consulta($request3);
-				/*
-				$request4="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'0','1',".$tramite_id.",'2016-07-15',".$Id_Persona.")";
-				$this->query->consulta($request4);
-				
-				$request5="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Fecha`,`Id_Personas`) VALUES (".$tramite_id.",'1',".$Id_Area_Destino.",".$tramite_id.",'2016-07-15',".$Id_Persona.")";
-				$this->query->consulta($request5);
-				*/
-
-				$this->obtenerDatosTramiteId($tramite_id);	
-				return true;
-			}
-			else{
-				return false;
-			}
-
+			$datos=array();
+			array_push($datos,$this->id_expediente);
+			array_push($datos,$this->fecha_ingreso);
+			array_push($datos,$this->fecha_termino);
+			array_push($datos,$this->estado);
+			array_push($datos,$this->tipo_tramite);
+			array_push($datos,$this->asunto);
+			array_push($datos,$this->prioridad);
+			array_push($datos,$this->asignado);
+			array_push($datos,$this->adjuntado);
+			array_push($datos,$this->id_area_actual);
+			array_push($datos,$this->nombre_area_actual);
+			array_push($datos,$this->id_area_destino);
+			array_push($datos,$this->nombre_area_destino);
+			array_push($datos,$this->id_persona);
+			array_push($datos,$this->nombres_persona);
+			array_push($datos,$this->apellidos_persona);
+			array_push($datos,$this->dni_persona);
+			array_push($datos,$this->nombre_empresa_persona);
+			array_push($datos,$this->id_encargado);
+			array_push($datos,$this->apellidos_encargado);
+			array_push($datos,$this->dni_encargado);
+			array_push($datos,$this->id_area_encargado);
+			array_push($datos,$this->nombre_area_encargado);
+			return $datos;
 		}
 
+		function getAllTramitesDatos()
+		{
+			$request="SELECT `Id_Expediente` FROM `tramites` WHERE 1";
+			$result=$this->query->consulta($request);
+			$tramitesIds=array();
+			$tramitesDatos=array();
+			if ($result->num_rows > 0) {
+
+			    while($datos = $result->fetch_assoc()) {
+
+			        array_push($tramitesIds,$datos["Id_Expediente"]);
+			    }
+			}
+
+			foreach ($tramitesIds as $id_tramite) {
+
+				$tramite_temp=new Tramite();
+				$tramite_temp->obtenerDatosTramiteId($id_tramite);
+				array_push($tramitesDatos,$tramite_temp->getAllDatos());
+
+			}
+
+			return $tramitesDatos;
+		}
+
+
+		function getAllTramitesDatosByIdAreaActual($Id_Area)
+		{
+			$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area;
+			$result=$this->query->consulta($request);
+			$tramitesIds=array();
+			$tramitesDatos=array();
+			if ($result->num_rows > 0) {
+
+			    while($datos = $result->fetch_assoc()) {
+
+			        array_push($tramitesIds,$datos["Id_Expediente"]);
+			    }
+			}
+
+			foreach ($tramitesIds as $id_tramite) {
+
+				$tramite_temp=new Tramite();
+				$tramite_temp->obtenerDatosTramiteId($id_tramite);
+				if($tramite_temp->estado!="finalizado" && $tramite_temp->estado!="cancelado")
+				{
+					array_push($tramitesDatos,$tramite_temp->getAllDatos());
+				}
+
+
+			}
+
+			return $tramitesDatos;
+		}
+
+
+		///////////////////////////------------------------------>MOVIMIENTOS<-------------------------------------------------
 
 
 		//esto retorna un array con los Ids de los movimientos de este Tramite
@@ -177,14 +309,8 @@
 
 
 
-		function moverTramite($Id_Area_Destino)
-		{
+		
 
-			$request="INSERT INTO `movimientos`(`Id_Expediente`, `Id_Remitente`, `Id_Destino`, `Id_Estado`, `Id_Personas`, `Fecha`)  VALUES (".$this->id_expediente.",".$this->id_area_actual.",".$Id_Area_Destino.",".$this->id_expediente.",".$this->id_persona.",'".$this->fecha."')";
-			$this->query->consulta($request);
-			$this->estado=0;
-			$this->save();
-		}
 
 		function getRutaIds()
 		{
@@ -192,7 +318,7 @@
 			$result=$this->query->consulta($request);
 			$idsRuta=array();
 			$destino="";
-			if($result->num_rows==2)
+			if($result->num_rows==0)
 			{
 				array_push($idsRuta,$this->id_area_actual);
 			}
@@ -205,7 +331,7 @@
 					}
 
 				}
-				if($this->recibido==1)
+				if($this->adjuntado==1)
 				{
 					array_push($idsRuta,$destino);
 				}
@@ -228,341 +354,7 @@
 			return $idsRutasNombres;
 		}
 
-		function getAllTramitesDatos()
-		{
-			$request="SELECT `Id_Expediente` FROM `tramites` WHERE 1";
-			$result=$this->query->consulta($request);
-			$tramitesIds=array();
-			$tramitesDatos=array();
-			if ($result->num_rows > 0) {
-
-			    while($datos = $result->fetch_assoc()) {
-
-			        array_push($tramitesIds,$datos["Id_Expediente"]);
-			    }
-			}
-
-			foreach ($tramitesIds as $id_tramite) {
-
-				$tramite_temp=new Tramite();
-				$tramite_temp->obtenerDatosTramiteId($id_tramite);
-				array_push($tramitesDatos,$tramite_temp->getAllDatosNombres());
-
-			}
-
-			return $tramitesDatos;
-		}
-
-
-		function getAllTramitesDatosByIdAreaActual($Id_Area)
-		{
-			$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area;
-			$result=$this->query->consulta($request);
-			$tramitesIds=array();
-			$tramitesDatos=array();
-			if ($result->num_rows > 0) {
-
-			    while($datos = $result->fetch_assoc()) {
-
-			        array_push($tramitesIds,$datos["Id_Expediente"]);
-			    }
-			}
-
-			foreach ($tramitesIds as $id_tramite) {
-
-				$tramite_temp=new Tramite();
-				$tramite_temp->obtenerDatosTramiteId($id_tramite);
-				if($tramite_temp->estado!="finalizado")
-				{
-					array_push($tramitesDatos,$tramite_temp->getAllDatosNombres());
-				}
-
-
-			}
-
-			return $tramitesDatos;
-		}
-
-		function getAllTramitesDatosByIdAreaActual2($Id_Area)
-		{
-			$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area;
-			$result=$this->query->consulta($request);
-			$tramitesIds=array();
-			$tramitesDatos=array();
-			if ($result->num_rows > 0) {
-
-			    while($datos = $result->fetch_assoc()) {
-
-			        array_push($tramitesIds,$datos["Id_Expediente"]);
-			    }
-			}
-
-			foreach ($tramitesIds as $id_tramite) {
-
-				$tramite_temp=new Tramite();
-				$tramite_temp->obtenerDatosTramiteId($id_tramite);
-				if($tramite_temp->estado!="finalizado")
-				{
-					array_push($tramitesDatos,$tramite_temp->getAllDatosNombres2());
-				}
-
-
-			}
-
-			return $tramitesDatos;
-		}
-
-		function getAllTramitesDatosByIdAreaDestino($Id_Area_Destino)
-		{
-			//por implementar
-			//$rutasIds=$this->getRutaIds();
-
-		}
-
-		function getFolios()
-		{
-			return $this->folios;
-		}
-
-		function getRecibido()
-		{
-			return $this->recibido;
-		}
-
-		function getFechaIngreso()
-		{
-			return $this->fecha_ingreso;
-		}
-
-		public function getFechaTermino()
-		{
-			return $this->fecha_termino;
-		}
-
-		public function getAsunto()
-		{
-			return $this->asunto;
-		}
-
-		public function getIdAreaDestino()
-		{
-			return $this->id_area_destino;
-		}
-
-		public function getEstado()
-		{
-			return $this->estado;
-		}
-
-		public function getDescripcionEstado()
-		{
-			return $this->descripcionEstado;
-		}
-
-		public function getPrioridad()
-		{
-			return $this->prioridad;
-		}
-
-		public function getIdPersona()
-		{
-			return $this->id_persona;
-		}
-
-		public function getTipoTramite()
-		{
-			return $this->tipo_tramite;
-		}
-
-		public function getIdExpediente()
-		{
-			return $this->id_expediente;
-		}
-
-		public function getIdEncargado()
-		{
-			return $this->id_encargado;
-		}
-
-		public function getAreaActual()
-		{
-			return $this->id_area_actual;
-		}
-		//devuelve todos los datos como un array
-		//
-		
-		public function getAllDatosNombres()
-		{
-			$persona_temp=new Persona();
-			$persona_temp->obtenerDatosPersona($this->id_persona);
-			$empleado_temp=new Empleado();
-			$empleado_temp->obtenerDatosId($this->id_encargado);
-			$datos=array();
-			array_push($datos,$this->id_expediente);
-			array_push($datos,$this->folios);
-			array_push($datos,$this->fecha_ingreso);
-			array_push($datos,$this->fecha_termino);
-			array_push($datos,$this->asunto);
-			array_push($datos,$persona_temp->nombres." ".$persona_temp->apellidos);
-			array_push($datos,$this->tipo_tramite);
-			array_push($datos,$this->prioridad);
-			array_push($datos,$this->estado);
-			array_push($datos,$this->descripcionEstado);
-			array_push($datos,$empleado_temp->nombres." ".$empleado_temp->apellidos);
-			array_push($datos,$this->recibido);
-			return $datos;
-		}
-
-
-		public function getAllDatosNombres2()
-		{
-			$persona_temp=new Persona();
-			$persona_temp->obtenerDatosPersona($this->id_persona);
-			$empleado_temp=new Empleado();
-			$empleado_temp->obtenerDatosId($this->id_encargado);
-			$area_actual=new Area();
-			$area_actual->obtenerDatosAreaById($this->id_area_actual);
-			$area_destino=new Area();
-			$area_destino->obtenerDatosAreaById($this->id_area_destino);
-			$datos=array();
-			array_push($datos,$this->id_expediente);
-			array_push($datos,$this->folios);
-			array_push($datos,$this->fecha_ingreso);
-			array_push($datos,$this->fecha_termino);
-			array_push($datos,$this->asunto);
-			array_push($datos,$persona_temp->nombres." ".$persona_temp->apellidos);
-			array_push($datos,$this->tipo_tramite);
-			array_push($datos,$this->prioridad);
-			array_push($datos,$this->estado);
-			array_push($datos,$this->descripcionEstado);
-			array_push($datos,$empleado_temp->nombres." ".$empleado_temp->apellidos);
-			array_push($datos,$this->recibido);
-			array_push($datos,$persona_temp->dni);
-			array_push($datos,$area_actual->nombre_area);
-			array_push($datos,$area_destino->nombre_area);
-			return $datos;
-		}
-
-		public function getAllDatos()
-		{
-			$datos=array();
-			array_push($datos,$this->id_expediente);
-			array_push($datos,$this->folios);
-			array_push($datos,$this->fecha_ingreso);
-			array_push($datos,$this->fecha_termino);
-			array_push($datos,$this->asunto);
-			array_push($datos,$this->id_persona);
-			array_push($datos,$this->tipo_tramite);
-			array_push($datos,$this->prioridad);
-			array_push($datos,$this->estado);
-			array_push($datos,$this->descripcionEstado);
-			array_push($datos,$this->id_encargado);
-			array_push($datos,$this->recibido);
-			return $datos;
-		}
-
-
-		//------------------------------------funciones para editar
-		//
-
-		public function editarIdAreaActual()
-		{
-		  $request="UPDATE `tramites` SET `Id_Area_Actual`=".$this->id_area_actual." WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-		}
-
-		public function editarRecibido()
-	    {
-	      $request="UPDATE `tramites` SET `Recibido`=".$this->recibido." WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-		public function editarEncargado()
-	    {
-	      $request="UPDATE `tramites` SET `Id_Encargado`=".$this->id_encargado." WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-
-
-		public function editarFolios()
-	    {
-	      $request="UPDATE `tramites` SET `Folios`=".$this->folios." WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-
-	    public function editarFechaIngreso()
-	    {
-	      $request="UPDATE `tramites` SET `Fecha_Ingreso`=".$this->fecha_ingreso." WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-
-
-	    public function editarFechaTermino()
-	    {
-	      $request="UPDATE `tramites` SET `Fecha_Termino`=".$this->fecha_termino." WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-
-	    public function editarAsunto()
-	    {
-	      $request="UPDATE `tramites` SET `Asunto`='".$this->asunto."' WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-
-	    public function editarIdPersona()
-	    {
-	      $request="UPDATE `tramites` SET `Id_Persona`=".$this->id_persona." WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-
-	    public function editarIdAreaDestino()
-	    {
-	      $request="UPDATE `tramites` SET `Id_Area_Destino`=".$this->id_area_destino." WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-
-	    public function editarTipoTramite()
-	    {
-	      $request="UPDATE `tipo_tramite` SET `Tipo_Tramite`='".$this->tipo_tramite."' WHERE  Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-
-	    public function editarTramitePrioridad()
-	    {
-	      $request="UPDATE `tipo_tramite` SET `Prioridad`=".$this->prioridad." WHERE  Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-
-	    public function editarEstado()
-	    {
-	      $request="UPDATE `estado` SET `Estado`='".$this->estado."' WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-
-
-	    public function editarDescripcionEstado()
-	    {
-	      $request="UPDATE `estado` SET `Descripcion`='".$this->descripcionEstado."' WHERE Id_Expediente=".$this->id_expediente;
-	      $this->query->consulta($request);
-	    }
-
-
-		public function save()
-		{
-			$this->editarFolios();
-			$this->editarFechaIngreso();
-			$this->editarFechaTermino();
-			$this->editarAsunto();
-			$this->editarIdPersona();
-			$this->editarIdAreaDestino();
-			$this->editarTipoTramite();
-			$this->editarTramitePrioridad();
-			$this->editarEstado();
-			$this->editarDescripcionEstado();
-			$this->editarEncargado();
-			$this->editarRecibido();
-			$this->editarIdAreaActual();
-
-		}
+	
 
 
 
@@ -574,20 +366,24 @@
 
 <?php
 	/*
-	$tram=new Tramite();
-	$cosa=$tram->getAllTramitesDatosByIdAreaActual2(1);
-	foreach ($cosa as $key) {
-		foreach ($key as $value) {
+	$cosa= new Tramite();
+	//$cosa->registrarTramite("mas pruebas",4,6,2,"pendiente","no se",3);
+	$cosa->obtenerDatosTramiteId(17);
+	$cosas=$cosa->getRutaNombres();
+	foreach ($cosas as $key) {
+		echo $key."</br>";
+	}
+	*/
+	/*
+	$cosas=$cosa->getAllTramitesDatosByIdAreaActual(1);
+	foreach ($cosas as $key ) {
+		foreach ($key as  $value) {
 			echo $value." ";
 		}
 		echo "</br>";
 	}
 	*/
-
-	/*
-	$cosa=new Tramite();
-	$cosa->cancelarTramite(23);
-	*/
+	
 
 
  ?>
