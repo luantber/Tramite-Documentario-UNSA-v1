@@ -1,11 +1,12 @@
             <!--....................INICIO SESION................... .... !-->
 
-<form class="form-horizontal container"  method="POST" action=" <?php echo URLM?>empleados/ingresar">
+<form class="form-horizontal container" onsubmit="return validar()" method="POST" action=" <?php echo URLM?>empleados/ingresar">
 
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label" >Usuario</label>
+    <label for="inputEmail3" class="col-sm-2 control-label" >DNI</label>
     <div class="col-sm-10">
       <input name="username" type="text" class="form-control" id="inputEmail3" required placeholder=" Ingrese nombre de usuario">
+      <p id="noingreso"></p>
     </div>
   </div>
   <div class="form-group">
@@ -29,3 +30,19 @@
     </div>
   </div>
 </form>  <!--.............................FIN INICIO SESION .............................. !-->
+
+
+<script type="text/javascript">
+  function validar () {
+    var dni,texto;
+    dni=document.getElementById('inputEmail3').value;
+
+    if (!(/^\d{8}$/.test(dni))) {
+          texto ="Ingrese número de dni valido, si no esta registrado registrese";
+          document.getElementById("noingreso").innerHTML = texto;
+          //alert('[ERROR] El campo debe tener un valor de...');
+          return false;
+          }
+    else return true;
+  }
+</script>

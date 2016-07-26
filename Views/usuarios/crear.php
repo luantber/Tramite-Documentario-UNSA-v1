@@ -1,5 +1,5 @@
 <h2 class="text-center" >Registrar Usuario</h2>
-<form class="form-horizontal container" method="POST" action=" <?php echo URLM ?>usuarios/Crear">
+<form class="form-horizontal container" onsubmit="return validar()" method="POST" action=" <?php echo URLM ?>usuarios/Crear">
   <div class="row container form-group">
       <div class="col-xs-6">
         <label for="nombreusu" class="col-sm-5 control-label" >Nombre</label>
@@ -19,6 +19,7 @@
       <label for="dni" class="col-sm-2 control-label" >DNI</label>
       <div class="col-sm-10">
           <input name="dniusu" type="text" class="form-control" id="dni" required placeholder=" Ingrese número de DNI">
+          <p id="noingreso"></p>
       </div>
   </div>
 <!-- Comentado por ahora
@@ -36,3 +37,22 @@
       </div>
     </div>
 </form>
+
+
+<script type="text/javascript">
+  function validar () {
+    // body...
+    var dni,texto;
+
+    dni = document.getElementById('dni').value;
+
+    if (!(/^\d{8}$/.test(dni))) {
+      texto ="Ingrese un número de 8 digitos";
+      document.getElementById("noingreso").innerHTML = texto;
+      //alert('[ERROR] El campo debe tener un valor de...');
+      return false;
+    }
+    else return true;
+
+  }
+</script>
