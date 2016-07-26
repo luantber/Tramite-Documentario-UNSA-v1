@@ -26,25 +26,49 @@
                   <dt>E-mail</dt>
                     <dd>
                       <script type="text/javascript">
-                        document.write(data.correo);  
+                        if (data.email==null) {
+                          document.write("Ninguno");  
+                        }
+                        else {
+                        document.write(data.email);  
+                          
+                        }
                       </script>
                     </dd>
                     <dt>Área</dt>
                     <dd>
                       <script type="text/javascript">
-                        document.write(data.email);  
+                        if (data.area==null) {
+                          document.write("No disponible");  
+                        }
+                        else  {
+                        document.write(data.area);  
+                          
+                        }
                       </script>
                     </dd>
                     <dt>Cargo</dt>
                     <dd>
                       <script type="text/javascript">
-                        document.write(data.nombre_cargo);  
+                        if (data.cargo==null) {
+                          document.write("No disponible");  
+                        }
+                        else  {
+
+                        document.write(data.cargo);  
+                        }
                       </script>
                     </dd>
                     <dt>Estado</dt>
                     <dd>
                       <script type="text/javascript">
+                      if (data.activo==null) {
+                        document.write("No disponible");
+                      }
+                      else  {
+
                         document.write(data.activo);  
+                      }
                       </script>
                     </dd>
                   <br>  

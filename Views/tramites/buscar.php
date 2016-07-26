@@ -27,3 +27,6 @@
 </form>
 
 			<!--.............................FIN VER ESTADO .............................. !-->	
+<script type="text/javascript">
+	document.getElementById("area").selectedIndex=data.id_area;
+</script>
