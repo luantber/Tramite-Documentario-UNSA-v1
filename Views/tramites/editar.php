@@ -74,10 +74,12 @@
 </div>
   <script>
   	 document.getElementById("idtra").value=data[0];
-  	 document.getElementById("ingreso").value=data[2];
-  	 document.getElementById("termino").value=data[3];
- 	 document.getElementById('asunte').value=data[4];
- 	 document.getElementById('reme').value=data[5];
- 	 document.getElementById('priori').value=data[7];
- 	 document.getElementById('estade').value=data[8];
+  	 document.getElementById("ingreso").value=data[1];
+  	 document.getElementById("termino").value=data[2];
+ 	 document.getElementById('asunte').value=data[5];
+ 	 document.getElementById('reme').value=data[14]+data[15];
+ 	 document.getElementById('priori').value=data[6];
+ 	 document.getElementById('estade').value=data[4];
+   document.getElementById('dne').value=data[16];
+   document.getElementById('deste').value=data[10]+"/"+data[12];
   </script>	

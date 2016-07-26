@@ -181,7 +181,7 @@
 
 
 				if($t->registrarTramiteByDni(
-					$_POST["folios"],
+				/*
 					$_POST["asunto"],
 					$_POST["ident"],
 					$_POST["destino"],
@@ -190,9 +190,10 @@
 					"Pendiente",
 					 //Estado: Enproceso, finalizado y rechazado
 					"..."
-
+*/
+				$_POST["asunto"],$_POST["ident"],'0',$_POST["destino"],'0','0',$_POST["prioridad"]
 					)
-					) 
+				)		 
 				{
 
 					//error e

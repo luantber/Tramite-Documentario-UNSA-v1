@@ -74,7 +74,7 @@
 			$resultado=$persona->obtenerDatosPersonaByDni($Dni_Persona);
 			if($resultado==true){
 				$Id_Persona=$persona->id;
-				$this->registrarTramiteById($Asunto,$Id_Persona,$Id_Encargado,$Id_Area_Destino,$Estado,$Tipo_Tramite,$Prioridad);
+				$this->registrarTramite($Asunto,$Id_Persona,$Id_Encargado,$Id_Area_Destino,$Estado,$Tipo_Tramite,$Prioridad);
 			}
 
 		}

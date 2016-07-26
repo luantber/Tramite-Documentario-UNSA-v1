@@ -20,7 +20,7 @@
 			$noa = array();
 			$noa = array_merge($noa, $pd);
 			Js::prints("Empleados ",false,"title");
-			print_r($noa);
+			//print_r($noa);
 			Js::prints($noa,false);
 			
 			render("empleados/todosEmpleados");
