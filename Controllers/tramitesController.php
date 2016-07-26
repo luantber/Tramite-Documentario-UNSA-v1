@@ -24,13 +24,15 @@
 		{
 			logueado();
 			if (!empty($_POST)){
-
+				print_r($_POST);
+				echo "Asignando";
 				$t = new Tramite;
+				$t->obtenerDatosTramiteId($_POST["envi"]);
 				$t->id_encargado = $_POST["id_empleado"];
 				$t->asignado = true;
 				$t->save();
 
-				redirect("panel",true);
+				//redirect("panel",true);
 
 
 			}else{
@@ -116,7 +118,16 @@
 					$d = $e->getEmpleadosIdNombreByIdArea(Auth::getareaId());
 
 					Js::prints($jefe,True,"jefe");
+
+					$solo = array();
+					foreach ($d as $dato) {
+						array_push($solo, $dato[0]);
+					}
+
 					Js::prints($d,True,"empleados");
+					Js::prints($solo,True,"solo");
+
+
 
 					render("tramites/asignar");
 					render("tramites/editar");

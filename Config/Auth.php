@@ -48,6 +48,7 @@
 		{
 			return $_SESSION[$ses][$dato];
 		}
+		
 
 		static function getuserId($ses="sesion")
 		{
