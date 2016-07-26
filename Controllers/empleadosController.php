@@ -27,39 +27,67 @@
 	
 		}
 
+			function borrar(){
+			if (!empty($_POST)){
+				echo "Esperando metodo de Alexis ;) ";
+				//redirect to panel ?
+			}else{
+				echo "Violacion de Seguridad";
+			}
+		}	
+
+		function eliminar($id=0){
+			Js::prints($id,True,"idpersona");
+			$p = new Empleado();
+			$p->obtenerDatosId($id);
+			$data = $p->getAllDatos();
+			Js::prints($data,True);
+			render("empleados/borrar");
+		}
+
+
+
 		public function editar($id=0){
 			logueado();
 			if (empty($_POST)){
-				$t = new Persona;
-				$t->obtenerDatosPersona($id);
-				$e = new Empleado;
-				if ($e->obtenerDatosId($id)){
-					$ae = $e->getAllDatos();
+				if(Auth::getuser("Gerente") or Auth::getuserId() == $id){
+					$t = new Persona;
+					$t->obtenerDatosPersona($id);
+					$e = new Empleado;
 
-					$tramite = array(
-					'id' => $t->getID(), 
-					'nombres'=>$t->getNombres(),
-					'apellidos'=>$t->getApellidos(),
-					'dni'=>$t->getDni(),
-					'empresa'=>$t->getNombreEmpresa(),
-					'email' => $ae["nombre_area"],
-					'nombre_cargo' => $ae["nombre_cargo"],
-					'activo' => $ae["activo"]
+					if ($e->obtenerDatosId($id)){
+						$ae = $e->getAllDatos();
 
-					);
-					$a = new Area;
-					$at = $a->obtenerAreas();
+						$tramite = array(
+						'id' => $t->getID(), 
+						'nombres'=>$t->getNombres(),
+						'apellidos'=>$t->getApellidos(),
+						'dni'=>$t->getDni(),
+						'empresa'=>$t->getNombreEmpresa(),
+						'email' => $ae["nombre_area"],
+						'nombre_cargo' => $ae["nombre_cargo"],
+						'activo' => $ae["activo"]
+						);
 
-					$c = Cargo::getCargos();
-					//print_r($at);
-					Js::prints($at,true,"areas");
-					Js::prints($c,true,"cargos");
-					Js::prints($tramite,True);
-					Js::prints(Auth::getuser("Gerente"),True,"sudo");
-					render("empleados/crear");
+						$a = new Area;
+						$at = $a->obtenerAreas();
+
+						$c = Cargo::getCargos();
+						//print_r($at);
+						Js::prints($at,true,"areas");
+						Js::prints($c,true,"cargos");
+						Js::prints($tramite,True);
+						Js::prints(Auth::getuser("Gerente"),True,"sudo");
+						render("empleados/crear");
+						}
+
+						else{
+							echo "No se encontro el id".$id;
+						}
+					
 				}
 				else{
-					echo "No se encontro el id".$id;
+					echo "Sin permisos para editar esto";
 				}
 			}
 			else{
