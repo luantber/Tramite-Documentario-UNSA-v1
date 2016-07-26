@@ -45,9 +45,9 @@
 			static function getAllClientesByNombreLike($Nombre_pattern)
 			{
 
-				$this->query =  new Query();	
+				$query =  new Query();	
 				$request="SELECT Id_Persona FROM personas  WHERE (Nombres LIKE '%".$Nombre_pattern."%' OR Apellidos Like '%".$Nombre_pattern."%')";
-				$result=$this->query->consulta($request);
+				$result=$query->consulta($request);
 				$clientesIds=array();
 				$clientesDatos=array();
 				if ($result->num_rows > 0) {

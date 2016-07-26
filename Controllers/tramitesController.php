@@ -2,6 +2,7 @@
 
 	use Models\Tramite as Tramite;
 	use Models\Empleado as Empleado;
+	use Models\Persona as Persona;
 	use Models\Area as Area;
 	use Config\Auth as Auth;
 	use Models\Js as Js;
