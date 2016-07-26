@@ -19,7 +19,9 @@
 			var nuevo,tamanio;
 			tamanio=data.length;
 			for (var i=0;i<tamanio;i++){
-				nuevo=data[i];
+                var posicion=tamanio-1
+
+				nuevo=data[posicion-i];
 				document.write("<tr><td>"+nuevo[0]+"</td>");
 				document.write("<td>"+nuevo[4]+"</td>");
 				document.write("<td><form><h6>"+"De: "+nuevo[5]+"</h6>");
