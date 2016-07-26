@@ -39,11 +39,11 @@
 		}	
 
 		function eliminar($id=0){
-			Js::prints($id,True,"idpersona");
+			Js::prints($id,false,"idpersona");
 			$p = new Empleado();
 			$p->obtenerDatosId($id);
 			$data = $p->getAllDatos();
-			Js::prints($data,True);
+			Js::prints($data,false);
 			render("empleados/borrar");
 		}
 
@@ -75,10 +75,10 @@
 				$c = Cargo::getCargos();
 				$at = $a->obtenerAreas();
 				//print_r($at);
-				Js::prints($at,true,"areas");
-				Js::prints($c,true,"cargos");
-				Js::prints($tramite,True);
-				Js::prints(Auth::getuser("Gerente"),True,"sudo");
+				Js::prints($at,false,"areas");
+				Js::prints($c,false,"cargos");
+				Js::prints($tramite,false);
+				Js::prints(Auth::getuser("Gerente"),false,"sudo");
 				render("empleados/editar");
 			}
 			else{

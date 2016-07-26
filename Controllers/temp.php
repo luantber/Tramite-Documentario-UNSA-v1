@@ -26,10 +26,10 @@ function editar($id=0){
 				$c = Cargo::getCargos();
 				$at = $a->obtenerAreas();
 				//print_r($at);
-				Js::prints($at,true,"areas");
-				Js::prints($c,true,"cargos");
-				Js::prints($tramite,True);
-				Js::prints(Auth::getuser("Gerente"),True,"sudo");
+				Js::prints($at,false,"areas");
+				Js::prints($c,false,"cargos");
+				Js::prints($tramite,false);
+				Js::prints(Auth::getuser("Gerente"),false,"sudo");
 				render("empleados/editar");
 			}
 			else{

@@ -18,7 +18,7 @@
 			if (Auth::getuser("Jefe de Area")){
 				echo Auth::getareaId();
 				$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::getareaId());
-				Js::prints($areas,true);
+				Js::prints($areas,false);
 			}
 			else if (Auth::getuser("Encargado")){
 				echo "Metodo para obtener tramites por encargado";
@@ -28,7 +28,7 @@
 			
 			$s = getSesion("sesion1");
 			if ($s){
-				Js::prints($s,true,"exitoMover");
+				Js::prints($s,false,"exitoMover");
 			}
 			render("tramites/todos");
 		}

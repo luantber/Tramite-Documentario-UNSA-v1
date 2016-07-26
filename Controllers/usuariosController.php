@@ -8,8 +8,8 @@
 			$p = new Persona();
 			$pd = $p->getAllClientes();
 
-			Js::prints("Clientes(ususarios)",True,"title");
-			Js::prints($pd,True);
+			Js::prints("Clientes(ususarios)",false,"title");
+			Js::prints($pd,false);
 			render("personas/todas");
 		}
 
@@ -27,7 +27,7 @@
 				//Lo se esto .. esta bien fumado
 				$r->registrarPersona(...$data);
 				echo "exito";
-				Js::prints($data,true);
+				Js::prints($data,false);
 				render("usuarios/crear");
 			}
 			else{
@@ -56,7 +56,7 @@
 					$ar = array($ar);
 				}
 				//print_r($ar);
-				Js::prints($ar,True);
+				Js::prints($ar,false);
 				render("usuarios/buscar");
 				render("personas/todas");
 			}

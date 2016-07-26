@@ -10,7 +10,7 @@ class movimientosController
 		# code...
 		$m = new Movimiento;
 		$dm = $m->getAllMovimientos();
-		Js::prints($dm,True);
+		Js::prints($dm,false);
 		render("movimientos/todos");
 	}
 

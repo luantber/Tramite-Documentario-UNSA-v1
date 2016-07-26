@@ -15,7 +15,7 @@
 			*/
 			$t= new Tramite();
 			//print_r($t->getAllTRamitesDatos());
-			Js::prints($t->getAllTRamitesDatos(),True,"data");
+			Js::prints($t->getAllTRamitesDatos(),false,"data");
 			render("tramites/barraTramites");
 			render("tramites/todos");
 		}
@@ -35,12 +35,12 @@
 				$m->moverTramite(...$datos);
 
 
-				redirect("panel",true);
+				redirect("panel",false);
 
 
 			}else{
 
-			echo "OLA KE ASE, VIOLANDO LA SEGURIDAD O KE ASE";	
+			echo "AQUI...";	
 			}
 		}
 
@@ -63,7 +63,7 @@
 					$ar = $t->getAllTramitesDatosByDniPersona($_POST["dat"]);
 				}
 				//print_r($ar);
-				Js::prints($ar,True);
+				Js::prints($ar,false);
 				render("tramites/buscar");
 				render("tramites/todos");
 			}
@@ -77,7 +77,7 @@
 			if (isset($id)){
 				$a = new Area;
 				$at = $a->obtenerAreas();
-				Js::prints($at,true,"areas");
+				Js::prints($at,false,"areas");
 					
 				echo $id;
 				$t = new Tramite();
@@ -86,24 +86,24 @@
 				if ($r){
 
 					$tramite = $t->getAllDatos();
-					Js::prints($tramite,True);
+					Js::prints($tramite,false);
 							
 					$e = new Empleado();
 					$jefe = false;
 					if(Auth::getuser("Jefe de Personal")){
-						$jefe = true;
+						$jefe = false;
 					}
 					$d = $e->getEmpleadosIdNombreByIdArea(Auth::getareaId());
 
-					Js::prints($jefe,True,"jefe");
-					Js::prints($d,True,"empleados");
+					Js::prints($jefe,false,"jefe");
+					Js::prints($d,false,"empleados");
 
 					render("tramites/asignar");
 					render("tramites/editar");
 
 				}
 				else{
-					JS::prints("No existe un tramite con id,".$id,"error",True);
+					JS::prints("No existe un tramite con id,".$id,"error",false);
 				}
 			}
 			#redirect("error/e404");
@@ -128,11 +128,11 @@
 					'asunto'=>$t->getAsunto(),
 					'estado'=>$t->getEstado()
 					);
-					Js::prints($tramite,True);
+					Js::prints($tramite,false);
 				}
 				else{
 					
-					JS::prints("No existe un tramite con id,".$id,"error",True);
+					JS::prints("No existe un tramite con id,".$id,"error",false);
 				}
 
 			}
@@ -178,7 +178,7 @@
 			else{
 				$a = new Area;
 				$at = $a->obtenerAreas();
-				Js::prints($at,true,"areas");
+				Js::prints($at,false,"areas");
 				
 				render("usuarios/crear");
 				render("tramites/crear");
@@ -205,7 +205,7 @@
 
 			}else{
 				
-			echo "OLA KE ASE, VIOLANDO LA SEGURIDAD O KE ASE";	
+			echo "AQUI";	
 			}
 
 		}

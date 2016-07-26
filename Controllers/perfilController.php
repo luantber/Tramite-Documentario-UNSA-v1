@@ -38,11 +38,11 @@ class perfilController
 					);
 				}
 		
-				Js::prints($tramite,True);
+				Js::prints($tramite,false);
 				render("perfil/barrita");
 			}
 			else{
-				JS::prints("No existe una persona con id,".$id,"error",True);
+				JS::prints("No existe una persona con id,".$id,"error",false);
 			}
 			# code...
 	}

@@ -11,8 +11,8 @@
 	{
 		function index(){
 			$p = new Persona();
-			Js::prints("Todas las personas ",True,"title");
-			Js::prints($p->getAllPersonasDatos(),True);
+			Js::prints("Todas las personas ",false,"title");
+			Js::prints($p->getAllPersonasDatos(),false);
 			render("personas/todas");
 
 		}
@@ -53,11 +53,11 @@
 				}
 
 				
-				Js::prints($tramite,True);
+				Js::prints($tramite,false);
 				render("perfil/barrita");
 			}
 			else{
-				JS::prints("No existe una persona con id,".$id,"error",True);
+				JS::prints("No existe una persona con id,".$id,"error",false);
 			}
 		}
 
