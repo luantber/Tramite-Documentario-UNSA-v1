@@ -1,6 +1,6 @@
 <?php 
 	function logueado(){
-		if (!Config\Auth::exist()) redirect("ingresar/empleado");
+		if (!Config\Auth::exist()) redirect("empleados/ingresar");
 
 	}
 	
