@@ -20,6 +20,25 @@
 			render("tramites/todos");
 		}
 
+		function asignar()
+		{
+			logueado();
+			if (!empty($_POST)){
+
+				$t = new Tramite;
+				$t->id_encargado = $_POST["id_empleado"];
+				$t->asignado = true;
+				$t->save();
+
+				redirect("panel",true);
+
+
+			}else{
+
+			echo "OLA KE ASE, VIOLANDO LA SEGURIDAD O KE ASE";	
+			}
+		}
+
 		function mover()
 		{
 			logueado();
@@ -28,7 +47,7 @@
 				$t = new Tramite;
 				$t->obtenerDatosTramiteId($_POST["idtramite"]);
 				print_r("here".$_POST["idtramite"]."<br>");
-				//$t->moverTramite($_POST["destino"]);
+				$t->moverTramite($_POST["destino"]);
 				$datos = array($t->id_expediente,Auth::getareaId(),$_POST["destino"]);
 				print_r($datos);
 				$m = new Mesa;
@@ -90,7 +109,8 @@
 							
 					$e = new Empleado();
 					$jefe = false;
-					if(Auth::getuser("Jefe de Personal")){
+					if(Auth::getuser("Jefe de Area")){
+						echo "Jefe de persona";
 						$jefe = true;
 					}
 					$d = $e->getEmpleadosIdNombreByIdArea(Auth::getareaId());
