@@ -56,7 +56,7 @@
 					Js::prints($c,true,"cargos");
 					Js::prints($tramite,True);
 					Js::prints(Auth::getuser("Gerente"),True,"sudo");
-					render("empleados/crear");
+					render("empleados/editar");
 				}
 				else{
 					echo "No se encontro el id".$id;
