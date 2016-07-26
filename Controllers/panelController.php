@@ -20,9 +20,10 @@
 				$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::getareaId(),False);
 				Js::prints($areas,true);
 			}
-			else if (Auth::getuser("Encargado")){
-				
-				$t->getAllTramitesDatosByIdEncargado(Auth::getuserId(),False);
+			else{
+				echo "here";
+				$a = $t->getAllTramitesDatosByIdEncargado(Auth::getuserId(),False);
+				Js::prints($a,true);
 			}
 			
 
