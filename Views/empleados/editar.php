@@ -51,24 +51,16 @@
               }
             </script> 
           </select>
-      <script >
-        document.write("<p><b>Área actual "+data.email+"</b></p>")
-      </script>
       </div>
   </div>
 
-  <script type="text/javascript">
-$(document).ready(function(){
-    $('#area > option[value="3"]').attr('selected', 'selected');
-});
-</script>
 
 
 
   <div class="form-group">
       <label for="cargo" class="col-sm-2 control-label" >Cargo</label>
       <div class="col-sm-10">
-         <select name="cargo" class="form-control">
+         <select name="cargo" class="form-control" id="cargo">
            <option value="">Seleccionar</option>
            <script type="text/javascript">
             //var cargo=["Jefe", "Encargado","Ayudante"]
@@ -79,12 +71,8 @@ $(document).ready(function(){
             }
            </script>
          </select>
-        <script >
-        document.write("<p><b>Cargo actual "+data.nombre_cargo+"</b></p>")
-      </script>
       </div>
   </div>
-
 
   <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
@@ -98,6 +86,11 @@ $(document).ready(function(){
   document.getElementById('nombree').value =data.nombres;
   document.getElementById('apellidoe').value=data.apellidos;
   document.getElementById('dnie').value=data.dni;
-//  document.getElementById('area').value=data.dni;
 
+
+  //para selectionar de options .... :D !!! JQuery
+    $(document).ready(function(){
+    $('#area > option[value="3"]').attr('selected', 'selected');
+    $('#cargo > option[value="2"]').attr('selected', 'selected');    
+    });
 </script>
