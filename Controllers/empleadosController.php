@@ -27,8 +27,8 @@
 	
 		}
 
-			function borrar(){
-				logueado();
+		function borrar(){
+			logueado();
 			if (!empty($_POST)){
 				$e = new Empleado;
 				$e->deleteEmpleado($_POST["iduser"]);
@@ -46,7 +46,6 @@
 			Js::prints($data,True);
 			render("empleados/borrar");
 		}
-
 
 
 		public function editar($id=0){
@@ -103,11 +102,10 @@
 				
 			}
 			
-
-
 		}
+	}
 
-		function crear(){
+		public function crear(){
 			if (!empty($_POST)){
 				
 				$r = new Empleado();
@@ -179,4 +177,3 @@
 
 		
 	}
- }
