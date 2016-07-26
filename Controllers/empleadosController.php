@@ -22,7 +22,7 @@
 			print_r($noa);
 			Js::prints($noa,false);
 			
-			render("personas/todas");
+			render("empleados/todosEmpleados");
 	
 		}
 
