@@ -1,16 +1,16 @@
-<h2 class="text-center" >Editar Empleado</h2>
+<h2 class="text-center" >Editar</h2>
 <form class="form-horizontal container"  method="POST" action=" <?php echo URLM?>empleados/crear">
   <div class="row container form-group">
       <div class="col-xs-6">
         <label for="nombree" class="col-sm-5 control-label" >Nombre</label>
         <div class="col-sm-7">
-          <input name="nome" type="text" class="form-control" id="nombree"  required placeholder="Ingrese nombre de trabajador">
+          <input name="nome" type="text" class="form-control" id="nombree"  required disabled="">
         </div>
       </div>
       <div class="col-xs-6">
         <label for="apellidoe" class="col-sm-4 control-label" >Apellidos</label>
         <div class="col-sm-8">
-          <input name="apee"type="text" class="form-control" id="apellidoe"  required placeholder="Ingrese apellidos de trabajador">
+          <input name="apee"type="text" class="form-control" id="apellidoe"  required disabled="">
         </div>
       </div>
   </div>
@@ -18,29 +18,51 @@
   <div class="form-group">
       <label for="dni" class="col-sm-2 control-label" >DNI</label>
       <div class="col-sm-10">
-          <input name="dnie" type="text" class="form-control" id="dnie" required placeholder=" Ingrese número de DNI">
+          <input name="dnie" type="text" class="form-control" id="dnie" required disabled="">
       </div>
   </div>
 
   <div class="form-group">
       <label for="email" class="col-sm-2 control-label" >correo</label>
       <div class="col-sm-10">
-          <input name="emaile" type="email" class="form-control" id="emaile" required placeholder="Ingrese correo del empleado">
+          <script type="text/javascript">
+          if (sudo==true) {
+            document.write("<input name='emaile' type='email' class='form-control' id='emaile' required disabled>");          
+          }
+          else{
+            document.write("<input name='emaile' type='email' class='form-control' id='emaile' required>");
+          };
+
+          </script>
       </div>
   </div>
 
   <div class="form-group">
       <label for="email" class="col-sm-2 control-label" >contraseña</label>
       <div class="col-sm-10">
-          <input name="password" type="password" class="form-control" id="passworde" required placeholder="Ingrese nueva contraseña">
+          <script type="text/javascript">
+          if (sudo==true ) {
+            document.write("<input placeholder='Ingrese nueva contraseña' name='password' type='password' class='form-control' id='passworde' required disabled>");
+          }
+          else  {
+            document.write("<input placeholder='Ingrese nueva contraseña' name='password' type='password' class='form-control' id='passworde' required>");
+          };  
+          </script>
       </div>
   </div>
 
 
-  <div class="form-group">
+  <div class="form-group ">
       <label for="campo" class="col-sm-2 control-label" >Área</label>
       <div class="col-sm-10">
-        <select name="area" class="form-control" id="area" >
+      <script type="text/javascript">
+      if (sudo==true){
+        document.write("<select name='area' class='form-control' id='area'>");
+      }
+      else  {
+        document.write("<select name='area' class='form-control' id='area' disabled>");
+      }
+      </script>
             <option value="" >Seleccionar</option>
             <script type="text/javascript">
               //var opciones=["Mesa de partes","Logistíca","Secretaria"]
@@ -55,12 +77,18 @@
   </div>
 
 
-
-
-  <div class="form-group">
+  <div class="form-group" id="ocultar">
       <label for="cargo" class="col-sm-2 control-label" >Cargo</label>
       <div class="col-sm-10">
-         <select name="cargo" class="form-control" id="cargo">
+        <script type="text/javascript">
+          if (sudo==true) {
+            document.write("<select name='cargo' class='form-control' id='cargo' >");
+          }
+          else{
+            document.write("<select name='cargo' class='form-control' id='cargo' disabled>"); 
+          }
+        </script>
+         
            <option value="">Seleccionar</option>
            <script type="text/javascript">
             //var cargo=["Jefe", "Encargado","Ayudante"]
@@ -74,23 +102,48 @@
       </div>
   </div>
 
+  <input id="idee" type="hidden" name="id" value="">
+
+  <div class="form-group">
+      <label for="estado" class="col-sm-2 control-label" >Estado</label>
+      <div class="col-sm-10">
+          <input name="estado" type="text" class="form-control" id="estado" required disabled="">
+      </div>
+  </div>
+
+<!--
   <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-default">Guardar cambios</button>
+
       </div>
     </div>
+-->
+    <nav>
+      <ul class="pager">
+        <li><a href="<?php echo URLM ?>empleados">Cancelar</a></li>
+        <button type="submit" class="btn btn-default">Guardar cambios</button>
+      </ul>
+    </nav>
+
 </form>
 
-
 <script >
+
+  document.getElementById('idee').value=data.id;
+  var valor=data.id_area;
   document.getElementById('nombree').value =data.nombres;
   document.getElementById('apellidoe').value=data.apellidos;
   document.getElementById('dnie').value=data.dni;
+  document.getElementById('emaile').value=data.email;
+  document.getElementById('estado').value=data.activo;
+
+    //para seleccionar las opciones .... xD !
+  document.getElementById("area").selectedIndex=data.id_area;
+  document.getElementById('cargo').selectedIndex=data.id_cargo;
 
 
-  //para selectionar de options .... :D !!! JQuery
-    $(document).ready(function(){
-    $('#area > option[value="3"]').attr('selected', 'selected');
-    $('#cargo > option[value="2"]').attr('selected', 'selected');    
-    });
+function ocultar(){
+document.getElementById('ocultar').style.display = 'none';}
 </script>
+

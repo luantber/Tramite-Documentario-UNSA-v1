@@ -90,6 +90,7 @@
 	}
 	else{
 		$e = new Empleado;
+		echo "aquiiiii";
 		$e->obtenerDatosId($_POST["id"]);
 
 		$e->correo = $_POST["emaile"];
