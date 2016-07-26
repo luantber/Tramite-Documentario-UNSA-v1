@@ -32,7 +32,7 @@
   <div class="form-group">
       <label for="email" class="col-sm-2 control-label" >contraseña</label>
       <div class="col-sm-10">
-          <input name="password" type="password" class="form-control" id="passworde" required placeholder="Ingrese correo del empleado">
+          <input name="password" type="password" class="form-control" id="passworde" required placeholder="Ingrese nueva contraseña">
       </div>
   </div>
 
@@ -51,16 +51,22 @@
               }
             </script> 
           </select>
+      <script >
+        document.write("<p><b>Área actual "+data.email+"</b></p>")
+      </script>
       </div>
   </div>
+
+  <script type="text/javascript">
+$(document).ready(function(){
+    $('#area > option[value="3"]').attr('selected', 'selected');
+});
+</script>
 
 
 
   <div class="form-group">
       <label for="cargo" class="col-sm-2 control-label" >Cargo</label>
-      <script >
-        document.write
-      </script>
       <div class="col-sm-10">
          <select name="cargo" class="form-control">
            <option value="">Seleccionar</option>
@@ -73,6 +79,9 @@
             }
            </script>
          </select>
+        <script >
+        document.write("<p><b>Cargo actual "+data.nombre_cargo+"</b></p>")
+      </script>
       </div>
   </div>
 
@@ -89,6 +98,6 @@
   document.getElementById('nombree').value =data.nombres;
   document.getElementById('apellidoe').value=data.apellidos;
   document.getElementById('dnie').value=data.dni;
-  document.getElementById('area').value=data.dni;
+//  document.getElementById('area').value=data.dni;
 
 </script>
