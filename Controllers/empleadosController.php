@@ -69,22 +69,13 @@
 						'activo' => $ae["activo"]
 						);
 
-						$a = new Area;
-						$at = $a->obtenerAreas();
-
-						$c = Cargo::getCargos();
-						//print_r($at);
-						Js::prints($at,true,"areas");
-						Js::prints($c,true,"cargos");
-						Js::prints($tramite,True);
-						Js::prints(Auth::getuser("Gerente"),True,"sudo");
-						render("empleados/crear");
-						}
-
-						else{
-							echo "No se encontro el id".$id;
-						}
-					
+					$c = Cargo::getCargos();
+					//print_r($at);
+					Js::prints($at,true,"areas");
+					Js::prints($c,true,"cargos");
+					Js::prints($tramite,True);
+					Js::prints(Auth::getuser("Gerente"),True,"sudo");
+					render("empleados/editar");
 				}
 				else{
 					echo "Sin permisos para editar esto";

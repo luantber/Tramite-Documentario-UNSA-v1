@@ -18,14 +18,21 @@
   <div class="form-group">
       <label for="dni" class="col-sm-2 control-label" >DNI</label>
       <div class="col-sm-10">
-          <input name="dnie" type="text" class="form-control" id="dni" required placeholder=" Ingrese número de DNI">
+          <input name="dnie" type="text" class="form-control" id="dnie" required placeholder=" Ingrese número de DNI">
       </div>
   </div>
 
   <div class="form-group">
       <label for="email" class="col-sm-2 control-label" >correo</label>
       <div class="col-sm-10">
-          <input name="emaile" type="email" class="form-control" id="email" required placeholder="Ingrese correo del empleado">
+          <input name="emaile" type="email" class="form-control" id="emaile" required placeholder="Ingrese correo del empleado">
+      </div>
+  </div>
+
+  <div class="form-group">
+      <label for="email" class="col-sm-2 control-label" >contraseña</label>
+      <div class="col-sm-10">
+          <input name="password" type="password" class="form-control" id="passworde" required placeholder="Ingrese correo del empleado">
       </div>
   </div>
 
@@ -51,6 +58,9 @@
 
   <div class="form-group">
       <label for="cargo" class="col-sm-2 control-label" >Cargo</label>
+      <script >
+        document.write
+      </script>
       <div class="col-sm-10">
          <select name="cargo" class="form-control">
            <option value="">Seleccionar</option>
@@ -66,16 +76,19 @@
       </div>
   </div>
 
-  <div class="form-group">
-      <label for="contrasñausu" class="col-sm-2 control-label" >Contraseña</label>
-      <div class="col-sm-10">
-         <label>La contraseña por defecto es 123456</label> 
-      </div>
-  </div>
 
   <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">Registrar Empleado</button>
+          <button type="submit" class="btn btn-default">Guardar cambios</button>
       </div>
     </div>
 </form>
+
+
+<script >
+  document.getElementById('nombree').value =data.nombres;
+  document.getElementById('apellidoe').value=data.apellidos;
+  document.getElementById('dnie').value=data.dni;
+  document.getElementById('area').value=data.dni;
+
+</script>
