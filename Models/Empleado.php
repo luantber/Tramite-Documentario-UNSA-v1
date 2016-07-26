@@ -174,6 +174,30 @@
 				
 			}
 
+			static function getAllEmpleadosByNombreLike($Nombre_pattern)
+			{
+
+				$query =  new Query();	
+				$request="SELECT `Id_Empleado` FROM empleados JOIN personas ON empleados.Id_Empleado=personas.Id_Persona WHERE (Nombres LIKE '%".$Nombre_pattern."%' OR Apellidos LIKE '%".$Nombre_pattern."%')";
+				$result=$query->consulta($request);
+				$empleadosIds=array();
+				$empleadosDatos=array();
+				if ($result->num_rows > 0) {
+			    
+				    while($datos = $result->fetch_assoc()) {
+				        array_push($empleadosIds,$datos["Id_Empleado"]);
+				    }
+				}
+				foreach ($empleadosIds as $id_empleado) {
+					
+					$empleado_temp=new Empleado();
+					$empleado_temp->obtenerDatosId($id_empleado);
+					array_push($empleadosDatos,$empleado_temp->getAllDatos2());
+
+				}
+				return $empleadosDatos;
+			}	
+
 			public function obtenerDatosDni($Dni_Empleado)
 			{
 
@@ -366,4 +390,15 @@
 	//echo $cosa->getEmpleadosIdNombreByIdArea(5)[1][1];
 	//$cosa=new Empleado();
 	//$cosa->deleteEmpleado(5);
+	/*
+	$cosa=new Empleado();
+	$cosas=$cosa->getAllEmpleadosByNombreLike('Mamani');
+	foreach ($cosas as $key ) {
+		foreach ($key as $value) {
+			echo $value." ";
+		}
+		echo "</br>";
+	}
+	*/
+
  ?>
