@@ -20,6 +20,7 @@
 
 		public function crear()
 		{
+			logueado();
 			if (!empty($_POST)){
 
 			}

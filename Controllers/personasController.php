@@ -4,6 +4,7 @@
 	* PErsonas Controllers
 	*/
 	use Models\Persona as Persona;
+	use Models\Empleado as Empleado;
 	use Models\Js as Js;
 
 	class personasController
@@ -20,13 +21,37 @@
 			echo $id;
 			$t = new Persona;
 			if ($t->obtenerDatosPersona($id)){
+				$e = new Empleado;
+				
+				if ($e->obtenerDatosId($t->getID())){
+				$ae = $e->getAllDatos();
+
 				$tramite = array(
 				'id' => $t->getID(), 
 				'nombres'=>$t->getNombres(),
 				'apellidos'=>$t->getApellidos(),
 				'dni'=>$t->getDni(),
-				'empresa'=>$t->getNombreEmpresa()
+				'empresa'=>$t->getNombreEmpresa(),
+				'email' => $ae["nombre_area"],
+				'nombre_cargo' => $ae["nombre_cargo"],
+				'activo' => $ae["activo"]
+
 				);
+
+				}
+				else{
+					$tramite = array(
+				'id' => $t->getID(), 
+				'nombres'=>$t->getNombres(),
+				'apellidos'=>$t->getApellidos(),
+				'dni'=>$t->getDni(),
+				'empresa'=>$t->getNombreEmpresa()
+
+				);
+
+				}
+
+				
 				Js::prints($tramite,True);
 				render("perfil/barrita");
 			}
