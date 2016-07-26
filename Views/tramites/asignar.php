@@ -40,7 +40,7 @@
 
 <div class="container"> 
 
-<form id="nyform" action="<?php echo URLM."tramites/mover" ?>" method="POST">
+<form id="nyform" action="<?php echo URLM."tramites/asignar" ?>" method="POST">
 
 <div class="container">
     <div class="row container form-group">
@@ -63,6 +63,7 @@
       </div>
       <div class="col-xs-4">
   <input id="envi" type="hidden" name="envi" value="">
+  
   <input type="submit">
         
   </div>
@@ -70,5 +71,5 @@
 </div>
 
 <script >
-  document.getElementById('envi').value = nuevoe[0];
+  document.getElementById('envi').value = data[0];
 </script>
