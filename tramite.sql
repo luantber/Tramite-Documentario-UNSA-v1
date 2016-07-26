@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-07-2016 a las 21:46:35
--- Versión del servidor: 10.1.9-MariaDB
--- Versión de PHP: 5.6.15
+-- Tiempo de generación: 25-07-2016 a las 06:18:40
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -103,48 +103,6 @@ INSERT INTO `empleados` (`Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estado`
---
-
-CREATE TABLE `estado` (
-  `Descripcion` varchar(100) NOT NULL,
-  `Estado` varchar(20) NOT NULL,
-  `Id_Expediente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `estado`
---
-
-INSERT INTO `estado` (`Descripcion`, `Estado`, `Id_Expediente`) VALUES
-('esta es una prueba', '0', 9),
-('en redireccionamiento', '0', 10),
-('en redireccionamiento', '0', 11),
-('en redireccionamiento', 'pendiente', 0),
-('en redireccionamiento', 'pendiente', 0),
-('en redireccionamiento', 'pendiente', 0),
-('en redireccionamiento', 'pendiente', 12),
-('en redireccionamiento', 'pendiente', 13),
-('en redireccionamiento', '0', 15),
-('en redireccionamiento', 'pendiente', 16),
-('en redireccionamiento', 'pendiente', 17),
-('en redireccionamiento', 'pendiente', 18),
-('en redireccionamiento', 'pendiente', 19),
-('en redireccionamiento', 'pendiente', 20),
-('en redireccionamiento', 'pendiente', 21),
-('en redireccionamiento', 'pendiente', 22),
-('en redireccionamiento', 'pendiente', 23),
-('...', 'Pendiente', 24),
-('...', 'Pendiente', 25),
-('...', '0', 26),
-('...', 'Pendiente', 27),
-('...', '0', 28),
-('...', '0', 29),
-('...', '0', 30);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `movimientos`
 --
 
@@ -214,7 +172,13 @@ INSERT INTO `movimientos` (`Id_Movimiento`, `Id_Expediente`, `Id_Remitente`, `Id
 (51, 28, 1, 6, 28, 7, '2016-07-22'),
 (52, 29, 1, 5, 29, 20, '2016-07-22'),
 (53, 30, 1, 3, 30, 21, '2016-07-22'),
-(54, 30, 1, 3, 30, 21, '2016-07-22');
+(54, 30, 1, 3, 30, 21, '2016-07-22'),
+(55, 31, 2, 4, 31, 4, '2016-07-24'),
+(56, 32, 2, 4, 32, 4, '2016-07-24'),
+(57, 35, 1, 4, 35, 4, '2016-07-24'),
+(58, 31, 2, 4, 31, 4, '2016-07-24'),
+(59, 31, 2, 4, 31, 4, '2016-07-24'),
+(60, 31, 2, 4, 31, 4, '2016-07-24');
 
 -- --------------------------------------------------------
 
@@ -260,71 +224,39 @@ INSERT INTO `personas` (`Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Emp
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipo_tramite`
---
-
-CREATE TABLE `tipo_tramite` (
-  `Id_Expediente` int(11) NOT NULL,
-  `Tipo_Tramite` varchar(20) NOT NULL,
-  `Prioridad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `tipo_tramite`
---
-
-INSERT INTO `tipo_tramite` (`Id_Expediente`, `Tipo_Tramite`, `Prioridad`) VALUES
-(0, 'aun mas cosas', 2),
-(9, 'seguros', 3),
-(10, 'cosas', 3),
-(11, 'mas cosas', 2),
-(12, 'aun mas cosas', 2),
-(13, 'con fe funciona', 1),
-(15, 'con fe zhy funciona', 1),
-(16, 'con fe zhy funciona', 1),
-(17, 'con fe zhy funciona', 1),
-(18, 'con fe zhy funciona', 1),
-(19, 'con fe zhy funciona', 1),
-(20, 'con fe funciona', 1),
-(21, 'con fe funciona', 1),
-(22, 'con fe funciona', 1),
-(23, 'con fe funciona', 1),
-(24, 'tipo', 1),
-(25, 'tipo', 1),
-(26, 'tipo', 2),
-(27, 'tipo', 1),
-(28, 'tipo', 1),
-(29, 'tipo', 1),
-(30, 'tipo', 2);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `tramites`
 --
 
 CREATE TABLE `tramites` (
   `Id_Expediente` int(11) NOT NULL,
-  `Folios` int(11) NOT NULL,
   `Fecha_Ingreso` date NOT NULL,
   `Fecha_Termino` date NOT NULL,
   `Asunto` varchar(500) NOT NULL,
   `Id_Persona` int(11) NOT NULL,
   `Id_Encargado` int(11) NOT NULL,
-  `Recibido` tinyint(1) NOT NULL DEFAULT '0',
   `Id_Area_Actual` int(11) NOT NULL,
-  `Id_Area_Destino` int(11) NOT NULL
+  `Id_Area_Destino` int(11) NOT NULL,
+  `Estado` varchar(120) NOT NULL,
+  `Asignado` tinyint(1) NOT NULL,
+  `Adjuntado` tinyint(1) NOT NULL,
+  `Tipo_Tramite` varchar(120) NOT NULL,
+  `Prioridad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tramites`
 --
 
-INSERT INTO `tramites` (`Id_Expediente`, `Folios`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Encargado`, `Recibido`, `Id_Area_Actual`, `Id_Area_Destino`) VALUES
-(26, 121, '0000-00-00', '0000-00-00', 'Asunto de Prueba', 1, 0, 1, 2, 0),
-(28, 111, '0000-00-00', '0000-00-00', 'Asunto de Prueba', 7, 0, 1, 2, 0),
-(29, 43, '0000-00-00', '0000-00-00', 'NUevass Computadoas', 20, 0, 1, 5, 0),
-(30, 3, '0000-00-00', '0000-00-00', 'Pedido de Productos', 21, 0, 1, 3, 0);
+INSERT INTO `tramites` (`Id_Expediente`, `Fecha_Ingreso`, `Fecha_Termino`, `Asunto`, `Id_Persona`, `Id_Encargado`, `Id_Area_Actual`, `Id_Area_Destino`, `Estado`, `Asignado`, `Adjuntado`, `Tipo_Tramite`, `Prioridad`) VALUES
+(26, '0000-00-00', '0000-00-00', 'Asunto de Prueba', 1, 0, 2, 0, '', 0, 0, '', 0),
+(28, '0000-00-00', '0000-00-00', 'Asunto de Prueba', 7, 0, 2, 0, '', 0, 0, '', 0),
+(29, '0000-00-00', '0000-00-00', 'NUevass Computadoas', 20, 0, 5, 0, '', 0, 0, '', 0),
+(30, '0000-00-00', '0000-00-00', 'Pedido de Productos', 21, 0, 3, 0, '', 0, 0, '', 0),
+(31, '0000-00-00', '0000-00-00', 'prub', 4, 0, 2, 2, 'pendiente', 0, 0, 'no se', 3),
+(32, '2016-07-24', '0000-00-00', 'prueba', 4, 1, 2, 2, 'pendiente', 0, 0, 'no se', 3),
+(33, '0000-00-00', '0000-00-00', 'mas pruebas', 4, 0, 1, 2, 'pendiente', 0, 0, 'no se', 3),
+(34, '2016-07-24', '0000-00-00', 'mas pruebas', 4, 0, 1, 2, 'pendiente', 0, 0, 'no se', 3),
+(35, '0000-00-00', '0000-00-00', 'mas pruebas', 4, 0, 1, 2, 'pendiente', 0, 0, 'no se', 3);
 
 --
 -- Índices para tablas volcadas
@@ -361,12 +293,6 @@ ALTER TABLE `personas`
   ADD PRIMARY KEY (`Id_Persona`);
 
 --
--- Indices de la tabla `tipo_tramite`
---
-ALTER TABLE `tipo_tramite`
-  ADD PRIMARY KEY (`Id_Expediente`);
-
---
 -- Indices de la tabla `tramites`
 --
 ALTER TABLE `tramites`
@@ -390,7 +316,7 @@ ALTER TABLE `cargos`
 -- AUTO_INCREMENT de la tabla `movimientos`
 --
 ALTER TABLE `movimientos`
-  MODIFY `Id_Movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `Id_Movimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
@@ -400,7 +326,7 @@ ALTER TABLE `personas`
 -- AUTO_INCREMENT de la tabla `tramites`
 --
 ALTER TABLE `tramites`
-  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
