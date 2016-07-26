@@ -238,6 +238,68 @@
 		}
 
 
+		function getAllTramitesDatosByDniPersona($Dni_Persona)
+		{
+			$persona_temp=new Persona();
+			$persona_temp->obtenerDatosPersonaByDni($Dni_Persona);
+			$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Persona=".$persona_temp->id;
+			$result=$this->query->consulta($request);
+			$tramitesIds=array();
+			$tramitesDatos=array();
+			if ($result->num_rows > 0) {
+
+			    while($datos = $result->fetch_assoc()) {
+
+			        array_push($tramitesIds,$datos["Id_Expediente"]);
+			    }
+			}
+
+			foreach ($tramitesIds as $id_tramite) {
+
+				$tramite_temp=new Tramite();
+				$tramite_temp->obtenerDatosTramiteId($id_tramite);
+				if($tramite_temp->estado!="finalizado" && $tramite_temp->estado!="cancelado")
+				{
+					array_push($tramitesDatos,$tramite_temp->getAllDatos());
+				}
+
+
+			}
+
+			return $tramitesDatos;
+		}
+
+		function getAllTramitesDatosByNombreLike($Nombres)
+		{
+			
+			
+			$request="SELECT `Id_Expediente` FROM tramites JOIN personas ON tramites.Id_Persona=personas.Id_Persona WHERE (Nombres LIKE '%".$Nombres."%' OR Apellidos LIKE '%".$Nombres."%')";
+			$result=$this->query->consulta($request);
+			$tramitesIds=array();
+			$tramitesDatos=array();
+			if ($result->num_rows > 0) {
+
+			    while($datos = $result->fetch_assoc()) {
+
+			        array_push($tramitesIds,$datos["Id_Expediente"]);
+			    }
+			}
+
+			foreach ($tramitesIds as $id_tramite) {
+
+				$tramite_temp=new Tramite();
+				$tramite_temp->obtenerDatosTramiteId($id_tramite);
+				if($tramite_temp->estado!="finalizado" && $tramite_temp->estado!="cancelado")
+				{
+					array_push($tramitesDatos,$tramite_temp->getAllDatos());
+				}
+
+
+			}
+
+			return $tramitesDatos;
+		}
+
 		function getAllTramitesDatosByIdAreaActual($Id_Area)
 		{
 			$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area;
@@ -374,15 +436,16 @@
 		echo $key."</br>";
 	}
 	*/
-	/*
-	$cosas=$cosa->getAllTramitesDatosByIdAreaActual(1);
+/*
+	$cosa=new Tramite();
+	$cosas=$cosa->getAllTramitesDatosByNombreLike('Katherine');
 	foreach ($cosas as $key ) {
 		foreach ($key as  $value) {
 			echo $value." ";
 		}
 		echo "</br>";
 	}
-	*/
+*/	
 	
 
 

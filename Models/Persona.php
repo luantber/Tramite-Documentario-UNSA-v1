@@ -42,29 +42,7 @@
 				return $clientesDatos;
 			}
 			
-			static function getAllClientesByNombreLike($Nombre_pattern)
-			{
-
-				$query =  new Query();	
-				$request="SELECT Id_Persona FROM personas  WHERE (Nombres LIKE '%".$Nombre_pattern."%' OR Apellidos Like '%".$Nombre_pattern."%')";
-				$result=$query->consulta($request);
-				$clientesIds=array();
-				$clientesDatos=array();
-				if ($result->num_rows > 0) {
-			    
-				    while($datos = $result->fetch_assoc()) {
-				        array_push($clientesIds,$datos["Id_Persona"]);
-				    }
-				}
-				foreach ($clientesIds as $id_cliente) {
-					
-					$persona_temp=new Persona();
-					$persona_temp->obtenerDatosPersona($id_cliente);
-					array_push($clientesDatos,$persona_temp->getAllDatos());
-
-				}
-				return $clientesDatos;
-			}			
+			
 
 			public function getAllPersonasDatos()
 			{
@@ -136,6 +114,30 @@
 				    return false;
 				}
 			}
+
+			public function getAllClientesByNombreLike($Nombre_pattern)
+			{
+
+					
+				$request="SELECT Id_Persona FROM personas  WHERE (Id_Persona NOT IN (SELECT Id_Empleado FROM empleados)) and (Nombres LIKE '%".$Nombre_pattern."%' OR Apellidos Like '%".$Nombre_pattern."%')";
+				$result=$this->query->consulta($request);
+				$clientesIds=array();
+				$clientesDatos=array();
+				if ($result->num_rows > 0) {
+			    
+				    while($datos = $result->fetch_assoc()) {
+				        array_push($clientesIds,$datos["Id_Persona"]);
+				    }
+				}
+				foreach ($clientesIds as $id_cliente) {
+					
+					$persona_temp=new Persona();
+					$persona_temp->obtenerDatosPersona($id_cliente);
+					array_push($clientesDatos,$persona_temp->getAllDatos());
+
+				}
+				return $clientesDatos;
+			}	
 
 			public function obtenerDatosPersonaByDni($Dni)
 			{
