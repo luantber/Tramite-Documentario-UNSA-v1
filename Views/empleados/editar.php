@@ -32,7 +32,7 @@
   <div class="form-group">
       <label for="email" class="col-sm-2 control-label" >contraseña</label>
       <div class="col-sm-10">
-          <input name="password" type="password" class="form-control" id="passworde" required placeholder="Ingrese correo del empleado">
+          <input name="password" type="password" class="form-control" id="passworde" required placeholder="Ingrese nueva contraseña">
       </div>
   </div>
 
@@ -56,13 +56,11 @@
 
 
 
+
   <div class="form-group">
       <label for="cargo" class="col-sm-2 control-label" >Cargo</label>
-      <script >
-        document.write
-      </script>
       <div class="col-sm-10">
-         <select name="cargo" class="form-control">
+         <select name="cargo" class="form-control" id="cargo">
            <option value="">Seleccionar</option>
            <script type="text/javascript">
             //var cargo=["Jefe", "Encargado","Ayudante"]
@@ -76,7 +74,6 @@
       </div>
   </div>
 
-
   <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-default">Guardar cambios</button>
@@ -89,6 +86,11 @@
   document.getElementById('nombree').value =data.nombres;
   document.getElementById('apellidoe').value=data.apellidos;
   document.getElementById('dnie').value=data.dni;
-  document.getElementById('area').value=data.dni;
 
+
+  //para selectionar de options .... :D !!! JQuery
+    $(document).ready(function(){
+    $('#area > option[value="3"]').attr('selected', 'selected');
+    $('#cargo > option[value="2"]').attr('selected', 'selected');    
+    });
 </script>
