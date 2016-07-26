@@ -28,9 +28,11 @@
 		}
 
 			function borrar(){
+				logueado();
 			if (!empty($_POST)){
-				echo "Esperando metodo de Alexis ;) ";
-				//redirect to panel ?
+				$e = new Empleado;
+				$e->deleteEmpleado($_POST["iduser"]);
+				redirect("empleados");
 			}else{
 				echo "Violacion de Seguridad";
 			}
