@@ -174,7 +174,7 @@ nav.navbar {
 
 <div>
 
-<br><br><br><br><br><br>
+<br><br>
 	<?php
 		}
 		public function __destruct(){

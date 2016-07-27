@@ -69,7 +69,7 @@
   		</div>
   	</div>
   	<p id="ejemplo"> </p>
-	<input id="este" >		
+	<input id="este" class="hidden">		
 </form>
 </div>
   <script>
