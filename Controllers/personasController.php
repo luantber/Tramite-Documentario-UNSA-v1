@@ -25,6 +25,7 @@
 				$e = new Empleado;
 				
 				if ($e->obtenerDatosId($t->getID())){
+					$editar = false;
 				$ae = $e->getAllDatos();
 				print_r($ae);
 				$tramite = array(
@@ -42,6 +43,7 @@
 
 				}
 				else{
+					$editar = true;
 					$tramite = array(
 				'id' => $t->getID(), 
 				'nombres'=>$t->getNombres(),
@@ -53,14 +55,16 @@
 
 				}
 
-			$var = false;
+			/*$var = false;
 			if (Auth::revisarArea("Mesa de Partes") or Auth::getuser("Gerente")){
 				$var = true;
 			}
-				Js::prints($var,false,"usuario");
-				Js::prints($tramite,false);
-				render("perfil/barrita");
+			*/
+			Js::prints($editar,true,"editar");
+			Js::prints($tramite,true);
+			render("perfil/barrita");
 			}
+
 			else{
 				JS::prints("No existe una persona con id,".$id,"error",false);
 			}

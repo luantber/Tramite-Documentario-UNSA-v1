@@ -88,6 +88,13 @@
 					);
 
 					//print_r($at);
+					$var = false;
+					if (Auth::revisarArea("Mesa de Partes") or Auth::getuser("Gerente")){
+						$var = true;
+					}
+
+					Js::prints($var,true,"usuario");					
+
 					Js::prints($persona,true);
 					Js::prints(Auth::getuser("Gerente"),true,"sudo");
 					render("usuarios/editar");
