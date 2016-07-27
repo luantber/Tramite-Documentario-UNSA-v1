@@ -238,7 +238,19 @@
           <img src="<?php echo URLV ?>imagenes/imagen29.PNG" class="centrar-imagen" ><br>
           <p>b. Después podremos ver las opciones permitidas según nuestra ocupación o cargo.</p>
           <img src="<?php echo URLV ?>imagenes/imagen28.PNG" class="centrar-imagen" ><br>
-         </div>
+          <h4>Login Gerente</h4>
+          <p>El Gerente tendrá la capacidad de un SU. Podrá ver las estadísticas de todo el sistema, crear áreas, crear empleados, crear usuarios, asignar movimientos, etc. Tendrá la capacidad de hacer todas las funciones disponibles en el sistema. Todo esto disponible a través a la barra de navegación.</p>
+          <h4>Login-Jefe de Área</h4>
+          <p>El Jefe de Área podrá ver la bandeja de entradas de trámites de acuerdo a su área, y podrá asignar a un encargado, ver los Movimientos recientes.
+          </p>
+          <h4>Login Encargado</h4>
+          <p>El Encargado tendrá una bandeja de trámites asignados hace él. Podrá darlas como terminadas, ponerles una observación o mandarlas hacia otra área respectiva.
+          </p>
+          <h4>Login Mesa de Partes</h4>
+          <p>El encargado de Mesa de Partes podrá crear un nuevo usuario, podrá crear un nuevo trámite, modificarlo y enviarlo hacia su respectiva área.
+          Todos los Empleados podrá ver la lista de usuarios. Podrán 
+          buscar trámites y usuarios.
+          </p>
         </div>
         <div id="section42">
          <div class="text-info" align="justify">
