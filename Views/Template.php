@@ -149,7 +149,6 @@ nav.navbar {
       <li><a href="<?php echo URLM ?>perfil"><span class="glyphicon glyphicon-user"></span> <?php echo Auth::getusername();
         ?></a></li>  -->
 
-        <li><a href="<?php echo URLM ?>tutorial"><span class="glyphicon glyphicon-question-sign" ></span> Tutorial</a></li>
       <!--SALIR!-->
       <li><a href="<?php echo URLM ?>empleados/salir"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
     </ul>
@@ -162,6 +161,7 @@ nav.navbar {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <!--INGRESAR!-->
+        <li><a href="<?php echo URLM ?>tutorial"><span class="glyphicon glyphicon-question-sign" ></span> Tutorial</a></li>
         <li><a href="<?php echo URLM ?>empleados/ingresar"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
       </ul>
     <?php

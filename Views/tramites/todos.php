@@ -4,13 +4,11 @@
     <thead>
       <tr>
         <th><span class="glyphicon glyphicon-folder-open"></span></th>
-        <th>Estado</th>
+        <th>Asunto</th>
         <th>Datos</th>
         <th>Fecha de Inicio</th>
         <th>Fecha de Finalización</th>
         <th><span class="glyphicon glyphicon-envelope"></span> </th>
-        <th><span class="glyphicon glyphicon-pencil"></span> </th>
-        <th><span class="glyphicon glyphicon-trash"></span> </th>
       </tr>
     </thead>
 	<tbody>
@@ -22,16 +20,14 @@
 
 				nuevo=data[posicion-i];
 				document.write("<tr><td>"+nuevo[0]+"</td>");
-				document.write("<td>"+nuevo[4]+"</td>");
-				document.write("<td><form><h6>"+"De: "+nuevo[10]+"</h6>");
+				document.write("<td>"+nuevo[5]+"</td>");
+				document.write("<td><form><h6>"+"De: "+nuevo[14]+" "+nuevo[15]+"</h6>");
 				document.write("<h6>"+"Para: "+nuevo[12]+"</h6>");
 				document.write("<h6>"+"Estado: "+nuevo[8]+"</h6></form></td>");
 				document.write("<td>"+nuevo[1]+"</td>");//FECHA DE INICIO
 				document.write("<td>"+nuevo[3]+"</td>");
-				document.write("<td><a href='<?php echo URLM ?>tramites/ver/"+nuevo[0]+"'><span class='glyphicon glyphicon-envelope'></span></a>"+"</td>");
-        		document.write("<td><a href='<?php echo URLM ?>empleados/crear'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td>");
-        		document.write("<td><a href='#'><span class='glyphicon glyphicon-trash'></span></a>"+"</td>");
-
+				document.write("<td><a href='<?php echo URLM ?>tramites/ver/"+nuevo[0]+"'><span class='glyphicon glyphicon-envelope'></span></a>"+"</td></tr>");
+        		
         		/*checkbox
         		var str = "";
         		str += "<td><input type='checkbox'";

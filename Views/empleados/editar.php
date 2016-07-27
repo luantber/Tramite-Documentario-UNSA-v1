@@ -28,7 +28,10 @@
       <label for="email" class="col-sm-2 control-label" >correo</label>
       <div class="col-sm-10">
           <script type="text/javascript">
-          if (sudo==true) {
+          if (sudo2==true){
+            document.write("<input name='emaile' type='email' class='form-control' id='emaile' required>");          
+          }
+          else if (sudo==true) {
             document.write("<input name='emaile' type='email' class='form-control' id='emaile' required disabled>");          
           }
           else{
@@ -43,10 +46,13 @@
       <label for="email" class="col-sm-2 control-label" >contraseña</label>
       <div class="col-sm-10">
           <script type="text/javascript">
-          if (sudo==true) {
+          if(sudo2==true){
+            document.write("<input placeholder='Ingrese nueva contraseña' name='password' type='password' class='form-control' id='passworde' required>");
+          }
+          else if (sudo==true) {
             document.write("<input  name='password' type='password' class='form-control' id='passworde' required disabled>");
           }
-          else  {
+          else {
             document.write("<input placeholder='Ingrese nueva contraseña' name='password' type='password' class='form-control' id='passworde' required>");
           };
 
