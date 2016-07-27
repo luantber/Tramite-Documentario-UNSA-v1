@@ -363,6 +363,7 @@
  	$p->save();
 	*/
  	
+ 	/*
 	$tram=new Persona();
  	$cosa=$tram->getAllClientes();
 	
@@ -372,7 +373,7 @@
 		}
 		echo "</br>";
 	}
-	
+	*/
  	
  	/*
  	$cosa=new Persona();
