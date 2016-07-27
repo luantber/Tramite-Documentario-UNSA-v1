@@ -202,7 +202,6 @@
           <img src="<?php echo URLV ?>imagenes/imagen15.PNG" class="centrar-imagen" ><br>
           <p>Nos dirigimos al navegador y escribimos: <b>‘localhost/tramitedocumentariocs/’</b>. Nos aparecerá esta pantalla.</p>
           <img src="<?php echo URLV ?>imagenes/imagen48.PNG" class="centrar-imagen" ><br>
-          
         </div>
       </div>
 
