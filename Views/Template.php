@@ -47,6 +47,14 @@
 <body>
 
 <!-- BARRA DE NAVEGACION !!!!-->
+<style type="text/css">
+  nav.navbar {
+    background-color: #2C3E50;
+}
+nav.navbar {
+    @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+</style>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -138,7 +146,7 @@
       <li><a href="<?php echo URLM ?>perfil"><span class="glyphicon glyphicon-user"></span> <?php echo Auth::getusername();
         ?></a></li>  -->
 
-
+        <li><a href="<?php echo URLM ?>tutorial"><span class="glyphicon glyphicon-question-sign" ></span> Tutorial</a></li>
       <!--SALIR!-->
       <li><a href="<?php echo URLM ?>empleados/salir"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
     </ul>
