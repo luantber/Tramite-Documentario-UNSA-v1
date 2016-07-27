@@ -160,8 +160,8 @@
 				if ($t->obtenerDatosTramiteId($id)){
 					$tramite = array(
 					'id' => $t->id_expediente, 
-					'asunto'=>$t->getAsunto(),
-					'estado'=>$t->getEstado()
+					'asunto'=>$t->asunto,
+					'estado'=>$t->estado
 					);
 					Js::prints($tramite,false);
 				}
@@ -175,6 +175,56 @@
 			
 		}
 
+		function vera($filename){
+			//echo "fi:".$filename."<br>";
+			$filename=ROOT.DS."SemiFTP".DS.$filename.".docx";
+		    $striped_content = '';
+		    $content = '';
+		    //$filename=$filename.".docx";
+		    echo "s:".$filename."<br>";
+		    if (file_exists($filename))
+		    	echo "asd ";	
+
+		    if(!$filename || !file_exists($filename)) return false;
+
+		    $zip = zip_open($filename);
+
+
+		    if (!$zip || is_numeric($zip)) return false;
+		    		   
+		    while ($zip_entry = zip_read($zip)) {
+
+		        if (zip_entry_open($zip, $zip_entry) == FALSE) continue;
+
+		        if (zip_entry_name($zip_entry) != "word/document.xml") continue;
+
+		        $content .= zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
+
+		        zip_entry_close($zip_entry);
+		    }// end while
+
+		    zip_close($zip);
+
+		    //echo $content;
+		    //echo "<hr>";
+		    //file_put_contents('1.xml', $content);
+
+		    $content = str_replace('</w:r></w:p></w:tc><w:tc>', " ", $content);
+		    $content = str_replace('</w:r></w:p>', "\r\n", $content);
+		    $striped_content = strip_tags($content);
+
+		    //return $striped_content;
+		    echo "sad";
+		    if($striped_content !== false) {
+		    	echo "asda";
+		        echo nl2br(nl2br($striped_content));
+		    }
+		    else {
+		        echo 'Couldn\'t the file. Please check that file.';
+		    }   
+		}
+
+		
 		function crear(){
 			if (!empty($_POST)){
 				

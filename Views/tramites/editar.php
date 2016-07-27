@@ -87,10 +87,10 @@
    document.getElementById('estade').value=data[4];
    document.getElementById('dne').value=data[16];
    document.getElementById('deste').value=data[10]+"/"+data[12];
-
-   str="<iframe src = '<?php echo URLM ?>ViewerJS/#../SemiFTP/";
-   str2 = ".odt' width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>";
-   document.write(str+data[0]+str2);
+   //document.write(data["id"]);
+   str="<a href = '<?php echo URLM ?>tramites/vera/";
+   str2 = "'> Ver el documento</iframe>";
+   document.write(str+data["id"]+str2);
   </script> 
 
 </div>
