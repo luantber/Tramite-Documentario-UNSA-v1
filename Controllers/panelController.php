@@ -16,22 +16,24 @@
 			$t = new Tramite;
 
 			if (Auth::getuser("Jefe de Area")){
-				echo Auth::getareaId();
+				//echo Auth::getareaId();
 				$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::getareaId(),False);
+				//print_r($areas);
 				Js::prints($areas,true);
 			}
-			else{
-				echo "here";
+			else if (Auth::getuser("Encargado")){
+				//echo "here";
 				$a = $t->getAllTramitesDatosByIdEncargado(Auth::getuserId(),False);
 				Js::prints($a,true);
 			}
 			
 
 			
-			$s = getSesion("sesion1");
+			/*$s = getSesion("sesion1");
 			if ($s){
-				Js::prints($s,false,"exitoMover");
+				Js::prints($s,true,"exitoMover");
 			}
+			*/
 			render("tramites/todos");
 		}
 

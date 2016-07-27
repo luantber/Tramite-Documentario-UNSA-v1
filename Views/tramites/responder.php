@@ -1,5 +1,6 @@
 <h2 class="text-center" >Responder Trámite</h2> 
-<form class="form-horizontal container" method="POST" action="<?php  echo URLM."tramites/responder/55" ?>"> 
+
+<form id="form" class="form-horizontal container" method="POST" action="<?php  echo URLM."tramites/responder/" ?>"> 
 
   <div class="form-group"> 
       <label for="cambio" class="col-sm-2 control-label" >Respuesta </label> 
@@ -22,11 +23,8 @@
       </div> 
     </div> 
  
-    <p> </p> 
-    <p> .</p> 
-    <p> .</p> 
- 
-<?php  
-//echo "<br>***desde: ".$asd;
-?>
 </form>   
+
+<script type="text/javascript">
+  document.getElementById("form").action += data[0];
+</script>
