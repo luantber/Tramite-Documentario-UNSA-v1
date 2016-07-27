@@ -336,6 +336,9 @@
           <p>Día a día, el gerente o SU podrá visualizar un resumen de todos los trámites llegados mediante una simple gráfica que explica la cantidad de trámites recibidos por área.
           </p>
           <img src="<?php echo URLV ?>imagenes/imagen44.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen45.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen46.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen47.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
 
