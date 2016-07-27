@@ -119,6 +119,7 @@
 				$result=$this->query->consulta($request);
 				$clientesIds=array();
 				$clientesDatos=array();
+//				echo "here";
 				if ($result->num_rows > 0) {
 			    
 				    while($datos = $result->fetch_assoc()) {
