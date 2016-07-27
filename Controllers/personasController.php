@@ -54,10 +54,10 @@
 				}
 
 			$var = false;
-			if (Auth::revisarArea("Mesa de Partes") or Auth::getusername("Gerente")){
+			if (Auth::revisarArea("Mesa de Partes") or Auth::getuser("Gerente")){
 				$var = true;
 			}
-				Js::prints($var,true,"usuario");
+				Js::prints($var,false,"usuario");
 				Js::prints($tramite,false);
 				render("perfil/barrita");
 			}
