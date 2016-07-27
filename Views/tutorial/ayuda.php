@@ -9,20 +9,20 @@
   }
 
   #section1 {color: #fff; background-color: #FFFFFF;}
-  #section2 {color: #fff; background-color: #FAEEFF;}
+  #section2 {color: #fff; background-color: #FFFFFF;}
   #section31 {color: #fff; background-color: #FFFFFF;}
   
-  #section41 {color: #fff; background-color: #FAEEFF;}
+  #section41 {color: #fff; background-color: #FFFFFF;}
   #section42 {color: #fff; background-color: #FFFFFF;}
-  #section43 {color: #fff; background-color: #FAEEFF;}
+  #section43 {color: #fff; background-color: #FFFFFF;}
   #section44 {color: #fff; background-color: #FFFFFF;}
-  #section45 {color: #fff; background-color: #FAEEFF;}
+  #section45 {color: #fff; background-color: #FFFFFF;}
   #section46 {color: #fff; background-color: #FFFFFF;}
-  #section47 {color: #fff; background-color: #FAEEFF;}
+  #section47 {color: #fff; background-color: #FFFFFF;}
   #section48 {color: #fff; background-color: #FFFFFF;}
-  #section49 {color: #fff; background-color: #FAEEFF;}
+  #section49 {color: #fff; background-color: #FFFFFF;}
   #section491 {color: #fff; background-color: #FFFFFF;}
-  #section492 {color: #fff; background-color: #FAEEFF;}
+  #section492 {color: #fff; background-color: #FFFFFF;}
   #section493 {color: #fff; background-color: #FFFFFF;}
 
 
@@ -63,11 +63,11 @@
             <li><a href="#section45">Crear Nuevo Trámite</a></li>
             <li><a href="#section46">Ver trámites</a></li>
             <li><a href="#section47">Redireccionar trámite</a></li>
-            <li><a href="#section48">Eliminar Trámite</a></li>
-            <li><a href="#section49">Eliminar Trámite</a></li>
-            <li><a href="#section491">Modificar Trámite</a></li>
-            <li><a href="#section492">Movimientos de trámite</a></li>
-            <li><a href="#section493">Gráfica de Estadísticas</a></li>
+            <!--<li><a href="#section48">Eliminar Trámite</a></li>
+        
+            <li><a href="#section49">Modificar Trámite</a></li>-->
+            <li><a href="#section491">Movimientos de trámite</a></li>
+            <li><a href="#section492">Gráfica de Estadísticas</a></li>
           </ul>
         </li>
       </ul>
@@ -233,7 +233,9 @@
         <div id="section41">
          <div class="text-info" align="justify">
           <h1>LOGIN</h1>
-          <p>a. Primero debemos ingresar con nuestro DNI y nuestra respectiva contraseña, de acuerdo a los datos asignados en la base de datos.</p>
+          <p>a. Primero debemos hacer click en ingresar y seleccionar si somos Usuarios o Empleados e iniciar sesión
+             con nuestro DNI y contraseña</p>
+          <img src="<?php echo URLV ?>imagenes/imagen29.PNG" class="centrar-imagen" ><br>
           <p>b. Después podremos ver las opciones permitidas según nuestra ocupación o cargo.</p>
           <img src="<?php echo URLV ?>imagenes/imagen28.PNG" class="centrar-imagen" ><br>
          </div>
@@ -241,69 +243,102 @@
         <div id="section42">
          <div class="text-info" align="justify">
           <h1>Crear Área</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+          <p>Aquí podemos crear una nueva área si es necesario.
+              Entre las áreas ya incluídas están: Mesa de Partes, Gerencia, Logística, Recursos Humanos, Informática y Contabilidad. Esta opción 
+              solo la podrá realizar el Gerente
+          </p>
+          <img src="<?php echo URLV ?>imagenes/imagen30.PNG" class="centrar-imagen" ><br>
+          <p>También tendremos la opción de ver las áreas mediante la opción Todos.</p>
+          <img src="<?php echo URLV ?>imagenes/imagen31.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen32.PNG" class="centrar-imagen" ><br>
+          <p>Cada área podrá ser modificada o ser eliminada de acuerdo a las necesidades que se presenten. </p>
          </div>
         </div>
         <div id="section43">
          <div class="text-info" align="justify">
           <h1>Crear Usuario</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+          <p>Aquí se podrá crear un empleado nuevo asignando su cargo dentro del sistema. Función disponible únicamente  por un SU. 
+          </p>
+          <img src="<?php echo URLV ?>imagenes/imagen33.PNG" class="centrar-imagen" ><br>
+
+
          </div>
         </div>
         <div id="section44">
          <div class="text-info" align="justify">
           <h1>Crear Empleado</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+          <p>Aquí se podrá crear un empleado nuevo asignando su cargo dentro del sistema. Función disponible únicamente por un SU. 
+          </p>
+          <img src="<?php echo URLV ?>imagenes/imagen34.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
         <div id="section45">
          <div class="text-info" align="justify">
-          <h1>Crear Empleado</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+          <h1>Crear Nuevo Tramite</h1>
+          <p>Aquí se podrá crear un nuevo trámite. Ingresando el DNI, o creando un nuevo usuario en ese momento. Luego se deberá ingresar el usuario para empezar a llegar los campos necesarios y el archivo adjunto del trámite.
+          </p>
+          <img src="<?php echo URLV ?>imagenes/imagen35.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen36.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen37.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
         <div id="section46">
          <div class="text-info" align="justify">
-          <h1>Crear Empleado</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+          <h1>Ver Trámite</h1>
+          <p>Tendremos la posibilidad de ver todos los trámites que se hicieron en la opción:</p>
+          <img src="<?php echo URLV ?>imagenes/imagen38.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen39.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
         <div id="section47">
          <div class="text-info" align="justify">
-          <h1>Crear Empleado</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+          <h1>Redireccionar Trámite</h1>
+          <p>Cuando veamos todos los trámites tendremos la opción de redireccionar un trámite al área donde será procesada mediante el ícono.<span class="glyphicon glyphicon-envelope"></span>
+          </p>
+          <img src="<?php echo URLV ?>imagenes/imagen40.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen41.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen42.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
+         <div class="text-info" align="justify">
+
+         <!--
         <div id="section48">
          <div class="text-info" align="justify">
-          <h1>Crear Empleado</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+          <h1>Eliminar Trámite</h1>
+          <p>En el caso que necesitemos eliminar un trámite de la base de datos seleccionaremos el icono <span class="glyphicon glyphicon-trash"></span> . Es preferible cambiar el estado del trámite como Cancelado.
+
+          </p>
+          <img src="#" class="centrar-imagen" ><br>
          </div>
         </div>
         <div id="section49">
          <div class="text-info" align="justify">
-          <h1>Crear Empleado</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+          <h1>Modificar Trámite</h1>
+          <p>EPara modificar errores o hacer cambios en algún trámite ya creado, podemos hacer click en el ícono <span class="glyphicon glyphicon-pencil"></span> y así modificar el trámite elegido.
+
+          </p>
+          <img src="#" class="centrar-imagen" ><br>
          </div>
         </div>
+        -->
         <div id="section491">
          <div class="text-info" align="justify">
-          <h1>Crear Empleado</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+          <h1>Movimientos Trámite</h1>
+          <p>En la opción movimientos podremos observar por qué áreas pasaron cada uno de los trámites.
+          </p>
+          <img src="<?php echo URLV ?>imagenes/imagen43.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
         <div id="section492">
          <div class="text-info" align="justify">
-          <h1>Crear Empleado</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+          <h1>Grafica Estadísticas</h1>
+          <p>Día a día, el gerente o SU podrá visualizar un resumen de todos los trámites llegados mediante una simple gráfica que explica la cantidad de trámites recibidos por área.
+          </p>
+          <img src="<?php echo URLV ?>imagenes/imagen44.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
-        <div id="section493">
-         <div class="text-info" align="justify">
-          <h1>Crear Empleado</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-         </div>
-        </div>
+
       <!--</div>-->
   <!--</div>-->
 </div>
