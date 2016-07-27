@@ -41,7 +41,7 @@ class perfilController
 					$usu = false;
 				}
 				
-				Js::prints($usu,true,"usuario");
+				Js::prints($usu,true,"editar");
 				Js::prints($tramite,true);
 				render("perfil/barrita");
 			}
