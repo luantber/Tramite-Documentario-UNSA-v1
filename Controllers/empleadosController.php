@@ -17,8 +17,11 @@
 		{
 			$p = new Empleado();
 			$pd = $p->getAllEmpleadosDatos();
-
-			print_r($pd);
+			$noa = array();
+			$noa = array_merge($noa, $pd);
+			Js::prints("Empleados ",true,"title");
+			//print_r($noa);
+			Js::prints($noa,true);
 			
 			Js::prints("Empleados ",true,"title");
 			Js::prints($pd,true);
@@ -75,10 +78,10 @@
 				$c = Cargo::getCargos();
 				$at = $a->obtenerAreas();
 				//print_r($at);
-				Js::prints($at,false,"areas");
-				Js::prints($c,false,"cargos");
+				Js::prints($at,true,"areas");
+				Js::prints($c,true,"cargos");
 				Js::prints($tramite,true);
-				Js::prints(Auth::getuser("Gerente"),false,"sudo");
+				Js::prints(Auth::getuser("Gerente"),true,"sudo");
 				render("empleados/editar");
 			}
 			else{
@@ -134,7 +137,7 @@
 
 				$r->registrarEmpleado(...$data);
 				echo "exito";
-				Js::prints($data,false);
+				Js::prints($data,true);
 
 				redirect('empleados');
 			}
@@ -144,8 +147,8 @@
 
 				$c = Cargo::getCargos();
 				//print_r($at);
-				Js::prints($at,false,"areas");
-				Js::prints($c,false,"cargos");
+				Js::prints($at,true,"areas");
+				Js::prints($c,true,"cargos");
 				render("empleados/crear");
 				
 			}

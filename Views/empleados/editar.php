@@ -42,7 +42,7 @@
       <div class="col-sm-10">
           <script type="text/javascript">
           if (sudo==true ) {
-            document.write("<input placeholder='Ingrese nueva contraseña' name='password' type='password' class='form-control' id='passworde' required disabled>");
+            document.write("<input  name='password' type='password' class='form-control' id='passworde' required disabled>");
           }
           else  {
             document.write("<input placeholder='Ingrese nueva contraseña' name='password' type='password' class='form-control' id='passworde' required>");
@@ -136,6 +136,7 @@
   document.getElementById('apellidoe').value=data.apellidos;
   document.getElementById('dnie').value=data.dni;
   document.getElementById('emaile').value=data.email;
+  document.getElementById('passworde').value=data.password;
   document.getElementById('estado').value=data.activo;
 
     //para seleccionar las opciones .... xD !

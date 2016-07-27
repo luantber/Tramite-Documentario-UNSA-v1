@@ -38,7 +38,7 @@ class perfilController
 					);
 				}
 		
-				Js::prints($tramite,false);
+				Js::prints($tramite,true);
 				render("perfil/barrita");
 			}
 			else{

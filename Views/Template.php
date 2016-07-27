@@ -56,7 +56,6 @@
    <?php
     //if (Auth::exist())
     //{                                    ?>
-      <li class="active"><a href="#">Inicio</a></li>
       <li><a href="<?php echo URLM ?>movimientos">Movimientos</a></li>
     <?php
 
@@ -132,7 +131,7 @@
     <ul class="nav navbar-nav navbar-right">
 
          <!--Cargo -->
-      <li><a href="<?php echo URLM ?>panel"><span class="glyphicon glyphicon-briefcase"></span> <?php echo Auth::get_session()["nombre_area"]."/".Auth::get_session()["nombre_cargo"]?></a></li>
+      <li class="active"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> <?php echo Auth::get_session()["nombre_area"]."/".Auth::get_session()["nombre_cargo"]?></a></li>
     <!--PERFIL !-->
       <li><a href="<?php echo URLM ?>perfil"><span class="glyphicon glyphicon-user"></span><?php echo Auth::get_session()["nombres"] ?></a></li>
 <!--
