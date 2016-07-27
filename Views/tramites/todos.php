@@ -23,7 +23,7 @@
 				document.write("<td>"+nuevo[5]+"</td>");
 				document.write("<td><form><h6>"+"De: "+nuevo[14]+" "+nuevo[15]+"</h6>");
 				document.write("<h6>"+"Para: "+nuevo[12]+"</h6>");
-				document.write("<h6>"+"Estado: "+nuevo[8]+"</h6></form></td>");
+				document.write("<h6>"+"Estado: "+nuevo[3]+"</h6></form></td>");
 				document.write("<td>"+nuevo[1]+"</td>");//FECHA DE INICIO
 				document.write("<td>"+nuevo[3]+"</td>");
 				document.write("<td><a href='<?php echo URLM ?>tramites/ver/"+nuevo[0]+"'><span class='glyphicon glyphicon-envelope'></span></a>"+"</td></tr>");

@@ -5,10 +5,13 @@
 
 	define('DS', DIRECTORY_SEPARATOR);
 	define('ROOT', realpath(dirname(__FILE__)) . DS);
+
+	
 	//define('VIEW', ROOT . "Views" . DS);
 
 	//Deben ser rutas absolutas porque el router las va a transformar
 	require_once 'config.php';
+	define('ASD', "192.168.43.213/tramitedocumentariocs/");
 	
 	//Carga automatica de clases
 	require_once 'Config/Autoload.php';
