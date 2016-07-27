@@ -69,7 +69,7 @@
   		</div>
   	</div>
   	<p id="ejemplo"> </p>
-	<input id="este" >		
+	<input id="este" class="hidden">		
 </form>
 </div>
   <script>
@@ -85,5 +85,4 @@
   </script>	
 
 <a href="<?php echo URLM ?>ViewerJS/#..<?php echo ROOT."SemiFTP/" ?>">
-as
 </a>

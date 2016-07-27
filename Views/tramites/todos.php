@@ -11,7 +11,6 @@
         <th><span class="glyphicon glyphicon-envelope"></span> </th>
         <th><span class="glyphicon glyphicon-pencil"></span> </th>
         <th><span class="glyphicon glyphicon-trash"></span> </th>
-        <th>Recibido ?</th>
       </tr>
     </thead>
 	<tbody>
@@ -24,16 +23,16 @@
 				nuevo=data[posicion-i];
 				document.write("<tr><td>"+nuevo[0]+"</td>");
 				document.write("<td>"+nuevo[4]+"</td>");
-				document.write("<td><form><h6>"+"De: "+nuevo[5]+"</h6>");
-				document.write("<h6>"+"Para: "+nuevo[7]+"</h6>");
+				document.write("<td><form><h6>"+"De: "+nuevo[10]+"</h6>");
+				document.write("<h6>"+"Para: "+nuevo[12]+"</h6>");
 				document.write("<h6>"+"Estado: "+nuevo[8]+"</h6></form></td>");
-				document.write("<td>"+nuevo[2]+"</td>");
+				document.write("<td>"+nuevo[1]+"</td>");//FECHA DE INICIO
 				document.write("<td>"+nuevo[3]+"</td>");
 				document.write("<td><a href='<?php echo URLM ?>tramites/ver/"+nuevo[0]+"'><span class='glyphicon glyphicon-envelope'></span></a>"+"</td>");
         		document.write("<td><a href='<?php echo URLM ?>empleados/crear'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td>");
         		document.write("<td><a href='#'><span class='glyphicon glyphicon-trash'></span></a>"+"</td>");
 
-        		//checkbox
+        		/*checkbox
         		var str = "";
         		str += "<td><input type='checkbox'";
         		if (nuevo[nuevo.length-1] == "1") {
@@ -49,7 +48,7 @@
 
         		console.log(str);
 
-        		document.write(str);
+        		document.write(str);*/
 
 			}
 		</script>

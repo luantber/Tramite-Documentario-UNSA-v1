@@ -38,13 +38,6 @@
   		</div>
   	</div>
 
-    <div class="form-group">
-      <label for="folios" class="col-sm-2 control-label" >Cantidad de Folios</label>
-      <div class="col-sm-10" >
-        <input name="folios" type="number" class="form-control" id="folios" required placeholder=" Ingrese número de folios">
-      </div>
-    </div>
-
   	
   		<div class="form-group">
   			<label for="prioridad" class="col-sm-2 control-label" >Prioridad </label>
