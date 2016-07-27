@@ -28,7 +28,9 @@
 				$r->registrarPersona(...$data);
 				echo "exito";
 				Js::prints($data,false);
-				render("usuarios/crear");
+				
+				//render("usuarios/crear");
+				redirect("tramites/crear");
 			}
 			else{
 				

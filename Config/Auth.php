@@ -55,6 +55,13 @@
 			return $_SESSION[$ses]["id"];
 		}
 
+		static function revisarArea($area,$ses="sesion")
+		{
+			if ($_SESSION[$ses]["nombre_cargo"]==$area)
+				return true;
+			return false;
+		}
+
 		static function destroy()
 		{
 			@session_destroy();

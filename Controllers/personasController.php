@@ -6,6 +6,7 @@
 	use Models\Persona as Persona;
 	use Models\Empleado as Empleado;
 	use Models\Js as Js;
+	use Config\Auth as Auth;
 
 	class personasController
 	{
@@ -52,7 +53,11 @@
 
 				}
 
-				
+			$var = false;
+			if (Auth::revisarArea("Mesa de Partes") or Auth::getusername("Gerente")){
+				$var = true;
+			}
+				Js::prints($var,true,"usuario");
 				Js::prints($tramite,false);
 				render("perfil/barrita");
 			}
