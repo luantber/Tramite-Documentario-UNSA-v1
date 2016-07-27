@@ -16,7 +16,7 @@
 			$t= new Tramite();
 			//print_r($t->getAllTRamitesDatos());
 			Js::prints($t->getAllTRamitesDatos(),true,"data");
-			render("tramites/barraTramites");
+			//render("tramites/barraTramites");
 			render("tramites/todos");
 		}
 
@@ -84,7 +84,7 @@
 					$ar = $t->getAllTramitesDatosByDniPersona($_POST["dat"]);
 				}
 				//print_r($ar);
-				Js::prints($ar,false);
+				Js::prints($ar,true);
 				render("tramites/buscar");
 				render("tramites/todos");
 			}
@@ -200,7 +200,15 @@
 				if(true)		 
 				{
 					 //Descomentar cuando ya no haya error en tramites
-					$t->registrarTramiteByDni($_POST["asunto"],$_POST["ident"],'0',$_POST["destino"],'0','0',$_POST["prioridad"]);
+					$t->registrarTramiteByDni(
+						$_POST["asunto"], 
+						$_POST["ident"],
+						'0', //id_encard
+						$_POST["destino"],
+						'pendiente',
+						'Normal',
+						$_POST["prioridad"]
+					);
 
 
 					if ($_FILES["archivo"]["error"]<=0) 
