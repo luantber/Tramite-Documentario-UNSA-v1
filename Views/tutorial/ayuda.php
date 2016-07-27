@@ -201,20 +201,20 @@
           <p>Ahora ya podremos almacenar y leer información de la Base de Datos.</p>
           <img src="<?php echo URLV ?>imagenes/imagen15.PNG" class="centrar-imagen" ><br>
           <p>Nos dirigimos al navegador y escribimos: <b>‘localhost/tramitedocumentariocs/’</b>. Nos aparecerá esta pantalla.</p>
-          <img src="<?php echo URLV ?>imagenes/imagen16.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen48.PNG" class="centrar-imagen" ><br>
           <p>Nos dirigimos a <b>‘Ingresar’</b> y nos mostrará esto:</p>
-          <img src="<?php echo URLV ?>imagenes/imagen17.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen28.PNG" class="centrar-imagen" ><br>
           <p>De acuerdo a la base de datos <b>‘tramite’</b> dentro de la tabla <b>‘empleados’</b> seleccionemos un DNI y contraseña de uno para iniciar sesión.</p>
-          <img src="<?php echo URLV ?>imagenes/imagen18.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen49.PNG" class="centrar-imagen" ><br>
           <P>Una vez ya iniciado podremos realizar acciones de acuerdo a nuestro cargo dentro del sistema.</P>
           <P>Cada cargo maneja diferentes funciones y estas estarán disponibles una vez iniciemos con una cuenta correcta.</P>
           <p>Las funciones disponibles estarán en la barra de navegación, la cual cambiará de acuerdo al tipo de cuenta.</p>
           <P>Por ejemplo, con este perfil podremos visualizar :</P>
           <img src="<?php echo URLV ?>imagenes/imagen19.PNG" class="centrar-imagen" ><br>
-          <img src="<?php echo URLV ?>imagenes/imagen20.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen50.PNG" class="centrar-imagen" ><br>
           <img src="<?php echo URLV ?>imagenes/imagen21.PNG" class="centrar-imagen" ><br>
           <P>Podremos ver los trámites disponibles. Estos podrán ser redirigidos, modificados o eliminados.</P>
-          <img src="<?php echo URLV ?>imagenes/imagen22.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen51.PNG" class="centrar-imagen" ><br>
           <p>Una cuenta destinada a Mesa de Partes podrá registrar personas, crear trámites.</p>
           <img src="<?php echo URLV ?>imagenes/imagen23.PNG" class="centrar-imagen" ><br>
           <img src="<?php echo URLV ?>imagenes/imagen24.PNG" class="centrar-imagen" ><br>
@@ -238,6 +238,7 @@
           <img src="<?php echo URLV ?>imagenes/imagen29.PNG" class="centrar-imagen" ><br>
           <p>b. Después podremos ver las opciones permitidas según nuestra ocupación o cargo.</p>
           <img src="<?php echo URLV ?>imagenes/imagen28.PNG" class="centrar-imagen" ><br>
+
          </div>
         </div>
         <div id="section42">
