@@ -77,7 +77,7 @@
 				//print_r($at);
 				Js::prints($at,false,"areas");
 				Js::prints($c,false,"cargos");
-				Js::prints($tramite,false);
+				Js::prints($tramite,true);
 				Js::prints(Auth::getuser("Gerente"),false,"sudo");
 				render("empleados/editar");
 			}
