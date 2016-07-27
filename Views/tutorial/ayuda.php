@@ -267,7 +267,9 @@
         <div id="section44">
          <div class="text-info" align="justify">
           <h1>Crear Empleado</h1>
-          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+          <p>Aquí se podrá crear un empleado nuevo asignando su cargo dentro del sistema. Función disponible únicamente por un SU. 
+          </p>
+          <img src="">
          </div>
         </div>
         <div id="section45">
@@ -293,6 +295,22 @@
           </p>
           <img src="<?php echo URLV ?>imagenes/imagen37.PNG" class="centrar-imagen" ><br>
           <img src="<?php echo URLV ?>imagenes/imagen38.PNG" class="centrar-imagen" ><br>
+         </div>
+        </div>
+         <div class="text-info" align="justify">
+          <h1>Eliminar Trámite</h1>
+          <p>En el caso que necesitemos eliminar un trámite de la base de datos seleccionaremos el icono <span class="glyphicon glyphicon-trash"></span> . Es preferible cambiar el estado del trámite como Cancelado.
+
+          </p>
+          <img src="<?php echo URLV ?>imagenes/imagen39.PNG" class="centrar-imagen" ><br>
+         </div>
+        </div>
+         <div class="text-info" align="justify">
+          <h1>Modificar Trámite</h1>
+          <p>EPara modificar errores o hacer cambios en algún trámite ya creado, podemos hacer click en el ícono <span class="glyphicon glyphicon-pencil"></span> y así modificar el trámite elegido.
+              
+          </p>
+          <img src="<?php echo URLV ?>imagenes/imagen39.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
         <div id="section491">
