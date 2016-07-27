@@ -18,8 +18,9 @@
 			if (Auth::getuser("Jefe de Area")){
 				//echo Auth::getareaId();
 				$areas = $t->getAllTramitesDatosByIdAreaActual(Auth::getareaId(),False);
+				$a = $t->getAllTramitesDatosByIdEncargado(Auth::getuserId(),False);
 				//print_r($areas);
-				Js::prints($areas,true);
+				Js::prints(array_merge($areas,$a),true);
 			}
 			else if (Auth::getuser("Encargado")){
 				//echo "here";

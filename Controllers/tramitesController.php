@@ -12,7 +12,7 @@
 		function index(){
 			/*
 				Necesito getAllTRamites()
-			*/
+			*/ 
 			$t= new Tramite();
 			//print_r($t->getAllTRamitesDatos());
 			Js::prints($t->getAllTRamitesDatos(),true,"data");

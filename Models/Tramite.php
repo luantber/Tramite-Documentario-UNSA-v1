@@ -341,10 +341,10 @@
 		function getAllTramitesDatosByIdAreaActual($Id_Area,$finalizado)
 		{
 			if($finalizado==true){
-				$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area." AND Estado='finalizado'";
+				$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area." AND Estado='finalizado' AND Asignado!=1";
 			}
 			else{
-				$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area." AND Estado!='finalizado'";	
+				$request="SELECT `Id_Expediente` FROM `tramites` WHERE Id_Area_Actual=".$Id_Area." AND Estado!='finalizado' AND Asignado!=1";	
 			}
 			
 			$result=$this->query->consulta($request);

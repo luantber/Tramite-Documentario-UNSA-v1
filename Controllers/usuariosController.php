@@ -24,11 +24,12 @@
 				$data = array(
 					$_POST["nomusu"],
 					$_POST["apeusu"],
-					$_POST["dniusu"]
+					$_POST["dniusu"],
+					123456
 				);
 
 				//Lo se esto .. esta bien fumado
-				$r->registrarPersona(...$data);
+				$r->registrarPersonaPassword(...$data);
 				echo "exito";
 				Js::prints($data,false);
 				
@@ -114,7 +115,8 @@
 						'nombres'=>$t->getNombres(),
 						'apellidos'=>$t->getApellidos(),
 						'dni'=>$t->getDni(),
-						'empresa'=>$t->getNombreEmpresa()
+						'empresa'=>$t->getNombreEmpresa(),
+						'password'=>$t->password_persona
 						//
 					);
 
@@ -146,6 +148,7 @@
 				$t->nombres = $_POST["nome"];
 				$t->apellidos = $_POST["apee"];
 				$t->dni = $_POST["dnie"];
+				$t->password_persona = $_POST["password"];
 				$t->save();
 
 				redirect("usuarios");
