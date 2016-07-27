@@ -245,6 +245,9 @@
 				$a = new Area;
 				$at = $a->obtenerAreas();
 				Js::prints($at,false,"areas");
+				Js::prints(Auth::is_empleado(),true,"is_empleado");
+				$dniar = array(Auth::getDni());
+				Js::prints($dniar,true,"dni");
 				if (Auth::get_session()["nombre_cargo"]!="usuario")
 					render("usuarios/crear");
 				render("tramites/crear");

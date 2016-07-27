@@ -201,26 +201,7 @@
           <p>Ahora ya podremos almacenar y leer información de la Base de Datos.</p>
           <img src="<?php echo URLV ?>imagenes/imagen15.PNG" class="centrar-imagen" ><br>
           <p>Nos dirigimos al navegador y escribimos: <b>‘localhost/tramitedocumentariocs/’</b>. Nos aparecerá esta pantalla.</p>
-          <img src="<?php echo URLV ?>imagenes/imagen16.PNG" class="centrar-imagen" ><br>
-          <p>Nos dirigimos a <b>‘Ingresar’</b> y nos mostrará esto:</p>
-          <img src="<?php echo URLV ?>imagenes/imagen17.PNG" class="centrar-imagen" ><br>
-          <p>De acuerdo a la base de datos <b>‘tramite’</b> dentro de la tabla <b>‘empleados’</b> seleccionemos un DNI y contraseña de uno para iniciar sesión.</p>
-          <img src="<?php echo URLV ?>imagenes/imagen18.PNG" class="centrar-imagen" ><br>
-          <P>Una vez ya iniciado podremos realizar acciones de acuerdo a nuestro cargo dentro del sistema.</P>
-          <P>Cada cargo maneja diferentes funciones y estas estarán disponibles una vez iniciemos con una cuenta correcta.</P>
-          <p>Las funciones disponibles estarán en la barra de navegación, la cual cambiará de acuerdo al tipo de cuenta.</p>
-          <P>Por ejemplo, con este perfil podremos visualizar :</P>
-          <img src="<?php echo URLV ?>imagenes/imagen19.PNG" class="centrar-imagen" ><br>
-          <img src="<?php echo URLV ?>imagenes/imagen20.PNG" class="centrar-imagen" ><br>
-          <img src="<?php echo URLV ?>imagenes/imagen21.PNG" class="centrar-imagen" ><br>
-          <P>Podremos ver los trámites disponibles. Estos podrán ser redirigidos, modificados o eliminados.</P>
-          <img src="<?php echo URLV ?>imagenes/imagen22.PNG" class="centrar-imagen" ><br>
-          <p>Una cuenta destinada a Mesa de Partes podrá registrar personas, crear trámites.</p>
-          <img src="<?php echo URLV ?>imagenes/imagen23.PNG" class="centrar-imagen" ><br>
-          <img src="<?php echo URLV ?>imagenes/imagen24.PNG" class="centrar-imagen" ><br>
-          <p>De la misma forma una cuenta SU podrá crear empleados, áreas y eliminarlos.</p>
-          <img src="<?php echo URLV ?>imagenes/imagen25.PNG" class="centrar-imagen" ><br>
-          <img src="<?php echo URLV ?>imagenes/imagen26.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen48.PNG" class="centrar-imagen" ><br>
         </div>
       </div>
 
@@ -238,18 +219,7 @@
           <img src="<?php echo URLV ?>imagenes/imagen29.PNG" class="centrar-imagen" ><br>
           <p>b. Después podremos ver las opciones permitidas según nuestra ocupación o cargo.</p>
           <img src="<?php echo URLV ?>imagenes/imagen28.PNG" class="centrar-imagen" ><br>
-          <h4>Login Gerente</h4>
-            <p>El Gerente tendrá la capacidad de un SU. Podrá ver las estadísticas de todo el sistema, crear áreas, crear empleados, crear usuarios, asignar movimientos, etc. Tendrá la capacidad de hacer todas las funciones disponibles en el sistema. Todo esto disponible a través a la barra de navegación.</p>
-            <h4>Login-Jefe de Área</h4>
-            <p>El Jefe de Área podrá ver la bandeja de entradas de trámites de acuerdo a su área, y podrá asignar a un encargado, ver los Movimientos recientes.
-            </p>
-            <h4>Login Encargado</h4>
-            <p>El Encargado tendrá una bandeja de trámites asignados hace él. Podrá darlas como terminadas, ponerles una observación o mandarlas hacia otra área respectiva.
-            </p>
-            <h4>Login Mesa de Partes</h4>
-            <p>El encargado de Mesa de Partes podrá crear un nuevo usuario, podrá crear un nuevo trámite, modificarlo y enviarlo hacia su respectiva área.
-            Todos los Empleados podrá ver la lista de usuarios. Podrán 
-            buscar trámites y usuarios.
+
          </div>
         </div>
         <div id="section42">
