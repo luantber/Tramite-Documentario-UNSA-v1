@@ -229,8 +229,8 @@
 			        } 
 
 					//error e
-					echo " Exito Al crear el TRamite";
-					//redirect("panel");
+					//echo " Exito Al crear el TRamite";
+					redirect("panel");
 //					echo $t->getAsunto();
 				}
 				else{

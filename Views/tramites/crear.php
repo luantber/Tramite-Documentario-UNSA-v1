@@ -55,7 +55,7 @@
       <div class="form-group"> 
       <label for="archivo" class="col-sm-2 control-label">Archivo</label> 
       <div class="col-sm-10"> 
-        <input id="archivo" name="archivo" type="file" class="file" data-show-preview="false">           
+        <input id="archivo" name="archivo" type="file" class="file" data-show-preview="false" required>           
         <script type="text/javascript"> 
           $("#archivo").fileinput( 
           { 
