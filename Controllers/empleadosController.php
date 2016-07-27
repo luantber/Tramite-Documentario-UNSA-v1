@@ -78,7 +78,10 @@
 				Js::prints($at,false,"areas");
 				Js::prints($c,false,"cargos");
 				Js::prints($tramite,true);
-				Js::prints(Auth::getuser("Gerente"),false,"sudo");
+				Js::prints(Auth::getCargo(),true,"sudo");
+
+
+
 				render("empleados/editar");
 			}
 			else{
@@ -86,7 +89,7 @@
 			}
 		}
 		else{
-			echo "No tienes permisos para editar estop";
+			echo "No tienes permisos para editar esto";
 		}		
 	}
 	else{

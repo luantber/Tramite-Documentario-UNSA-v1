@@ -95,6 +95,7 @@
 			/*
 				Checkear seguridad
 			*/
+			logueado();
 			if (isset($id)){
 				$a = new Area;
 				$at = $a->obtenerAreas();

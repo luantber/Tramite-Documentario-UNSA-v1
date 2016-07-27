@@ -62,6 +62,10 @@
 			return false;
 		}
 
+		static function getCargo(){
+			return $_SESSION[$ses]["nombre_cargo"];
+		}
+
 		static function destroy()
 		{
 			@session_destroy();
