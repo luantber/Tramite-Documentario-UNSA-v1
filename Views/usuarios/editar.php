@@ -5,7 +5,7 @@
         <label for="nombree" class="col-sm-5 control-label" >Nombre</label>
         <div class="col-sm-7">
         <script type="text/javascript">
-          if (asuario==true) {
+          if (sudo==true) {
             document.write("<input name='nome' type='text' class='form-control' id='nombree'  required >");
           }
           else{
@@ -27,7 +27,7 @@
       <label for="dni" class="col-sm-2 control-label" >DNI</label>
       <div class="col-sm-10">
         <script type="text/javascript">
-        if (usuario) {
+        if (==true) {
           document.write("<input name=''dnie' type='text' class='form-control' id='dnie' required >");
         }
         else{
