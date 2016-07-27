@@ -175,9 +175,19 @@
 
 				return $datos;
 			}
-
 			
-
+			
+			public function getAllDatosAsociativo()
+			{
+				$datos=array(
+				"id"=>$this->id,
+				"dni"=>$this->dni,
+				"nombres"=>$this->nombres,
+				"apellidos"=>$this->apellidos,
+				"nombre_empresa"=>$this->nombre_empresa,				
+				"password"=>$this->password_persona);
+				return $datos;
+			}
 			
 			
 
@@ -352,7 +362,7 @@
  	$p->dni=99999999;
  	$p->save();
 	*/
- 	/*
+ 	
 	$tram=new Persona();
  	$cosa=$tram->getAllClientes();
 	
@@ -362,7 +372,7 @@
 		}
 		echo "</br>";
 	}
-	*/
+	
  	
  	/*
  	$cosa=new Persona();
