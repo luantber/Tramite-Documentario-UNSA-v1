@@ -245,8 +245,8 @@
 				$a = new Area;
 				$at = $a->obtenerAreas();
 				Js::prints($at,false,"areas");
-				
-				render("usuarios/crear");
+				if (Auth::get_session()["nombre_cargo"]!="usuario")
+					render("usuarios/crear");
 				render("tramites/crear");
 
 			}
