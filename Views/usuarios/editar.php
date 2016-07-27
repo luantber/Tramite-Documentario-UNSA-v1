@@ -9,7 +9,7 @@
             document.write("<input name='nome' type='text' class='form-control' id='nombree'  required >");
           }
           else{
-            document.write("<input name='nome' type='text' class='form-control' id='nombree'  required disable>");
+            document.write("<input name='nome' type='text' class='form-control' id='nombree'  required disabled>");
           }
         </script>
           
@@ -18,7 +18,15 @@
       <div class="col-xs-6">
         <label for="apellidoe" class="col-sm-4 control-label" >Apellidos</label>
         <div class="col-sm-8">
-          <input name="apee"type="text" class="form-control" id="apellidoe"  required disabled="">
+          <script type="text/javascript">
+          if (usuario==true) {
+            document.write("<input name='apee'type='text' class='form-control' id='apellidoe'  required>");
+          }
+          else{
+           document.write("<input name='apee'type='text' class='form-control' id='apellidoe'  required disabled>"); 
+          }
+          </script>
+          
         </div>
       </div>
   </div>
@@ -28,7 +36,7 @@
       <div class="col-sm-10">
         <script type="text/javascript">
         if (usuario==true) {
-          document.write("<input name=''dnie' type='text' class='form-control' id='dnie' required >");
+          document.write("<input name='dnie' type='text' class='form-control' id='dnie' required >");
         }
         else{
           document.write("<input name='dnie' type='text' class='form-control' id='dnie' required disabled>");
@@ -37,16 +45,16 @@
           
       </div>
   </div>
-
+<!--
   <div class="form-group">
       <label for="email" class="col-sm-2 control-label" >correo</label>
       <div class="col-sm-10">
           <script type="text/javascript">
           if (usuario==true) {
-            document.write("<input name='emaile' type='email' class='form-control' id='emaile' required >");          
+            document.write("<input name='emaile' type='email' class='form-control' id='emaile'  >");          
           }
           else{
-            document.write("<input name='emaile' type='email' class='form-control' id='emaile' required >");
+            document.write("<input name='emaile' type='email' class='form-control' id='emaile' >");
           };
 
           </script>
@@ -68,7 +76,7 @@
       </div>
   </div>
 
-
+-->
   <input id="idee" type="hidden" name="id" value="">
 
     <nav>
@@ -86,8 +94,8 @@
   document.getElementById('nombree').value =data.nombres;
   document.getElementById('apellidoe').value=data.apellidos;
   document.getElementById('dnie').value=data.dni;
-  document.getElementById('emaile').value=data.email;
-  document.getElementById('passworde').value=data.password;
+  //document.getElementById('emaile').value=data.email;
+  //document.getElementById('passworde').value=data.password;
 
 </script>
 
