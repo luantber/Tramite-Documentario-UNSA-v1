@@ -21,11 +21,11 @@ document.write(title);
       </tr>
     </thead>
 
-    <tbody>      
+    <tbody>
       <script type="text/javascript">
         var nuevo,tamanio;
         //nuevo=data[0];
-        tamanio=data.length; 
+        tamanio=data.length;
         for(var i=0; i<tamanio;i++){
           nuevo=data[i];
           document.write("<tr><td>"+nuevo[0]+"</td>");
@@ -37,20 +37,11 @@ document.write(title);
           document.write("<td>"+nuevo[9]+"</td>");
           document.write("<td>"+nuevo[10]+"</td>");
           document.write("<td><a href='<?php echo URLM ?>personas/Ver/"+nuevo[0]+"'><span class='glyphicon glyphicon-user'></span></a>"+"</td>");
-          document.write("<td><a href='<?php echo URLM ?>empleados/editar/"+nuevo[0]+"'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td>");          
+          document.write("<td><a href='<?php echo URLM ?>empleados/editar/"+nuevo[0]+"'><span class='glyphicon glyphicon-pencil'></span></a>"+"</td>");
           document.write("<td><a href='<?php echo URLM ?>empleados/eliminar/"+ nuevo[0] +"'><span class='glyphicon glyphicon-trash'></span></a>"+"</td></tr>");
         }
       </script>
-
-    <div class="container">
-      <ul class="pagination">
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-      </ul>
-    </div>
+      
     </tbody>
   </table>
 </div>
