@@ -4,7 +4,15 @@
       <div class="col-xs-6">
         <label for="nombree" class="col-sm-5 control-label" >Nombre</label>
         <div class="col-sm-7">
-          <input name="nome" type="text" class="form-control" id="nombree"  required disabled="">
+        <script type="text/javascript">
+          if (asuario==true) {
+            document.write("<input name='nome' type='text' class='form-control' id='nombree'  required >");
+          }
+          else{
+            document.write("<input name='nome' type='text' class='form-control' id='nombree'  required disable>");
+          }
+        </script>
+          
         </div>
       </div>
       <div class="col-xs-6">
@@ -41,12 +49,13 @@
       <label for="email" class="col-sm-2 control-label" >contraseña</label>
       <div class="col-sm-10">
           <script type="text/javascript">
-          if (sudo==true ) {
+          if (sudo==true || usuario==true ) {
             document.write("<input  name='password' type='password' class='form-control' id='passworde' required disabled>");
           }
           else  {
             document.write("<input placeholder='Ingrese nueva contraseña' name='password' type='password' class='form-control' id='passworde' required>");
-          };  
+          };
+
           </script>
       </div>
   </div>
