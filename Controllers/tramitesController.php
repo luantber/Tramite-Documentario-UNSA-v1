@@ -288,10 +288,10 @@
 		        $observaciones=$_POST["obs"]."\n"; 
 		        echo "tu cambio ".$camb; 
 		        echo "tus observaciones".$observaciones;
-		        echo "dir: ".ROOT."SemiFTP/".$id.".doc"; 
-		        if (chmod(ROOT."SemiFTP/".$id.".doc",0777)) 
+		        echo "dir: ".ROOT."SemiFTP/".$id.".odt"; 
+		        if (chmod(ROOT."SemiFTP/".$id.".odt",0777)) 
 		          echo "se cambio"; 
-		        $f=fopen(ROOT."SemiFTP/".$id.".doc","a"); 
+		        $f=fopen(ROOT."SemiFTP/".$id.".odt","a"); 
 		        $cam="\n".$camb."\n"; 
 		        fwrite($f, $cam); 
 		        fwrite($f, $observaciones); 
