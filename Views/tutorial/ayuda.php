@@ -233,9 +233,10 @@
         <div id="section41">
          <div class="text-info" align="justify">
           <h1>LOGIN</h1>
-          <p>a. Primero debemos ingresar con nuestro DNI y nuestra respectiva contraseña, de acuerdo a los datos asignados en la base de datos.</p>
+          <p>a. Primero debemos hacer click en ingresar y seleccionar si somos Usuarios o Empleados e iniciar sesión
+             con nuestro DNI y contraseña</p>
+          <img src="<?php echo URLV ?>imagenes/imagen28.PNG" class="centrar-imagen" >
           <p>b. Después podremos ver las opciones permitidas según nuestra ocupación o cargo.</p>
-          <img src="<?php echo URLV ?>imagenes/imagen28.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
         <div id="section42">
