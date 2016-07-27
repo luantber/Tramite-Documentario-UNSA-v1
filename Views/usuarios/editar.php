@@ -60,6 +60,7 @@
           </script>
       </div>
   </div>
+-->
 
   <div class="form-group">
       <label for="email" class="col-sm-2 control-label" >contraseña</label>
@@ -76,7 +77,6 @@
       </div>
   </div>
 
--->
   <input id="idee" type="hidden" name="id" value="">
 
     <nav>
@@ -95,7 +95,7 @@
   document.getElementById('apellidoe').value=data.apellidos;
   document.getElementById('dnie').value=data.dni;
   //document.getElementById('emaile').value=data.email;
-  //document.getElementById('passworde').value=data.password;
+  document.getElementById('passworde').value=data.password;
 
 </script>
 

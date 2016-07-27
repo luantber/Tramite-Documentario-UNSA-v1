@@ -12,7 +12,7 @@
 		function index(){
 			/*
 				Necesito getAllTRamites()
-			*/
+			*/ 
 			$t= new Tramite();
 			//print_r($t->getAllTRamitesDatos());
 			Js::prints($t->getAllTRamitesDatos(),true,"data");
@@ -229,8 +229,8 @@
 			        } 
 
 					//error e
-					echo " Exito Al crear el TRamite";
-					//redirect("panel");
+					//echo " Exito Al crear el TRamite";
+					redirect("panel");
 //					echo $t->getAsunto();
 				}
 				else{
