@@ -131,6 +131,7 @@
 
 					render("tramites/asignar");
 					render("tramites/editar");
+					render("tramites/responder");
 
 				}
 				else{
