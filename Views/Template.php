@@ -150,6 +150,7 @@ nav.navbar {
         ?></a></li>  -->
 
       <!--SALIR!-->
+      <li><a href="<?php echo URLM ?>tutorial"><span class="glyphicon glyphicon-question-sign" ></span> Tutorial</a></li>
       <li><a href="<?php echo URLM ?>empleados/salir"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
     </ul>
     <?php
@@ -164,7 +165,7 @@ nav.navbar {
         <li><a href="<?php echo URLM ?>tutorial"><span class="glyphicon glyphicon-question-sign" ></span> Tutorial</a></li>
         <!--INGRESAR!-->
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="">Ingresar<span class="glyphicon glyphicon-log-in"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-log-in"></span> Ingresar</a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo URLM ?>empleados/ingresar">Empleado</a></li>
             <li><a href="<?php echo URLM ?>usuarios/ingresar">Usuario</a></li>

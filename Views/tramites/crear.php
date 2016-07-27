@@ -88,7 +88,7 @@
     	</div>
   	</div>
 
-
+ 
     <script>
       function validacion() {
         var dni,indice,tipo,destino;//elemento= tipo de empresa
@@ -116,7 +116,11 @@
           return false;
           }
 
-        else return true;
+        else {
+          alert('El tramite va a ser creado');
+          return true;
+          }
+
         }
     </script>
 

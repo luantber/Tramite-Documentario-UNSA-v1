@@ -172,11 +172,16 @@
 						redirect("panel");
 					}
 					else
-						echo "<br>Contraseña incorrecta";
+						//echo "<br>Contraseña incorrecta";
+						Js::prints(false,false,"dato");
+						render("chicos/incorrecta");
+						render("empleados/ingresar");
 				}
 				else
-					echo "No estas registrado";
 
+					Js::prints(true,false,"dato");
+				//	echo "No estas registrado";
+					render("chicos/incorrecta");
 			}
 			else{
 				
