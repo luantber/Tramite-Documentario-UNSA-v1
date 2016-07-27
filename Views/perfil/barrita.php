@@ -81,7 +81,12 @@
 <nav>
       <ul class="pager">
         <script type="text/javascript">
-          document.write("<a href='<?php echo URLM ?>empleados/editar/"+data.id+"''>Editar</a>")
+          if (editar==true) {
+            document.write("<a href='<?php echo URLM ?>usuarios/editar/"+data.id+"''>Editar</a>")  
+          }
+          else{
+            document.write("<a href='<?php echo URLM ?>empleados/editar/"+data.id+"''>Editar</a>")
+          }
       </script>        
       </ul>
     </nav>

@@ -20,7 +20,7 @@
 
 			//print_r($pd);
 			
-			Js::prints("Empleados ",true,"title");
+			Js::prints("Empleados ",false,"title");
 			Js::prints($pd,false);
 			
 			render("empleados/todosEmpleados");
@@ -82,7 +82,7 @@
 				render("empleados/editar");
 			}
 			else{
-				echo "No hay un usuario con este ID:".$id;	
+				echo "No hay un empleado con este ID:".$id;	
 			}
 		}
 		else{

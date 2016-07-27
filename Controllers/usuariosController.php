@@ -2,6 +2,9 @@
 
 	use Models\Persona as Persona;
 	use Models\Js as Js;
+	use Config\Auth as Auth;
+	use Models\Area as Area;
+	use Models\Cargo as Cargo;
 	class usuariosController
 	{
 		function index(){
@@ -64,6 +67,58 @@
 			}
 			
 			render("usuarios/buscar");
+		}
+
+		function editar($id=0){
+		logueado();
+		if (empty($_POST)){
+			if(Auth::revisarArea("Mesa de Partes") or Auth::getuser("Gerente") or Auth::getuserId() == $id){
+				$t = new Persona;
+								
+				if ($t->obtenerDatosPersona($id)){
+					//$ae = $e->getAllDatos();
+					//print_r($ae);
+					$persona = array(
+						'id' => $t->getID(), 
+						'nombres'=>$t->getNombres(),
+						'apellidos'=>$t->getApellidos(),
+						'dni'=>$t->getDni(),
+						'empresa'=>$t->getNombreEmpresa()
+						//
+					);
+
+					//print_r($at);
+					$var = false;
+					if (Auth::revisarArea("Mesa de Partes") or Auth::getuser("Gerente")){
+						$var = true;
+					}
+
+					Js::prints($var,true,"usuario");					
+
+					Js::prints($persona,true);
+					Js::prints(Auth::getuser("Gerente"),true,"sudo");
+					render("usuarios/editar");
+					}
+					else{
+						echo "No hay un usuario con este ID:".$id;	
+					}
+				}
+				else{
+					echo "No tienes permisos para editar estop";
+				}		
+			}
+			else{
+
+				$t = new Persona;
+				$t->obtenerDatosPersona($_POST["id"]);
+				print_r($_POST);
+				$t->nombres = $_POST["nome"];
+				$t->apellidos = $_POST["apee"];
+				$t->dni = $_POST["dnie"];
+				$t->save();
+
+				redirect("usuarios");
+			}
 		}
 
 		function ver()

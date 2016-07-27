@@ -28,6 +28,7 @@ class perfilController
 					"area" =>$e->nombre_area,
 					"activo"=>$e->activo
 					);
+					$usu = true;
 				}
 				else{
 					$tramite = array(
@@ -37,8 +38,10 @@ class perfilController
 					'dni'=>$t->getDni(),
 					'empresa'=>$t->getNombreEmpresa()
 					);
+					$usu = false;
 				}
-		
+				
+				Js::prints($usu,true,"editar");
 				Js::prints($tramite,true);
 				render("perfil/barrita");
 			}
