@@ -79,7 +79,7 @@
 				Js::prints($c,false,"cargos");
 				Js::prints($tramite,true);
 				Js::prints(Auth::getuser("Gerente"),false,"sudo");
-				Js::prints(Auth::getuser("Gerente") or Auth::getuserId() == $id,false,"sudo2");
+				Js::prints(Auth::getuser("Gerente") and Auth::getuserId() == $id,false,"sudo2");
 
 
 
