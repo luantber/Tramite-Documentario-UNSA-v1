@@ -11,6 +11,7 @@
       </div>
   </div>
 
+<!-- comentario-->
   <script>
     if (!is_empleado) {
     document.getElementById("identificacion").value=dni[0];
