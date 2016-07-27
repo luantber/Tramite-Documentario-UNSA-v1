@@ -87,12 +87,7 @@
 						//
 					);
 
-					$a = new Area;
-					$c = Cargo::getCargos();
-					$at = $a->obtenerAreas();
 					//print_r($at);
-					Js::prints($at,true,"areas");
-					Js::prints($c,true,"cargos");
 					Js::prints($persona,true);
 					Js::prints(Auth::getuser("Gerente"),true,"sudo");
 					render("usuarios/editar");
