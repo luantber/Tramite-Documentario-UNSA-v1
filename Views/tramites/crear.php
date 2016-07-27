@@ -1,6 +1,6 @@
 			<!--.............................NUEVO TRÁMITE .............................. !-->
 <h2 class="text-center" >Nuevo Trámite</h2>
-<form class="form-horizontal container" onsubmit="return validacion()"method="POST" action="<?php  echo URLM."tramites/crear" ?>">
+<form class="form-horizontal container" onsubmit="return validacion()"method="POST" action="<?php  echo URLM."tramites/crear" ?>" enctype="multipart/form-data">
 
 
   <div class="form-group">
@@ -58,6 +58,21 @@
           <p id="nopcion" ></p>
 			</div>
   		</div>
+      
+      <div class="form-group"> 
+      <label for="archivo" class="col-sm-2 control-label">Archivo</label> 
+      <div class="col-sm-10"> 
+        <input id="archivo" name="archivo" type="file" class="file" data-show-preview="false">           
+        <script type="text/javascript"> 
+          $("#archivo").fileinput( 
+          { 
+            showUpload:false, 
+            language: 'es', 
+            allowedFileExtensions: ["doc","docx"], 
+            maxFilesNum: 1 
+          }); 
+        </script> 
+      </div> 
 
       <div class="row">
         <div class="col-md-8 col-md-offset-3">
@@ -67,7 +82,6 @@
           </script>
         </div>
       </div>
-
     <nav>
       <ul class="pager">
         <li><a href="<?php echo URLM ?>/tramites">Cancelar</a></li>

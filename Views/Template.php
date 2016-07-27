@@ -36,8 +36,10 @@
 
 	<title>Trámite Documentario</title>
 	<script type="text/javascript" src="<?php echo URLV ?>js/jquery-1.9.1.js"></script>!
-
+  <link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/fileinput.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/bootstrap.min.css">
+  <script type="text/javascript" src="<?php echo URLV ?>js/fileinput.min.js"></script> 
+  <script type="text/javascript" src="<?php echo URLV ?>js/esinputfile.js"></script>
 	<script type="text/javascript" src="<?php echo URLV ?>js/bootstrap.min.js"></script>
 
 </head>
@@ -97,7 +99,9 @@
         <li><a href="<?php echo URLM ?>panel">Panel/Cola</a></li>
           <li><a href="<?php echo URLM ?>tramites/crear">Nuevo</a></li>
           <li><a href="<?php echo URLM ?>tramites/buscar">Buscar</a></li>
+          <li><a href="<?php echo URLM ?>tramites/responder">Responder</a></li>
           <li><a href="<?php echo URLM ?>tramites">Todos</a></li>
+
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 

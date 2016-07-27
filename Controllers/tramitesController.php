@@ -179,9 +179,8 @@
 				//registrarTramiteByDni($Folios,$Asunto,$Dni_Persona,$Id_Area_Destino,$Tipo_Tramite,$Prioridad,$Estado,$DescripcionEstado)
 				echo "Destino".$_POST["destino"];
 
-
-				if($t->registrarTramiteByDni(
-				/*
+				/*if($t->registrarTramiteByDni(
+				
 					$_POST["asunto"],
 					$_POST["ident"],
 					$_POST["destino"],
@@ -190,18 +189,37 @@
 					"Pendiente",
 					 //Estado: Enproceso, finalizado y rechazado
 					"..."
-*/
+
 				$_POST["asunto"],$_POST["ident"],'0',$_POST["destino"],'0','0',$_POST["prioridad"]
 					)
-				)		 
+				)*/
+				if(true)		 
 				{
+					 //Descomentar cuando ya no haya error en tramites
+					$t->registrarTramiteByDni($_POST["asunto"],$_POST["ident"],'0',$_POST["destino"],'0','0',$_POST["prioridad"]);
+
+					if ($_FILES["archivo"]["error"]<=0) 
+			        { 
+			            $ext= end(explode(".", $_FILES['archivo']['name'])); 
+			            move_uploaded_file($_FILES["archivo"]["tmp_name"], ROOT."SemiFTP/".$t->query->get_id().".".$ext); 
+			            chmod(ROOT."SemiFTP/".$t->query->get_id().".".$ext,0777);
+			            echo "puede que se haya subido"; 
+			            echo "<br>id: ".$t->query->get_id();
+			            
+			        } 
+			        else  
+			        { 
+			            echo "Hubo un error con el archivo"; 
+			        } 
 
 					//error e
 					echo " Exito Al crear el TRamite";
-					redirect("panel");
+					//redirect("panel");
 //					echo $t->getAsunto();
 				}
 				else{
+					//Comentar cuando ya no haya error
+
 					JS::error("HUbo un error al registrar el Tramite, probablemente no exista el DNI");
 					//render("registrar/exito");
 				}
@@ -241,6 +259,39 @@
 			}
 
 		}
+
+
+     	function responder($id) 
+	    { 
+
+	    	if (isset($id))
+	    	{
+	    	  if (!empty($_POST)) 
+		      {       
+		        $camb=$_POST["cambio"]; 
+		        $observaciones=$_POST["obs"]."\n"; 
+		        echo "tu cambio ".$camb; 
+		        echo "tus observaciones".$observaciones;
+		        echo "dir: ".ROOT."SemiFTP/".$id.".doc"; 
+		        if (chmod(ROOT."SemiFTP/".$id.".doc",0777)) 
+		          echo "se cambio"; 
+		        $f=fopen(ROOT."SemiFTP/".$id.".doc","a"); 
+		        $cam="\n".$camb."\n"; 
+		        fwrite($f, $cam); 
+		        fwrite($f, $observaciones); 
+		        fwrite($f, "Respuesta por el area de: ".Auth::get_session()["nombre_area"]); 
+		        fclose($f);   
+		      } 
+		      else  
+		      {
+		        render("tramites/responder");	
+		      }
+	    	}
+	    	else 
+	    		render("tramites/todos");
+		       
+	    } 
+
 
 		function proceso(){
 			
