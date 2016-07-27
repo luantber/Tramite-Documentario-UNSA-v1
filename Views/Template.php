@@ -186,7 +186,7 @@ nav.navbar {
 						<!-- ..............TÍTULO  !!!!.......................-->
 <div class="jumbotron text-center  ">
   <h3>TRÁMITE DOCUMENTARIO</h3>
-  <p>Bienvenidos !</p>
+  <p> ¡ Bienvenidos !</p>
 </div>
 
 						<!-- ..............TÍTULO !!!!.......................-->
