@@ -117,7 +117,14 @@
   <div class="form-group">
       <label for="estado" class="col-sm-2 control-label" >Estado</label>
       <div class="col-sm-10">
-          <input name="estado" type="text" class="form-control" id="estado" required disabled="">
+        <script type="text/javascript">
+        if (sudo==true){
+          document.write("<input name='estado' type='text' class='form-control' id='estado' required >");
+        }
+        else  {
+          document.write("<input name='estado' type='text' class='form-control' id='estado' required disabled>")
+        }
+        </script>
       </div>
   </div>
 

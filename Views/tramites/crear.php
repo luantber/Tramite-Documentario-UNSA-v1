@@ -6,7 +6,10 @@
   <div class="form-group">
       <label for="identificacion" class="col-sm-2 control-label" >DNI </label>
       <div class="col-sm-10">
-          <input name="ident" type="text" class="form-control" id="identificacion" required placeholder=" Ingrese DNI de usuario">
+          <script type="text/javascript">
+          document.write("<input name='ident' type='text' class='form-control' id='identificacion' required value='"+dni+"'' >");
+          
+          </script>
           <p id="noingreso" ></p>
       </div>
   </div>
