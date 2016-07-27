@@ -63,7 +63,8 @@
 
 		function registrarTramite($Asunto,$Id_Persona,$Id_Encargado,$Id_Area_Destino,$Estado,$Tipo_Tramite,$Prioridad)
 		{
-			$request="INSERT INTO `tramites`(`Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Encargado`, `Id_Area_Actual`, `Id_Area_Destino`, `Estado`, `Asignado`, `Adjuntado`, `Tipo_Tramite`, `Prioridad`) VALUES ('".$this->fecha."','".$Asunto."',".$Id_Persona.",'".$Id_Encargado."','1',".$Id_Area_Destino.",'".$Estado."','0','0','".$Tipo_Tramite."',".$Prioridad.")";
+			$request="INSERT INTO `tramites`(`Fecha_Ingreso`, `Asunto`, `Id_Persona`, `Id_Encargado`, `Id_Area_Actual`, `Id_Area_Destino`, `Estado`, `Asignado`, `Adjuntado`, `Tipo_Tramite`, `Prioridad`) VALUES ('".$this->fecha."','".$Asunto."',".$Id_Persona.",'".$Id_Encargado."',".$Id_Area_Destino.",".$Id_Area_Destino.",'".$Estado."','0','0','".$Tipo_Tramite."',".$Prioridad.")";
+			//print_r($request);
 			$this->query->consulta($request);
 			
 		}

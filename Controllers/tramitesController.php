@@ -138,9 +138,11 @@
 					JS::prints("No existe un tramite con id,".$id,"error",false);
 				}
 			}
-			#redirect("error/e404");
-			echo "NO se recibiio..";
-			print($id);
+			else{
+				echo "No pasaste el id";
+			}
+			
+			
 			
 		}
 
@@ -199,13 +201,17 @@
 					 //Descomentar cuando ya no haya error en tramites
 					$t->registrarTramiteByDni($_POST["asunto"],$_POST["ident"],'0',$_POST["destino"],'0','0',$_POST["prioridad"]);
 
+
 					if ($_FILES["archivo"]["error"]<=0) 
 			        { 
 			            $ext= end(explode(".", $_FILES['archivo']['name'])); 
 			            move_uploaded_file($_FILES["archivo"]["tmp_name"], ROOT."SemiFTP".DS.$t->query->get_id().".".$ext); 
 			            chmod(ROOT."SemiFTP".DS.$t->query->get_id().".".$ext,0777);
-			            echo "puede que se haya subido"; 
-			            echo "<br>id: ".$t->query->get_id();
+			            //echo "puede que se haya subido"; 
+			            
+
+			            //echo "<br>id: ".$t->query->get_id();
+			            render("tramites/exito");
 
 			        } 
 			        else  
