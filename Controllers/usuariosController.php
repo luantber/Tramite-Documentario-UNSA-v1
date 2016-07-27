@@ -43,6 +43,37 @@
 
 		}
 
+		function ingresar()
+		{
+			if (!empty($_POST)){
+				
+				$emp = new Persona;
+				if ($emp->obtenerDatosPersonaByDni($_POST["username"]))
+				{
+					if ($emp->getPasswordPersona()==$_POST["password"])
+					{
+						$ar=$emp->getAllDatosAsociativo();
+						$ar["nombre_cargo"]="usuario";
+						$ar["nombre_area"]="";
+						Auth::set_session($ar);
+						//$_SESSION["sesion"]=$emp->getNombres();
+						//echo "desde controlador:".Auth::get_session()->getNombres();	
+						redirect("tramites/crear");
+					}
+					else
+						echo "<br>Contraseña incorrecta";
+				}
+				else
+					echo "No estas registrado";
+
+			}
+			else{
+				
+				render("usuarios/ingresar");
+				
+			}
+		}
+
 		function buscar()
 		{
 			# code...

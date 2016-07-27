@@ -11,9 +11,20 @@
   #section1 {color: #fff; background-color: #FFFFFF;}
   #section2 {color: #fff; background-color: #FAEEFF;}
   #section31 {color: #fff; background-color: #FFFFFF;}
-  #section32 {color: #fff; background-color: #FAEEFF;}
-  #section41 {color: #fff; background-color: #FFFFFF;}
-  #section42 {color: #fff; background-color: #FAEEFF;}
+  
+  #section41 {color: #fff; background-color: #FAEEFF;}
+  #section42 {color: #fff; background-color: #FFFFFF;}
+  #section43 {color: #fff; background-color: #FAEEFF;}
+  #section44 {color: #fff; background-color: #FFFFFF;}
+  #section45 {color: #fff; background-color: #FAEEFF;}
+  #section46 {color: #fff; background-color: #FFFFFF;}
+  #section47 {color: #fff; background-color: #FAEEFF;}
+  #section48 {color: #fff; background-color: #FFFFFF;}
+  #section49 {color: #fff; background-color: #FAEEFF;}
+  #section491 {color: #fff; background-color: #FFFFFF;}
+  #section492 {color: #fff; background-color: #FAEEFF;}
+  #section493 {color: #fff; background-color: #FFFFFF;}
+
 
 	IMG.centrar-imagen{
       display: block;
@@ -38,15 +49,25 @@
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">POR PRIMERA VEZ <span class="caret"></span></a>
           	<ul class="dropdown-menu">
             	<li><a href="#section31">Iniciando Servicios</a></li>
-            	<li><a href="#section32">Una vista rápida</a></li>
+            	<!--<li><a href="#section32">Una vista rápida</a></li>-->
           	</ul> 	
         </li>
 
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">TUTORIAL <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#section41">Section 4-1</a></li>
-            <li><a href="#section42">Section 4-2</a></li>
+            <li><a href="#section41">LOGIN</a></li>
+            <li><a href="#section42">Crear Área</a></li>
+            <li><a href="#section43">Crear Usuario</a></li>
+            <li><a href="#section44">Crear Empleado</a></li>
+            <li><a href="#section45">Crear Nuevo Trámite</a></li>
+            <li><a href="#section46">Ver trámites</a></li>
+            <li><a href="#section47">Redireccionar trámite</a></li>
+            <li><a href="#section48">Eliminar Trámite</a></li>
+            <li><a href="#section49">Eliminar Trámite</a></li>
+            <li><a href="#section491">Modificar Trámite</a></li>
+            <li><a href="#section492">Movimientos de trámite</a></li>
+            <li><a href="#section493">Gráfica de Estadísticas</a></li>
           </ul>
         </li>
       </ul>
@@ -200,26 +221,91 @@
           <p>De la misma forma una cuenta SU podrá crear empleados, áreas y eliminarlos.</p>
           <img src="<?php echo URLV ?>imagenes/imagen25.PNG" class="centrar-imagen" ><br>
           <img src="<?php echo URLV ?>imagenes/imagen26.PNG" class="centrar-imagen" ><br>
-
         </div>
       </div>
 
-	<div id="section42">
-        <h1>Una vista rápida</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>
-
-      <!--MANUAL ****************************************************************************************-->
-      <div id="section41">
-        <h1>Section 4-1</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>
-      <div id="section42">
-        <h1>Section 4-2</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>
-    </div>
-  </div>
+	<!--<div id="section42">-->
+      <!--<div class="text-info" align="justify">
+          <h1>TUTORIAL</h1>
+          <br>
+          <img src="<?php echo URLV ?>imagenes/imagen27.PNG" class="centrar-imagen" ><br>-->
+        <!--MANUAL ****************************************************************************************-->
+        <div id="section41">
+         <div class="text-info" align="justify">
+          <h1>LOGIN</h1>
+          <p>a. Primero debemos ingresar con nuestro DNI y nuestra respectiva contraseña, de acuerdo a los datos asignados en la base de datos.</p>
+          <p>b. Después podremos ver las opciones permitidas según nuestra ocupación o cargo.</p>
+          <img src="<?php echo URLV ?>imagenes/imagen28.PNG" class="centrar-imagen" ><br>
+         </div>
+        </div>
+        <div id="section42">
+         <div class="text-info" align="justify">
+          <h1>Crear Área</h1>
+          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+         </div>
+        </div>
+        <div id="section43">
+         <div class="text-info" align="justify">
+          <h1>Crear Usuario</h1>
+          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+         </div>
+        </div>
+        <div id="section44">
+         <div class="text-info" align="justify">
+          <h1>Crear Empleado</h1>
+          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+         </div>
+        </div>
+        <div id="section45">
+         <div class="text-info" align="justify">
+          <h1>Crear Empleado</h1>
+          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+         </div>
+        </div>
+        <div id="section46">
+         <div class="text-info" align="justify">
+          <h1>Crear Empleado</h1>
+          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+         </div>
+        </div>
+        <div id="section47">
+         <div class="text-info" align="justify">
+          <h1>Crear Empleado</h1>
+          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+         </div>
+        </div>
+        <div id="section48">
+         <div class="text-info" align="justify">
+          <h1>Crear Empleado</h1>
+          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+         </div>
+        </div>
+        <div id="section49">
+         <div class="text-info" align="justify">
+          <h1>Crear Empleado</h1>
+          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+         </div>
+        </div>
+        <div id="section491">
+         <div class="text-info" align="justify">
+          <h1>Crear Empleado</h1>
+          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+         </div>
+        </div>
+        <div id="section492">
+         <div class="text-info" align="justify">
+          <h1>Crear Empleado</h1>
+          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+         </div>
+        </div>
+        <div id="section493">
+         <div class="text-info" align="justify">
+          <h1>Crear Empleado</h1>
+          <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+         </div>
+        </div>
+      <!--</div>-->
+  <!--</div>-->
 </div>
 
 </body>
