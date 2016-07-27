@@ -17,11 +17,11 @@
 		{
 			$p = new Empleado();
 			$pd = $p->getAllEmpleadosDatos();
-			$noa = array();
-			$noa = array_merge($noa, $pd);
-			Js::prints("Empleados ",false,"title");
-			//print_r($noa);
-			Js::prints($noa,false);
+
+			print_r($pd);
+			
+			Js::prints("Empleados ",true,"title");
+			Js::prints($pd,true);
 			
 			render("empleados/todosEmpleados");
 	
@@ -77,7 +77,7 @@
 				//print_r($at);
 				Js::prints($at,false,"areas");
 				Js::prints($c,false,"cargos");
-				Js::prints($tramite,false);
+				Js::prints($tramite,true);
 				Js::prints(Auth::getuser("Gerente"),false,"sudo");
 				render("empleados/editar");
 			}
@@ -123,10 +123,12 @@
 				$data = array(
 					$_POST["nome"],
 					$_POST["apee"],
-					1, //Area Trabajo
+					$_POST["cargo"],
+					$_POST["area"], //Area Trabajo
 					"activo", //Activo?
 					$_POST["emaile"],
 					$_POST["dnie"],
+
 					123456 
 				);
 
@@ -163,7 +165,7 @@
 						Auth::set_session($ar);
 						//$_SESSION["sesion"]=$emp->getNombres();
 						//echo "desde controlador:".Auth::get_session()->getNombres();	
-						redirect("tramites");
+						redirect("panel");
 					}
 					else
 						echo "<br>Contraseña incorrecta";

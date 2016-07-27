@@ -164,19 +164,14 @@
 
 <div>
 
-<br><br>
+<br><br><br><br><br><br>
 	<?php
 		}
 		public function __destruct(){
  ?>
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 						<!-- ..............TÍTULO  !!!!.......................-->
 <div class="jumbotron text-center  ">
