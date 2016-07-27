@@ -201,11 +201,11 @@
 					if ($_FILES["archivo"]["error"]<=0) 
 			        { 
 			            $ext= end(explode(".", $_FILES['archivo']['name'])); 
-			            move_uploaded_file($_FILES["archivo"]["tmp_name"], ROOT."SemiFTP/".$t->query->get_id().".".$ext); 
-			            chmod(ROOT."SemiFTP/".$t->query->get_id().".".$ext,0777);
+			            move_uploaded_file($_FILES["archivo"]["tmp_name"], ROOT."SemiFTP".DS.$t->query->get_id().".".$ext); 
+			            chmod(ROOT."SemiFTP".DS.$t->query->get_id().".".$ext,0777);
 			            echo "puede que se haya subido"; 
 			            echo "<br>id: ".$t->query->get_id();
-			            
+
 			        } 
 			        else  
 			        { 
