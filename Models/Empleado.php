@@ -390,7 +390,7 @@
 	//echo $cosa->getEmpleadosIdNombreByIdArea(5)[1][1];
 	//$cosa=new Empleado();
 	//$cosa->deleteEmpleado(5);
-	
+	/*
 	$cosa=new Empleado();
 	$cosas=$cosa->getAllEmpleadosDatos();
 	foreach ($cosas as $key ) {
@@ -399,6 +399,7 @@
 		}
 		echo "</br>";
 	}
+	*/
 	
 
  ?>

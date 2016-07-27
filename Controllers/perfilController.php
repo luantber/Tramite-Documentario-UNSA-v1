@@ -12,7 +12,7 @@ class perfilController
 	function index()
 	{
 		$id = Auth::getuserId();
-		echo $id;
+		//echo $id;
 		$t = new Persona;
 			if ($t->obtenerDatosPersona($id)){
 				$e = new Empleado;
@@ -25,7 +25,8 @@ class perfilController
 					'empresa'=>$t->getNombreEmpresa(),
 					'email' => $e->correo,
 					"cargo" =>$e->nombre_cargo,
-					"area" =>$e->nombre_area
+					"area" =>$e->nombre_area,
+					"activo"=>$e->activo
 					);
 				}
 				else{

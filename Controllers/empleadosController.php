@@ -17,14 +17,11 @@
 		{
 			$p = new Empleado();
 			$pd = $p->getAllEmpleadosDatos();
-			$noa = array();
-			$noa = array_merge($noa, $pd);
-			Js::prints("Empleados ",true,"title");
-			//print_r($noa);
-			Js::prints($noa,true);
+
+			//print_r($pd);
 			
-			Js::prints("Empleados ",true,"title");
-			Js::prints($pd,true);
+			Js::prints("Empleados ",false,"title");
+			Js::prints($pd,false);
 			
 			render("empleados/todosEmpleados");
 	
