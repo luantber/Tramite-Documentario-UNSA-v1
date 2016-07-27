@@ -70,21 +70,28 @@
   	</div>
   	<p id="ejemplo"> </p>
 	<input id="este" class="hidden">		
+  <p id ="viewer"></p>
 </form>
 </div>
+
+
+<div id="viewer" align="center">
+  
   <script>
-  	 document.getElementById("idtra").value=data[0];
-  	 document.getElementById("ingreso").value=data[1];
-  	 document.getElementById("termino").value=data[2];
- 	 document.getElementById('asunte').value=data[5];
- 	 document.getElementById('reme').value=data[14]+data[15];
- 	 document.getElementById('priori').value=data[6];
- 	 document.getElementById('estade').value=data[4];
+     document.getElementById("idtra").value=data[0];
+     document.getElementById("ingreso").value=data[1];
+     document.getElementById("termino").value=data[2];
+   document.getElementById('asunte').value=data[5];
+   document.getElementById('reme').value=data[14]+data[15];
+   document.getElementById('priori').value=data[6];
+   document.getElementById('estade').value=data[4];
    document.getElementById('dne').value=data[16];
    document.getElementById('deste').value=data[10]+"/"+data[12];
-  </script>	
 
+   str="<iframe src = '<?php echo URLM ?>ViewerJS/#../SemiFTP/";
+   str2 = ".odt' width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>";
+   document.write(str+data[0]+str2);
+  </script> 
 
-Heyy .. donde esta el boton ?
+</div>
 
-<iframe src = "<?php echo URLM ?>ViewerJS/#../SemiFTP/45.odt" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
