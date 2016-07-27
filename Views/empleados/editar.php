@@ -95,11 +95,12 @@
            <option value="">Seleccionar</option>
            <script type="text/javascript">
             //var cargo=["Jefe", "Encargado","Ayudante"]
-            var nuevo;
+            var nuevo,newo;
             for(var i=0;i<cargos.length;i++){
               nuevo=cargos[i];
               document.write("<option value="+nuevo[0]+">"+nuevo[1]+"</option>")
             }
+            
            </script>
          </select>
       </div>
@@ -134,7 +135,7 @@
 <script >
 
   document.getElementById('idee').value=data.id;
-  var valor=data.id_area;
+  var newo;
   document.getElementById('nombree').value =data.nombres;
   document.getElementById('apellidoe').value=data.apellidos;
   document.getElementById('dnie').value=data.dni;
@@ -143,11 +144,27 @@
   document.getElementById('estado').value=data.activo;
 
     //para seleccionar las opciones .... xD !
-  document.getElementById("area").selectedIndex=data.id_area;
-  document.getElementById('cargo').selectedIndex=data.id_cargo;
+//  document.getElementById("area").selectedIndex=data.id_area;
 
+for(var en=0;cargos.length;en++){
+    newo=cargos[en];
+    if (data.id_cargo==newo[0]) {
+      document.getElementById('cargo').selectedIndex=en+1; 
+    }
+}
 
-function ocultar(){
-document.getElementById('ocultar').style.display = 'none';}
 </script>
+
+
+<script type="text/javascript">
+var ne;
+for(var e=0;areas.length;e++){
+    ne=areas[e];
+    if (data.id_area==ne[0]) {
+      document.getElementById('area').selectedIndex=e+1; 
+    }
+}
+  
+</script>
+
 
