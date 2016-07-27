@@ -264,7 +264,6 @@
           <p>De la misma forma una cuenta SU podrá crear empleados, áreas y eliminarlos.</p>
           <img src="<?php echo URLV ?>imagenes/imagen25.PNG" class="centrar-imagen" ><br>
           <img src="<?php echo URLV ?>imagenes/imagen26.PNG" class="centrar-imagen" ><br>
-
         </div>
       </div>
 
