@@ -12,6 +12,7 @@
 			var $nombres;
 			var $apellidos;
 			var $nombre_empresa;
+			var $password_persona;
 
 
 			function  __construct()
@@ -20,12 +21,105 @@
 
 			}
 
+			//------------------------------------------crear , eliminar  y modificar personas--------------------------
+			public function registrarPersona($Nombres,$Apellidos,$Dni)
+			{
+				if(!$this->repetidoDniPersona($Dni)){
+					$request="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`) VALUES (".$Dni.",'".$Nombres."','".$Apellidos."')";
+					$this->query->consulta($request);
+					$this->obtenerDatosPersona($this->query->get_id());	
+					return true;
+				}
+				return false;
+				
+
+			}
+			public function registrarPersonaPassword($Nombres,$Apellidos,$Dni,$Password)
+			{
+				if(!$this->repetidoDniPersona($Dni)){
+					$request="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`, `PasswordPersona`) VALUES (".$Dni.",'".$Nombres."','".$Apellidos."','".$Password."')";
+					$this->query->consulta($request);
+					$this->obtenerDatosPersona($this->query->get_id());	
+					return true;
+				}
+				return false;
+				
+
+			}
+
+			public function deletePersona($Id_Persona)
+			{
+				$request="DELETE FROM `personas` WHERE Id_Persona=".$Id_Persona;
+				$this->query->consulta($request);
+				$request2="DELETE FROM `empleados` WHERE Id_Empleado=".$Id_Persona;
+				$this->query->consulta($request2);
+			}
+
+			public function save()
+			{
+				$this->cambiarNombres($this->nombres);
+				$this->cambiarApellidos($this->apellidos);
+				$this->cambiarDni($this->dni);
+				$this->cambiarEmpresa($this->nombre_empresa);
+				$this->cambiarPasswordPersona($this->password_persona);
+
+			}
+
+
+			//-------------------------------metodos para obtener datos de la db a esta clase---------------------------
+
+			public function obtenerDatosPersona($Id_Persona)
+			{
+
+				$request="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` , `PasswordPersona` FROM `personas` WHERE Id_Persona=".$Id_Persona;
+				$result=$this->query->consulta($request);
+				if ($result->num_rows != 0) {
+				    $datos = $result->fetch_assoc();
+				    $this->id=$datos["Id_Persona"];
+				    $this->dni=$datos["Dni"];
+				    $this->nombres=$datos["Nombres"];
+				    $this->apellidos=$datos["Apellidos"];
+				    $this->nombre_empresa=$datos["Nombre_Empresa"];
+				    $this->password_persona=$datos["PasswordPersona"];
+				    return true;
+				}
+				else {
+				    return false;
+				}
+			}
+
+
+			public function obtenerDatosPersonaByDni($Dni)
+			{
+
+				$request="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa`, `PasswordPersona` FROM `personas` WHERE Dni=".$Dni;
+				$result=$this->query->consulta($request);
+				if ($result->num_rows != 0) {
+				    $datos = $result->fetch_assoc();
+				    $this->id=$datos["Id_Persona"];
+				    $this->dni=$datos["Dni"];
+				    $this->nombres=$datos["Nombres"];
+				    $this->apellidos=$datos["Apellidos"];
+				    $this->nombre_empresa=$datos["Nombre_Empresa"];
+				    $this->password_persona=$datos["PasswordPersona"];
+				    return true;
+				}
+				else {
+				    return false;
+				}
+			}
+
+
+
+
+			//-------------------------------metodos para obtener arrays de datos
 			public function getAllClientes()
 			{
 				$request="SELECT Id_Persona FROM personas  WHERE Id_Persona NOT IN (SELECT Id_Empleado FROM empleados)";
 				$result=$this->query->consulta($request);
 				$clientesIds=array();
 				$clientesDatos=array();
+//				echo "here";
 				if ($result->num_rows > 0) {
 			    
 				    while($datos = $result->fetch_assoc()) {
@@ -77,43 +171,14 @@
 				array_push($datos,$this->nombres);
 				array_push($datos,$this->apellidos);
 				array_push($datos,$this->nombre_empresa);
+				array_push($datos,$this->password_persona);
+
 				return $datos;
 			}
 
-			public function registrarPersona($Nombres,$Apellidos,$Dni)
-			{
-				$request="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`) VALUES (".$Dni.",'".$Nombres."','".$Apellidos."')";
-				$this->query->consulta($request);
-				$this->obtenerDatosPersona($this->query->get_id());
+			
 
-			}
-
-			public function deletePersona($Id_Persona)
-			{
-				$request="DELETE FROM `personas` WHERE Id_Persona=".$Id_Persona;
-				$this->query->consulta($request);
-				$request2="DELETE FROM `empleados` WHERE Id_Empleado=".$Id_Persona;
-				$this->query->consulta($request2);
-			}
-
-			public function obtenerDatosPersona($Id_Persona)
-			{
-
-				$request="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Id_Persona=".$Id_Persona;
-				$result=$this->query->consulta($request);
-				if ($result->num_rows != 0) {
-				    $datos = $result->fetch_assoc();
-				    $this->id=$datos["Id_Persona"];
-				    $this->dni=$datos["Dni"];
-				    $this->nombres=$datos["Nombres"];
-				    $this->apellidos=$datos["Apellidos"];
-				    $this->nombre_empresa=$datos["Nombre_Empresa"];
-				    return true;
-				}
-				else {
-				    return false;
-				}
-			}
+			
 			
 
 			public function getAllClientesByNombreLike($Nombre_pattern)
@@ -140,22 +205,25 @@
 				return $clientesDatos;
 			}	
 
-			public function obtenerDatosPersonaByDni($Dni)
-			{
+			
 
-				$request="SELECT `Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa` FROM `personas` WHERE Dni=".$Dni;
+
+
+
+			//--------------------------------------------otros---------------------------------------
+			
+			public function repetidoDniPersona($Dni)
+			{
+				$request="SELECT `Dni` FROM `personas` WHERE 1";
 				$result=$this->query->consulta($request);
-				if ($result->num_rows != 0) {
-				    $datos = $result->fetch_assoc();
-				    $this->id=$datos["Id_Persona"];
-				    $this->dni=$datos["Dni"];
-				    $this->nombres=$datos["Nombres"];
-				    $this->apellidos=$datos["Apellidos"];
-				    $this->nombre_empresa=$datos["Nombre_Empresa"];
-				    return true;
-				}
-				else {
-				    return false;
+				if($result->num_rows!=0){
+
+					while ($dato=$result->fetch_assoc()) {
+						if($dato["Dni"]==$Dni){
+							return true;
+						}
+					}
+					return false;
 				}
 			}
 
@@ -212,13 +280,16 @@
 				$this->nombre_empresa=$Empresa;
 			}
 
-			public function save()
+			public function getPasswordPersona()
 			{
-				$this->cambiarNombres($this->nombres);
-				$this->cambiarApellidos($this->apellidos);
-				$this->cambiarDni($this->dni);
-				$this->cambiarEmpresa($this->nombre_empresa);
+				return $this->password_persona;
+			}
 
+			public function cambiarPasswordPersona($PasswordPersona)
+			{
+				$request="UPDATE `personas` SET `PasswordPersona`='".$PasswordPersona."' WHERE Id_Persona=".$this->id;
+				$this->query->consulta($request);
+				$this->password_persona=$PasswordPersona;
 			}
 
 		
@@ -247,13 +318,30 @@
   	*/
   	/*
   	$persona = new Persona();
-  	$persona->registrarPersona("Yara","de Zuñiga",04623424);
+  	$result=$persona->registrarPersonaPassword("Yara","de Zuñiga",06233420,"holi :3");
+  	if($result==true){
+  		echo $persona->getId()."</br>";
+ 		echo $persona->getNombres()."</br>";
+ 		echo $persona->getApellidos()."</br>";
+ 		echo $persona->getDni()."</br>";
+ 		echo $persona->getNombreEmpresa()."</br>";	
+ 		echo $persona->getPasswordPersona()."</br>";	
+  	}
+  	*/
+  	/*
+  	$persona=new Persona();
+  	$persona->obtenerDatosPersona(28);
+  	$persona->PasswordPersona=":D";
+  	$persona->save();
   	echo $persona->getId()."</br>";
- 	echo $persona->getNombres()."</br>";
- 	echo $persona->getApellidos()."</br>";
- 	echo $persona->getDni()."</br>";
- 	echo $persona->getNombreEmpresa()."</br>";
-	*/
+	echo $persona->getNombres()."</br>";
+	echo $persona->getApellidos()."</br>";
+	echo $persona->getDni()."</br>";
+	echo $persona->getNombreEmpresa()."</br>";	
+	echo $persona->getPasswordPersona()."</br>";	
+  	*/
+  	
+	
  	/*
  	$p=new Persona();
  	echo $p->getAllPersonasDatos()[1][3];
@@ -266,7 +354,7 @@
 	*/
  	/*
 	$tram=new Persona();
- 	$cosa=$tram->getAllClientesByNombreLike("mendoz");
+ 	$cosa=$tram->getAllClientes();
 	
 	foreach ($cosa as $key) {
 		foreach ($key as $value) {
@@ -274,5 +362,17 @@
 		}
 		echo "</br>";
 	}
+	*/
+ 	
+ 	/*
+ 	$cosa=new Persona();
+ 	$otraCosa=$cosa->estaRepetidoDniPersona(76452714);
+ 	if($otraCosa==true){
+ 		echo "true";	
+ 	}
+ 	else{
+ 		echo "false";
+ 	}
  	*/
+ 	
   ?>

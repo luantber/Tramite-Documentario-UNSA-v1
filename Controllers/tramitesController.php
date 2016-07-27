@@ -15,7 +15,7 @@
 			*/
 			$t= new Tramite();
 			//print_r($t->getAllTRamitesDatos());
-			Js::prints($t->getAllTRamitesDatos(),false,"data");
+			Js::prints($t->getAllTRamitesDatos(),true,"data");
 			render("tramites/barraTramites");
 			render("tramites/todos");
 		}

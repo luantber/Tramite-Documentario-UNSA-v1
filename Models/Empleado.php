@@ -20,7 +20,7 @@
 
 			public function  __construct()
 			{
-				$this-> query =  new Query();
+				$this->query =  new Query();
 			}
 
 			#el orden de los datos de cada Empleado esta en la funcion getAllDatos , aqui abajo
@@ -127,12 +127,17 @@
 
 			function registrarEmpleado($Nombres,$Apellidos,$Id_Cargo,$Id_Area,$Activo,$Correo,$Dni_Empleado,$Password)
 			{
-				$request2="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`) VALUES (".$Dni_Empleado.",'".$Nombres."','".$Apellidos."')";
-				$this->query->consulta($request2);
-				$id=$this->query->get_id();
-				$request="INSERT INTO `empleados`(`Id_Empleado`,`Id_Cargo`, `Id_Area`, `Activo`, `Correo`,`Dni_Empleado`, `Password`) VALUES (".$id.",".$Id_Cargo.",".$Id_Area.",'".$Activo."','".$Correo."',".$Dni_Empleado.",'".$Password."')";
-				$this->query->consulta($request);
-				$this->obtenerDatosId($id);
+				if(!$this->repetidoDniPersona($Dni_Empleado)){
+					$request2="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`) VALUES (".$Dni_Empleado.",'".$Nombres."','".$Apellidos."')";
+					$this->query->consulta($request2);
+					$id=$this->query->get_id();
+					$request="INSERT INTO `empleados`(`Id_Empleado`,`Id_Cargo`, `Id_Area`, `Activo`, `Correo`,`Dni_Empleado`, `Password`) VALUES (".$id.",".$Id_Cargo.",".$Id_Area.",'".$Activo."','".$Correo."',".$Dni_Empleado.",'".$Password."')";
+					$this->query->consulta($request);
+					$this->obtenerDatosId($id);	
+					return true;
+				}
+				return false;
+				
 			}
 
 			public function deleteEmpleado($Id_Empleado){
@@ -400,6 +405,4 @@
 		echo "</br>";
 	}
 	*/
-	
-
  ?>

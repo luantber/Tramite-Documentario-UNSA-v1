@@ -177,7 +177,7 @@
 
 
  <?php 
- 	
+ 	/*
  	$cosas= new Movimiento();
  	
  	$cosa=$cosas->getAllMovimientos();
@@ -187,5 +187,5 @@
 		}
 		echo "</br>";
 	}
-	
+	*/
   ?>

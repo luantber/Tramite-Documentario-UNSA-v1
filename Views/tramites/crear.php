@@ -68,7 +68,7 @@
           { 
             showUpload:false, 
             language: 'es', 
-            allowedFileExtensions: ["doc","docx"], 
+            allowedFileExtensions: ["doc","docx","odt"], 
             maxFilesNum: 1 
           }); 
         </script> 

@@ -83,3 +83,7 @@
    document.getElementById('dne').value=data[16];
    document.getElementById('deste').value=data[10]+"/"+data[12];
   </script>	
+
+<a href="<?php echo URLM ?>ViewerJS/#..<?php echo ROOT."SemiFTP/" ?>">
+as
+</a>

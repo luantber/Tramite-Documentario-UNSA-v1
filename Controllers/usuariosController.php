@@ -10,7 +10,7 @@
 		function index(){
 			$p = new Persona();
 			$pd = $p->getAllClientes();
-
+			print_r($pd);
 			Js::prints("Clientes(ususarios)",false,"title");
 			Js::prints($pd,false);
 			render("personas/todas");
