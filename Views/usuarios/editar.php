@@ -1,5 +1,5 @@
 <h2 class="text-center" >Editar</h2>
-<form class="form-horizontal container" method="POST" action=" <?php echo URLM?>empleados/editar">
+<form class="form-horizontal container" method="POST" action=" <?php echo URLM?>usuarios/editar">
   <div class="row container form-group">
       <div class="col-xs-6">
         <label for="nombree" class="col-sm-5 control-label" >Nombre</label>
@@ -73,7 +73,7 @@
 
     <nav>
       <ul class="pager">
-        <li><a href="<?php echo URLM ?>empleados">Cancelar</a></li>
+        <li><a href="<?php echo URLM ?>usuarios">Cancelar</a></li>
         <button type="submit" class="btn btn-default">Guardar cambios</button>
       </ul>
     </nav>

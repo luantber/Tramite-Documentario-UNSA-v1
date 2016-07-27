@@ -20,7 +20,7 @@
 
 			//print_r($pd);
 			
-			Js::prints("Empleados ",true,"title");
+			Js::prints("Empleados ",false,"title");
 			Js::prints($pd,false);
 			
 			render("empleados/todosEmpleados");
