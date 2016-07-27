@@ -1,6 +1,6 @@
 			<!--.............................NUEVO TRÁMITE .............................. !-->
 <h2 class="text-center" >Nuevo Trámite</h2>
-<form class="form-horizontal container" onsubmit="return validacion()"method="POST" action="<?php  echo URLM."tramites/crear" ?>" enctype="multipart/form-data">
+<form class="form-horizontal container" onsubmit="return validacion()" method="POST" action="<?php  echo URLM."tramites/crear" ?>" enctype="multipart/form-data">
 
 
   <div class="form-group">

@@ -65,13 +65,13 @@ nav.navbar {
     </div>
     <ul class="nav navbar-nav active">
    <?php
-    //if (Auth::exist())
-    //{                                    ?>
+    if (Auth::exist())
+    {                                    ?>
       <li><a href="<?php echo URLM ?>movimientos">Movimientos</a></li>
     <?php
 
-      //if (Auth::getuser("Mesa de Partes"))
-     // {                         ?>
+     if (Auth::getuser("Mesa de Partes"))
+      {                         ?>
 
       <!-- PARA USUARIOS !-->
       <li class="dropdown">
@@ -84,10 +84,10 @@ nav.navbar {
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
     <?php
-      //}
+      }
 
-     // if (Auth::getuser("Jefe de Area"))
-      //{                     ?>
+      if (Auth::getuser("Jefe de Area"))
+      {                     ?>
       <!-- PARA AREAS !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Areas
@@ -99,7 +99,7 @@ nav.navbar {
       </li> <!-- AQUI TERMINA ... !-->
 
       <?php
-      //}                 ?>
+      }                 ?>
 
       <!-- TRÁMITES !-->
       <li class="dropdown">
@@ -117,8 +117,8 @@ nav.navbar {
 
       <?php
 
-      //if (Auth::getuser("Gerente"))
-     // {                       ?>
+      if (Auth::getuser("Gerente"))
+      {                       ?>
       <!-- PARA SUPER USUARIO !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">AccionesSU
@@ -133,6 +133,8 @@ nav.navbar {
       </li> <!-- AQUI TERMINA ... !-->
 
       <?php
+      }
+    }
       if(Auth::exist())
       {
         ?>
