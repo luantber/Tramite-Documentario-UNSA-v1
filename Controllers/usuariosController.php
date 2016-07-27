@@ -144,14 +144,18 @@
 
 				$t = new Persona;
 				$t->obtenerDatosPersona($_POST["id"]);
+				print("<br>");
 				print_r($_POST);
-				$t->nombres = $_POST["nome"];
-				$t->apellidos = $_POST["apee"];
-				$t->dni = $_POST["dnie"];
+				if (isset($_POST["nome"])) {
+					$t->nombres = $_POST["nome"];
+					# code...
+					$t->apellidos = $_POST["apee"];
+					$t->dni = $_POST["dnie"];
+				}
 				$t->password_persona = $_POST["password"];
 				$t->save();
 
-				redirect("usuarios");
+				//redirect("usuarios");
 			}
 		}
 

@@ -108,6 +108,9 @@
 			$e->password = $_POST["password"];
 	
 		}
+		if(isset($_POST["estado"])){
+			$e->activo = $_POST["estado"];
+		}
 			
 		//$e->nombres = $_POST["nome"];
 		//$e->apellidos = $_POST["apee"];
@@ -116,6 +119,7 @@
 
 		$e->saveEmpleado();
 		redirect("empleados");
+		
 	}
 }
 

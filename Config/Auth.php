@@ -13,6 +13,17 @@
 			return $_SESSION[$sesion];
 		}
 
+		static function is_empleado($sesion="sesion")
+		{
+			if ($_SESSION[$sesion]["correo"]){
+				return true;
+			}
+			else{
+				return false;
+			}
+
+		}
+
 		static function exist($sesion="sesion")
 		{
 			if (isset($_SESSION[$sesion]))
@@ -69,6 +80,10 @@
 		static function destroy()
 		{
 			@session_destroy();
+		}
+
+		static function getDni($ses="sesion"){
+			return $_SESSION[$ses]["dni"];
 		}
 	}
 
