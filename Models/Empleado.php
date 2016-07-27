@@ -125,12 +125,12 @@
 
 			}
 
-			function registrarEmpleado($Nombres,$Apellidos,$Id_Area,$Activo,$Correo,$Dni_Empleado,$Password)
+			function registrarEmpleado($Nombres,$Apellidos,$Id_Cargo,$Id_Area,$Activo,$Correo,$Dni_Empleado,$Password)
 			{
 				$request2="INSERT INTO `personas`(`Dni`, `Nombres`, `Apellidos`) VALUES (".$Dni_Empleado.",'".$Nombres."','".$Apellidos."')";
 				$this->query->consulta($request2);
 				$id=$this->query->get_id();
-				$request="INSERT INTO `empleados`(`Id_Empleado`,`Id_Cargo`, `Id_Area`, `Activo`, `Correo`,`Dni_Empleado`, `Password`) VALUES (".$id.",4,".$Id_Area.",'".$Activo."','".$Correo."',".$Dni_Empleado.",'".$Password."')";
+				$request="INSERT INTO `empleados`(`Id_Empleado`,`Id_Cargo`, `Id_Area`, `Activo`, `Correo`,`Dni_Empleado`, `Password`) VALUES (".$id.",".$Id_Cargo.",".$Id_Area.",'".$Activo."','".$Correo."',".$Dni_Empleado.",'".$Password."')";
 				$this->query->consulta($request);
 				$this->obtenerDatosId($id);
 			}
@@ -390,15 +390,15 @@
 	//echo $cosa->getEmpleadosIdNombreByIdArea(5)[1][1];
 	//$cosa=new Empleado();
 	//$cosa->deleteEmpleado(5);
-	/*
+	
 	$cosa=new Empleado();
-	$cosas=$cosa->getAllEmpleadosByNombreLike('Mamani');
+	$cosas=$cosa->getAllEmpleadosDatos();
 	foreach ($cosas as $key ) {
 		foreach ($key as $value) {
 			echo $value." ";
 		}
 		echo "</br>";
 	}
-	*/
+	
 
  ?>
