@@ -162,7 +162,15 @@ nav.navbar {
       <ul class="nav navbar-nav navbar-right">
         <!--INGRESAR!-->
         <li><a href="<?php echo URLM ?>tutorial"><span class="glyphicon glyphicon-question-sign" ></span> Tutorial</a></li>
-        <li><a href="<?php echo URLM ?>empleados/ingresar"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
+        <!--INGRESAR!-->
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="">Ingresar<span class="glyphicon glyphicon-log-in"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo URLM ?>empleados/ingresar">Empleado</a></li>
+            <li><a href="<?php echo URLM ?>usuarios/ingresar">Usuario</a></li>
+            
+        </li> <!-- AQUI TERMINA ... !-->
+        </ul>
       </ul>
     <?php
     }
