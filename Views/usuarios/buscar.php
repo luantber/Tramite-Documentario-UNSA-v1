@@ -4,7 +4,7 @@
 	<div class="form-group" >
 		<label for="buscar" class="col-sm-2 control-label">Buscar por: </label>
 		<div class="col-sm-10" >
-			<label class="radio-inline"><input required type="radio" name="bus" id="buscar" value="0">Apellidos</label>			
+			<label class="radio-inline"><input required type="radio" name="bus" id="buscar" value="0" checked="checked">Apellidos</label>			
 			<label class="radio-inline"><input type="radio" name="bus" id="buscar" value="1" >DNI</label>
 		</div>		
 	</div>

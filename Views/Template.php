@@ -61,13 +61,13 @@
 
       //if (Auth::getuser("Mesa de Partes"))
      // {                         ?>
-      <li><a href="<?php echo URLM ?>usuarios/crear">Registrar Usuario</a></li>
 
       <!-- PARA USUARIOS !-->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="">Acciones Usuarios
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
+          <li><a href="<?php echo URLM ?>usuarios/crear">Registrar</a></li>
           <li><a href="<?php echo URLM ?>usuarios/buscar">Buscar</a></li>
           <li><a href="<?php echo URLM ?>usuarios">Todos</a></li>
         </ul>
