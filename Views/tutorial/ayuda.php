@@ -297,6 +297,7 @@
           <img src="<?php echo URLV ?>imagenes/imagen38.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
+         <div class="text-info" align="justify">
         <div id="section48">
          <div class="text-info" align="justify">
           <h1>Eliminar Trámite</h1>
