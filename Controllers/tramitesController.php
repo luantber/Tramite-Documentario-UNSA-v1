@@ -12,7 +12,7 @@
 		function index(){
 			/*
 				Necesito getAllTRamites()
-			*/ 
+			*/
 			$t= new Tramite();
 			//print_r($t->getAllTRamitesDatos());
 			Js::prints($t->getAllTRamitesDatos(),true,"data");
@@ -295,6 +295,9 @@
 				$a = new Area;
 				$at = $a->obtenerAreas();
 				Js::prints($at,false,"areas");
+				Js::prints(Auth::is_empleado(),true,"is_empleado");
+				$dniar = array(Auth::getDni());
+				Js::prints($dniar,true,"dni");
 				if (Auth::get_session()["nombre_cargo"]!="usuario")
 					render("usuarios/crear");
 				render("tramites/crear");

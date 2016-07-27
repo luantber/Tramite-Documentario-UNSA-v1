@@ -9,7 +9,7 @@
 <div class="container">
 	  <div class="row container form-group">
       <div class="col-xs-8">
-        <label for="idtra" class="col-sm-5 control-label" >Enviar a: </label>
+        <label for="idtra" class="col-sm-5 control-label" >Enviar a (Seleccionar Área) </label>
         <div class="col-sm-7">
 			<select name="destino" class="form-control" id="tipo" >
 				<option value="" >Seleccionar</option>
@@ -45,7 +45,7 @@
 <div class="container">
     <div class="row container form-group">
       <div class="col-xs-8">
-        <label for="idtra" class="col-sm-5 control-label" >Enviar a: </label>
+        <label for="idtra" class="col-sm-5 control-label" >Enviar a (Seleccionar Encargado ) </label>
         <div class="col-sm-7">
       <select name="id_empleado" class="form-control" id="tipo" >
         <option value="" >Seleccionar</option>

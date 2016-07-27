@@ -4,12 +4,20 @@
 
 
   <div class="form-group">
-      <label for="identificacion" class="col-sm-2 control-label" >DNI </label>
+      <label for="identificacion" class="col-sm-2 control-label" >DNIE </label>
       <div class="col-sm-10">
-          <input name="ident" type="text" class="form-control" id="identificacion" required placeholder=" Ingrese DNI de usuario">
+          <input name="ident" type="text" class="form-control" id="identificacion" required >
           <p id="noingreso" ></p>
       </div>
   </div>
+
+<!-- comentario-->
+  <script>
+    if (!is_empleado) {
+    document.getElementById("identificacion").value=dni[0];
+    }
+
+  </script>
 
 
       <div class="form-group">
@@ -30,7 +38,7 @@
           <p id="nodestino" ></p>
       </div>
       </div>
-	
+
   	<div class="form-group">
   		<label for="asunto" class="col-sm-2 control-label" >Asunto </label>
   		<div class="col-sm-10" >
@@ -38,7 +46,7 @@
   		</div>
   	</div>
 
-  	
+
   		<div class="form-group">
   			<label for="prioridad" class="col-sm-2 control-label" >Prioridad </label>
   			<div class="col-sm-10">
@@ -51,21 +59,21 @@
           <p id="nopcion" ></p>
 			</div>
   		</div>
-      
-      <div class="form-group"> 
-      <label for="archivo" class="col-sm-2 control-label">Archivo</label> 
-      <div class="col-sm-10"> 
-        <input id="archivo" name="archivo" type="file" class="file" data-show-preview="false" required>           
-        <script type="text/javascript"> 
-          $("#archivo").fileinput( 
-          { 
-            showUpload:false, 
-            language: 'es', 
-            allowedFileExtensions: ["doc","docx","odt"], 
-            maxFilesNum: 1 
-          }); 
-        </script> 
-      </div> 
+
+      <div class="form-group">
+      <label for="archivo" class="col-sm-2 control-label">Archivo</label>
+      <div class="col-sm-10">
+        <input id="archivo" name="archivo" type="file" class="file" data-show-preview="false" required>
+        <script type="text/javascript">
+          $("#archivo").fileinput(
+          {
+            showUpload:false,
+            language: 'es',
+            allowedFileExtensions: ["doc","docx","odt"],
+            maxFilesNum: 1
+          });
+        </script>
+      </div>
 
       <div class="row">
         <div class="col-md-8 col-md-offset-3">
@@ -81,14 +89,14 @@
 
       </ul>
     </nav>
-  	
+
   	<div class="form-group">
     	<div class="text-center">
       		<button type="submit" class="btn btn-link">Agregar Trámite</button>
     	</div>
   	</div>
 
- 
+
     <script>
       function validacion() {
         var dni,indice,tipo,destino;//elemento= tipo de empresa
@@ -96,7 +104,7 @@
         indice = document.getElementById("opciones").selectedIndex;
         destino = document.getElementById("destino").selectedIndex;
 
-        
+
         if (!(/^\d{8}$/.test(dni))) {
           texto ="Ingrese un numero de 8 digitos";
           document.getElementById("noingreso").innerHTML = texto;
@@ -128,5 +136,5 @@
     <p> .</p>
     <p> .</p>
 
-</form> 
+</form>
 			<!--.............................FIN NUEVO TRÁMITE .............................. !-->
