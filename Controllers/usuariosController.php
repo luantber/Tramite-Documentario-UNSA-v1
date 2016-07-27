@@ -108,28 +108,16 @@
 				}		
 			}
 			else{
-				$e = new Empleado;
 
-				$e->obtenerDatosId($_POST["id"]);
-				
-				if(isset($_POST["cargo"])){
-					$e->id_cargo = $_POST["cargo"];
-					$e->id_area = $_POST["area"];
-				}
+				$t = new Persona;
+				$t->obtenerDatosPersona($_POST["id"]);
+				print_r($_POST);
+				$t->nombres = $_POST["nome"];
+				$t->apellidos = $_POST["apee"];
+				$t->dni = $_POST["dnie"];
+				$t->save();
 
-				if(isset($_POST["emaile"])){
-					$e->correo = $_POST["emaile"];
-					$e->password = $_POST["password"];
-			
-				}
-					
-				//$e->nombres = $_POST["nome"];
-				//$e->apellidos = $_POST["apee"];
-				
-				//$e->activo = $_POST["activo"];
-
-				$e->saveEmpleado();
-				redirect("empleados");
+				redirect("usuarios");
 			}
 		}
 
