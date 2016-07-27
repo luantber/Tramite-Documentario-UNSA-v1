@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-07-2016 a las 06:18:40
+-- Tiempo de generación: 27-07-2016 a las 08:02:29
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -90,7 +90,6 @@ CREATE TABLE `empleados` (
 INSERT INTO `empleados` (`Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo`, `Dni_Empleado`, `Password`) VALUES
 (1, 1, 6, 'Trabajando', 'alejandrolarraondo@gmail.com', 70125996, 'karlaConK'),
 (4, 2, 1, 'disponible', 'CatGirl_26@gmail.com', 78947568, 'elbryce'),
-(5, 1, 5, 'Trabajando', 'alrus27@gmail.com', 76439586, 'ggladotanub'),
 (6, 2, 5, 'Trabajando', 'luisbch@gmail.com', 78452375, 'luzithoMazNah'),
 (7, 2, 1, 'Trabajando', 'margarcuae.19.29.46@gmail.com', 75463211, 'viskmokjojo'),
 (10, 1, 3, 'Trabajando', 'mapo100@outlook.com', 74658346, 'nekochan'),
@@ -98,7 +97,9 @@ INSERT INTO `empleados` (`Id_Empleado`, `Id_Cargo`, `Id_Area`, `Activo`, `Correo
 (13, 1, 4, 'disponible', 'BrianArrospide@hotmail.com', 76534567, 'elBrayan'),
 (15, 2, 6, 'Trabajando', 'd1llarmando_13@hotmail.com', 77865454, 'yaNoTeAmoTeffy'),
 (16, 5, 2, 'Trabajando', 'alexithoMakerito@hotmail.com', 77865487, 'elDineroEsDinero'),
-(19, 3, 1, 'Vacaciones', 'tuAmigaAl100@hotmail.com', 76543644, 'teAmoDill');
+(19, 3, 1, 'Vacaciones', 'tuAmigaAl100@hotmail.com', 76543644, 'teAmoDill'),
+(24, 4, 1, 'activo', 'alex.mpct@gmail.com', 76452714, '123456'),
+(29, 2, 1, 'vacaciones', 'agente@lalala', 12345678, 'contraseña');
 
 -- --------------------------------------------------------
 
@@ -191,35 +192,44 @@ CREATE TABLE `personas` (
   `Dni` int(8) NOT NULL,
   `Nombres` varchar(30) NOT NULL,
   `Apellidos` varchar(30) NOT NULL,
-  `Nombre_Empresa` varchar(40) NOT NULL
+  `Nombre_Empresa` varchar(40) NOT NULL,
+  `PasswordPersona` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `personas`
 --
 
-INSERT INTO `personas` (`Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa`) VALUES
-(1, 70125996, 'Alejandro Jesús', 'Larraondo Lamchog', ''),
-(2, 70293485, 'Alexis Aldo', 'Mendoza Villarroel', 'Inmobiliaria Mendoza'),
-(3, 45964813, 'Yara Jeanette', 'Quispe Quispe', 'YaraXDiana - Eventos Infantiles'),
-(4, 78947568, 'Katherine Rocio', 'Uñapilco Chambi', ''),
-(5, 76439586, 'Alexander Rusvell', 'Apaza Torrez', ''),
-(6, 78452375, 'Luis Antonio', 'Bernal Chahuayo', ''),
-(7, 75463211, 'Margarita', 'Lacuaña Apaza', ''),
-(8, 78990034, 'Ademir Clemente', 'Villena Zevallos', 'YaraXDiana - Eventos Infantiles'),
-(9, 72396743, 'Carla', 'Torres Flores', 'Enapu SRL'),
-(10, 74658346, 'Maria Pia', 'Vargas Galdos', ''),
-(11, 77777777, 'Luis Enrique', 'Zevallos Zeballos', 'Zevallos Catering'),
-(12, 78945634, 'Jesús Josue', 'Zabala Ramirez', ''),
-(13, 76534567, 'Brian Paolo', 'Arrospide Lopez', ''),
-(14, 78956456, 'Maria Angelica', 'Rivera Zegarra', 'Metales Zegarra SRL'),
-(15, 77865454, 'Dillarmando', 'Zevallos Zeballos', ''),
-(16, 77865487, 'Alexander', 'Maquera Chuctaya', ''),
-(17, 78896543, 'Miluska Samantha', 'Quispe Maldonado', ''),
-(18, 77243545, 'Beatriz del Milagro', 'Meza Chipoco', 'Servicios de Limpieza - La Bea'),
-(19, 76543644, 'Estefany Paola', 'Mamani Gutierrez', ''),
-(20, 76546571, 'Diana Milagros', 'Zuñiga Diaz', ''),
-(21, 30303030, 'Fredy', 'Gonzales', '');
+INSERT INTO `personas` (`Id_Persona`, `Dni`, `Nombres`, `Apellidos`, `Nombre_Empresa`, `PasswordPersona`) VALUES
+(1, 70125996, 'Alejandro Jesús', 'Larraondo Lamchog', '', ''),
+(2, 70293485, 'Alexis Aldo', 'Mendoza Villarroel', 'Inmobiliaria Mendoza', ''),
+(3, 45964813, 'Yara Jeanette', 'Quispe Quispe', 'YaraXDiana - Eventos Infantiles', ''),
+(4, 78947568, 'Katherine Rocio', 'Uñapilco Chambi', '', ''),
+(5, 76439586, 'Alexander Rusvell', 'Apaza Torrez', '', ''),
+(6, 78452375, 'Luis Antonio', 'Bernal Chahuayo', '', ''),
+(7, 75463211, 'Margarita', 'Lacuaña Apaza', '', ''),
+(8, 78990034, 'Ademir Clemente', 'Villena Zevallos', 'YaraXDiana - Eventos Infantiles', ''),
+(9, 72396743, 'Carla', 'Torres Flores', 'Enapu SRL', ''),
+(10, 74658346, 'Maria Pia', 'Vargas Galdos', '', ''),
+(11, 77777777, 'Luis Enrique', 'Zevallos Zeballos', 'Zevallos Catering', ''),
+(12, 78945634, 'Jesús Josue', 'Zabala Ramirez', '', ''),
+(13, 76534567, 'Brian Paolo', 'Arrospide Lopez', '', ''),
+(14, 78956456, 'Maria Angelica', 'Rivera Zegarra', 'Metales Zegarra SRL', ''),
+(15, 77865454, 'Dillarmando', 'Zevallos Zeballos', '', ''),
+(16, 77865487, 'Alexander', 'Maquera Chuctaya', '', ''),
+(17, 78896543, 'Miluska Samantha', 'Quispe Maldonado', '', ''),
+(18, 77243545, 'Beatriz del Milagro', 'Meza Chipoco', 'Servicios de Limpieza - La Bea', ''),
+(19, 76543644, 'Estefany Paola', 'Mamani Gutierrez', '', ''),
+(20, 76546571, 'Diana Milagros', 'Zuñiga Diaz', '', ''),
+(21, 30303030, 'Fredy', 'Gonzales', '', ''),
+(22, 45931202, 'Juanito ', 'Perez', '', ''),
+(23, 76452714, 'Alexis', 'Mendoza', '', ''),
+(24, 76452714, 'Alexis', 'Mendoza Villarroel', '', ''),
+(25, 11111111, 'Pablo', 'Herrera', '', ''),
+(26, 1255188, 'Yara', 'de Zuñiga', '', ''),
+(27, 1255184, 'Yara', 'de Zuñiga', '', ''),
+(28, 1652496, 'Yara', 'de Zuñiga', '', 'holi :3'),
+(29, 12345678, 'James', 'Bond', '', '');
 
 -- --------------------------------------------------------
 
@@ -254,9 +264,18 @@ INSERT INTO `tramites` (`Id_Expediente`, `Fecha_Ingreso`, `Fecha_Termino`, `Asun
 (30, '0000-00-00', '0000-00-00', 'Pedido de Productos', 21, 0, 3, 0, '', 0, 0, '', 0),
 (31, '0000-00-00', '0000-00-00', 'prub', 4, 0, 2, 2, 'pendiente', 0, 0, 'no se', 3),
 (32, '2016-07-24', '0000-00-00', 'prueba', 4, 1, 2, 2, 'pendiente', 0, 0, 'no se', 3),
-(33, '0000-00-00', '0000-00-00', 'mas pruebas', 4, 0, 1, 2, 'pendiente', 0, 0, 'no se', 3),
+(33, '0000-00-00', '0000-00-00', 'mas pruebas', 4, 0, 1, 2, 'finalizado', 0, 0, 'no se', 3),
 (34, '2016-07-24', '0000-00-00', 'mas pruebas', 4, 0, 1, 2, 'pendiente', 0, 0, 'no se', 3),
-(35, '0000-00-00', '0000-00-00', 'mas pruebas', 4, 0, 1, 2, 'pendiente', 0, 0, 'no se', 3);
+(35, '0000-00-00', '0000-00-00', 'mas pruebas', 4, 0, 1, 2, 'finalizado', 0, 0, 'no se', 3),
+(36, '2016-07-26', '0000-00-00', 'lalalal', 23, 0, 1, 2, '0', 0, 0, '0', 1),
+(37, '2016-07-26', '0000-00-00', 'fsfreer', 23, 0, 1, 2, '0', 0, 0, '0', 2),
+(38, '2016-07-26', '0000-00-00', 'dsdsad', 23, 0, 1, 1, '0', 0, 0, '0', 1),
+(39, '2016-07-26', '0000-00-00', 'sasd', 23, 0, 1, 2, '0', 0, 0, '0', 3),
+(40, '2016-07-26', '0000-00-00', 'assda', 23, 0, 1, 5, '0', 0, 0, '0', 3),
+(41, '2016-07-26', '0000-00-00', 'asd', 23, 0, 1, 2, '0', 0, 0, '0', 3),
+(42, '2016-07-26', '0000-00-00', 'ssad', 23, 0, 1, 1, '0', 0, 0, '0', 1),
+(43, '2016-07-26', '0000-00-00', 'sdasd', 23, 0, 1, 1, '0', 0, 0, '0', 3),
+(44, '2016-07-26', '0000-00-00', 'ds', 23, 0, 1, 2, '0', 0, 0, '0', 1);
 
 --
 -- Índices para tablas volcadas
@@ -321,12 +340,12 @@ ALTER TABLE `movimientos`
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `Id_Persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `Id_Persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT de la tabla `tramites`
 --
 ALTER TABLE `tramites`
-  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `Id_Expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
