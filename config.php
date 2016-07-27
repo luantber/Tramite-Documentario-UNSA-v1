@@ -16,13 +16,14 @@
 	//Datos Futuros para conexion con bases de datos
 	global $server,$base_datos,$user_bd, $pass_bd;
 
-	#$server = "192.168.109";
-	/* Listo para red local
+/*	
+	// Listo para red local
 	$server = "192.168.1.105";
 	$base_datos = "tramite";
 	$user_bd = "user01";
 	$pass_bd = "asdfasdf";
-	*/
+*/	
+
 
 	$server = "localhost";
 	$base_datos = "tramite";

@@ -84,6 +84,7 @@
    document.getElementById('deste').value=data[10]+"/"+data[12];
   </script>	
 
-<a href="<?php echo URLM ?>ViewerJS/#..<?php echo ROOT."SemiFTP/" ?>">
-as
-</a>
+
+Heyy .. donde esta el boton ?
+
+<iframe src = "<?php echo URLM ?>ViewerJS/#../SemiFTP/45.odt" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
