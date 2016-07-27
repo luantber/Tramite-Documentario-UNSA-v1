@@ -158,7 +158,10 @@
 			diligencia y oportunidad
 		</p>
 		<p class="text-info" align="justify">
-			Trámite Documentario es una aplicación que permite a las organizaciones tener el control de la ubicación física y estatus, actual y pasado de la documentación que llega, fluye y se genera dentro de ellas; y en base a estos datos mostrar estadísticas que permitan analizar pasos repetitivos o que no agreguen valor y los cuellos de botella para mejorar los flujos de los documentos dentro de la organización.
+			Trámite Documentario es una aplicación que permite a las organizaciones tener el control de la ubicación física y estatus, 
+      actual y pasado de la documentación que llega, fluye y se genera dentro de ellas; y en base a estos datos mostrar estadísticas 
+      que permitan analizar pasos repetitivos o que no agreguen valor y los cuellos de botella para mejorar los flujos de los documentos 
+      dentro de la organización.
 		</p>
 
       </div>
@@ -169,43 +172,43 @@
         		Este sistema de Tramite Documentario funciona de la siguiente manera:
         	</p>
         	<p>
-        		Una persona se acerca a Mesa de Partes para ingresar un trámite, se le pregunta si es la primera vez que se acerca para realizar un trámite.	
+        		1. Una persona se acerca a Mesa de Partes para ingresar un trámite, se le pregunta si es la primera vez que se acerca para realizar un trámite.	
         	</p>
         	<p>
-        		En el caso que la persona sea nueva se le ingresará en el sistema a través de sus datos, caso contrario se le pedirá su número de DNI para iniciar un nuevo trámite.
+        		2. En el caso que la persona sea nueva se le ingresará en el sistema a través de sus datos, caso contrario se le pedirá su número de DNI para iniciar un nuevo trámite.
         	</p>
         	<p>
-        		De acuerdo a la información entregada en Mesa de Partes, se llenarán los requisitos del trámite (Destino, Asunto, Cantidad de Folios, Prioridad).
+        		3. De acuerdo a la información entregada en Mesa de Partes, se llenarán los requisitos del trámite (Destino, Asunto, Cantidad de Folios, Prioridad).
         	</p>
         	<p>
-        		Una vez ingresado el trámite al sistema, la persona podrá ver el estado de este mediante su DNI, el cuál le mostrará todos sus trámites realizados: sea en espera o terminados.
+        		4. Una vez ingresado el trámite al sistema, la persona podrá ver el estado de este mediante su DNI, el cuál le mostrará todos sus trámites realizados: sea en espera o terminados.
         	</p>
         	<p>
-        		Se podrá hacer un ingreso especial de trámite, dando niveles altos de prioridad.
+        		5. Se podrá hacer un ingreso especial de trámite, dando niveles altos de prioridad.
         	</p>
         	<p>
-        		Cuando el trámite está dentro del sistema será dirigido a cada bandeja de entrada de cada Jefe de cada área correspondiente.
+        		6. Cuando el trámite está dentro del sistema será dirigido a cada bandeja de entrada de cada Jefe de cada área correspondiente.
         	</p>
         	<p>
-        		Este jefe se encargará de asignar los encargados adecuados para la revisión del trámite.
+        		7. Este jefe se encargará de asignar los encargados adecuados para la revisión del trámite.
         	</p>
         	<p>
-        		Los encargados podrán dar un trámite por terminado, siendo posible ponerlo en espera por falta de documentos.
+        		8. Los encargados podrán dar un trámite por terminado, siendo posible ponerlo en espera por falta de documentos.
         	</p>
         	<p>
-        		Los tramites podrán ser editados, eliminados y darlos como completados en cada caso correspondiente.
+        		9. Los tramites podrán ser editados, eliminados y darlos como completados en cada caso correspondiente.
         	</p>
         	<p>
-        		El personal de la empresa, podrá ser ingresado como persona natural, ser modificado su cargo dentro de la empresa y ser eliminado del sistema, esto será únicamente posible con una cuenta de SU.
+        		10. El personal de la empresa, podrá ser ingresado como persona natural, ser modificado su cargo dentro de la empresa y ser eliminado del sistema, esto será únicamente posible con una cuenta de SU.
         	</p>
         	<p>
-        		Además será posible ver una lista completa de todos las empleados dentro del sistema con información personal.
+        		11. Además será posible ver una lista completa de todos las empleados dentro del sistema con información personal.
         	</p>
         	<p>
-        		De igual forma con las personas naturales.
+        		12. De igual forma con las personas naturales.
         	</p>
         	<p>
-        		Diariamente se podrá hacer una consulta de los movimientos de trámites. Dando a entender la posibilidad de un filtro por fechas.
+        		13 .Diariamente se podrá hacer una consulta de los movimientos de trámites. Dando a entender la posibilidad de un filtro por fechas.
         	</p>
 
         </div>
@@ -225,6 +228,13 @@
         	<p>Accedemos a la carpeta <b>“HTDOCS”</b> correspondiente a nuestro sistema y pegamos la carpeta <b>‘tramitedocumentariocs’</b> dentro de este.</p>
         	<img src="<?php echo URLV ?>imagenes/imagen3.PNG" class="centrar-imagen" >
         	<p>Ahora tendremos que importar la base de datos.</p>
+          <p>Para ello accedemos a la carpeta <b>‘tramitedocumentariocs’</b> y buscamos el archivo ‘tramite.sql’ que será importado a través de <b>‘PHPMyAdmin’</b>.</p>
+          <img src="<?php echo URLV ?>imagenes/imagen9.png" class="centrar-imagen" ><br>
+          <p>Nos dirigimos al navegador e introducimos el siguiente link:</p>
+          <p>En <b>‘localhost/phpmyadmin’</b>. Nos debe aparecer esto:</p>
+          <img src="<?php echo URLV ?>imagenes/imagen10.PNG" class="centrar-imagen" ><br>
+          <p>Nos acercamos a ‘Nueva’.</p>
+          <img src="<?php echo URLV ?>imagenes/imagen11.PNG" class="centrar-imagen" ><br>
         </div>
       </div>
 
