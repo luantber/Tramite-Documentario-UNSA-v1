@@ -8,6 +8,8 @@
 			@session_start();
 		}
 
+
+
 		static function get_session($sesion="sesion")
 		{
 			return $_SESSION[$sesion];
@@ -15,7 +17,7 @@
 
 		static function is_empleado($sesion="sesion")
 		{
-			if ($_SESSION[$sesion]["correo"]){
+			if (isset($_SESSION[$sesion]["correo"])){
 				return true;
 			}
 			else{

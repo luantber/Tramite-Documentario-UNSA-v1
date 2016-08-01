@@ -119,7 +119,6 @@ nav.navbar {
         <li><a href="<?php echo URLM ?>panel">Panel/Cola</a></li>
           <li><a href="<?php echo URLM ?>tramites/crear">Nuevo</a></li>
           <li><a href="<?php echo URLM ?>tramites/buscar">Buscar</a></li>
-          <li><a href="<?php echo URLM ?>tramites/responder">Responder</a></li>
 
 
         </ul>

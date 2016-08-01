@@ -7,7 +7,7 @@
 	$nombre_carpeta = "tramitedocumentariocs";
 
 
-	$ip = "localhost";
+	$ip = "192.168.43.81";
 
 	define('URLV', 'http://'.$ip.'/'.$nombre_carpeta.'/Views/');
 	define('URLM', 'http://'.$ip.'/'.$nombre_carpeta.'/');
@@ -19,16 +19,16 @@
 	global $server,$base_datos,$user_bd, $pass_bd;
 
 	// Listo para red local
-/*	
+
 	$server = $ip;
 	$base_datos = "tramite";
 	$user_bd = "user";
 	$pass_bd = "12345";
-*/
+/*
 
 	$server = "localhost";
 	$base_datos = "tramite";
 	$user_bd = "root";
 	$pass_bd = "";
-
+*/
 ?>

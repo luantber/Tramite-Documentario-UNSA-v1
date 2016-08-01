@@ -7,7 +7,7 @@
 	{
 		static function prints($areas,$ver=False,$name="data")
 		{
-			if ( $ver) echo " <br>var ".$name." =".json_encode($areas,JSON_UNESCAPED_UNICODE);
+			//if ( $ver) echo " <br>var ".$name." =".json_encode($areas,JSON_UNESCAPED_UNICODE);
 
 			echo "<script>";
 			echo "var ".$name." =";

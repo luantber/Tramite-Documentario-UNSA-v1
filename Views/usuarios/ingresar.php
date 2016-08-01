@@ -47,7 +47,7 @@
   }
 </script> 
 
-<form id="ingresando" onsubmit="return validar()" method="POST" action=" <?php echo URLM?>empleados/ingresar">
+<form id="ingresando" onsubmit="return validar()" method="POST" action=" <?php echo URLM?>usuarios/ingresar">
     <fieldset>
 
 

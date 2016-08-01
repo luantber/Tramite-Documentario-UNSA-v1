@@ -1,5 +1,5 @@
 <h2 class="text-center" >Registrar Usuario</h2>
-<form class="form-horizontal container" onsubmit="return validar()" method="POST" action=" <?php echo URLM ?>usuarios/Crear">
+<form class="form-horizontal container" onsubmit="return validar()" method="POST" action=" <?php echo URLM ?>usuarios/crear">
   <div class="row container form-group">
       <div class="col-xs-6">
         <label for="nombreusu" class="col-sm-5 control-label" >Nombre</label>

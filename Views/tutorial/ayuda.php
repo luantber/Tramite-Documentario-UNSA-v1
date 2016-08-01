@@ -218,7 +218,7 @@
              con nuestro DNI y contraseña</p>
           <img src="<?php echo URLV ?>imagenes/imagen29.PNG" class="centrar-imagen" ><br>
           <p>b. Después podremos ver las opciones permitidas según nuestra ocupación o cargo.</p>
-          <img src="<?php echo URLV ?>imagenes/imagen28.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen52.png" class="centrar-imagen" ><br>
 
          </div>
         </div>
@@ -241,7 +241,7 @@
           <h1>Crear Usuario</h1>
           <p>Aquí se podrá crear un empleado nuevo asignando su cargo dentro del sistema. Función disponible únicamente  por un SU. 
           </p>
-          <img src="<?php echo URLV ?>imagenes/imagen33.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen57.PNG" class="centrar-imagen" ><br>
 
 
          </div>
@@ -278,8 +278,8 @@
           <p>Cuando veamos todos los trámites tendremos la opción de redireccionar un trámite al área donde será procesada mediante el ícono.<span class="glyphicon glyphicon-envelope"></span>
           </p>
           <img src="<?php echo URLV ?>imagenes/imagen40.PNG" class="centrar-imagen" ><br>
-          <img src="<?php echo URLV ?>imagenes/imagen41.PNG" class="centrar-imagen" ><br>
-          <img src="<?php echo URLV ?>imagenes/imagen42.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen54.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen55.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
          <div class="text-info" align="justify">
@@ -309,7 +309,7 @@
           <h1>Movimientos Trámite</h1>
           <p>En la opción movimientos podremos observar por qué áreas pasaron cada uno de los trámites.
           </p>
-          <img src="<?php echo URLV ?>imagenes/imagen43.PNG" class="centrar-imagen" ><br>
+          <img src="<?php echo URLV ?>imagenes/imagen56.PNG" class="centrar-imagen" ><br>
          </div>
         </div>
         <div id="section492">

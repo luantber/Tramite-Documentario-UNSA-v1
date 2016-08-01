@@ -153,7 +153,7 @@
 
 		public function save()
 		{			
-			$request="UPDATE `tramites` SET `Id_Expediente`=".$this->id_expediente.",`Fecha_Ingreso`=".$this->fecha_ingreso.",`Fecha_Termino`=".$this->fecha_termino.",`Asunto`='".$this->asunto."',`Id_Persona`=".$this->id_persona.",`Id_Encargado`=".$this->id_encargado.",`Id_Area_Actual`=".$this->id_area_actual.",`Id_Area_Destino`=".$this->id_area_destino.",`Estado`='".$this->estado."',`Asignado`=".$this->asignado.",`Adjuntado`=".$this->adjuntado.",`Tipo_Tramite`='".$this->tipo_tramite."',`Prioridad`=".$this->prioridad." WHERE Id_Expediente=".$this->id_expediente;
+			$request="UPDATE `tramites` SET `Id_Expediente`=".$this->id_expediente.",`Fecha_Termino`=".$this->fecha_termino.",`Asunto`='".$this->asunto."',`Id_Persona`=".$this->id_persona.",`Id_Encargado`=".$this->id_encargado.",`Id_Area_Actual`=".$this->id_area_actual.",`Id_Area_Destino`=".$this->id_area_destino.",`Estado`='".$this->estado."',`Asignado`=".$this->asignado.",`Adjuntado`=".$this->adjuntado.",`Tipo_Tramite`='".$this->tipo_tramite."',`Prioridad`=".$this->prioridad." WHERE Id_Expediente=".$this->id_expediente;
 
 			$this->query->consulta($request);
 			$this->obtenerDatosCliente();
@@ -471,15 +471,19 @@
 
 
 <?php
-	/*
-	$cosa= new Tramite();
+	
+/*	$cosa= new Tramite();
 	//$cosa->registrarTramite("mas pruebas",4,6,2,"pendiente","no se",3);
-	$cosa->obtenerDatosTramiteId(17);
-	$cosas=$cosa->getRutaNombres();
-	foreach ($cosas as $key) {
-		echo $key."</br>";
-	}
-	*/
+
+	$cosa->obtenerDatosTramiteId(19);
+
+	//$cosas=$cosa->getAllDatos();
+		$cosa->asignado=true;
+	
+	$cosa->id_encargado=1;
+	$cosa->save();
+	print_r($cosa->estado);
+*/	
 	/*
 	$cosa=new Tramite();
 	$cosas=$cosa->getAllTramitesDatosByIdAreaActual(1,false);

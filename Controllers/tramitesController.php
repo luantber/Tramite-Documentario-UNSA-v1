@@ -24,7 +24,7 @@
 		{
 			logueado();
 			if (!empty($_POST)){
-				print_r($_POST);
+			//	print_r($_POST);
 				echo "Asignando";
 				$t = new Tramite;
 				$t->obtenerDatosTramiteId($_POST["envi"]);
@@ -32,12 +32,12 @@
 				$t->asignado = true;
 				$t->save();
 
-				//redirect("panel",true);
+				redirect("panel",true);
 
 
 			}else{
 
-			echo "OLA KE ASE, VIOLANDO LA SEGURIDAD O KE ASE";	
+			echo "Error de seguridad";	
 			}
 		}
 
@@ -52,8 +52,7 @@
 				$t->moverTramite($_POST["destino"]);
 				$datos = array($t->id_expediente,Auth::getareaId(),$_POST["destino"]);
 				print_r($datos);
-				$m = new Mesa;
-				$m->moverTramite(...$datos);
+				$t->moverTramite($_POST["destino"]);
 
 
 				redirect("panel",false);
@@ -152,7 +151,11 @@
 				Checkear seguridad
 			*/
 			if (!empty($_POST)){
-				echo "CONTROLADOR EDITAR POST";
+				$t=new Tramite;
+				$t->obtenerDatosTramiteId($id);
+				$t->estado=$_POST["estade"];
+				$t->save();
+				redirect("panel");
 			}
 			else{
 				echo "Formulario prellenado para refresh";
@@ -264,8 +267,8 @@
 					if ($_FILES["archivo"]["error"]<=0) 
 			        { 
 			            $ext= end(explode(".", $_FILES['archivo']['name'])); 
-			            move_uploaded_file($_FILES["archivo"]["tmp_name"], ASD."SemiFTP".DS.$t->query->get_id().".".$ext); 
-			            chmod(ASD."SemiFTP".DS.$t->query->get_id().".".$ext,0777);
+			            move_uploaded_file($_FILES["archivo"]["tmp_name"], ROOT."SemiFTP".DS.$t->query->get_id().".".$ext); 
+			            chmod(ROOT."SemiFTP".DS.$t->query->get_id().".".$ext,0777);
 			            //echo "puede que se haya subido"; 
 			            
 
@@ -280,7 +283,7 @@
 
 					//error e
 					//echo " Exito Al crear el TRamite";
-					redirect("panel");
+					redirect("tramites/exito");
 //					echo $t->getAsunto();
 				}
 				else{
@@ -303,6 +306,11 @@
 				render("tramites/crear");
 
 			}
+		}
+
+		function exito()
+		{
+			render ("tramites/exito");
 		}
 
 		function imprimir()

@@ -1,6 +1,6 @@
 <div  class="container">
 <form method="post" action="<?php echo URLM ?>empleados/borrar">
-<h2 class="text-center">Se eliminara a la siguiente empleado</h2>	
+<h2 class="text-center">Se eliminara a el siguiente empleado</h2>	
 <div class ="container row">
 
             <div class="col-md-8 col-md-offset-4">
