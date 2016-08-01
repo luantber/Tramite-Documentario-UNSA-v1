@@ -4,7 +4,7 @@
 
 
   <div class="form-group">
-      <label for="identificacion" class="col-sm-2 control-label" >DNIE </label>
+      <label for="identificacion" class="col-sm-2 control-label" >DNI </label>
       <div class="col-sm-10">
           <input name="ident" type="text" class="form-control" id="identificacion" required >
           <p id="noingreso" ></p>
