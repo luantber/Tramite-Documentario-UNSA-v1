@@ -337,23 +337,33 @@
 	    	{
 	    	  if (!empty($_POST)) 
 		      {       
+		      	/*
 		        $camb=$_POST["cambio"]; 
-		        $observaciones=$_POST["obs"]."\n"; 
+
+		        $observaciones=$_POST["obs"]; 
 		        echo "tu cambio ".$camb; 
 		        echo "tus observaciones".$observaciones;
-		        echo "dir: ".ROOT."SemiFTP/".$id.".odt"; 
-		        if (chmod(ROOT."SemiFTP/".$id.".odt",0777)) 
-		          echo "se cambio"; 
-		        $f=fopen(ROOT."SemiFTP/".$id.".odt","a"); 
+		        echo "dir: ".ROOT."SemiFTP".DS.$id.".doc"; 
+		        $f=fopen(ROOT."SemiFTP",DS.$id.".doc","a"); 
 		        $cam="\n".$camb."\n"; 
 		        fwrite($f, $cam); 
 		        fwrite($f, $observaciones); 
 		        fwrite($f, "Respuesta por el area de: ".Auth::get_session()["nombre_area"]); 
-		        fclose($f);   
+		        fclose($f);*/
+
+				$ext= end(explode(".", $_FILES['archivo']['name'])); 
+			    move_uploaded_file($_FILES["archivo"]["tmp_name"], ROOT."SemiFTP".DS.$id.".doc"); 
+
+			    chmod(ROOT."SemiFTP".DS.$id.".doc", 0777);
+			    echo ROOT."SemiFTP".DS.$id.".doc";
+
+		           
 		      } 
 		      else  
 		      {
-		        render("tramites/responder");	
+		      	move_uploaded_file($_FILES["archivo"]["tmp_name"], ROOT."SemiFTP".DS.$id.".doc"); 
+
+		        //render("tramites/responder");
 		      }
 	    	}
 	    	else 
