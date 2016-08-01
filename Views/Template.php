@@ -107,15 +107,6 @@ nav.navbar {
 
       if (Auth::getuser("Jefe de Area"))
       {                     ?>
-      <!-- PARA AREAS !-->
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Areas
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="<?php echo URLM ?>areas/crear">Crear</a></li>
-          <li><a href="<?php echo URLM ?>areas">Todos</a></li>
-        </ul>
-      </li> <!-- AQUI TERMINA ... !-->
 
       <?php
       }                 ?>
@@ -151,6 +142,15 @@ nav.navbar {
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 
+      <!-- PARA AREAS !-->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Areas
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="<?php echo URLM ?>areas/crear">Crear</a></li>
+          <li><a href="<?php echo URLM ?>areas">Todos</a></li>
+        </ul>
+      </li> <!-- AQUI TERMINA ... !-->
       <?php
       }
     }
@@ -200,7 +200,7 @@ nav.navbar {
      ?>
   </div>
 </nav>
-					<!-- ..............FIN BARRA DE NAVEGACION !!!......................!-->
+          <!-- ..............FIN BARRA DE NAVEGACION !!!......................!-->
 
 <div>
 

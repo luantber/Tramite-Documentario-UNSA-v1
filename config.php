@@ -19,7 +19,7 @@
 	global $server,$base_datos,$user_bd, $pass_bd;
 
 	// Listo para red local
-	
+/*	
 	$server = $ip;
 	$base_datos = "tramite";
 	$user_bd = "user";
