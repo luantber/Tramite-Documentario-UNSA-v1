@@ -129,7 +129,7 @@ nav.navbar {
           <li><a href="<?php echo URLM ?>tramites/crear">Nuevo</a></li>
           <li><a href="<?php echo URLM ?>tramites/buscar">Buscar</a></li>
           <li><a href="<?php echo URLM ?>tramites/responder">Responder</a></li>
-          <li><a href="<?php echo URLM ?>tramites">Todos</a></li>
+
 
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
@@ -147,7 +147,7 @@ nav.navbar {
           <li><a href="<?php echo URLM ?>personas">Todas personas</a></li>
           <li><a href="<?php echo URLM ?>empleados">Todos Empleados</a></li>
           <li><a href="<?php echo URLM ?>estadistica">Estadisticas</a></li>
-
+          <li><a href="<?php echo URLM ?>tramites">Todos Trámites</a></li>
         </ul>
       </li> <!-- AQUI TERMINA ... !-->
 

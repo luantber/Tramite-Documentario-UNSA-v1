@@ -12,7 +12,7 @@
         <th>Estado</th>
         <th>Persona</th>
         <th>Fecha</th>
-        <th><span class="glyphicon glyphicon-trash"></span> </th>
+    
 
 
       </tr>
@@ -30,8 +30,7 @@
           document.write("<td>"+nuevo[3]+"</td>");
           document.write("<td>"+nuevo[4]+"</td>");
           document.write("<td>"+nuevo[5]+"</td>");
-          document.write("<td>"+nuevo[6]+"</td>");
-          document.write("<td><a href='<?php echo URLM ?>movimientos'><span class='glyphicon glyphicon-trash'></span></a>"+"</td></tr>");
+          document.write("<td>"+nuevo[6]+"</td></tr>");
         }
       </script>
     </tbody>
