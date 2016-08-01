@@ -35,12 +35,31 @@
 	<meta charset="utf-8">
 
 	<title>Trámite Documentario</title>
-	<script type="text/javascript" src="<?php echo URLV ?>js/jquery-1.9.1.js"></script>!
+	<script type="text/javascript" src="<?php echo URLV ?>js/jquery-1.9.1.js"></script>
   <link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/fileinput.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/alertify.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/default.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/semantic.min.css">
+
+<link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/alertify.rtl.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/default.rtl.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/semantic.rtl.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URLV ?>css/bootstrap.rtl.mincss">
+
+<script src="{PATH}/alertify.min.js"></script>
   <script type="text/javascript" src="<?php echo URLV ?>js/fileinput.min.js"></script> 
   <script type="text/javascript" src="<?php echo URLV ?>js/esinputfile.js"></script>
 	<script type="text/javascript" src="<?php echo URLV ?>js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="<?php echo URLV ?>js/alertify.min.js" ></script>
+
+
+<!-- include the style -->
+<link rel="stylesheet" href="{PATH}/alertify.min.css" />
+<!-- include a theme -->
+<link rel="stylesheet" href="{PATH}/themes/default.min.css" />
+
 
 </head>
 
@@ -185,6 +204,7 @@ nav.navbar {
 
 <div>
 
+<br><br>
 <br><br>
 	<?php
 		}

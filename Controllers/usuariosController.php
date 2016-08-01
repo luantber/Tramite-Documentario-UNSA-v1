@@ -45,7 +45,9 @@
 		}
 
 		function ingresar()
+
 		{
+			render("index/index");
 			if (!empty($_POST)){
 				
 				$emp = new Persona;

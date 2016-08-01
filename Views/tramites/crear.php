@@ -63,7 +63,7 @@
       <div class="form-group">
       <label for="archivo" class="col-sm-2 control-label">Archivo</label>
       <div class="col-sm-10">
-        <input id="archivo" name="archivo" type="file" class="file" data-show-preview="false" required>
+        <input id="archivo" name="archivo" type="file" class="file" data-show-preview="false">
         <script type="text/javascript">
           $("#archivo").fileinput(
           {
@@ -96,7 +96,6 @@
     	</div>
   	</div>
 
-
     <script>
       function validacion() {
         var dni,indice,tipo,destino;//elemento= tipo de empresa
@@ -125,7 +124,7 @@
           }
 
         else {
-          alert('El tramite va a ser creado');
+       
           return true;
           }
 
@@ -138,3 +137,7 @@
 
 </form>
 			<!--.............................FIN NUEVO TRÁMITE .............................. !-->
+
+
+
+

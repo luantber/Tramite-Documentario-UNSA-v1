@@ -1,32 +1,29 @@
 <h2 class="text-center" >Editar</h2>
-<form class="form-horizontal container" method="POST" action=" <?php echo URLM?>empleados/editar">
-  <div class="row container form-group">
-      <div class="col-xs-6">
-        <label for="nombree" class="col-sm-5 control-label" >Nombre</label>
-        <div class="col-sm-7">
+<form id="editando" class="form-horizontal container" onsubmit="return validacion()" method="POST" action=" <?php echo URLM?>empleados/editar">
+      <div class="form-group">
+        <label for="nombree" class="col-sm-2 control-label" >Nombre</label>
+        <div class="col-sm-4">
           <input name='nome' type='text' class='form-control' id='nombree'  required disabled="">
-          
-          
         </div>
       </div>
-      <div class="col-xs-6">
-        <label for="apellidoe" class="col-sm-4 control-label" >Apellidos</label>
-        <div class="col-sm-8">
+
+      <div class="form-group">
+        <label for="apellidoe" class="col-sm-2 control-label" >Apellidos</label>
+        <div class="col-sm-4">
           <input name="apee"type="text" class="form-control" id="apellidoe"  required disabled="">
         </div>
       </div>
-  </div>
 
   <div class="form-group">
       <label for="dni" class="col-sm-2 control-label" >DNI</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
           <input name="dnie" type="text" class="form-control" id="dnie" required disabled="">
       </div>
   </div>
 
   <div class="form-group">
       <label for="email" class="col-sm-2 control-label" >correo</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
           <script type="text/javascript">
           if (sudo2==true){
             document.write("<input name='emaile' type='email' class='form-control' id='emaile' required>");          
@@ -44,7 +41,7 @@
 
   <div class="form-group">
       <label for="email" class="col-sm-2 control-label" >contraseña</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
           <script type="text/javascript">
           if(sudo2==true){
             document.write("<input placeholder='Ingrese nueva contraseña' name='password' type='password' class='form-control' id='passworde' required>");
@@ -63,7 +60,7 @@
 
   <div class="form-group ">
       <label for="campo" class="col-sm-2 control-label" >Área</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
       <script type="text/javascript">
       if (sudo==true){
         document.write("<select name='area' class='form-control' id='area'>");
@@ -88,7 +85,7 @@
 
   <div class="form-group" >
       <label for="cargo" class="col-sm-2 control-label" >Cargo</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
         <script type="text/javascript">
           if (sudo==true) {
             document.write("<select name='cargo' class='form-control' id='cargo' >");
@@ -116,7 +113,7 @@
 
   <div class="form-group">
       <label for="estado" class="col-sm-2 control-label" >Estado</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
         <script type="text/javascript">
         if (sudo==true){
           document.write("<input name='estado' type='text' class='form-control' id='estado' required >");
@@ -128,6 +125,7 @@
       </div>
   </div>
 
+
 <!--
   <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
@@ -136,13 +134,17 @@
       </div>
     </div>
 -->
+<div class="row">
+  <div class="col-md-1 col-md-offset-3">
     <nav>
       <ul class="pager">
         <li><a href="<?php echo URLM ?>empleados">Cancelar</a></li>
         <button type="submit" class="btn btn-default">Guardar cambios</button>
       </ul>
     </nav>
+      </div>
 
+</div>
 </form>
 
 <script >
@@ -181,3 +183,42 @@ for(var e=0;areas.length;e++){
 </script>
 
 
+<script >
+  function validacion () {
+    alert('Todos los cambios surgiran efecto cuando el usuario modificado reinicie sesión');
+    return true;
+  }
+</script>
+
+
+
+<script type="text/javascript">
+  alertify.genericDialog || alertify.dialog('genericDialog',function(){
+    return {
+        main:function(content){
+            this.setContent(content);
+        },
+        setup:function(){
+            return {
+                focus:{
+                    element:function(){
+                        return this.elements.body.querySelector(this.get('selector'));
+                    },
+                    select:true
+                },
+                options:{
+                    basic:true,
+                    maximizable:false,
+                    resizable:false,
+                    padding:false
+                }
+            };
+        },
+        settings:{
+            selector:undefined
+        }
+    };
+});
+//force focusing password box
+alertify.genericDialog ($('#editando')[0]).set('selector', 'input[type="password"]');
+</script>

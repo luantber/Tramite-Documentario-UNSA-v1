@@ -82,7 +82,7 @@
 				Js::prints(Auth::getuser("Gerente") and Auth::getuserId() == $id,false,"sudo2");
 
 
-
+				render("empleados/todosEmpleados");
 				render("empleados/editar");
 			}
 			else{
@@ -162,6 +162,7 @@
 		function ingresar()
 		{
 			Auth::set_session("Esta es prueba auth completa","prueba");
+			render("index/index");
 			if (!empty($_POST)){
 				
 				$emp = new Empleado;
@@ -179,7 +180,7 @@
 						//echo "<br>Contraseña incorrecta";
 						Js::prints(false,false,"dato");
 						render("chicos/incorrecta");
-						render("empleados/ingresar");
+						//render("empleados/ingresar");
 				}
 				else
 
